@@ -1,0 +1,1163 @@
+Output directory: /Users/michelkocher/michel/Data/DIP-DIPUM/AllDataFiles
+Chapter scripts scanned: 351
+Candidate path strings found: 939
+Resolved existing files: 606
+Copied unique files: 585
+Skipped duplicate-by-content: 21
+Renamed due to name collision: 0
+Missing references: 164
+
+[Copied files]
+corneacells.tif	<=	/Users/MichelKocher/michel/Data/SDC/corneacells.tif
+Figure101.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure101.png
+Figure1011.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1011.png
+Figure1016.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1016.png
+Figure1017.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1017.png
+Figure1018.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1018.png
+Figure1019.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1019.png
+Figure1020.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1020.png
+Figure1022.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1022.png
+Figure1023.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1023.png
+Figure1025.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1025.png
+Figure1026.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1026.png
+Figure1027.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1027.png
+Figure1030.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1030.png
+Figure1031.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1031.png
+Figure1033.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1033.png
+Figure1034.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1034.png
+Figure1035.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1035.png
+Figure1036.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1036.png
+Figure1037.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1037.png
+Figure1038.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1038.png
+Figure1039.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1039.png
+Figure104.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure104.png
+Figure1040.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1040.png
+Figure1041.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1041.png
+Figure1042.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1042.png
+Figure1043.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1043.png
+Figure1044.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1044.png
+Figure1045.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1045.png
+Figure1046.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1046.png
+Figure1048.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1048.png
+Figure1049.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1049.png
+Figure105.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure105.png
+Figure1050.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1050.png
+Figure1051.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1051.png
+Figure1052.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1052.png
+Figure1053.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1053.png
+Figure1054.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1054.png
+Figure1058.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1058.png
+Figure1059.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1059.png
+Figure1062.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1062.png
+Figure1063.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1063.png
+Figure1063Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1063Bis.png
+Figure1063Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1063Ter.png
+Figure107.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure107.png
+Figure108.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure108.png
+TQTDecomp.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/TQTDecomp.png
+test_ncut_result.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/test_ncut_result.png
+Figure1110.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1110.png
+Figure1112.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1112.png
+Figure1113.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1113.png
+Figure1114.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1114.png
+Figure1115.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1115.png
+Figure1118.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1118.png
+Figure1118Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1118Bis.png
+Figure1119.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1119.png
+Figure112.mat	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure112.mat
+Figure112.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure112.png
+Figure1120.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1120.png
+Figure1121.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1121.png
+Figure1122.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1122.png
+Figure1123.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1123.png
+Figure1124.mat	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1124.mat
+Figure1124.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1124.png
+Figure1125.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1125.png
+Figure1126.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1126.png
+Figure1127.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1127.png
+Figure1128.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1128.png
+Figure1129.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1129.png
+Figure112Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure112Bis.png
+Figure112Quart.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure112Quart.png
+Figure112Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure112Ter.png
+Figure113.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure113.png
+Figure1131.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1131.png
+Figure1131Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1131Bis.png
+Figure1132.mat	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1132.mat
+Figure1132.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1132.png
+Figure1133.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1133.png
+Figure1134.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1134.png
+Figure1135.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1135.png
+Figure1136.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1136.png
+Figure1137.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1137.png
+Figure1138.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1138.png
+Figure1139.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure1139.png
+Figure113Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure113Bis.png
+Figure114.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure114.png
+Figure115.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure115.png
+Figure116.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure116.png
+Figure117.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure117.png
+Figure118.mat	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure118.mat
+Figure118.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure118.png
+WorkspaceFig1138(a).mat	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/WorkspaceFig1138(a).mat
+WorkspaceForFig1138(b).mat	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/WorkspaceForFig1138(b).mat
+Equation12_4.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Equation12_4.png
+Figure1201.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1201.png
+Figure1205.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1205.png
+Figure1209.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1209.png
+Figure1211.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1211.png
+Figure1213.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1213.png
+Figure1214.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1214.png
+Figure1214Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1214Bis.png
+Figure1219.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1219.png
+Figure1219Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1219Bis.png
+Figure1222.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1222.png
+Figure1223.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1223.png
+Figure1224.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1224.png
+Figure1228.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1228.png
+Figure1229.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1229.png
+Figure1231.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1231.png
+Figure1232.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1232.png
+Figure1233.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1233.png
+Figure1235.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1235.png
+Figure1236.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1236.png
+Figure1237.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1237.png
+Figure1237Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1237Bis.png
+Figure1238.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1238.png
+Figure1238Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1238Bis.png
+Figure1240.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1240.png
+Figure1241.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1241.png
+Figure1242.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1242.png
+Figure1246.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1246.png
+Figure1247.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1247.png
+Figure1248.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1248.png
+Figure1249.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1249.png
+Figure1250.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1250.png
+Figure1252.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1252.png
+Figure1253.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1253.png
+Figure1254.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1254.png
+Figure1255.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1255.png
+Figure1257.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1257.png
+Figure1258.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1258.png
+Figure1260.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1260.png
+Figure1261.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1261.png
+Figure1263.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1263.png
+Figure1263Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1263Bis.png
+Figure1263Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1263Ter.png
+Figure1265.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1265.png
+Figure1265Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1265Bis.png
+Figure1265Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1265Ter.png
+Figure1266.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1266.png
+Example1315CNN_Accuracy.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315CNN_Accuracy.png
+Example1315CNN_Kernels_L1.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315CNN_Kernels_L1.png
+Example1315CNN_Kernels_L2.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315CNN_Kernels_L2.png
+Example1315CNN_MSE.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315CNN_MSE.png
+Example1315NN_MSE.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315NN_MSE.png
+Example1315NN_Montage.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315NN_Montage.png
+Example1316CNN_Accuracy.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316CNN_Accuracy.png
+Example1316CNN_FeedForward.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316CNN_FeedForward.png
+Example1316CNN_Kernels.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316CNN_Kernels.png
+Example1316CNN_MSE.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316CNN_MSE.png
+Example1316CNN_Testing_Images.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316CNN_Testing_Images.png
+Example1316CNN_Training_Images.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316CNN_Training_Images.png
+Example1316NN_TestImages.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316NN_TestImages.png
+Example1316NN_TrainImages.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316NN_TrainImages.png
+Example1316NN_TrainingResults.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1316NN_TrainingResults.png
+Example138.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example138.png
+Figure1308.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1308.png
+Figure1310.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1310.png
+Figure1311.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1311.png
+Figure1311Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1311Bis.png
+Figure1311Quater.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1311Quater.png
+Figure1311Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1311Ter.png
+Figure1313.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1313.png
+Figure1315SURF.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1315SURF.png
+Figure1315SURFBis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1315SURFBis.png
+Figure1320.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1320.png
+Figure1321.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1321.png
+Figure1324.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1324.png
+Figure1324LMSE.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1324LMSE.png
+Figure1324Perceptron.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1324Perceptron.png
+Figure1325.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1325.png
+Figure1326.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1326.png
+Figure1329.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1329.png
+Figure1334.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1334.png
+Figure1335.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1335.png
+Figure1335UsingNNToolbox.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1335UsingNNToolbox.png
+Figure1335UsingNNToolboxBis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1335UsingNNToolboxBis.png
+Figure1336.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1336.png
+Figure1337.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1337.png
+Figure1337Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1337Bis.png
+Figure1339.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1339.png
+Figure223.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure223.png
+Figure224.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure224.png
+Figure224Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure224Bis.png
+Figure227.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure227.png
+Figure229.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure229.png
+Figure231.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure231.png
+Figure232.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure232.png
+Figure234.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure234.png
+Figure236.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure236.png
+Figure238.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure238.png
+Figure239.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure239.png
+Figure240.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure240.png
+Figure242.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure242.png
+Figure245.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure245.png
+Figure257.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure257.png
+Figure310.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure310.png
+Figure314.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure314.png
+Figure315.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure315.png
+Figure316.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure316.png
+Figure320.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure320.png
+Figure324.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure324.png
+Figure325.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure325.png
+Figure326.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure326.png
+Figure328.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure328.png
+Figure329.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure329.png
+Figure330.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure330.png
+Figure331.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure331.png
+Figure332.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure332.png
+Figure333.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure333.png
+Figure339.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure339.png
+Figure342.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure342.png
+Figure343.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure343.png
+Figure344.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure344.png
+Figure345.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure345.png
+Figure346.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure346.png
+Figure347.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure347.png
+Figure348.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure348.png
+Figure349.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure349.png
+Figure352.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure352.png
+Figure353.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure353.png
+Figure355.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure355.png
+Figure357.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure357.png
+Figure359.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure359.png
+Figure360.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure360.png
+Figure361.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure361.png
+Figure362.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure362.png
+Figure363.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure363.png
+Figure363Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure363Bis.png
+Figure366.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure366.png
+Figure37.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure37.png
+Figure374.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure374.png
+Figure374Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure374Bis.png
+Figure379.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure379.png
+Figure379Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure379Bis.png
+Figure418.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure418.png
+Figure419.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure419.png
+Figure423.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure423.png
+Figure424.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure424.png
+Figure424Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure424Bis.png
+Figure425.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure425.png
+Figure426.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure426.png
+Figure428.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure428.png
+Figure429.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure429.png
+Figure430.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure430.png
+Figure433.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure433.png
+Figure434.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure434.png
+Figure435_1.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure435_1.png
+Figure435_2.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure435_2.png
+Figure437.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure437.png
+Figure438.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure438.png
+Figure439.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure439.png
+Figure440.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure440.png
+Figure441.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure441.png
+Figure442.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure442.png
+Figure443.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure443.png
+Figure444.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure444.png
+Figure445.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure445.png
+Figure446.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure446.png
+Figure447.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure447.png
+Figure448.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure448.png
+Figure449.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure449.png
+Figure450.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure450.png
+Figure451.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure451.png
+Figure452.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure452.png
+Figure453.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure453.png
+Figure454.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure454.png
+Figure455.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure455.png
+Figure456.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure456.png
+Figure457.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure457.png
+Figure460.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure460.png
+Figure460Tunnel_1.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure460Tunnel_1.png
+Figure460Tunnel_2.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure460Tunnel_2.png
+Figure461.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure461.png
+Figure462.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure462.png
+Figure463.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure463.png
+Figure464.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure464.png
+Figure465.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure465.png
+Figure466.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure466.png
+Figure510.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure510.png
+Figure511.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure511.png
+Figure512.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure512.png
+Figure513.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure513.png
+Figure514.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure514.png
+Figure515.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure515.png
+Figure516.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure516.png
+Figure517.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure517.png
+Figure518.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure518.png
+Figure519.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure519.png
+Figure525.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure525.png
+Figure526.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure526.png
+Figure527.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure527.png
+Figure527Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure527Bis.png
+Figure527Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure527Ter.png
+Figure528.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure528.png
+Figure529.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure529.png
+Figure529_init.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure529_init.png
+Figure53.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure53.png
+Figure530.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure530.png
+Figure531.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure531.png
+Figure531Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure531Bis.png
+Figure532.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure532.png
+Figure533.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure533.png
+Figure534.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure534.png
+Figure538.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure538.png
+Figure539.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure539.png
+Figure54.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure54.png
+Figure540.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure540.png
+Figure543.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure543.png
+Figure544.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure544.png
+Figure548.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure548.png
+Figure549.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure549.png
+Figure54Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure54Bis.png
+Figure55.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure55.png
+Figure57.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure57.png
+Figure58.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure58.png
+Figure59.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure59.png
+Figure610.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure610.png
+Figure612.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure612.png
+Figure613.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure613.png
+Figure614.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure614.png
+Figure615.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure615.png
+Figure616.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure616.png
+Figure617.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure617.png
+Figure618.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure618.png
+Figure630.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure630.png
+Figure630Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure630Bis.png
+Figure630Quart.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure630Quart.png
+Figure630Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure630Ter.png
+Figure631.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure631.png
+Figure632.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure632.png
+Figure63BIOR31.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63BIOR31.png
+Figure63DB4.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63DB4.png
+Figure63DCT.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63DCT.png
+Figure63DFT.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63DFT.png
+Figure63HAAR.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63HAAR.png
+Figure63SLT.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63SLT.png
+Figure63STD.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63STD.png
+Figure63WHT.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure63WHT.png
+Figure67.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure67.png
+Figure68.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure68.png
+Figure69.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure69.png
+Figure725.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure725.png
+Figure736.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure736.png
+Figure737.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure737.png
+Figure738.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure738.png
+Figure739.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure739.png
+Figure740.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure740.png
+Figure742.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure742.png
+Figure744.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure744.png
+Figure746.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure746.png
+Figure747.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure747.png
+Figure748.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure748.png
+Figure749.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure749.png
+Figure81.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure81.png
+Figure810.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure810.png
+Figure811.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure811.png
+Figure819.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure819.png
+Figure82.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure82.png
+Figure820.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure820.png
+Figure822.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure822.png
+Figure823.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure823.png
+Figure824.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure824.png
+Figure825.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure825.png
+Figure825Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure825Bis.png
+Figure828.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure828.png
+Figure829.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure829.png
+Figure83.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure83.png
+Figure831.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure831.png
+Figure832.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure832.png
+Figure834.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure834.png
+Figure835.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure835.png
+Figure84.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure84.png
+Figure840.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure840.png
+Figure843.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure843.png
+Figure843Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure843Bis.png
+Figure843Quart.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure843Quart.png
+Figure843Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure843Ter.png
+Figure844.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure844.png
+Figure846.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure846.png
+Figure848.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure848.png
+Figure84a.jpg	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure84a.jpg
+Figure84b.jpg	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure84b.jpg
+Figure84c.jpg	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure84c.jpg
+Figure850.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure850.png
+Figure851.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure851.png
+Figure89.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure89.png
+FigureTifs2cv.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/FigureTifs2cv.png
+Figure911.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure911.png
+Figure912.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure912.png
+Figure914.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure914.png
+Figure915.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure915.png
+Figure916.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure916.png
+Figure917.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure917.png
+Figure918.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure918.png
+Figure919.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure919.png
+Figure920.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure920.png
+Figure922.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure922.png
+Figure923.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure923.png
+Figure923Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure923Bis.png
+Figure926.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure926.png
+Figure927.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure927.png
+Figure93.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure93.png
+Figure931.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure931.png
+Figure933.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure933.png
+Figure933Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure933Bis.png
+Figure934.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure934.png
+Figure937.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure937.png
+Figure939.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure939.png
+Figure940.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure940.png
+Figure940Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure940Bis.png
+Figure940New.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure940New.png
+Figure940NewBis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure940NewBis.png
+Figure940NewTer.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure940NewTer.png
+Figure941.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure941.png
+Figure942.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure942.png
+Figure942Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure942Bis.png
+Figure943.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure943.png
+Figure943Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure943Bis.png
+Figure945.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure945.png
+Figure945Enonce.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure945Enonce.png
+Figure946.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure946.png
+Figure946Bis.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure946Bis.png
+Figure946Ter.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure946Ter.png
+Figure95.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure95.png
+Figure97.png	<=	/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure97.png
+Chickenfilet-with-bones.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Chickenfilet-with-bones.tif
+Chronometer.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Chronometer.tif
+Fig0604(a)(iris).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0604(a)(iris).tif
+Fig0801(a).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0801(a).tif
+Fig0819(a).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0819(a).tif
+Fig0850(a).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0850(a).tif
+Fig1001(d)(noisy_region).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1001(d)(noisy_region).tif
+Fig1007(a)(wirebond_mask).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1007(a)(wirebond_mask).tif
+Fig1034(a)(marion_airport).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1034(a)(marion_airport).tif
+Fig1036(b)(gaussian_noise_mean_0_std_10_added).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1036(b)(gaussian_noise_mean_0_std_10_added).tif
+Fig1056(a)(blob_original).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1056(a)(blob_original).tif
+Fig1123(a)(Original_Padded_to_568_by_568).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1123(a)(Original_Padded_to_568_by_568).tif
+Fig1203(a)(bottle_1).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1203(a)(bottle_1).tif
+Fig1203(d)(bottle_2).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1203(d)(bottle_2).tif
+Fig1209(a)(Hurricane Andrew).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1209(a)(Hurricane Andrew).tif
+Fig1209(b)(eye template).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1209(b)(eye template).tif
+Fig81c.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig81c.tif
+OpticalMicroscope-cholesterol-rough-texture.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-cholesterol-rough-texture.tif
+OpticalMicroscope-microporcessor-regular-texture.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-microporcessor-regular-texture.tif
+OpticalMicroscope-superconductor-smooth-texture.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-superconductor-smooth-texture.tif
+PET-scan.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/PET-scan.tif
+Pollen-dark.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-dark.tif
+Pollen-high-contrast.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-high-contrast.tif
+Pollen-light.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-light.tif
+Saturnringe.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Saturnringe.tif
+U200.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/U200.tif
+Vase.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Vase.tif
+WashingtonDC-Band1-Blue-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band1-Blue-512.tif
+WashingtonDC-Band2-Green-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band2-Green-512.tif
+WashingtonDC-Band3-Red-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band3-Red-512.tif
+WashingtonDC-Band4-NearInfrared-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band4-NearInfrared-512.tif
+WashingtonDC-mask-urban-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-urban-512.tif
+WashingtonDC-mask-vegetation-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-vegetation-512.tif
+WashingtonDC-mask-water-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-water-512.tif
+aerial_view_no_turb.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/aerial_view_no_turb.tif
+angiogram-aortic-kidney.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiogram-aortic-kidney.tif
+angiography-live-image.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiography-live-image.tif
+angiography-mask-image.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiography-mask-image.tif
+astronaut.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/astronaut.tif
+barbara.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/barbara.tif
+binary-square-distorted.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/binary-square-distorted.tif
+binary-triangle-distorted.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/binary-triangle-distorted.tif
+blood-vessels.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blood-vessels.tif
+blown_ic.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown_ic.tif
+blown_ic_crop.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown_ic_crop.tif
+blurry-moon.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blurry-moon.tif
+book-cover.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/book-cover.tif
+boy.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/boy.tif
+breast-implant.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif
+building-600by600.pgm	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.pgm
+building-600by600.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif
+building-corner.pgm	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-corner.pgm
+building-cropped-834by1114.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif
+building-halfsize-corner.pgm	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-halfsize-corner.pgm
+building-halfsize.pgm	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-halfsize.pgm
+building-rot-corner.pgm	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-rot-corner.pgm
+calculator.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/calculator.tif
+car-moire-pattern.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/car-moire-pattern.tif
+cassini-interference.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cassini-interference.tif
+characterTestPattern688.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif
+checkerboard-noisy1.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard-noisy1.tif
+checkerboard-noisy2.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard-noisy2.tif
+checkerboard1024-shaded.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard1024-shaded.tif
+chestXray.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chestXray.tif
+chronometer-165x166-2pt3-inch-72-dpi.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-165x166-2pt3-inch-72-dpi.tif
+chronometer-2136x2140-2pt3-inch-930-dpi.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-2136x2140-2pt3-inch-930-dpi.tif
+chronometer-345x345-2pt3-inch-150-dpi.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-345x345-2pt3-inch-150-dpi.tif
+chronometer-689x690-2pt3-inch-300-dpi.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-689x690-2pt3-inch-300-dpi.tif
+circuitboard.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif
+constant-gray-region.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/constant-gray-region.tif
+contact-lens.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/contact-lens.tif
+cygnusloop.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cygnusloop.tif
+dark-blobs-on-light-background.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dark-blobs-on-light-background.tif
+dentalXray.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dentalXray.tif
+dentalXrayMask.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dentalXrayMask.tif
+drip-bottle.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/drip-bottle.tif
+ellipse_and_circle.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/ellipse_and_circle.tif
+fingerprint-noisy.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/fingerprint-noisy.tif
+fingerprint.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/fingerprint.tif
+girl-blurred.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/girl-blurred.tif
+gray-lakes.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/gray-lakes.tif
+hickson-compact-group.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hickson-compact-group.tif
+hidden-horse.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif
+hidden-symbols.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-symbols.tif
+iceberg.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/iceberg.tif
+jupiter-moon-closeup.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/jupiter-moon-closeup.tif
+legbone.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/legbone.tif
+lena.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif
+lenna-RGB.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lenna-RGB.tif
+letterA-distorted.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterA-distorted.tif
+letterT.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterT.tif
+lincoln.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lincoln.tif
+mapleleaf.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mapleleaf.tif
+mars_moon_phobos.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mars_moon_phobos.tif
+matches-aligned.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-aligned.tif
+matches-random.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-random.tif
+nasa67.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa67.tif
+nasa79.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa79.tif
+noisy-blobs.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-blobs.tif
+noisy-elliptical-object.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif
+noisy-stroke.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-stroke.tif
+pollen-lowcontrast.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/pollen-lowcontrast.tif
+polymercell.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/polymercell.tif
+region-filling-reflections.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/region-filling-reflections.tif
+retina.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/retina.tif
+rice-shaded.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rice-shaded.tif
+rose479by512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif
+rose957by1024.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose957by1024.tif
+satellite_original.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/satellite_original.tif
+sinePulses.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/sinePulses.tif
+skeleton.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/skeleton.tif
+sombrero-galaxy-original.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/sombrero-galaxy-original.tif
+strip-2Dsinusoidal-waveform.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif
+strip-cktboard-section.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif
+strip-uniform-noise.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif
+test-pattern.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/test-pattern.tif
+testpattern1024.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern1024.tif
+testpattern4096.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern4096.tif
+text-image.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-image.tif
+text_gaps_of_1_and_2_pixels.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text_gaps_of_1_and_2_pixels.tif
+thumb-print.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/thumb-print.tif
+totem-poles.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/totem-poles.tif
+trophozoite.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/trophozoite.tif
+turbineblad-with-blk-dot.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/turbineblad-with-blk-dot.tif
+van-rear.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/van-rear.tif
+vertical_rectangle.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/vertical_rectangle.tif
+washingtonDC-Band5-MiddleInfrared-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/washingtonDC-Band5-MiddleInfrared-512.tif
+washingtonDC-Band6-ThermalInfrared-512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/washingtonDC-Band6-ThermalInfrared-512.tif
+weldXray.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/weldXray.tif
+wingding-circle-solid.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-circle-solid.tif
+wingding-square-solid.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-square-solid.tif
+wingding-star-6pt.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-star-6pt.tif
+wingding-teardrop.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-teardrop.tif
+wirebond-mask.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wirebond-mask.tif
+wood-dowels.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wood-dowels.tif
+yeast-cells.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIP/yeast-cells.tif
+fisheriris.mat	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM-DataFiles/fisheriris.mat
+mnist_uint8.mat	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM-DataFiles/mnist_uint8.mat
+Fig1016(a)(building_original).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1016(a)(building_original).tif
+Fig1036(a)(original_septagon).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(a)(original_septagon).tif
+Fig1036(c)(gaussian_noise_mean_0_std_50_added).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(c)(gaussian_noise_mean_0_std_50_added).tif
+Fig1041(a)(septagon_small_noisy_mean_0_stdv_10).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1041(a)(septagon_small_noisy_mean_0_stdv_10).tif
+Fig1049(original_cursive_text_WITHOUT_SHADING).tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1049(original_cursive_text_WITHOUT_SHADING).tif
+bonescan.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/bonescan.tif
+circuitboard-section.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard-section.tif
+einstein-low-contrast.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/einstein-low-contrast.tif
+graywedge.png	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/graywedge.png
+headCT.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/headCT.tif
+text-broken.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/text-broken.tif
+woman512x512.tif	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/woman512x512.tif
+apple12.jpg	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/Others/apple12.jpg
+tun.jpg	<=	/Users/michelkocher/michel/Data/DIP-DIPUM/Others/tun.jpg
+circuitboard-connector.tif	<=	/Users/michelkocher/michel/Data/DIP4E/circuitboard-connector.tif
+nasaframe78.tif	<=	/Users/michelkocher/michel/Data/DIP4E/nasaframe78.tif
+Fig1116(a)(chromo_binary).tif	<=	/Users/michelkocher/michel/Data/DIPUM/dipum_images_ch11/Fig1116(a)(chromo_binary).tif
+shuttle.tif	<=	/Users/michelkocher/michel/Data/DIPUM2E_Original_Book_Images_for_Web/DIPUM2E_CH09_images/shuttle.tif
+shuttlereconstructed_sequence.tif	<=	/Users/michelkocher/michel/Data/DIPUM2E_Original_Book_Images_for_Web/DIPUM2E_CH09_images/shuttlereconstructed_sequence.tif
+multiple-regions.tif	<=	/Users/michelkocher/michel/Data/DIPUM3e/DIPUM3E_Images/multiple-regions.tif
+wingding-circle-solid-small.tif	<=	/Users/michelkocher/michel/Data/DIPUM3e/DIPUM3E_Images/wingding-circle-solid-small.tif
+
+[Missing references]
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure223.py	::	Saved Figure223.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure224.py	::	Saved Figure224.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure224.py	::	Saved Figure224Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure227.py	::	Saved Figure227.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure229.py	::	Saved Figure229.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure231.py	::	Saved Figure231.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure232.py	::	Saved Figure232.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure234.py	::	Saved Figure234.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure236.py	::	Saved Figure236.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure238.py	::	Saved Figure238.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure239.py	::	Saved Figure239.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure240.py	::	Saved Figure240.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure242.py	::	Saved Figure242.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure245.py	::	Saved Figure245.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter2/Figure257.py	::	Saved Figure257.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure310.py	::	Saved Figure310.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure314.py	::	Saved Figure314.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure315.py	::	Saved Figure315.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure316.py	::	Saved Figure316.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure320.py	::	Saved Figure320.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure328.py	::	Saved Figure328.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure329.py	::	Saved Figure329.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure330.py	::	Saved Figure330.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure331.py	::	Saved Figure331.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure332.py	::	Saved Figure332.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure333.py	::	Saved Figure333.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure339.py	::	Saved Figure339.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure342.py	::	Saved Figure342.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure343.py	::	Saved Figure343.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure344.py	::	Saved Figure344.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure345.py	::	Saved Figure345.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure346.py	::	Saved Figure346.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure347.py	::	Saved Figure347.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure348Fourier.py	::	Saved Figure348.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure348Separable.py	::	Saved Figure348.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure349.py	::	Saved Figure349.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure352.py	::	Saved Figure352.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure352.py	::	Saved Figure353.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure355.py	::	Saved Figure355.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure357.py	::	Saved Figure357.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure359.py	::	Saved Figure359.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure360.py	::	Saved Figure360.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure361.py	::	Saved Figure361.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure362.py	::	Saved Figure362.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure363.py	::	Saved Figure363.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure363.py	::	Saved Figure363Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure366.py	::	Saved Figure366.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure374.py	::	Saved Figure374.png and Figure374Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure379.py	::	Saved Figure379.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter3/Figure379.py	::	Saved Figure379Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure418.py	::	Saved Figure418.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure419.py	::	Saved Figure419.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure423.py	::	Saved Figure423.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure428.py	::	Saved Figure428.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure429.py	::	Saved Figure429.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure430.py	::	Saved Figure430.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure433.py	::	Saved Figure433.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure434.py	::	Saved Figure434.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter4/Figure435.py	::	Saved Figure435_1.png and Figure435_2.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure515.py	::	Saved Figure515.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure516.py	::	Saved Figure516.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure516.py	::	Saved Figure517.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure518.py	::	Saved Figure518.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure518.py	::	Saved Figure519.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure526.py	::	Saved Figure526.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure529.py	::	Saved Figure529_init.png and Figure529.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure53.py	::	Saved Figure53.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure532.py	::	Saved Figure532.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure534.py	::	Saved Figure534.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure539.py	::	Saved Figure539.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure540.py	::	Saved Figure540.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure543.py	::	Saved Figure543.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure544.py	::	Saved Figure544.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure548.py	::	Saved Figure548.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter5/Figure549.py	::	Saved Figure549.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure610.py	::	Saved Figure610.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure612.py	::	Saved Figure612.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure613.py	::	Saved Figure613.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure614.py	::	Saved Figure614.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter6/Figure69.py	::	Saved Figure69.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure725.py	::	/WashingtonDC-Band4-NearInfrared-512.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure725.py	::	/WashingtonDC-Band3-Red-512.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure725.py	::	/WashingtonDC-Band2-Green-512.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter7/Figure725.py	::	/WashingtonDC-Band1-Blue-512.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure834.py	::	Saved Figure834.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/Figure835.py	::	Saved Figure835.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/test_cv_roundtrip.py	::	input_sequence.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter8/test_cv_roundtrip.py	::	reconstructed_sequence.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure918.py	::	Saved Figure918.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter9/Figure921.py	::	.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure101.py	::	Saved Figure101.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1016.py	::	Saved Figure1016.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1017.py	::	Saved Figure1017.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1018.py	::	Saved Figure1018.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1019.py	::	Saved Figure1019.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1020.py	::	Saved Figure1020.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1026.py	::	Saved Figure1026.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1027.py	::	Saved Figure1027.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1030.py	::	Saved Figure1030.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1031.py	::	Saved Figure1031.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1033.py	::	Saved Figure1033.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1034.py	::	Saved Figure1034.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1035.py	::	Saved Figure1035.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1036.py	::	Saved Figure1036.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1037.py	::	Saved Figure1037.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1038.py	::	Saved Figure1038.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure104.py	::	Saved Figure104.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1042.py	::	Saved Figure1042.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1043.py	::	Saved Figure1043.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1044.py	::	Saved Figure1044.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1045.py	::	Saved Figure1045.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1046.py	::	Saved Figure1046.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1048.py	::	Saved Figure1048.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1049.py	::	Saved Figure1049.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1050.py	::	Saved Figure1050.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1051.py	::	Saved Figure1051.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1052.py	::	Saved Figure1052.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1053.py	::	Saved Figure1053.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1054.py	::	Saved Figure1054.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1058.py	::	Saved Figure1058.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1059.py	::	Saved Figure1059.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1062.py	::	Saved Figure1062.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1063.py	::	Saved Figure1063.png, Figure1063Bis.png, Figure1063Ter.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1064.py	::	Tiadcornea.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1064.py	::	TiadcorneaBis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1064.py	::	TiadcorneaTer.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure1064.py	::	TiadcorneaQuart.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/Figure108.py	::	Saved Figure108.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter10/TQTDecomp.py	::	Saved TQTDecomp.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure113_skimage.py	::	Figure113_skimage.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure113_skimage.py	::	Saved Figure113_skimage.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure113_skimage.py	::	Figure113_skimage_maps.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter11/Figure113_skimage.py	::	Saved Figure113_skimage_maps.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Equation12_4.py	::	 legbone.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Example1214.py	::	.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1201.py	::	 Apple (apple12.jpg
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1201.py	::	.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1201.py	::	Figure1202.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1209 copy.py	::	/Users/michelkocher/michel/Data/DIPUM/dipum_images_ch12/mapleleaf.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1211.py	::	Saved Figure1211.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1211Bis.py	::	.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1211Bis.py	::	.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1213.py	::	Saved Figure1213.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1214.py	::	Saved Figure1214.png and Figure1214Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1219.py	::	Saved Figure1219.png and Figure1219Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1222.py	::	Saved Figure1222.png and Figure1223.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1224.py	::	Saved Figure1224.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1224.py	::	.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1228.py	::	Saved Figure1228.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1229.py	::	Saved Figure1229.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1231.py	::	Saved Figure1231.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1232.py	::	Saved Figure1232.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1232.py	::	.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1233.py	::	Saved Figure1233.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1233.py	::	.tif
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1235.py	::	Saved Figure1235.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1236.py	::	Saved Figure1236.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1237.py	::	Saved Figure1237.png and Figure1237Bis.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1238to42.py	::	Saved Figure1238.png, Figure1238Bis.png, Figure1240.png, Figure1241.png, Figure1242.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter12/Figure1246.py	::	Saved Figure1246.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Example1315NN.py	::	Load and preprocess MNIST data from .mat
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1308.py	::	Figure saved to Figure1308.png
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1310.py	::	fisheriris.mat
+/Users/michelkocher/Desktop/DIP4e_Python_Conversion/figures/Chapter13/Figure1311.py	::	Confusion Matrix saved to Figure1311Quater.png
+
+
+[Cleanup]
+Removed Figure*.png files: 397
+- Figure517.png
+- Figure374Bis.png
+- Figure63DB4.png
+- Figure926.png
+- Figure846.png
+- Figure113.png
+- Figure107.png
+- Figure463.png
+- Figure339.png
+- Figure462.png
+- Figure310.png
+- Figure112.png
+- Figure933.png
+- Figure927.png
+- Figure516.png
+- Figure1214Bis.png
+- Figure514.png
+- Figure528.png
+- Figure919.png
+- Figure931.png
+- Figure851.png
+- Figure104.png
+- Figure1229.png
+- Figure1201.png
+- Figure460.png
+- Figure1265Bis.png
+- Figure1017.png
+- Figure448.png
+- Figure449.png
+- Figure1016.png
+- Figure461.png
+- Figure942Bis.png
+- Figure1214.png
+- Figure1228.png
+- Figure105.png
+- Figure850.png
+- Figure112Quart.png
+- Figure844.png
+- Figure918.png
+- Figure933Bis.png
+- Figure529.png
+- Figure515.png
+- Figure539.png
+- Figure63STD.png
+- Figure511.png
+- Figure934.png
+- Figure920.png
+- Figure840.png
+- Figure529_init.png
+- Figure101.png
+- Figure1238.png
+- Figure115.png
+- Figure465.png
+- Figure316.png
+- Figure464.png
+- Figure114.png
+- Figure1211.png
+- Figure1205.png
+- Figure923Bis.png
+- Figure63SLT.png
+- Figure510.png
+- Figure538.png
+- Figure940Bis.png
+- Figure512.png
+- Figure923.png
+- Figure63DCT.png
+- Figure937.png
+- Figure1131Bis.png
+- Figure738.png
+- Figure843.png
+- Figure527Bis.png
+- Figure843Ter.png
+- Figure1213.png
+- Figure116.png
+- Figure1011.png
+- Figure328.png
+- Figure314.png
+- Figure1039.png
+- Figure466.png
+- Figure1038.png
+- Figure315.png
+- Figure329.png
+- Figure117.png
+- Figure37.png
+- Figure739.png
+- Figure922.png
+- Figure513.png
+- Figure548.png
+- Figure945.png
+- Figure1324Perceptron.png
+- Figure1329.png
+- Figure819.png
+- Figure831.png
+- Figure825.png
+- Figure93.png
+- Figure616.png
+- Figure1249.png
+- Figure1261.png
+- Figure112Bis.png
+- Figure366.png
+- Figure428.png
+- Figure1063.png
+- Figure1062.png
+- Figure429.png
+- Figure1335UsingNNToolbox.png
+- Figure1260.png
+- Figure945Enonce.png
+- Figure1063Ter.png
+- Figure1248.png
+- Figure617.png
+- Figure824.png
+- Figure1263Bis.png
+- Figure549.png
+- Figure1128.png
+- Figure1114.png
+- Figure239.png
+- Figure1311Ter.png
+- Figure946.png
+- Figure749.png
+- Figure53.png
+- Figure832.png
+- Figure84.png
+- Figure615.png
+- FigureTifs2cv.png
+- Figure1048.png
+- Figure359.png
+- Figure1049.png
+- Figure1263.png
+- Figure614.png
+- Figure748.png
+- Figure531Bis.png
+- Figure238.png
+- Figure630Quart.png
+- Figure1115.png
+- Figure1129.png
+- Figure1139.png
+- Figure943.png
+- Figure1313.png
+- Figure1311Quater.png
+- Figure823.png
+- Figure81.png
+- Figure95.png
+- Figure610.png
+- Figure348.png
+- Figure360.png
+- Figure1059.png
+- Figure374.png
+- Figure361.png
+- Figure1058.png
+- Figure349.png
+- Figure460Tunnel_2.png
+- Figure1266.png
+- Figure57.png
+- Figure822.png
+- Figure942.png
+- Figure1138.png
+- Figure229.png
+- Figure1110.png
+- Figure1112.png
+- Figure940.png
+- Figure1310.png
+- Figure1238Bis.png
+- Figure834.png
+- Figure69.png
+- Figure820.png
+- Figure946Bis.png
+- Figure55.png
+- Figure940NewBis.png
+- Figure613.png
+- Figure82.png
+- Figure1258.png
+- Figure439.png
+- Figure825Bis.png
+- Figure363.png
+- Figure630Bis.png
+- Figure362.png
+- Figure438.png
+- Figure460Tunnel_1.png
+- Figure83.png
+- Figure612.png
+- Figure97.png
+- Figure1265.png
+- Figure54.png
+- Figure843Quart.png
+- Figure835.png
+- Figure68.png
+- Figure1339.png
+- Figure1311.png
+- Figure941.png
+- Figure1113.png
+- Figure227.png
+- Figure1122.png
+- Figure1136.png
+- Figure843Bis.png
+- Figure943Bis.png
+- Figure1308.png
+- Figure527Ter.png
+- Figure1320.png
+- Figure1334.png
+- Figure810.png
+- Figure59.png
+- Figure1254.png
+- Figure1240.png
+- Figure353.png
+- Figure347.png
+- Figure1042.png
+- Figure1043.png
+- Figure63WHT.png
+- Figure346.png
+- Figure434.png
+- Figure352.png
+- Figure1241.png
+- Figure1255.png
+- Figure58.png
+- Figure811.png
+- Figure1335.png
+- Figure1321.png
+- Figure742.png
+- Figure1219Bis.png
+- Figure1137.png
+- Figure1123.png
+- Figure232.png
+- Figure540.png
+- Figure224.png
+- Figure1135.png
+- Figure1121.png
+- Figure63DFT.png
+- Figure740.png
+- Figure1337.png
+- Figure1257.png
+- Figure344.png
+- Figure1041.png
+- Figure1054.png
+- Figure1040.png
+- Figure379.png
+- Figure437.png
+- Figure423.png
+- Figure345.png
+- Figure424Bis.png
+- Figure1242.png
+- Figure67.png
+- Figure1336.png
+- Figure1120.png
+- Figure1134.png
+- Figure543.png
+- Figure231.png
+- Figure379Bis.png
+- Figure1265Ter.png
+- Figure1124.png
+- Figure1118.png
+- Figure1326.png
+- Figure1246.png
+- Figure1252.png
+- Figure631.png
+- Figure1044.png
+- Figure1050.png
+- Figure1118Bis.png
+- Figure433.png
+- Figure355.png
+- Figure426.png
+- Figure1051.png
+- Figure1045.png
+- Figure630.png
+- Figure89.png
+- Figure1253.png
+- Figure618.png
+- Figure1247.png
+- Figure744.png
+- Figure1119.png
+- Figure234.png
+- Figure1125.png
+- Figure1131.png
+- Figure1127.png
+- Figure1133.png
+- Figure544.png
+- Figure236.png
+- Figure1325.png
+- Figure746.png
+- Figure829.png
+- Figure632.png
+- Figure1053.png
+- Figure418.png
+- Figure430.png
+- Figure424.png
+- Figure342.png
+- Figure425.png
+- Figure343.png
+- Figure357.png
+- Figure1046.png
+- Figure419.png
+- Figure1052.png
+- Figure1250.png
+- Figure828.png
+- Figure747.png
+- Figure1324.png
+- Figure223.png
+- Figure1132.png
+- Figure1126.png
+- Figure630Ter.png
+- Figure63BIOR31.png
+- Figure946Ter.png
+- Figure940NewTer.png
+- Figure1237.png
+- Figure1315SURF.png
+- Figure1223.png
+- Figure330.png
+- Figure456.png
+- Figure442.png
+- Figure324.png
+- Figure1035.png
+- Figure1020.png
+- Figure1034.png
+- Figure443.png
+- Figure325.png
+- Figure331.png
+- Figure457.png
+- Figure1222.png
+- Figure1236.png
+- Figure435_2.png
+- Figure912.png
+- Figure245.png
+- Figure1335UsingNNToolboxBis.png
+- Figure737.png
+- Figure441.png
+- Figure455.png
+- Figure333.png
+- Figure1022.png
+- Figure1036.png
+- Figure1037.png
+- Figure1337Bis.png
+- Figure1023.png
+- Figure1237Bis.png
+- Figure454.png
+- Figure332.png
+- Figure326.png
+- Figure440.png
+- Figure1235.png
+- Figure118.png
+- Figure1209.png
+- Figure435_1.png
+- Figure736.png
+- Figure911.png
+- Figure939.png
+- Figure113Bis.png
+- Figure534.png
+- Figure518.png
+- Figure530.png
+- Figure242.png
+- Figure915.png
+- Figure1231.png
+- Figure108.png
+- Figure1219.png
+- Figure1311Bis.png
+- Figure1027.png
+- Figure1033.png
+- Figure444.png
+- Figure450.png
+- Figure451.png
+- Figure445.png
+- Figure1026.png
+- Figure1224.png
+- Figure848.png
+- Figure1324LMSE.png
+- Figure54Bis.png
+- Figure914.png
+- Figure525.png
+- Figure531.png
+- Figure257.png
+- Figure519.png
+- Figure363Bis.png
+- Figure112Ter.png
+- Figure527.png
+- Figure533.png
+- Figure916.png
+- Figure725.png
+- Figure1232.png
+- Figure1315SURFBis.png
+- Figure1030.png
+- Figure453.png
+- Figure447.png
+- Figure1018.png
+- Figure320.png
+- Figure1019.png
+- Figure446.png
+- Figure452.png
+- Figure1025.png
+- Figure1031.png
+- Figure1233.png
+- Figure224Bis.png
+- Figure1263Ter.png
+- Figure63HAAR.png
+- Figure1063Bis.png
+- Figure917.png
+- Figure940New.png
+- Figure532.png
+- Figure526.png
+- Figure240.png
+Remaining data files (excluding manifest): 188
