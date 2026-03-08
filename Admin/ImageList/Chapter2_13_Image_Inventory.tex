@@ -1,0 +1,1059 @@
+\\documentclass[11pt]{article}
+\\usepackage[margin=1in]{geometry}
+\\usepackage{longtable}
+\\usepackage{booktabs}
+\\usepackage{array}
+\\usepackage[T1]{fontenc}
+\\usepackage[utf8]{inputenc}
+\\begin{document}
+\\title{Image Inventory for Python Files in Chapters 2--13}
+\\author{DIP4e\_Python\_Conversion}
+\\date{}
+\\maketitle
+\\section*{Summary}
+\\begin{itemize}
+\item Python files scanned: 323
+\item Referenced image tokens found: 870
+\item Resolved references: 314
+\item Unresolved references: 556
+\item Unique resolved image files (by path): 204
+\item Unique resolved images (by SHA-256 content): 149
+\\end{itemize}
+\\section*{Unique Images by Content (deduplicated)}
+\\begin{longtable}{p{0.08\\linewidth}p{0.22\\linewidth}p{0.66\\linewidth}}
+\\toprule ID & SHA-256 (first 16) & File paths (aliases with identical content) \\\\
+\\midrule
+1 & 009a0d075cafc28c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard-noisy1.tif \\\\
+2 & 03bd78544883705a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-2136x2140-2pt3-inch-930-dpi.tif \\\\
+3 & 04debd990bbb0fa0 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiography-mask-image.tif \\\\
+4 & 087d9810f34fa7fd & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/building-600by600.tif \\\\
+5 & 0a44b1ce4065dd67 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-blobs.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-blobs.tif \\\\
+6 & 0a4bf55b38a30dce & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Saturnringe.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cassini-interference.tif \\\\
+7 & 0a657dba92e1ab2a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-microporcessor-regular-texture.tif \\\\
+8 & 0b886f2cf7300265 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-horse.tif \\\\
+9 & 0bbd0f6001683626 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/weldXray.tif \\\\
+10 & 0cec44b7c498b101 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/binary-triangle-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/binary-triangle-distorted.tif \\\\
+11 & 0fdd3710379a298b & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-165x166-2pt3-inch-72-dpi.tif \\\\
+12 & 12235b0b39d35d4a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(a)(original\\_septagon).tif \\\\
+13 & 12d56d590b2d0c9c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/region-filling-reflections.tif \\\\
+14 & 131b45f14a394caf & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard-section.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard-section.tif \\\\
+15 & 147a9a7376628b52 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/thumb-print.tif \\\\
+16 & 161eafb6eb25a035 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/turbineblad-with-blk-dot.tif \\\\
+17 & 17e2e42a96a5e12d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose957by1024.tif \\\\
+18 & 17f8ca2afe43e45a & /Users/michelkocher/michel/Data/DIP-DIPUM/Others/apple12.jpg \\\\
+19 & 1809e33d8ef7521c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band3-Red-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band3-Red-512.tif \\\\
+20 & 185024378e40394f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/astronaut.tif \\\\
+21 & 18f94276466e9e5e & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0801(a).tif \\\\
+22 & 1a1e8b49719a9465 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+23 & 1b82db7b9adb5b90 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1001(d)(noisy\\_region).tif \\\\
+24 & 1ba7e52a35b3ce9c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text\\_gaps\\_of\\_1\\_and\\_2\\_pixels.tif \\\\
+25 & 1c35995632982c31 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/drip-bottle.tif \\\\
+26 & 1cd9e3f43af6bc47 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wood-dowels.tif \\\\
+27 & 1e56df1b945699ac & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/vase.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/vase.tif \\\\
+28 & 1f5b9263ed543c98 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa79.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasaframe79.tif \\\\
+29 & 20974e9cd1005040 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/woman512x512.tif \\\\
+30 & 225072945a331b20 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chestXray.tif \\\\
+31 & 235715bdb0943efb & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/car-moire-pattern.tif \\\\
+32 & 26893d04bbae084c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1036(b)(gaussian\\_noise\\_mean\\_0\\_std\\_10\\_added).tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(b)(gaussian\\_noise\\_mean\\_0\\_std\\_10\\_added).tif \\\\
+33 & 27e228905ada2d2a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown\\_ic\\_crop.tif \\\\
+34 & 29429ac77004db8d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/van-rear.tif \\\\
+35 & 29b3ee23ee374e42 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-water-512.tif \\\\
+36 & 2c30ed44af8f5765 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/pollen-lowcontrast.tif \\\\
+37 & 2c988649b81035bb & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/retina.tif \\\\
+38 & 2d27e05577ef1367 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa67.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasaframe67.tif \\\\
+39 & 31ef6a317cb9d946 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterA-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/letterA-distorted.tif \\\\
+40 & 32ae22244a55e991 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/testpattern1024.tif \\\\
+41 & 35a1ceecf9744ea3 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/iceberg.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/iceberg.tif \\\\
+42 & 3b0d6d1b1765ed52 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard-connector.tif \\\\
+43 & 3e4c4f83add79c9c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cassini-interference.tif \\\\
+44 & 3e7aa5669e3ecbf7 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0850(a).tif \\\\
+45 & 4022fb8606b56aa8 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/bonescan.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/bonescan.tif \\\\
+46 & 407540596140f31d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/graywedge.png \\\\
+47 & 423727d5445f2e51 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/legbone.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/legbone.tif \\\\
+48 & 45036d901ace3eb3 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-square-solid.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-square-solid.tif \\\\
+49 & 45124de065084b67 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png \\\\
+50 & 45cd8984cda25f07 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/shuttle.tif \\\\
+51 & 494b4da0b8a6d5c7 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-vegetation-512.tif \\\\
+52 & 4a29741572218fc2 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiogram-aortic-kidney.tif \\\\
+53 & 4b7c94a45c1ef44e & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-circle-solid.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-circle-solid.tif \\\\
+54 & 4c2ad21284be0b4a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/gray-lakes.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/gray-lakes.tif \\\\
+55 & 5166c11bab0cdc0f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-star-6pt.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-star-6pt.tif \\\\
+56 & 52a163c73966f820 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/headCT.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/headCT.tif \\\\
+57 & 533ec81eae2cfb7f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/vertical\\_rectangle.tif \\\\
+58 & 548391557778ee7e & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-689x690-2pt3-inch-300-dpi.tif \\\\
+59 & 552485840de9093a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-teardrop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-teardrop.tif \\\\
+60 & 5654dd735ece7e05 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/ellipse\\_and\\_circle.tif \\\\
+61 & 568fca80c8d8aded & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig81c.tif \\\\
+62 & 59b734b4d91d6d48 & /Users/michelkocher/michel/Data/DIP-DIPUM/Others/tun.jpg \\\\
+63 & 59eaa983970f4312 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-random.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/matches-random.tif \\\\
+64 & 5cc83812736a62bc & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+65 & 5d74e3b15f4ec7a9 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dentalXrayMask.tif \\\\
+66 & 5e80a207fee666a4 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-circle-solid-small.tif \\\\
+67 & 610a17907cb6b6fb & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rice-shaded.tif \\\\
+68 & 61e4a50febe07aa0 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/yeast-cells.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/yeast-cells.tif \\\\
+69 & 635d7ea5669d661d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dentalXray.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/dentalXray.tif \\\\
+70 & 6417dec170c3fe81 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/PET-scan.tif \\\\
+71 & 64e4a5b7b836b237 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/girl-blurred.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/girl-blurred.tif \\\\
+72 & 663d7e2904320454 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/polymercell.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/polymercell.tif \\\\
+73 & 6923886d437b5a70 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chickenfilet-with-bones.tif \\\\
+74 & 6cd156bdc674f0af & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-aligned.tif \\\\
+75 & 70069033b0ea76e4 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/aerial\\_view\\_no\\_turb.tif \\\\
+76 & 7068a47e618dfab4 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/book-cover.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/original\\_DIP.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/book-cover.tif \\\\
+77 & 7268f6091d4c40aa & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/calculator.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/calculator.tif \\\\
+78 & 74550dda19b0a6d0 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dark-blobs-on-light-background.tif \\\\
+79 & 74ceb7c99c5d1c38 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/binary-square-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/binary-square-distorted.tif \\\\
+80 & 76df6730224281e9 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Chronometer.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Chronometer.tif \\\\
+81 & 7b01f9d64b5bd3c2 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/trophozoite.tif \\\\
+82 & 7b0c449d5666b3d7 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/washingtonDC-Band6-ThermalInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/washingtonDC-Band6-ThermalInfrared-512.tif \\\\
+83 & 7bb65b2db7f0acc7 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mapleleaf.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/mapleleaf.tif \\\\
+84 & 7c29c8420a7db8fd & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1041(a)(septagon\\_small\\_noisy\\_mean\\_0\\_stdv\\_10).tif \\\\
+85 & 7c9504abe417a612 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+86 & 7cc04054861f9232 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasaframe78.tif \\\\
+87 & 816ea6ce4c620f2d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mars\\_moon\\_phobos.tif \\\\
+88 & 81acb3e5d255c804 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1007(a)(wirebond\\_mask).tif \\\\
+89 & 81d638741ef7ca12 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/boy.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/boy.tif \\\\
+90 & 8320f9b641d2ddb6 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/washingtonDC-Band5-MiddleInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/washingtonDC-Band5-MiddleInfrared-512.tif \\\\
+91 & 83630def6cf4549f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0819(a).tif \\\\
+92 & 85529ba409180f3b & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-light.tif \\\\
+93 & 8625169303bb1be2 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard-noisy2.tif \\\\
+94 & 87803f4382eca17c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-cholesterol-rough-texture.tif \\\\
+95 & 89e8328e5100f9af & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern4096.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/testpattern4096.tif \\\\
+96 & 8af453c045f8529c & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+97 & 8cf5c89e906f1309 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hickson-compact-group.tif \\\\
+98 & 8f94cc6b751d4f84 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(c)(gaussian\\_noise\\_mean\\_0\\_std\\_50\\_added).tif \\\\
+99 & 930c4a6b451faf51 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-urban-512.tif \\\\
+100 & 9467a1ebb9646852 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/skeleton.tif \\\\
+101 & 964cafefa0162657 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern1024.tif \\\\
+102 & 97fc764ab227ffdc & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/constant-gray-region.tif \\\\
+103 & 9b7f22ae428faad2 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band1-Blue-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band1-Blue-512.tif \\\\
+104 & a01d1073c6c5de04 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-image.tif \\\\
+105 & a066c98b4369fae2 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/einstein-low-contrast.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/einstein-low-contrast.tif \\\\
+106 & a49312ad0ee9c409 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/test-pattern.tif \\\\
+107 & a580e3e2fa7d00df & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiography-live-image.tif \\\\
+108 & a7e4eee16da595fa & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/fingerprint-noisy.tif \\\\
+109 & a81cde324b551cdd & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1016(a)(building\\_original).tif \\\\
+110 & a9d98fbf6c6a764d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png \\\\
+111 & aa4bdfe26bd08ed5 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif \\\\
+112 & ac8058f4baf5c59b & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard1024-shaded.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/checkerboard1024-shaded.tif \\\\
+113 & addc3f04cd08a222 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-high-contrast.tif \\\\
+114 & b05345dc1c7020bf & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band4-NearInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band4-NearInfrared-512.tif \\\\
+115 & b076ff42f39dd76d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-345x345-2pt3-inch-150-dpi.tif \\\\
+116 & b10f255883b8985b & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/U200.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/U200.tif \\\\
+117 & b1d9b5c5613b8177 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-stroke.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-stroke.tif \\\\
+118 & b36a7d20320343e3 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lincoln.tif \\\\
+119 & b52d6ae1451885a2 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/sinePulses.tif \\\\
+120 & b60b94b3ed6ba27a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blood-vessels.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/blood-vessels.tif \\\\
+121 & bc8f98a0ad40e428 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-symbols.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-symbols.tif \\\\
+122 & c1b909c06576b9f3 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+123 & c45ecb675ebd4b25 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+124 & c4c269faef72ee5a & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/sombrero-galaxy-original.tif \\\\
+125 & c54799080e88094d & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-broken.tif \\\\
+126 & c5853d5561abca03 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/totem-poles.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/totem-poles.tif \\\\
+127 & c8ea5df24e030977 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+128 & cc67759bbf6eeea0 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png \\\\
+129 & cd0c3dbf629823fe & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wirebond-mask.tif \\\\
+130 & ceeb2e72a382f8d1 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-dark.tif \\\\
+131 & d3e291c6762e250e & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/fingerprint.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/fingerprint.tif \\\\
+132 & d558cde6745620ed & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1123(a)(Original\\_Padded\\_to\\_568\\_by\\_568).tif \\\\
+133 & d57031f1eb8e8326 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown\\_ic.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/integrated-ckt-damaged.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/integrated-ckt-damaged.tif \\\\
+134 & d6e3d861d52a3bfd & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterT.tif \\\\
+135 & db42ef4d6a76320f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/satellite\\_original.tif \\\\
+136 & dba0358289f71d70 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1034(a)(marion\\_airport).tif \\\\
+137 & dccb0f46ef1f7fee & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/contact-lens.tif \\\\
+138 & dd12699b0218a009 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/text-broken.tif \\\\
+139 & ddc094a4d4549614 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blurry-moon.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/blurry-moon.tif \\\\
+140 & de9e8f0a7ecb8808 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/corneacells.tif \\\\
+141 & dfbf6eb38b7d5303 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/barbara.tif \\\\
+142 & e05046720adc5b62 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/multiple-regions.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/multiple-regions.tif \\\\
+143 & e529628855c6f90f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-superconductor-smooth-texture.tif \\\\
+144 & ec7e10092cf10593 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+145 & eee69eb37e6c912f & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1056(a)(blob\\_original).tif \\\\
+146 & efed09d3def0d4e4 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cygnusloop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cygnusloop.tif \\\\
+147 & f6bb324eccfb9c88 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1049(original\\_cursive\\_text\\_WITHOUT\\_SHADING).tif \\\\
+148 & f754187d0949aa23 & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band2-Green-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band2-Green-512.tif \\\\
+149 & f94c85763b7321ec & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+\\bottomrule
+\\end{longtable}
+\\section*{References Resolved from Chapter Scripts}
+\\begin{longtable}{p{0.30\\linewidth}p{0.18\\linewidth}p{0.48\\linewidth}}
+\\toprule Script & Referenced name & Matched files \\\\
+\\midrule
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure101.py & constant-gray-region.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/constant-gray-region.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure101.py & Fig1001(d)(noisy\\_region).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1001(d)(noisy\\_region).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1011.py & graywedge.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/graywedge.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1016.py & building-cropped-834by1114.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1017.py & building-cropped-834by1114.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1018.py & building-cropped-834by1114.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1019.py & building-cropped-834by1114.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1020.py & building-cropped-834by1114.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1022.py & building-cropped-834by1114.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-cropped-834by1114.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1025.py & Fig1016(a)(building\\_original).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1016(a)(building\\_original).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1026.py & headCT.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/headCT.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/headCT.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1027.py & van-rear.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/van-rear.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1031.py & Fig1034(a)(marion\\_airport).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1034(a)(marion\\_airport).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1033.py & Fig1036(a)(original\\_septagon).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(a)(original\\_septagon).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1034.py & Fig1036(b)(gaussian\\_noise\\_mean\\_0\\_std\\_10\\_added).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1036(b)(gaussian\\_noise\\_mean\\_0\\_std\\_10\\_added).tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(b)(gaussian\\_noise\\_mean\\_0\\_std\\_10\\_added).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1035.py & fingerprint.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/fingerprint.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/fingerprint.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1036.py & polymercell.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/polymercell.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/polymercell.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1037.py & Fig1036(c)(gaussian\\_noise\\_mean\\_0\\_std\\_50\\_added).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1036(c)(gaussian\\_noise\\_mean\\_0\\_std\\_50\\_added).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1038.py & Fig1041(a)(septagon\\_small\\_noisy\\_mean\\_0\\_stdv\\_10).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1041(a)(septagon\\_small\\_noisy\\_mean\\_0\\_stdv\\_10).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1039.py & Fig1041(a)(septagon\\_small\\_noisy\\_mean\\_0\\_stdv\\_10).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1041(a)(septagon\\_small\\_noisy\\_mean\\_0\\_stdv\\_10).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure104.py & turbineblad-with-blk-dot.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/turbineblad-with-blk-dot.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1040.py & yeast-cells.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/yeast-cells.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/yeast-cells.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1041.py & yeast-cells.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/yeast-cells.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/yeast-cells.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1042.py & iceberg.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/iceberg.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/iceberg.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1043.py & yeast-cells.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/yeast-cells.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/yeast-cells.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1044.py & Fig1049(original\\_cursive\\_text\\_WITHOUT\\_SHADING).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1049(original\\_cursive\\_text\\_WITHOUT\\_SHADING).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1045.py & Fig1049(original\\_cursive\\_text\\_WITHOUT\\_SHADING).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Fig1049(original\\_cursive\\_text\\_WITHOUT\\_SHADING).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1046.py & weldXray.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/weldXray.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1048.py & cygnusloop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cygnusloop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cygnusloop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1049.py & book-cover.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/book-cover.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/book-cover.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure105.py & Fig1007(a)(wirebond\\_mask).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1007(a)(wirebond\\_mask).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1050.py & totem-poles.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/totem-poles.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/totem-poles.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1051.py & totem-poles.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/totem-poles.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/totem-poles.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1052.py & totem-poles.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/totem-poles.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/totem-poles.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1053.py & iceberg.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/iceberg.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/iceberg.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1054.py & book-cover.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/book-cover.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/book-cover.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1058.py & building-600by600.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/building-600by600.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1059.py & iceberg.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/iceberg.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/iceberg.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1062.py & Fig1056(a)(blob\\_original).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1056(a)(blob\\_original).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1063.py & corneacells.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/corneacells.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1064.py & corneacells.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/corneacells.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure107.py & Fig1007(a)(wirebond\\_mask).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1007(a)(wirebond\\_mask).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/TQTDecomp.py & cygnusloop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cygnusloop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cygnusloop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1110.py & U200.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/U200.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/U200.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1112.py & rose957by1024.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose957by1024.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1113.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1115.py & gray-lakes.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/gray-lakes.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/gray-lakes.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1118.py & letterA-distorted.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterA-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/letterA-distorted.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1119.py & letterA-distorted.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterA-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/letterA-distorted.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure112.py & noisy-elliptical-object.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1120.py & multiple-regions.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/multiple-regions.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/multiple-regions.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1121.py & multiple-regions.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/multiple-regions.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/multiple-regions.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1122.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1124.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1125.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1126.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1127.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1128.py & rose479by512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1129.py & rose479by512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113.py & noisy-elliptical-object.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1131.py & cygnusloop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cygnusloop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cygnusloop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1132.py & noisy-blobs.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-blobs.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-blobs.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1133.py & noisy-blobs.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-blobs.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-blobs.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1134.py & rose479by512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1135.py & rose479by512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1136.py & breast-implant.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/breast-implant.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/breast-implant.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1136.py & rose479by512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose479by512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure114.py & noisy-elliptical-object.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure115.py & noisy-elliptical-object.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure116.py & noisy-elliptical-object.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure117.py & noisy-elliptical-object.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-elliptical-object.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-elliptical-object.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure118.py & rose957by1024.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rose957by1024.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure119.py & U200.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/U200.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/U200.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Equation12\\_4.py & legbone.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/legbone.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/legbone.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1201.py & apple12.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/Others/apple12.jpg \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1205.py & noisy-stroke.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/noisy-stroke.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/noisy-stroke.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1209 copy.py & mapleleaf.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mapleleaf.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/mapleleaf.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1209.py & mapleleaf.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mapleleaf.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/mapleleaf.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1211.py & binary-square-distorted.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/binary-square-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/binary-square-distorted.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1211.py & binary-triangle-distorted.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/binary-triangle-distorted.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/binary-triangle-distorted.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1214.py & blood-vessels.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blood-vessels.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/blood-vessels.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & wingding-circle-solid.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-circle-solid.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-circle-solid.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & wingding-square-solid.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-square-solid.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-square-solid.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & wingding-star-6pt.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-star-6pt.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-star-6pt.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & wingding-teardrop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wingding-teardrop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-teardrop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1228.py & WashingtonDC-Band4-NearInfrared-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band4-NearInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band4-NearInfrared-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1229.py & OpticalMicroscope-cholesterol-rough-texture.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-cholesterol-rough-texture.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1229.py & OpticalMicroscope-microporcessor-regular-texture.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-microporcessor-regular-texture.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1229.py & OpticalMicroscope-superconductor-smooth-texture.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/OpticalMicroscope-superconductor-smooth-texture.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1231.py & strip-2Dsinusoidal-waveform.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1231.py & strip-cktboard-section.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1231.py & strip-uniform-noise.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.bmp & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.gif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.jpeg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-2Dsinusoidal-waveform.tiff & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.bmp & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.gif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.jpeg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-cktboard-section.tiff & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.bmp & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.gif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.jpeg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & strip-uniform-noise.tiff & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.bmp & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.gif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.jpeg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-2Dsinusoidal-waveform.tiff & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-2Dsinusoidal-waveform.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-2Dsinusoidal-waveform.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.bmp & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.gif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.jpeg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-cktboard-section.tiff & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-cktboard-section.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-cktboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.bmp & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.gif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.jpeg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.png & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & strip-uniform-noise.tiff & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/\\_tmp\\_png/strip-uniform-noise.png\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/strip-uniform-noise.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1235.py & matches-aligned.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-aligned.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1235.py & matches-random.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-random.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/matches-random.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1236.py & matches-aligned.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-aligned.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1236.py & matches-random.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/matches-random.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/matches-random.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1237.py & Fig1123(a)(Original\\_Padded\\_to\\_568\\_by\\_568).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig1123(a)(Original\\_Padded\\_to\\_568\\_by\\_568).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & WashingtonDC-Band1-Blue-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band1-Blue-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band1-Blue-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & WashingtonDC-Band2-Green-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band2-Green-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band2-Green-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & WashingtonDC-Band3-Red-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band3-Red-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band3-Red-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & WashingtonDC-Band4-NearInfrared-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band4-NearInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band4-NearInfrared-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & washingtonDC-Band5-MiddleInfrared-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/washingtonDC-Band5-MiddleInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/washingtonDC-Band5-MiddleInfrared-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & washingtonDC-Band6-ThermalInfrared-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/washingtonDC-Band6-ThermalInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/washingtonDC-Band6-ThermalInfrared-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1247.py & checkerboard-noisy1.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard-noisy1.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1248.py & checkerboard-noisy2.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard-noisy2.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1249.py & building-600by600.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/building-600by600.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1250.py & building-600by600.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/building-600by600.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1315SURF.py & circuitboard-connector.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard-connector.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1315SURF.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-Band1-Blue-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band1-Blue-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band1-Blue-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-Band2-Green-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band2-Green-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band2-Green-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-Band3-Red-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band3-Red-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band3-Red-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-Band4-NearInfrared-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band4-NearInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band4-NearInfrared-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-mask-urban-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-urban-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-mask-vegetation-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-vegetation-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & WashingtonDC-mask-water-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-water-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-Band1-Blue-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band1-Blue-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band1-Blue-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-Band2-Green-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band2-Green-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band2-Green-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-Band3-Red-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band3-Red-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band3-Red-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-Band4-NearInfrared-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-Band4-NearInfrared-512.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/WashingtonDC-Band4-NearInfrared-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-mask-urban-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-urban-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-mask-vegetation-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-vegetation-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & WashingtonDC-mask-water-512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/WashingtonDC-mask-water-512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure223.py & Chronometer.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Chronometer.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Chronometer.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure224.py & drip-bottle.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/drip-bottle.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure227.py & Chronometer.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Chronometer.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Chronometer.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure229.py & sombrero-galaxy-original.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/sombrero-galaxy-original.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure231.py & chronometer-165x166-2pt3-inch-72-dpi.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-165x166-2pt3-inch-72-dpi.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure231.py & chronometer-2136x2140-2pt3-inch-930-dpi.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-2136x2140-2pt3-inch-930-dpi.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure231.py & chronometer-345x345-2pt3-inch-150-dpi.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-345x345-2pt3-inch-150-dpi.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure231.py & chronometer-689x690-2pt3-inch-300-dpi.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chronometer-689x690-2pt3-inch-300-dpi.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure232.py & angiography-live-image.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiography-live-image.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure232.py & angiography-mask-image.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiography-mask-image.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure234.py & dentalXray.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dentalXray.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/dentalXray.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure234.py & dentalXrayMask.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dentalXrayMask.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure236.py & skeleton.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/skeleton.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure238.py & Chronometer.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Chronometer.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/Chronometer.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure239.py & angiogram-aortic-kidney.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/angiogram-aortic-kidney.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure240.py & letterT.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/letterT.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure242.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure245.py & astronaut.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/astronaut.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure310.py & pollen-lowcontrast.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/pollen-lowcontrast.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure314.py & trophozoite.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/trophozoite.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure315.py & trophozoite.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/trophozoite.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure316.py & Pollen-dark.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-dark.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure316.py & Pollen-high-contrast.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-high-contrast.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure316.py & Pollen-light.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-light.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure316.py & pollen-lowcontrast.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/pollen-lowcontrast.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure320.py & Pollen-dark.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-dark.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure320.py & Pollen-high-contrast.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-high-contrast.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure320.py & Pollen-light.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Pollen-light.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure320.py & pollen-lowcontrast.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/pollen-lowcontrast.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure324.py & hidden-horse.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-horse.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure325.py & hidden-horse.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-horse.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure326.py & hidden-horse.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-horse.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure328.py & hidden-horse.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-horse.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure329.py & hidden-horse.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-horse.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-horse.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure330.py & mars\\_moon\\_phobos.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mars\\_moon\\_phobos.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure331.py & mars\\_moon\\_phobos.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/mars\\_moon\\_phobos.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure332.py & hidden-symbols.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-symbols.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-symbols.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure333.py & hidden-symbols.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hidden-symbols.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/hidden-symbols.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure339.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure342.py & testpattern1024.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern1024.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/testpattern1024.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure343.py & testpattern1024.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern1024.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/testpattern1024.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure345.py & testpattern1024.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern1024.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/testpattern1024.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure346.py & testpattern4096.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/testpattern4096.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/testpattern4096.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure347.py & hickson-compact-group.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/hickson-compact-group.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure348Fourier.py & checkerboard1024-shaded.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard1024-shaded.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/checkerboard1024-shaded.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure348Separable.py & checkerboard1024-shaded.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/checkerboard1024-shaded.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/checkerboard1024-shaded.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure349.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure352.py & blurry-moon.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blurry-moon.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/blurry-moon.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure355.py & girl-blurred.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/girl-blurred.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/girl-blurred.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure357.py & contact-lens.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/contact-lens.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure363.py & bonescan.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/bonescan.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/bonescan.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure37.py & retina.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/retina.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure374.py & einstein-low-contrast.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/einstein-low-contrast.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/einstein-low-contrast.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure379.py & headCT.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/headCT.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/headCT.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure419.py & barbara.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/barbara.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure426.py & boy.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/boy.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/boy.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure428.py & blown\\_ic.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown\\_ic.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure429.py & blown\\_ic.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown\\_ic.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure430.py & blown\\_ic\\_crop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown\\_ic\\_crop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure434.py & integrated-ckt-damaged.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/integrated-ckt-damaged.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/integrated-ckt-damaged.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure435.py & blown\\_ic\\_crop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blown\\_ic\\_crop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure437.py & building-600by600.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/building-600by600.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure438.py & building-600by600.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/building-600by600.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/building-600by600.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure440.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure441.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure444.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure446.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure448.py & text\\_gaps\\_of\\_1\\_and\\_2\\_pixels.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text\\_gaps\\_of\\_1\\_and\\_2\\_pixels.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure449.py & woman512x512.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/woman512x512.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure450.py & satellite\\_original.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/satellite\\_original.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure453.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure455.py & thumb-print.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/thumb-print.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure456.py & blurry-moon.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/blurry-moon.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/blurry-moon.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure457.py & chestXray.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chestXray.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure460.py & PET-scan.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/PET-scan.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure460Tunnel.py & tun.jpg & /Users/michelkocher/michel/Data/DIP-DIPUM/Others/tun.jpg \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure464.py & car-moire-pattern.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/car-moire-pattern.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure465.py & Saturnringe.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Saturnringe.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure466.py & cassini-interference.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cassini-interference.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cassini-interference.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure510.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure511.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure512.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure513.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure514.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure516.py & astronaut.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/astronaut.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure518.py & satellite\\_original.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/satellite\\_original.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure525.py & aerial\\_view\\_no\\_turb.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/aerial\\_view\\_no\\_turb.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure526.py & original\\_DIP.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/original\\_DIP.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure527.py & aerial\\_view\\_no\\_turb.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/aerial\\_view\\_no\\_turb.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure528.py & aerial\\_view\\_no\\_turb.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/aerial\\_view\\_no\\_turb.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure529.py & original\\_DIP.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/original\\_DIP.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure53.py & test-pattern.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/test-pattern.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure530.py & original\\_DIP.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/original\\_DIP.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure531.py & aerial\\_view\\_no\\_turb.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/aerial\\_view\\_no\\_turb.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure534.py & ellipse\\_and\\_circle.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/ellipse\\_and\\_circle.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure538.py & wingding-circle-solid-small.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/wingding-circle-solid-small.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure54.py & test-pattern.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/test-pattern.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure548.py & vertical\\_rectangle.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/vertical\\_rectangle.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure55.py & astronaut.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/astronaut.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure57.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure58.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure59.py & circuitboard.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure615.py & characterTestPattern688.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/characterTestPattern688.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure630.py & Vase.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/vase.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/vase.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure632.py & sinePulses.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/sinePulses.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure81.py & Fig0801(a).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0801(a).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure811.py & Fig81c.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig81c.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure819.py & Fig0819(a).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0819(a).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure822.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure823.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure824.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure825.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure828.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure829.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure831.py & nasaframe67.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasaframe67.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure832.py & nasaframe78.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasaframe78.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure832.py & nasaframe79.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasaframe79.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure834.py & nasa67.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa67.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure834.py & nasa79.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa79.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure835.py & nasa67.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa67.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure835.py & nasa79.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/nasa79.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure84.py & Fig0801(a).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0801(a).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure840.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure843.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure844.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure846.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure848.py & Fig0850(a).tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/Fig0850(a).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure848.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure850.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure851.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure89.py & lena.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lena.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/FigureTifs2cv.py & shuttle.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/shuttle.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure911.py & fingerprint-noisy.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/fingerprint-noisy.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure916.py & lincoln.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/lincoln.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure918.py & region-filling-reflections.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/region-filling-reflections.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure920.py & Chickenfilet-with-bones.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/chickenfilet-with-bones.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure931.py & text-image.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-image.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure933.py & text-image.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-image.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure934.py & text-image.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-image.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure937.py & circuitboard-section.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard-section.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure939.py & circuitboard-section.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/circuitboard-section.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/circuitboard-section.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940.py & cygnusloop.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/cygnusloop.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/cygnusloop.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure941.py & headCT.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/headCT.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/headCT.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure942.py & rice-shaded.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/rice-shaded.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure943.py & wood-dowels.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wood-dowels.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure945.py & dark-blobs-on-light-background.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/dark-blobs-on-light-background.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure946.py & calculator.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/calculator.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/calculator.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure95.py & wirebond-mask.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/wirebond-mask.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure97.py & text-broken.tif & /Users/michelkocher/michel/Data/DIP-DIPUM/DIP/text-broken.tif\\newline /Users/michelkocher/michel/Data/DIP-DIPUM/DIPUM/text-broken.tif \\\\
+\\bottomrule
+\\end{longtable}
+\\section*{Unresolved References}
+\\begin{longtable}{p{0.65\\linewidth}p{0.30\\linewidth}}
+\\toprule Script & Referenced name \\\\
+\\midrule
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure101.py & Figure101.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure101.py & Saved Figure101.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1011.py & Figure1011.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1016.py & Figure1016.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1017.py & Figure1017.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1017.py & Saved Figure1017.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1018.py & Figure1018.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1018.py & Saved Figure1018.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1019.py & Figure1019.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1019.py & Saved Figure1019.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1020.py & Figure1020.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1020.py & Saved Figure1020.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1022.py & Figure1022.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1023.py & Figure1023.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1025.py & Figure1025.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1026.py & Figure1026.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1026.py & Saved Figure1026.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1027.py & Figure1027.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1027.py & Saved Figure1027.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1030.py & Figure1030.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1030.py & Saved Figure1030.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1031.py & Figure1031.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1031.py & Saved Figure1031.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1033.py & Figure1033.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1033.py & Saved Figure1033.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1034.py & Figure1034.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1034.py & Saved Figure1034.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1035.py & Figure1035.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1035.py & Saved Figure1035.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1036.py & Figure1036.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1036.py & Saved Figure1036.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1037.py & Figure1037.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1037.py & Saved Figure1037.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1038.py & Figure1038.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1038.py & Saved Figure1038.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1039.py & Figure1039.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure104.py & Figure104.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure104.py & Saved Figure104.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1040.py & Figure1040.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1041.py & Figure1041.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1042.py & Figure1042.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1042.py & Saved Figure1042.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1043.py & Figure1043.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1043.py & Saved Figure1043.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1044.py & Figure1044.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1044.py & Saved Figure1044.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1045.py & Figure1045.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1045.py & Saved Figure1045.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1046.py & Figure1046.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1046.py & Saved Figure1046.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1048.py & Figure1048.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1048.py & Saved Figure1048.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1049.py & Figure1049.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1049.py & Saved Figure1049.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure105.py & Figure105.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1050.py & Figure1050.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1050.py & Saved Figure1050.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1051.py & Figure1051.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1051.py & Saved Figure1051.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1052.py & Figure1052.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1052.py & Saved Figure1052.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1053.py & Figure1053.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1053.py & Saved Figure1053.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1054.py & Figure1054.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1054.py & Saved Figure1054.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1058.py & Figure1058.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1058.py & Saved Figure1058.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1059.py & Figure1059.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1059.py & Saved Figure1059.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1062.py & Figure1062.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1062.py & Saved Figure1062.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1063.py & Figure1063.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1063.py & Figure1063Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1063.py & Figure1063Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1063.py & Saved Figure1063.png, Figure1063Bis.png, Figure1063Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1064.py & Tiadcornea.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1064.py & TiadcorneaBis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1064.py & TiadcorneaQuart.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure1064.py & TiadcorneaTer.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure107.py & Figure107.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure108.py & Figure108.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/Figure108.py & Saved Figure108.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/TQTDecomp.py & liftingbody.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/TQTDecomp.py & Saved TQTDecomp.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/TQTDecomp.py & TQTDecomp.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter10/test\\_ncut.py & test\\_ncut\\_result.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1110.py & Figure1110.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1112.py & Figure1112.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1113.py & Figure1113.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1114.py & Figure1114.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1115.py & Figure1115.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1118.py & Figure1118.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1118.py & Figure1118Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1119.py & Figure1119.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure112.py & Figure112.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure112.py & Figure112Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure112.py & Figure112Quart.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure112.py & Figure112Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1120.py & Figure1120.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1121.py & Figure1121.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1122.py & Figure1122.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1124.py & Figure1124.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1125.py & Figure1125.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1126.py & Figure1126.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1127.py & Figure1127.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1128.py & Figure1128.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1129.py & Figure1129.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113.py & Figure113.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113.py & Figure113Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1131.py & Figure1131.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1131.py & Figure1131Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1132.py & Figure1132.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1133.py & Figure1133.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1134.py & Figure1134.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1135.py & Figure1135.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure1136.py & Figure1136.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113\\_skimage.py & Figure113\\_skimage.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113\\_skimage.py & Figure113\\_skimage\\_maps.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113\\_skimage.py & Saved Figure113\\_skimage.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure113\\_skimage.py & Saved Figure113\\_skimage\\_maps.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure114.py & Figure114.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure115.py & Figure115.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure116.py & Figure116.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure117.py & Figure117.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure118.py & Figure118.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter11/Figure119.py & Figure118.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Equation12\\_4.py & Equation12\\_4.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Example1214.py & Example1114\\_Choix\\{Choix\\}.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1201.py & Figure1201.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1201.py & Figure1201\\_Choix\\{Choix\\}.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1201.py & Figure1202.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1205.py & Figure1205.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1209 copy.py & Figure1209.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1209.py & Figure1209.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1211.py & Figure1211.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1211.py & Saved Figure1211.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1211Bis.py & )\\}.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1211Bis.py & Plane\\{choix1\\}.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1213.py & Figure1213.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1213.py & Saved Figure1213.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1214.py & Figure1214.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1214.py & Figure1214Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1214.py & Saved Figure1214.png and Figure1214Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1219.py & Fig1116(a)(chromo\\_binary).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1219.py & Figure1219.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1219.py & Figure1219Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1219.py & Saved Figure1219.png and Figure1219Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & Figure1222.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & Figure1223.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1222.py & Saved Figure1222.png and Figure1223.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1224.py & Figure1224.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1224.py & Saved Figure1224.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1224.py & \\{name\\}.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1228.py & Figure1228.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1228.py & Saved Figure1228.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1229.py & Figure1229.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1229.py & Saved Figure1229.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1231.py & Figure1231.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1231.py & Saved Figure1231.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & Figure1232.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & Saved Figure1232.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1232.py & \\{name\\}.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & Figure1233.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & Saved Figure1233.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1233.py & \\{name\\}.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1235.py & Figure1235.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1235.py & Saved Figure1235.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1236.py & Figure1236.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1236.py & Saved Figure1236.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1237.py & Figure1237.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1237.py & Figure1237Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1237.py & Saved Figure1237.png and Figure1237Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & Figure1238.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & Figure1238Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & Figure1240.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & Figure1241.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & Figure1242.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1238to42.py & Saved Figure1238.png, Figure1238Bis.png, Figure1240.png, Figure1241.png, Figure1242.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1246.py & Figure1246.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1246.py & Saved Figure1246.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1247.py & Figure1247.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1248.py & Figure1248.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1249.py & Figure1249.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter12/Figure1250.py & Figure1250.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1315CNN.py & Example1315CNN\\_Accuracy.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1315CNN.py & Example1315CNN\\_Kernels\\_L1.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1315CNN.py & Example1315CNN\\_MSE.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1315NN.py & Example1315NN\\_Montage.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1315NN.py & Example1315NN\\_MSE.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN copy.py & Example1316CNN\\_Accuracy.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN copy.py & Example1316CNN\\_FeedForward.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN copy.py & Example1316CNN\\_Kernels.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN copy.py & Example1316CNN\\_MSE.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN copy.py & Example1316CNN\\_Testing\\_Images.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN copy.py & Example1316CNN\\_Training\\_Images.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN.py & Example1316CNN\\_Accuracy.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN.py & Example1316CNN\\_FeedForward.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN.py & Example1316CNN\\_Kernels.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN.py & Example1316CNN\\_MSE.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN.py & Example1316CNN\\_Testing\\_Images.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316CNN.py & Example1316CNN\\_Training\\_Images.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316NN.py & Example1316NN\\_TestImages.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316NN.py & Example1316NN\\_TrainImages.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example1316NN.py & Example1316NN\\_TrainingResults.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Example138.py & Example138.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1308.py & Fig1203(a)(bottle\\_1).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1308.py & Fig1203(d)(bottle\\_2).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1308.py & Figure saved to Figure1308\\_Py.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1308.py & Figure1308\\_Py.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1310.py & Figure1310\\_Py.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1310.py & Saved Figure1310\\_Py.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1311.py & Confusion Matrix saved to Figure1311Quater.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1311.py & Figure1311.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1311.py & Figure1311Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1311.py & Figure1311Quater.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1311.py & Figure1311Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1313.py & Fig1209(a)(Hurricane Andrew).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1313.py & Fig1209(b)(eye template).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1313.py & Figure1313.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1315SURF.py & Figure1315SURF.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1315SURF.py & Figure1315SURFBis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1320.py & Figure1320.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & Figure1321.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & Figure1321Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1321.py & Figure1321Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1324LMSE.py & Figure1324LMSE.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1324Perceptron.py & Figure1324Perceptron.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1326.py & Figure1326Choice\\{Choice\\}.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1334.py & Figure1334.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1335.py & Figure1335.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1335UsingNNToolbox.py & Figure1335UsingNNToolbox.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1335UsingNNToolbox.py & Figure1335UsingNNToolboxBis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & Figure1338.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter13/Figure1338.py & Figure1338Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure223.py & Figure223.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure223.py & Saved Figure223.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure224.py & Figure224.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure224.py & Figure224Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure224.py & Saved Figure224.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure224.py & Saved Figure224Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure227.py & Figure227.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure227.py & Saved Figure227.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure229.py & Figure229.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure229.py & Saved Figure229.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure231.py & Figure231.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure231.py & Saved Figure231.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure232.py & Figure232.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure232.py & Saved Figure232.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure234.py & Figure234.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure234.py & Saved Figure234.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure236.py & Figure236.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure236.py & Saved Figure236.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure238.py & Figure238.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure238.py & Saved Figure238.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure239.py & Figure239.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure239.py & Saved Figure239.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure240.py & Figure240.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure240.py & Saved Figure240.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure242.py & Figure242.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure242.py & Saved Figure242.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure245.py & Figure245.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure245.py & Saved Figure245.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure257.py & Figure257.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter2/Figure257.py & Saved Figure257.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure310.py & Figure310.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure310.py & Saved Figure310.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure314.py & Figure314.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure314.py & Saved Figure314.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure315.py & Figure315.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure315.py & Saved Figure315.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure316.py & Figure316.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure316.py & Saved Figure316.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure320.py & Figure320.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure320.py & Saved Figure320.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure324.py & Figure324.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure325.py & Figure325.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure326.py & Figure326.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure328.py & Figure328.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure328.py & Saved Figure328.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure329.py & Figure329.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure329.py & Saved Figure329.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure330.py & Figure330.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure330.py & Saved Figure330.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure331.py & Figure331.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure331.py & Saved Figure331.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure332.py & Figure332.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure332.py & Saved Figure332.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure333.py & Figure333.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure333.py & Saved Figure333.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure339.py & Figure339.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure339.py & Saved Figure339.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure342.py & Figure342.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure342.py & Saved Figure342.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure343.py & Figure343.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure343.py & Saved Figure343.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure344.py & Figure344.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure344.py & Saved Figure344.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure345.py & Figure345.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure345.py & Saved Figure345.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure346.py & Figure346.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure346.py & Saved Figure346.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure347.py & Figure347.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure347.py & Saved Figure347.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure348Fourier.py & Figure348.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure348Fourier.py & Saved Figure348.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure348Separable.py & Figure348.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure348Separable.py & Saved Figure348.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure349.py & Figure349.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure349.py & Saved Figure349.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure352.py & Figure352.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure352.py & Figure353.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure352.py & Saved Figure352.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure352.py & Saved Figure353.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure355.py & Figure355.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure355.py & Saved Figure355.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure357.py & Figure357.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure357.py & Saved Figure357.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure359.py & Figure359.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure359.py & Saved Figure359.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure360.py & Figure360.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure360.py & Saved Figure360.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure361.py & Figure361.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure361.py & Saved Figure361.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure362.py & Figure362.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure362.py & Saved Figure362.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure363.py & Figure363.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure363.py & Figure363Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure363.py & Saved Figure363.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure363.py & Saved Figure363Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure366.py & Figure366.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure366.py & Saved Figure366.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure37.py & Figure37.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure374.py & Figure374.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure374.py & Figure374Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure374.py & Saved Figure374.png and Figure374Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure379.py & Figure379.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure379.py & Figure379Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure379.py & Saved Figure379.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter3/Figure379.py & Saved Figure379Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure418.py & Fig4.18...tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure418.py & Figure418.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure419.py & Figure419.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure419.py & Saved Figure419.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure423.py & Figure423.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure423.py & Saved Figure423.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure424\\_425.py & Figure424.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure424\\_425.py & Figure424Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure424\\_425.py & Figure425.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure426.py & Figure426.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure428.py & Figure428.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure428.py & Saved Figure428.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure429.py & Figure429.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure429.py & Saved Figure429.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure430.py & Figure430.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure430.py & Saved Figure430.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure433.py & Figure433.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure433.py & Saved Figure433.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure434.py & Figure434.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure434.py & Saved Figure434.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure435.py & Figure435\\_1.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure435.py & Figure435\\_2.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure435.py & Saved Figure435\\_1.png and Figure435\\_2.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure437.py & Figure437.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure438.py & Figure438.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure439.py & Figure439.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure440.py & Figure440.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure441.py & Figure441.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure442.py & Figure442.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure443.py & Figure443.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure444.py & Figure444.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure445.py & Figure445.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure446.py & Figure446.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure447.py & Figure447.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure448.py & Figure448.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure449.py & Figure449.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure450.py & Figure450.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure451.py & Figure451.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure452.py & Figure452.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure453.py & Figure453.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure453.py & Figure454.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure455.py & Figure455.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure456.py & Figure456.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure457.py & Figure457.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure460.py & Figure460.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure460Tunnel.py & Figure460Tunnel\\_1.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure460Tunnel.py & Figure460Tunnel\\_2.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure461.py & Figure461.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure462.py & Figure462.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure462.py & Figure463.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure464.py & Figure464.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure465.py & Figure465.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter4/Figure466.py & Figure466.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure510.py & Figure510.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure511.py & Figure511.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure512.py & Figure512.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure513.py & Figure513.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure514.py & Figure514.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure515.py & Figure515.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure515.py & Saved Figure515.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure516.py & Figure516.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure516.py & Figure517.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure516.py & Saved Figure516.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure516.py & Saved Figure517.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure518.py & Figure518.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure518.py & Figure519.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure518.py & Saved Figure518.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure518.py & Saved Figure519.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure525.py & Figure525.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure526.py & Figure526.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure526.py & Saved Figure526.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure527.py & Figure527.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure527.py & Figure527Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure527.py & Figure527Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure528.py & Figure528.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure529.py & Figure529.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure529.py & Figure529\\_init.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure529.py & Saved Figure529\\_init.png and Figure529.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure53.py & Figure53.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure53.py & Saved Figure53.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure530.py & Figure530.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure531.py & Figure531.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure531.py & Figure531Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure532.py & Figure532.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure532.py & Saved Figure532.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure533.py & Figure533.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure534.py & Figure534.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure534.py & Saved Figure534.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure538.py & Figure538.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure539.py & Figure539.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure539.py & Saved Figure539.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure54.py & Figure54.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure54.py & Figure54Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure540.py & Figure540.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure540.py & Saved Figure540.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure543.py & Figure543.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure543.py & Saved Figure543.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure544.py & Figure544.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure544.py & Saved Figure544.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure548.py & Figure548.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure548.py & Saved Figure548.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure549.py & Figure549.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure549.py & Saved Figure549.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure55.py & Figure55.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure57.py & Figure57.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure58.py & Figure58.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter5/Figure59.py & Figure59.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure610.py & Figure610.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure610.py & Saved Figure610.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure612.py & Figure612.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure612.py & Saved Figure612.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure613.py & Figure613.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure613.py & Saved Figure613.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure614.py & Figure614.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure614.py & Saved Figure614.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure615.py & Figure615.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure616.py & Figure616.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure617.py & Figure617.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure618.py & Figure618.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure630.py & Figure630.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure630.py & Figure630Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure630.py & Figure630Quart.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure630.py & Figure630Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure631.py & Figure631.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure632.py & Figure632.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63BIOR31.py & Figure63BIOR31.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63DB4.py & Figure63DB4.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63DCT.py & Figure63DCT.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63DFT.py & Figure63DFT.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63HAAR.py & Figure63HAAR.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63SLT.py & Figure63SLT.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63STD.py & Figure63STD.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure63WHT.py & Figure63WHT.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure67.py & Figure67.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure68.py & Figure68.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure69.py & Figure69.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter6/Figure69.py & Saved Figure69.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure81.py & Figure81.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure81.py & Figure82.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure810.py & Figure810.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure811.py & Figure811.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure819.py & Figure819.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure819.py & Figure820.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure822.py & Figure822.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure823.py & Figure823.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure824.py & Figure824.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure825.py & Figure825.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure825.py & Figure825Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure828.py & Figure828.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure829.py & Figure829.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure83.py & Figure83.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure831.py & Figure831.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure832.py & Figure832.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure834.py & Figure834.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure834.py & Saved Figure834.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure835.py & Figure835.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure835.py & Saved Figure835.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure84.py & Figure84.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure84.py & Figure84a.jpg \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure84.py & Figure84b.jpg \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure84.py & Figure84c.jpg \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure840.py & Figure840.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure843.py & Figure843.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure843.py & Figure843Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure843.py & Figure843Quart.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure843.py & Figure843Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure844.py & Figure844.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure846.py & Figure846.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure848.py & Figure848.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure850.py & Figure850.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure851.py & Figure851.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/Figure89.py & Figure89.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/FigureTifs2cv.py & FigureTifs2cv.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/FigureTifs2cv.py & shuttlereconstructed\\_sequence.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/test\\_cv\\_roundtrip.py & input\\_sequence.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter8/test\\_cv\\_roundtrip.py & reconstructed\\_sequence.tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure911.py & Figure911.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure912.py & Figure912.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure914.py & Figure914.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure915.py & Figure915.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure916.py & Figure916.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure917.py & Figure917.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure918.py & Figure918.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure919.py & Figure919.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure920.py & Figure920.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure921.py & Figure921\\_\\{iter\\_idx\\}.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure922.py & Figure922.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure923.py & Figure923.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure923.py & Figure923Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure926.py & Figure926.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure927.py & Figure927.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure93.py & Figure93.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure931.py & Figure931.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure933.py & Figure933.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure933.py & Figure933Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure934.py & Figure934.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure937.py & Figure937.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure939.py & Figure939.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940.py & Figure940.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940.py & Figure940Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940New.py & Fig0938(a)(cygnusloop\\_Xray\\_original).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940New.py & Figure940New.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940New.py & Figure940NewBis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure940New.py & Figure940NewTer.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure941.py & Figure941.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure942.py & Figure942.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure942.py & Figure942Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure943.py & Figure943.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure943.py & Figure943Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure945.py & Figure945.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure945.py & Figure945Enonce.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure946.py & Figure946.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure946.py & Figure946Bis.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure946.py & Figure946Ter.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure95.py & Figure95.png \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure97.py & Fig0907(a)(text\\_gaps\\_1\\_and\\_2\\_pixels).tif \\\\
+/Users/michelkocher/Desktop/DIP4e\\_Python\\_Conversion/figures/Chapter9/Figure97.py & Figure97.png \\\\
+\\bottomrule
+\\end{longtable}
+\\end{document}
