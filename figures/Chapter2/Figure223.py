@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from skimage.io import imread
 from skimage.transform import resize
 from libDIPUM.data_path import dip_data
-
+# ok
 # Data
 img_name = dip_data('Chronometer.tif')
 f = imread(img_name)
