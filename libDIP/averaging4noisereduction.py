@@ -1,28 +1,10 @@
 from typing import Any
 import numpy as np
-import sys
-import os
-
-# Add path for local modules
-# Assuming libDIPUM is the target location or in path
-# We'll use relative or standard import assuming this script ends up in libDIPUM
-# But for execution here, we need to find imnoise2.
-# The user said imnoise2.py is in /Users/michelkocher/Desktop/DIP4e_Python_Conversion/libDIPUM/
-
-# We'll try to import from there or local scratch
-paths_to_try = [
-    "/Users/michelkocher/Desktop/DIP4e_Python_Conversion/libDIPUM",
-    "/Users/michelkocher/.gemini/antigravity/scratch/DIP4eUtilityFunctions",
-]
-
-for p in paths_to_try:
-    if p not in sys.path and os.path.exists(p):
-        sys.path.append(p)
 
 try:
-    from imnoise2 import imnoise2
+    from libDIPUM.imnoise2 import imnoise2
 except ImportError:
-    print("Warning: imnoise2 not found. averaging4noisereduction may fail.")
+    from imnoise2 import imnoise2
 
 
 def averaging4noisereduction(

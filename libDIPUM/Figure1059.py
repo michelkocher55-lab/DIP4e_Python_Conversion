@@ -3,6 +3,7 @@ import os
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from scipy.ndimage import uniform_filter
+from libDIPUM.data_path import dip_data
 
 # Setup path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -22,7 +23,7 @@ except ImportError:
 def Figure1059():
     """Figure1059."""
     # Data
-    image_path = "/Users/michelkocher/michel/Data/DIPUM3e/DIPUM3E_Images/iceberg.tif"
+    image_path = dip_data("iceberg.tif")
     if not os.path.exists(image_path):
         print(f"Error: Image not found at {image_path}")
         return

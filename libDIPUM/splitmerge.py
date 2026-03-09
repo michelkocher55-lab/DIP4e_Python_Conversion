@@ -2,8 +2,8 @@ from typing import Any
 import numpy as np
 from skimage.measure import label
 from skimage.morphology import reconstruction
-from General.qtdecomp import qtdecomp
-from General.qtgetblk import qtgetblk
+from helpers.qtdecomp import qtdecomp
+from helpers.qtgetblk import qtgetblk
 
 
 def splitmerge(f: Any, mindim: Any, predicate: Any):

@@ -18,9 +18,6 @@ def _candidate_data_dirs():
     # 2) Project-local data directory (works in a fresh clone).
     candidates.append(_PROJECT_ROOT / "AllDataFiles")
 
-    # 3) Legacy absolute dataset directory used on the original machine.
-    candidates.append(Path("/Users/michelkocher/michel/Data/DIP-DIPUM/AllDataFiles"))
-
     return candidates
 
 
@@ -34,7 +31,7 @@ def dip_data(filename: str) -> str:
     Resolution order:
         1) $DIP4E_DATA_DIR
         2) <project_root>/AllDataFiles
-        3) /Users/michelkocher/michel/Data/DIP-DIPUM/AllDataFiles
+        3) Additional candidate directories from your environment/setup
     """
     for base in _candidate_data_dirs():
         p = base / filename

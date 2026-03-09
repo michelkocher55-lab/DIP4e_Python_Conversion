@@ -3,7 +3,7 @@ import math
 from libDIP.intScaling4e import intScaling4e
 from libDIP.gaussKernel4e import gaussKernel4e
 from libDIP.twodConv4e import twodConv4e
-from General.edge import edge
+from helpers.edge import edge
 
 
 def snakeMap4e(

@@ -3,7 +3,7 @@ import numpy as np
 from scipy.signal import convolve2d
 
 from libDIPUM.wavefilter import wavefilter
-from General.padarray import padarray
+from helpers.padarray import padarray
 
 
 def wavefast(x: Any, n: Any, *args: Any):

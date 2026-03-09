@@ -2,7 +2,7 @@ from typing import Any
 import numpy as np
 
 try:
-    from General.imgradient import imgradient
+    from helpers.imgradient import imgradient
 except ImportError:
     # Package-relative fallback when imported from project root package context.
     from ..General.imgradient import imgradient

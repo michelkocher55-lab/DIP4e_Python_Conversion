@@ -4,7 +4,7 @@ from scipy.signal import convolve2d
 
 from libDIPUM.wavefilter import wavefilter
 from libDIPUM.wavecopy import wavecopy
-from General.padarray import padarray
+from helpers.padarray import padarray
 
 
 def waveback(c: Any, s: Any, *args: Any):

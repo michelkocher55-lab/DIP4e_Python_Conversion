@@ -1,7 +1,7 @@
 from typing import Any
 import numpy as np
 import matplotlib.pyplot as plt
-from General.ginput import ginput
+from helpers.ginput import ginput
 from libDIPUM.interparc import interparc
 
 

@@ -13,7 +13,7 @@ from skimage.exposure import equalize_hist
 from skimage.io import imread
 from PIL import Image
 
-from General.wiener2 import wiener2
+from helpers.wiener2 import wiener2
 from libDIPUM.imnoise2 import imnoise2
 from libDIPUM.mat2gray import mat2gray
 

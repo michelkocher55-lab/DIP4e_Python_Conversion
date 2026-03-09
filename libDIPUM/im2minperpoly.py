@@ -13,9 +13,9 @@ from skimage import measure
 from scipy import sparse
 
 try:
-    from General.qtdecomp import qtdecomp
-    from General.qtgetblk import qtgetblk
-    from General.qtsetblk import qtsetblk
+    from helpers.qtdecomp import qtdecomp
+    from helpers.qtgetblk import qtgetblk
+    from helpers.qtsetblk import qtsetblk
 except Exception:
     from qtdecomp import qtdecomp
     from qtgetblk import qtgetblk

@@ -2,7 +2,7 @@ from typing import Any
 import numpy as np
 from libDIPUM.wavecut import wavecut
 from libDIPUM.wavecopy import wavecopy
-from General.padarray import padarray
+from helpers.padarray import padarray
 
 
 def _mat2gray(a: Any, v: Any = None):
