@@ -1,4 +1,5 @@
 from typing import Any
+import importlib
 from pathlib import Path
 from pathlib import Path as _Path
 import sys
@@ -8,6 +9,7 @@ import os as _os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.pyplot as _plt
+from matplotlib.figure import Figure as _MplFigure
 from skimage.io import imread
 from scipy.fftpack import dct
 
@@ -17,6 +19,111 @@ from libDIPUM.data_path import dip_data
 
 class Dip:
     """High-level wrappers for DIP demo workflows."""
+
+    @staticmethod
+    def _patch_ia870_iaintershow() -> None:
+        """Patch ia870.iaintershow for NumPy versions without ndarray.tostring."""
+        try:
+            import ia870 as _ia
+        except Exception:
+            return
+
+        if getattr(_ia, "_dip4e_iaintershow_patched", False):
+            return
+
+        original = getattr(_ia, "iaintershow", None)
+        if original is None:
+            return
+
+        def _compat_iaintershow(Iab):
+            try:
+                return original(Iab)
+            except AttributeError as exc:
+                if "tostring" not in str(exc):
+                    raise
+                from ia870.iaseunion import iaseunion
+                from ia870.iaintersec import iaintersec
+
+                assert (type(Iab) is tuple) and (len(Iab) == 2), (
+                    "not proper fortmat of hit-or-miss template"
+                )
+                A, Bc = Iab
+                S = iaseunion(A, Bc)
+                Z = iaintersec(S, 0)
+                n = np.prod(S.shape)
+                one = np.reshape(np.array(n * "1", "c"), S.shape)
+                zero = np.reshape(np.array(n * "0", "c"), S.shape)
+                x = np.reshape(np.array(n * ".", "c"), S.shape)
+                saux = np.choose(S + iaseunion(Z, A), (x, zero, one))
+                return "\n".join([ss.tobytes().decode() for ss in saux])
+
+        _ia.iaintershow = _compat_iaintershow
+        _ia._dip4e_iaintershow_patched = True
+
+    @staticmethod
+    def _patch_ia870_product_compat() -> None:
+        """Patch ia870 modules that rely on removed NumPy `product` alias."""
+        # NumPy 2 removed some aliases used by legacy ia870 code.
+        if not hasattr(np, "product"):
+            setattr(np, "product", np.prod)
+
+        module_names = (
+            "ia870.iathin",
+            "ia870.iathick",
+            "ia870.iacthin",
+            "ia870.iacthick",
+        )
+        for module_name in module_names:
+            try:
+                module = importlib.import_module(module_name)
+            except Exception:
+                continue
+            if "product" not in module.__dict__:
+                module.__dict__["product"] = np.prod
+
+    @staticmethod
+    def _patch_ia870_ianeg_overflow_warning() -> None:
+        """Patch ia870.ianeg to avoid unsigned-negation overflow warnings."""
+        try:
+            import ia870 as _ia
+            import ia870.ianeg as _ia_ianeg_mod
+            from ia870 import ialimits as _ialimits
+        except Exception:
+            return
+
+        if getattr(_ia, "_dip4e_ianeg_patched", False):
+            return
+
+        def _compat_ianeg(f):
+            if f.dtype == bool:
+                return ~f
+
+            limits = _ialimits(f)
+            lo = int(limits[0])
+            hi = int(limits[1])
+            if lo == -hi:
+                y = -f
+            else:
+                y = lo + hi - f
+            return y.astype(f.dtype)
+
+        _ia.ianeg = _compat_ianeg
+        _ia_ianeg_mod.ianeg = _compat_ianeg
+        _ia._dip4e_ianeg_patched = True
+
+    @staticmethod
+    def _patch_numpy_legacy_aliases() -> None:
+        """Restore removed NumPy aliases needed by legacy ia870 code."""
+        legacy_aliases = {
+            "float": float,
+            "int": int,
+            "complex": complex,
+            "object": object,
+            "str": str,
+        }
+        for alias, target in legacy_aliases.items():
+            if alias not in np.__dict__:
+                setattr(np, alias, target)
 
     @staticmethod
     def _compute_correlation(g: np.ndarray, w: dict[str, Any]) -> float:
@@ -87,6 +194,10 @@ class Dip:
         self, data_dir: str | None = None
     ) -> tuple[dict[str, Any], set[int], _Path]:
         """Prepare common execution context for inlined chapter code."""
+        self._patch_numpy_legacy_aliases()
+        self._patch_ia870_iaintershow()
+        self._patch_ia870_product_compat()
+        self._patch_ia870_ianeg_overflow_warning()
         project_root = str(_Path(__file__).resolve().parents[1])
         libdipum_dir = str(_Path(__file__).resolve().parents[1] / "libDIPUM")
         had_project_root = project_root in _sys.path
@@ -95,7 +206,11 @@ class Dip:
         old_cwd = _os.getcwd()
         old_data_dir = _os.environ.get("DIP4E_DATA_DIR")
         old_show = _plt.show
+        old_pyplot_savefig = _plt.savefig
+        old_figure_savefig = _MplFigure.savefig
+        old_os_path_exists = _os.path.exists
         pre_fig_nums = set(_plt.get_fignums())
+        output_dir = str(_Path(project_root) / "output")
 
         if data_dir is not None:
             _os.environ["DIP4E_DATA_DIR"] = data_dir
@@ -103,14 +218,97 @@ class Dip:
             _sys.path.insert(0, project_root)
         if not had_libdipum_dir:
             _sys.path.insert(0, libdipum_dir)
+        _os.makedirs(output_dir, exist_ok=True)
+
+        def _redirect_save_path(fname: Any) -> Any:
+            if isinstance(fname, (str, _os.PathLike)):
+                fspath = _os.fspath(fname)
+                if not _os.path.isabs(fspath):
+                    return _os.path.join(output_dir, fspath)
+            return fname
+
+        def _patched_pyplot_savefig(*args, **kwargs):
+            if args:
+                args = list(args)
+                args[0] = _redirect_save_path(args[0])
+                args = tuple(args)
+            elif "fname" in kwargs:
+                kwargs["fname"] = _redirect_save_path(kwargs["fname"])
+            return old_pyplot_savefig(*args, **kwargs)
+
+        def _patched_figure_savefig(self, *args, **kwargs):
+            if args:
+                args = list(args)
+                args[0] = _redirect_save_path(args[0])
+                args = tuple(args)
+            elif "fname" in kwargs:
+                kwargs["fname"] = _redirect_save_path(kwargs["fname"])
+            return old_figure_savefig(self, *args, **kwargs)
+
+        workspace_mat_names = {
+            "Figure112.mat",
+            "Figure118.mat",
+            "Figure1124.mat",
+            "Figure1132.mat",
+        }
+
+        def _redirect_workspace_mat_path(path_like: Any) -> Any:
+            if not isinstance(path_like, (str, _os.PathLike)):
+                return path_like
+            p = _os.fspath(path_like)
+            if _os.path.isabs(p):
+                return p
+            if _os.path.dirname(p):
+                return p
+            if p in workspace_mat_names:
+                out_p = _os.path.join(output_dir, p)
+                if old_os_path_exists(out_p):
+                    return out_p
+                all_data_p = _os.path.join(project_root, "AllDataFiles", p)
+                if old_os_path_exists(all_data_p):
+                    return all_data_p
+                return out_p
+            return p
+
+        def _patched_exists(path_like: Any) -> bool:
+            redirected = _redirect_workspace_mat_path(path_like)
+            return old_os_path_exists(redirected)
+
+        import scipy.io as _scipy_io
+
+        old_scipy_loadmat = _scipy_io.loadmat
+        old_scipy_savemat = _scipy_io.savemat
+
+        def _patched_loadmat(file_name, *args, **kwargs):
+            return old_scipy_loadmat(
+                _redirect_workspace_mat_path(file_name), *args, **kwargs
+            )
+
+        def _patched_savemat(file_name, *args, **kwargs):
+            target = _redirect_workspace_mat_path(file_name)
+            if isinstance(target, (str, _os.PathLike)):
+                parent = _os.path.dirname(_os.fspath(target))
+                if parent:
+                    _os.makedirs(parent, exist_ok=True)
+            return old_scipy_savemat(target, *args, **kwargs)
 
         _os.chdir(project_root)
         _plt.show = lambda *args, **kwargs: None
+        _plt.savefig = _patched_pyplot_savefig
+        _MplFigure.savefig = _patched_figure_savefig
+        _os.path.exists = _patched_exists
+        _scipy_io.loadmat = _patched_loadmat
+        _scipy_io.savemat = _patched_savemat
 
         state = {
             "old_cwd": old_cwd,
             "old_data_dir": old_data_dir,
             "old_show": old_show,
+            "old_pyplot_savefig": old_pyplot_savefig,
+            "old_figure_savefig": old_figure_savefig,
+            "old_os_path_exists": old_os_path_exists,
+            "old_scipy_loadmat": old_scipy_loadmat,
+            "old_scipy_savemat": old_scipy_savemat,
             "project_root": project_root,
             "libdipum_dir": libdipum_dir,
             "had_project_root": had_project_root,
@@ -125,6 +323,12 @@ class Dip:
         """Restore environment after inlined chapter code execution."""
         _os.chdir(state["old_cwd"])
         _plt.show = state["old_show"]
+        _plt.savefig = state["old_pyplot_savefig"]
+        _MplFigure.savefig = state["old_figure_savefig"]
+        _os.path.exists = state["old_os_path_exists"]
+        import scipy.io as _scipy_io
+        _scipy_io.loadmat = state["old_scipy_loadmat"]
+        _scipy_io.savemat = state["old_scipy_savemat"]
 
         if data_dir is not None:
             if state["old_data_dir"] is None:
@@ -227,8 +431,6 @@ class Dip:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure223.png")
-            print("Saved Figure223.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -491,6 +693,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
+            from helpers import MKRLib
             from libDIPUM.data_path import dip_data
 
             # Load images
@@ -10818,7 +11021,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from fig81bc import fig81bc
+            from libDIPUM.chapter08.fig81bc import fig81bc
             from libDIPUM.data_path import dip_data
 
             # Figure81
@@ -11914,7 +12117,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from fig81bc import fig81bc
+            from libDIPUM.chapter08.fig81bc import fig81bc
             from libDIP.histEqual4e import histEqual4e
 
             # Figure 8.3
@@ -12254,7 +12457,11 @@ class Dip:
 
             # Parameters
             Quality = [74, 10, 14]
-            Name = ["Figure84a.jpg", "Figure84b.jpg", "Figure84c.jpg"]
+            Name = [
+                _os.path.join("output", "Figure84a.jpg"),
+                _os.path.join("output", "Figure84b.jpg"),
+                _os.path.join("output", "Figure84c.jpg"),
+            ]
 
             # Data
             img_path = dip_data("Fig0801(a).tif")
@@ -13419,25 +13626,30 @@ class Dip:
 
             cid = fig.canvas.mpl_connect("button_press_event", _on_click)
             plt.tight_layout()
-            plt.show(block=False)
-            plt.pause(0.1)
+            suppressed_show = plt.show
+            plt.show = _ctx["old_show"]
             try:
-                # Bring seed window to front (helps avoid the first click being just focus).
-                fig.canvas.manager.window.raise_()
-            except Exception:
-                pass
+                plt.show(block=False)
+                plt.pause(0.1)
+                try:
+                    # Bring seed window to front (helps avoid the first click being just focus).
+                    fig.canvas.manager.window.raise_()
+                except Exception:
+                    pass
 
-            print(f"Matplotlib backend: {matplotlib.get_backend()}")
-            print("Click once in the image window to set the seed point.")
+                print(f"Matplotlib backend: {matplotlib.get_backend()}")
+                print("Click once in the image window to set the seed point.")
 
-            t0 = time.time()
-            timeout_s = 60.0
-            while (
-                seed["pt"] is None
-                and plt.fignum_exists(fig.number)
-                and (time.time() - t0 < timeout_s)
-            ):
-                plt.pause(0.05)
+                t0 = time.time()
+                timeout_s = 60.0
+                while (
+                    seed["pt"] is None
+                    and plt.fignum_exists(fig.number)
+                    and (time.time() - t0 < timeout_s)
+                ):
+                    plt.pause(0.05)
+            finally:
+                plt.show = suppressed_show
 
             fig.canvas.mpl_disconnect(cid)
             plt.close(fig)
@@ -14480,6 +14692,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
+            from helpers import MKRLib
             from libDIPUM.data_path import dip_data
 
             # %% Figure933
@@ -18124,9 +18337,6 @@ class Dip:
             plt.savefig("Figure1050.png")
             print("Saved Figure1050.png")
             plt.show()
-
-            if True:
-                Figure1050()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -18929,6 +19139,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
+            from helpers import MKRLib
             from libDIPUM.data_path import dip_data
 
             # Figure1064
@@ -19105,9 +19316,6 @@ class Dip:
             plt.tight_layout()
             plt.savefig("Figure107.png")
             plt.show()
-
-            if True:
-                Figure107()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -19357,9 +19565,6 @@ class Dip:
                 plt.savefig("TQTDecomp.png")
                 print("Saved TQTDecomp.png")
                 plt.show()
-
-            if True:
-                TQTDecomp()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -19398,9 +19603,6 @@ class Dip:
                 plt.savefig("test_ncut_result.png")
                 # print(f"Saved result to {output_file}")
                 plt.show()
-
-            if True:
-                test_ncut()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -19604,7 +19806,6 @@ class Dip:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             from typing import Any
-            import sys
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
@@ -19624,9 +19825,6 @@ class Dip:
 
             # Data
             img_path = dip_data("breast-implant.tif")
-            if len(sys.argv) > 1:
-                img_path = sys.argv[1]
-
             f = imread(img_path)
 
             # Edge map
@@ -21223,7 +21421,11 @@ class Dip:
             from libDIPUM.data_path import dip_data
 
             # (1) Snake part (gvf)
-            mat = sio.loadmat("Figure118.mat")
+            mat_path = dip_data("Figure118.mat")
+            mat = sio.loadmat(mat_path)
+            if "f" not in mat:
+                # Fallback for local workspace files that only store xi/yi.
+                mat = sio.loadmat("processing/Chapter11/Figure118.mat")
             f = mat["f"]
             xi = mat["yi"].squeeze()
             yi = mat["xi"].squeeze()
@@ -21657,11 +21859,11 @@ class Dip:
             _ = (M, N)
 
             # %% Initial contour / mask
-            mat_snake = sio.loadmat("WorkspaceFig1138(a).mat")
+            mat_snake = sio.loadmat(dip_data("WorkspaceFig1138(a).mat"))
             xi = np.asarray(mat_snake["xi"]).squeeze()
             yi = np.asarray(mat_snake["yi"]).squeeze()
 
-            mat_mask = sio.loadmat("WorkspaceForFig1138(b).mat")
+            mat_mask = sio.loadmat(dip_data("WorkspaceForFig1138(b).mat"))
             mask = np.asarray(mat_mask["mask"])
 
             # %% 1) Snake
@@ -21776,11 +21978,11 @@ class Dip:
             _ = (M, N)
 
             # %% Initial contour
-            mat_snake = sio.loadmat("WorkspaceFig1138(a).mat")
+            mat_snake = sio.loadmat(dip_data("WorkspaceFig1138(a).mat"))
             xi = mat_snake["xi"].squeeze()
             yi = mat_snake["yi"].squeeze()
 
-            mat_mask = sio.loadmat("WorkspaceForFig1138(b).mat")
+            mat_mask = sio.loadmat(dip_data("WorkspaceForFig1138(b).mat"))
             mask = mat_mask["mask"]
 
             # %% 1) Snake
@@ -21849,7 +22051,7 @@ class Dip:
             if edge_lib_path not in sys.path:
                 sys.path.append(edge_lib_path)
 
-            from snakeMap4e import snakeMap4e
+            from libDIP.snakeMap4e import snakeMap4e
             from libDIPUM.data_path import dip_data
 
             def Figure113_skimage():
@@ -22004,9 +22206,6 @@ class Dip:
                 print("Saved Figure113_skimage_maps.png")
 
                 plt.show()
-
-            if True:
-                Figure113_skimage()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -22394,23 +22593,21 @@ class Dip:
             if f.ndim == 3:
                 f = f[..., 0]
 
-            script_dir = os.path.dirname(str(script_path))
-            mat_path = os.path.join(script_dir, "Figure118.mat")
+            mat_path = dip_data("Figure118.mat")
+            data = loadmat(mat_path)
+            if "f" in data:
+                f = np.asarray(data["f"])
+            xi = np.asarray(data.get("xi", np.array([]))).squeeze()
+            yi = np.asarray(data.get("yi", np.array([]))).squeeze()
 
-            if os.path.exists(mat_path):
-                data = loadmat(mat_path)
-                if "f" in data:
-                    f = np.asarray(data["f"])
-                xi = np.asarray(data["xi"]).squeeze()
-                yi = np.asarray(data["yi"]).squeeze()
-            else:
-                plt.figure()
-                plt.imshow(f, cmap="gray")
-                plt.axis("off")
-                plt.title("Select initial snake")
-                # Coordinates of initial snake selected manually.
-                xi, yi = snake_manual_input(f, 150, "wo")
-                savemat(mat_path, {"f": f, "xi": xi, "yi": yi})
+            # Guard against malformed workspace files (empty xi/yi).
+            if np.size(xi) < 3 or np.size(yi) < 3:
+                t0 = np.linspace(0, 2 * np.pi, 150, endpoint=False)
+                rr = min(f.shape[:2]) * 0.18
+                xc = f.shape[1] / 2.0
+                yc = f.shape[0] / 2.0
+                xi = xc + rr * np.cos(t0)
+                yi = yc + rr * np.sin(t0)
 
             # Parameters
             T = 0.005
@@ -22465,7 +22662,7 @@ class Dip:
             plt.sca(axes[1, 1])
             snake_display(x, y, "g.")
 
-            out_path = os.path.join(script_dir, "Figure118.png")
+            out_path = "Figure118.png"
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -22696,9 +22893,6 @@ class Dip:
                 plt.tight_layout()
                 plt.savefig("Equation12_4.png")
                 plt.show()
-
-            if True:
-                Equation12_4()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -23427,9 +23621,6 @@ class Dip:
                 plt.tight_layout()
                 plt.savefig("Figure1209.png")
                 plt.show()
-
-            if True:
-                Figure1209()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -23779,9 +23970,6 @@ class Dip:
                 plt.savefig(out_name)
                 print(f"Saved {out_name}")
                 plt.show()
-
-            if True:
-                Figure1211Bis()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -26729,9 +26917,6 @@ class Dip:
 
                 print("Example1315NN Completed. Figures saved.")
                 plt.show()
-
-            if True:
-                main()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -27144,9 +27329,6 @@ class Dip:
 
                 print("Example1316NN Completed. Figures saved.")
                 plt.show()
-
-            if True:
-                main()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -27758,9 +27940,37 @@ class Dip:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from skimage.feature import ORB, match_descriptors, plot_matches
+            from skimage.feature import ORB, match_descriptors
             import os
             from libDIPUM.data_path import dip_data
+
+            try:
+                from skimage.feature import plot_matches as _plot_matches_legacy
+
+                def _plot_matches_compat(ax, image0, image1, keypoints0, keypoints1, matches):
+                    return _plot_matches_legacy(
+                        ax,
+                        image0,
+                        image1,
+                        keypoints0,
+                        keypoints1,
+                        matches,
+                        only_matches=True,
+                    )
+
+            except Exception:
+                from skimage.feature import plot_matched_features as _plot_matched_features
+
+                def _plot_matches_compat(ax, image0, image1, keypoints0, keypoints1, matches):
+                    return _plot_matched_features(
+                        image0,
+                        image1,
+                        keypoints0=keypoints0,
+                        keypoints1=keypoints1,
+                        matches=matches,
+                        ax=ax,
+                        only_matches=True,
+                    )
 
             def Figure1315SURF():
                 """Figure1315SURF."""
@@ -27845,23 +28055,19 @@ class Dip:
                 # matches12 indices are sorted by distance? No guaranteed.
                 # match_descriptors returns indices.
 
-                plot_matches(
+                _plot_matches_compat(
                     ax,
                     f,
                     pattern,
                     keypoints_f,
                     keypoints_pattern,
                     matches12,
-                    only_matches=True,
                 )
                 plt.title(f"Candidate point matches ({len(matches12)} total)")
                 plt.axis("off")
                 plt.savefig("Figure1315SURFBis.png")
 
                 plt.show()
-
-            if True:
-                Figure1315SURF()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -28451,9 +28657,6 @@ class Dip:
                 plt.tight_layout()
                 plt.savefig("Figure1324LMSE.png")
                 plt.show()
-
-            if True:
-                Figure1324LMSE()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -28575,9 +28778,6 @@ class Dip:
                 plt.tight_layout()
                 plt.savefig("Figure1324Perceptron.png")
                 plt.show()
-
-            if True:
-                Figure1324Perceptron()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -29136,9 +29336,6 @@ class Dip:
                 plt.tight_layout()
                 plt.savefig("Figure1335.png")
                 plt.show()
-
-            if True:
-                Figure1335()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -29363,9 +29560,6 @@ class Dip:
                 plt.tight_layout()
                 plt.savefig("Figure1335UsingNNToolboxBis.png")
                 plt.show()
-
-            if True:
-                Figure1335UsingNNToolbox()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)

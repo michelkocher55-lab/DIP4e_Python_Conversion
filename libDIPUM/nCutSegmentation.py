@@ -4,9 +4,15 @@ from skimage.transform import resize
 from skimage.segmentation import slic
 
 try:
-    from skimage.future import graph
-except Exception as e:
-    raise ImportError("skimage.future.graph is required for nCutSegmentation") from e
+    from skimage import graph
+except Exception:
+    try:
+        # Backward compatibility for older scikit-image releases.
+        from skimage.future import graph
+    except Exception as e:
+        raise ImportError(
+            "scikit-image graph module is required for nCutSegmentation"
+        ) from e
 
 
 def mat2gray(img: Any):
