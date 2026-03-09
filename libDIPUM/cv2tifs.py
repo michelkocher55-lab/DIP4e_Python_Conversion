@@ -1,38 +1,45 @@
+from typing import Any
 import numpy as np
 
 from libDIPUM.huff2mat import huff2mat
 from libDIPUM.jpeg2im import jpeg2im
 
 
-def _get_distinct_block(mat, m, col, rows):
+def _get_distinct_block(mat: Any, m: Any, col: Any, rows: Any):
+    """_get_distinct_block."""
     # MATLAB col index is 1-based; here col is 0-based.
     x = 1 + (m * col) % rows
     y = 1 + m * ((col * m) // rows)
-    blk = mat[x - 1:x - 1 + m, y - 1:y - 1 + m]
+    blk = mat[x - 1 : x - 1 + m, y - 1 : y - 1 + m]
     return blk, x, y
 
 
-def _blocks_to_cols_distinct(mat, m):
+def _blocks_to_cols_distinct(mat: Any, m: Any):
+    """_blocks_to_cols_distinct."""
     rows, cols = mat.shape
     nb = (rows // m) * (cols // m)
     out = np.zeros((m * m, nb), dtype=float)
     for col in range(nb):
         blk, _, _ = _get_distinct_block(mat, m, col, rows)
-        out[:, col] = blk.reshape(-1, order='F')
+        out[:, col] = blk.reshape(-1, order="F")
     return out
 
 
-def _cols_to_blocks_distinct(cols_data, out_shape, m):
+def _cols_to_blocks_distinct(cols_data: Any, out_shape: Any, m: Any):
+    """_cols_to_blocks_distinct."""
     rows, cols = out_shape
     nb = (rows // m) * (cols // m)
     out = np.zeros((rows, cols), dtype=float)
     for col in range(nb):
         _, x, y = _get_distinct_block(out, m, col, rows)
-        out[x - 1:x - 1 + m, y - 1:y - 1 + m] = cols_data[:, col].reshape((m, m), order='F')
+        out[x - 1 : x - 1 + m, y - 1 : y - 1 + m] = cols_data[:, col].reshape(
+            (m, m), order="F"
+        )
     return out
 
 
-def _write_multipage_tiff(path, frames_uint8):
+def _write_multipage_tiff(path: Any, frames_uint8: Any):
+    """_write_multipage_tiff."""
     # Prefer tifffile for explicit no-compression write.
     try:
         import tifffile
@@ -52,7 +59,7 @@ def _write_multipage_tiff(path, frames_uint8):
             path,
             save_all=True,
             append_images=ims[1:],
-            compression='raw',
+            compression="raw",
         )
         return
     except Exception as exc:
@@ -61,7 +68,7 @@ def _write_multipage_tiff(path, frames_uint8):
         ) from exc
 
 
-def cv2tifs(y, f):
+def cv2tifs(y: Any, f: Any):
     """
     Decode a TIFS2CV compressed sequence and write a multi-frame TIFF.
     MATLAB-faithful translation of DIPUM cv2tifs.m.
@@ -78,31 +85,31 @@ def cv2tifs(y, f):
     list[np.ndarray]
         Reconstructed uint8 frames (also written to disk).
     """
-    fcnt = int(np.asarray(y['frames']).reshape(-1)[0])
-    m = int(np.asarray(y['blksz']).reshape(-1)[0])
-    q = int(np.asarray(y['quality']).reshape(-1)[0])
+    fcnt = int(np.asarray(y["frames"]).reshape(-1)[0])
+    m = int(np.asarray(y["blksz"]).reshape(-1)[0])
+    q = int(np.asarray(y["quality"]).reshape(-1)[0])
 
     # Reconstruct first frame.
     if q == 0:
-        r = huff2mat(y['video'][0]).astype(float)
+        r = huff2mat(y["video"][0]).astype(float)
     else:
-        r = jpeg2im(y['video'][0]).astype(float)
+        r = jpeg2im(y["video"][0]).astype(float)
 
     fsz = r.shape
     mvsz = (fsz[0] // m, fsz[1] // m, 2, fcnt)
 
     # MATLAB: mv = int16(huff2mat(y.motion)); mv = reshape(mv,mvsz);
-    mv = np.int16(np.round(huff2mat(y['motion'])))
-    mv = np.asarray(mv).reshape(mvsz, order='F')
+    mv = np.int16(np.round(huff2mat(y["motion"])))
+    mv = np.asarray(mv).reshape(mvsz, order="F")
 
     frames = [np.uint8(np.clip(np.round(r), 0, 255))]
 
     # Remaining frames.
     for i in range(1, fcnt):
         if q == 0:
-            pe = huff2mat(y['video'][i]).astype(float)
+            pe = huff2mat(y["video"][i]).astype(float)
         else:
-            pe = jpeg2im(y['video'][i]).astype(float) - 255.0
+            pe = jpeg2im(y["video"][i]).astype(float) - 255.0
 
         peC = _blocks_to_cols_distinct(pe, m)
 
@@ -115,8 +122,8 @@ def cv2tifs(y, f):
             rx = int(u - mv[bi, bj, 0, i])
             ry = int(v - mv[bi, bj, 1, i])
 
-            subimage = r[rx - 1:rx - 1 + m, ry - 1:ry - 1 + m]
-            peC[:, col] = subimage.reshape(-1, order='F') - peC[:, col]
+            subimage = r[rx - 1 : rx - 1 + m, ry - 1 : ry - 1 + m]
+            peC[:, col] = subimage.reshape(-1, order="F") - peC[:, col]
 
         r = _cols_to_blocks_distinct(np.uint16(peC).astype(float), fsz, m)
         frames.append(np.uint8(np.clip(np.round(r), 0, 255)))

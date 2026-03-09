@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -19,7 +17,7 @@ D0 = 85
 order = 10
 
 # Data
-img_path = dip_data('aerial_view_no_turb.tif')
+img_path = dip_data("aerial_view_no_turb.tif")
 f_orig = imread(img_path)
 if f_orig.ndim == 3:
     f_orig = rgb2gray(f_orig)
@@ -39,7 +37,7 @@ g = np.fft.ifft2(np.fft.fftshift(G))
 
 # Add noise in the frequency domain
 z = np.zeros((M, N))
-zn, _ = imnoise2(z, 'gaussian', mu, sigma)
+zn, _ = imnoise2(z, "gaussian", mu, sigma)
 Gn = np.fft.fftshift(np.fft.fft2(zn))
 G1 = G + Gn
 g1 = np.fft.ifft2(np.fft.fftshift(G1))
@@ -50,21 +48,21 @@ fHat = []
 fHat.append(np.abs(np.real(np.fft.ifft2(Fh1))))
 
 # Low-pass cutoff
-LowPass = lpFilterTF4e('butterworth', M, N, D0, order)
+LowPass = lpFilterTF4e("butterworth", M, N, D0, order)
 Temp = LowPass * Fh1
 fHat.append(np.abs(np.real(np.fft.ifft2(Temp))))
 
 # Wiener
-nspr = (sigma ** 2) / np.var(f)
+nspr = (sigma**2) / np.var(f)
 psf = np.fft.fftshift(np.fft.ifft2(np.fft.fftshift(H)))
 fHat.append(deconvwnr(g1, psf, nspr))
 
 # Display
 fig, axes = plt.subplots(1, 3, figsize=(12, 4))
 for i in range(3):
-    axes[i].imshow(fHat[i], cmap='gray')
-    axes[i].axis('off')
+    axes[i].imshow(fHat[i], cmap="gray")
+    axes[i].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure528.png')
+plt.savefig("Figure528.png")
 plt.show()

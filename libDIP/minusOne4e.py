@@ -1,14 +1,16 @@
+from typing import Any
 import numpy as np
 
-def minusOne4e(f):
+
+def minusOne4e(f: Any):
     """
     Multiplies an input array by (-1)^(x+y).
-    
+
     Parameters:
     -----------
     f : numpy.ndarray
         Input array (1-D or 2-D).
-        
+
     Returns:
     --------
     g : numpy.ndarray
@@ -17,7 +19,7 @@ def minusOne4e(f):
         The multiplier array (-1)^(x+y).
     """
     f = np.array(f, dtype=float)
-    
+
     # Handle scalar
     if f.ndim == 0 or (f.ndim == 1 and f.size == 1) or (f.ndim == 2 and f.size == 1):
         # Scalar case roughly
@@ -26,7 +28,7 @@ def minusOne4e(f):
         # But let's follow the shape logic.
         if f.size == 1:
             return f, np.array(1.0)
-            
+
     # Dimensions
     if f.ndim == 1:
         # 1-D array. M=1, N=length? Or M=length, N=1?
@@ -38,31 +40,31 @@ def minusOne4e(f):
         # So it's just alternating 1, -1, 1, -1...
         N = f.shape[0]
         idx = np.arange(N)
-        A = (-1.0)**idx
-        
+        A = (-1.0) ** idx
+
     elif f.ndim == 2:
         M, N = f.shape
-        x = np.arange(M) # Rows 0..M-1
-        y = np.arange(N) # Cols 0..N-1
-        
+        x = np.arange(M)  # Rows 0..M-1
+        y = np.arange(N)  # Cols 0..N-1
+
         # grid
         # (-1)^(x+y)
         # We can implement this efficiently using outer sum or broadcasting
         # row_pattern = (-1)^x
         # col_pattern = (-1)^y
-        # A = row_pattern_col_vec * col_pattern_row_vec ? 
+        # A = row_pattern_col_vec * col_pattern_row_vec ?
         # (-1)^(x+y) = (-1)^x * (-1)^y
-        
-        row_pat = (-1.0)**x
-        col_pat = (-1.0)**y
-        
+
+        row_pat = (-1.0) ** x
+        col_pat = (-1.0) ** y
+
         # Outer product
         # A[i, j] = row_pat[i] * col_pat[j]
         A = np.outer(row_pat, col_pat)
-        
+
     else:
         raise ValueError("Input must be 1-D or 2-D.")
-        
+
     g = f * A
-    
+
     return g, A

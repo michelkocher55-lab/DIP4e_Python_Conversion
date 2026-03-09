@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-from pathlib import Path
 import ia870 as ia
 from General.mmshow import mmshow
 
@@ -28,16 +26,22 @@ I2BG = np.logical_not(I2FG)
 I2 = ia.iase2hmt(ia.iaimg2se(I2FG), ia.iaimg2se(I2BG))
 ia.iaintershow(I2)
 
-I3FG = np.array([
-    [False, False, False],
-    [True,  True,  False],
-    [False, False, False],
-], dtype=bool)
-I3BG = np.array([
-    [False, False, True],
-    [False, False, True],
-    [False, False, True],
-], dtype=bool)
+I3FG = np.array(
+    [
+        [False, False, False],
+        [True, True, False],
+        [False, False, False],
+    ],
+    dtype=bool,
+)
+I3BG = np.array(
+    [
+        [False, False, True],
+        [False, False, True],
+        [False, False, True],
+    ],
+    dtype=bool,
+)
 I3 = ia.iase2hmt(ia.iaimg2se(I3FG), ia.iaimg2se(I3BG))
 ia.iaintershow(I3)
 
@@ -50,25 +54,25 @@ Y3 = ia.iasupgen(X, I3)
 fig = plt.figure(1, figsize=(10, 8))
 
 plt.subplot(2, 2, 1)
-plt.imshow(X, cmap='gray')
-plt.title('X')
-plt.axis('off')
+plt.imshow(X, cmap="gray")
+plt.title("X")
+plt.axis("off")
 
 plt.subplot(2, 2, 2)
 mmshow(X, Y1)
-plt.title('HMT(X, I1)')
-plt.axis('off')
+plt.title("HMT(X, I1)")
+plt.axis("off")
 
 plt.subplot(2, 2, 3)
 mmshow(X, Y2)
-plt.title('HMT(X, I2)')
-plt.axis('off')
+plt.title("HMT(X, I2)")
+plt.axis("off")
 
 plt.subplot(2, 2, 4)
 mmshow(X, Y3)
-plt.title('HMT(X, I3)')
-plt.axis('off')
+plt.title("HMT(X, I3)")
+plt.axis("off")
 
 plt.tight_layout()
-fig.savefig('Figure914.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure914.png", dpi=150, bbox_inches="tight")
 plt.show()

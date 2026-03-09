@@ -26,7 +26,7 @@ plt.figure(figsize=(10, 8))
 
 plt.subplot(2, 2, 1)
 plt.plot(HIdeal)
-plt.title('H_ideal')
+plt.title("H_ideal")
 plt.xlim(0, len(HIdeal) - 1)
 
 plt.subplot(2, 2, 2)
@@ -42,6 +42,6 @@ plt.plot(np.abs(np.fft.fftshift(Hpad)))
 plt.xlim(0, len(Hpad) - 1)
 
 plt.tight_layout()
-plt.savefig('Figure433.png')
-print('Saved Figure433.png')
+plt.savefig("Figure433.png")
+print("Saved Figure433.png")
 plt.show()

@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def fig81bc(part, s=256, n=None, p=None):
+def fig81bc(part: Any, s: Any = 256, n: Any = None, p: Any = None):
     """
     Figure 8.1(b,c) generator.
     (b) s x s image with s gray-level lines (uniform distribution)
@@ -20,7 +21,7 @@ def fig81bc(part, s=256, n=None, p=None):
 
     img = np.zeros((s, s), dtype=np.uint8)
 
-    if part == 'b':
+    if part == "b":
         gl = np.arange(s, dtype=np.uint8)
         for k in range(s):
             r = int(np.ceil(len(gl) * np.random.rand())) - 1
@@ -30,8 +31,10 @@ def fig81bc(part, s=256, n=None, p=None):
         img[:, :] = 128
         for j in range(jend):
             for _ in range(int(p[j])):
-                img[int(np.ceil(s * np.random.rand())) - 1,
-                    int(np.ceil(s * np.random.rand())) - 1] = n[j]
+                img[
+                    int(np.ceil(s * np.random.rand())) - 1,
+                    int(np.ceil(s * np.random.rand())) - 1,
+                ] = n[j]
 
         for k in range(50, 81):
             img[:, k] = 128

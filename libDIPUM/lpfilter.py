@@ -1,6 +1,5 @@
-
+from typing import Any
 import numpy as np
-import sys
 
 # Ensure dftuv is importable (assuming it's in the same directory or lib path)
 # In normal usage within libDIPUM, it should be importable directly or via relative import if in package.
@@ -13,34 +12,35 @@ except ImportError:
     try:
         from .dftuv import dftuv
     except ImportError:
-        pass # Expect dftuv to be available in path
+        pass  # Expect dftuv to be available in path
 
-def lpfilter(type_filter, M, N, D0, n=1):
+
+def lpfilter(type_filter: Any, M: Any, N: Any, D0: Any, n: Any = 1):
     """
     Computes frequency domain lowpass filter transfer functions.
-    
+
     Parameters:
     type_filter (str): 'ideal', 'butterworth', 'gaussian'.
     M, N (int): Size of the filter.
     D0 (float): Cutoff frequency.
     n (float, optional): Order for Butterworth filter. Default is 1.
-    
+
     Returns:
     H (ndarray): Uncentered transfer function of size MxN.
     """
-    
+
     # Use function dftuv to set up the meshgrid arrays.
     U, V = dftuv(M, N)
-    
+
     # Compute the distances D(U,V).
     D = np.hypot(U, V)
-    
+
     type_filter = type_filter.lower()
-    
-    if type_filter == 'ideal':
+
+    if type_filter == "ideal":
         H = (D <= D0).astype(float)
-        
-    elif type_filter == 'butterworth':
+
+    elif type_filter == "butterworth":
         # H = 1./(1 + (D./D0).^(2*n));
         # Handle division by zero if D0 is 0 (though D0 must be positive per doc)
         if D0 == 0:
@@ -48,16 +48,16 @@ def lpfilter(type_filter, M, N, D0, n=1):
             # MatLAB code assumes D0 positive.
             H = np.zeros_like(D)
         else:
-            H = 1.0 / (1.0 + (D / D0)**(2 * n))
-            
-    elif type_filter == 'gaussian':
+            H = 1.0 / (1.0 + (D / D0) ** (2 * n))
+
+    elif type_filter == "gaussian":
         # H = exp(-(D.^2)./(2*(D0^2)));
         if D0 == 0:
-             H = np.zeros_like(D)
+            H = np.zeros_like(D)
         else:
-             H = np.exp(-(D**2) / (2 * (D0**2)))
-             
+            H = np.exp(-(D**2) / (2 * (D0**2)))
+
     else:
         raise ValueError(f"Unknown filter type: {type_filter}")
-        
+
     return H

@@ -13,7 +13,7 @@ m = 5
 
 # Data
 # Read image and subtract the average value.
-i = imread(dip_data('Fig81c.tif'))
+i = imread(dip_data("Fig81c.tif"))
 x = i.astype(float) - 128
 
 # Compute histogram between min and max with bin size 1.
@@ -32,12 +32,12 @@ print(cr)
 # Display
 fig, axes = plt.subplots(1, 2, figsize=(10, 4))
 
-axes[0].plot(hx, h/np.sum(h), 'k-s')
+axes[0].plot(hx, h / np.sum(h), "k-s")
 axes[0].set_xticks(np.arange(xmin, xmax + 1, 1))
 axes[0].set_box_aspect(1)
 
 x2 = np.linspace(0, xmax - xmin + 1, xmax - xmin + 2)
-axes[1].plot(x2, h1/np.sum(h1), 'k-s')
+axes[1].plot(x2, h1 / np.sum(h1), "k-s")
 axes[1].set_xticks(np.arange(0, xmax - xmin + 3, 1))
 axes[1].set_box_aspect(1)
 
@@ -49,6 +49,6 @@ cr1 = imratio(i, c)
 print(cr1)
 
 # Print to file
-fig.savefig('Figure811.png', dpi=300, bbox_inches='tight')
+fig.savefig("Figure811.png", dpi=300, bbox_inches="tight")
 
 plt.show()

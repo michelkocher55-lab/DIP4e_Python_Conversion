@@ -12,7 +12,7 @@ from libDIPUM.data_path import dip_data
 print("Running Figure1261 (keypoints with orientation)...")
 
 # Data
-img_path_pgm = dip_data('building-600by600.pgm')
+img_path_pgm = dip_data("building-600by600.pgm")
 
 # SIFT
 image, descrips, locs = sift(img_path_pgm)

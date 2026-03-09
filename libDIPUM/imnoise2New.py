@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def imnoise2New(f, noise_type, a=None, b=None):
+def imnoise2New(f: Any, noise_type: Any, a: Any = None, b: Any = None):
     """
     Python transcription of DIPUM imnoise2.m
     f : input image, double in [0,1]
@@ -15,7 +16,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
     noise_type = noise_type.lower()
 
     # ---------------- Salt & Pepper ----------------
-    if noise_type in ['salt & pepper', 'salt', 'pepper']:
+    if noise_type in ["salt & pepper", "salt", "pepper"]:
         if a is None:
             a = 0.05
         if b is None:
@@ -37,7 +38,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
         return np.clip(fn, 0, 1), R
 
     # ---------------- Gaussian ----------------
-    elif noise_type == 'gaussian':
+    elif noise_type == "gaussian":
         if a is None:
             a = 0
         if b is None:
@@ -47,7 +48,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
         fn = f + R
 
     # ---------------- Lognormal ----------------
-    elif noise_type == 'lognormal':
+    elif noise_type == "lognormal":
         if a is None:
             a = 1
         if b is None:
@@ -57,7 +58,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
         fn = f + R
 
     # ---------------- Rayleigh ----------------
-    elif noise_type == 'rayleigh':
+    elif noise_type == "rayleigh":
         if a is None:
             a = 0
         if b is None:
@@ -67,7 +68,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
         fn = f + R
 
     # ---------------- Exponential ----------------
-    elif noise_type == 'exponential':
+    elif noise_type == "exponential":
         if a is None:
             a = 1
         if a <= 0:
@@ -77,7 +78,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
         fn = f + R
 
     # ---------------- Erlang ----------------
-    elif noise_type == 'erlang':
+    elif noise_type == "erlang":
         if a is None:
             a = 2
         if b is None:
@@ -91,8 +92,7 @@ def imnoise2New(f, noise_type, a=None, b=None):
 
         # ---------------- Uniform ----------------
 
-    elif noise_type == 'uniform':
-
+    elif noise_type == "uniform":
         if a is None:
             a = 0
 
@@ -115,13 +115,15 @@ def imnoise2New(f, noise_type, a=None, b=None):
 
 
 # ------------------------------------------------------------------
-def exponential_noise(M, N, a):
+def exponential_noise(M: Any, N: Any, a: Any):
+    """exponential_noise."""
     k = -1 / a
     return k * np.log(1 - np.random.rand(M, N))
 
 
 # ------------------------------------------------------------------
-def erlang_noise(M, N, a, b):
+def erlang_noise(M: Any, N: Any, a: Any, b: Any):
+    """erlang_noise."""
     k = -1 / a
     R = np.zeros((M, N))
     for _ in range(b):

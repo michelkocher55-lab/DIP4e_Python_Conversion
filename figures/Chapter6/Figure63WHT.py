@@ -29,8 +29,8 @@ WHT = HAD[SeqIdx, :]
 # Display
 plt.figure()
 position = 1
-Error = MyDisp(WHT, NR, NC, position, 'Walsh Hadamard')
+Error = MyDisp(WHT, NR, NC, position, "Walsh Hadamard")
 
 # Print to file
-plt.savefig('Figure63WHT.png')
+plt.savefig("Figure63WHT.png")
 plt.show()

@@ -1,5 +1,4 @@
 import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -22,34 +21,34 @@ sig = 5
 iterations = [200, 400, 600, 1000, 2000]
 
 # Data
-img_path = dip_data('breast-implant.tif')
+img_path = dip_data("breast-implant.tif")
 f = img_as_float(imread(img_path))
 M, N = f.shape
 
 # Input initial phi manually
-if os.path.exists('Figure1124.mat'):
-    mat = loadmat('Figure1124.mat')
-    x = mat['y'].squeeze() #MKR
-    y = mat['x'].squeeze() #MKR
+if os.path.exists("Figure1124.mat"):
+    mat = loadmat("Figure1124.mat")
+    x = mat["y"].squeeze()  # MKR
+    y = mat["x"].squeeze()  # MKR
 else:
-    x, y, vx, vy = curve_manual_input(f, 200, 'g.')
-    savemat('Figure1124.mat', {'x': x, 'y': y})
+    x, y, vx, vy = curve_manual_input(f, 200, "g.")
+    savemat("Figure1124.mat", {"x": x, "y": y})
 
 # Create mask for generating initial level set function
 binmask = coord2mask(M, N, x, y)
 
 # Create initial level set function
-phi0 = levelSetFunction4e('mask', binmask)
+phi0 = levelSetFunction4e("mask", binmask)
 
 # Obtain zero-level set contour
 contours_list = [find_contours(phi0, level=0)]
 
 # Smooth image
 G = gaussKernel4e(n, sig)
-fsmooth = convolve(f, G, mode='nearest')
+fsmooth = convolve(f, G, mode="nearest")
 
 # Compute edge-marking function
-W = levelSetForce4e('gradient', [fsmooth, 1, 50])
+W = levelSetForce4e("gradient", [fsmooth, 1, 50])
 T = (np.max(W) + np.min(W)) / 2.0
 WBin = W > T
 
@@ -58,7 +57,7 @@ for niter in iterations:
     phi = phi0.copy()
     C = 0.5
     for i in range(1, niter + 1):
-        F = levelSetForce4e('geodesic', [phi, C, WBin])
+        F = levelSetForce4e("geodesic", [phi, C, WBin])
         phi = levelSetIterate4e(phi, F)
         if i % 5 == 0:
             phi = levelSetReInit4e(phi, 5, 0.5)
@@ -71,11 +70,11 @@ phi1500 = phi
 fig, axes = plt.subplots(2, 3, figsize=(12, 8))
 for idx in range(len(contours_list)):
     ax = axes.flat[idx]
-    ax.imshow(f, cmap='gray')
-    ax.axis('off')
+    ax.imshow(f, cmap="gray")
+    ax.axis("off")
     for cont in contours_list[idx]:
-        ax.plot(cont[:, 1], cont[:, 0], 'y.')
+        ax.plot(cont[:, 1], cont[:, 0], "y.")
 
 plt.tight_layout()
-plt.savefig('Figure1124.png')
+plt.savefig("Figure1124.png")
 plt.show()

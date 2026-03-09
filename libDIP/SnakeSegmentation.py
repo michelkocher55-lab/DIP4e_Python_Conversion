@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 from skimage.util import img_as_float
 
@@ -9,7 +10,20 @@ from libDIP.snakeReparam4e import snakeReparam4e
 from libDIPUM.coord2mask import coord2mask
 
 
-def SnakeSegmentation(f, x, y, T, Sig, NSig, Mu, NIterForce, NIterConvergence, Alpha, Beta, Gamma):
+def SnakeSegmentation(
+    f: Any,
+    x: Any,
+    y: Any,
+    T: Any,
+    Sig: Any,
+    NSig: Any,
+    Mu: Any,
+    NIterForce: Any,
+    NIterConvergence: Any,
+    Alpha: Any,
+    Beta: Any,
+    Gamma: Any,
+):
     """
     Snake segmentation using GVF force.
 
@@ -24,10 +38,10 @@ def SnakeSegmentation(f, x, y, T, Sig, NSig, Mu, NIterForce, NIterConvergence, A
     _ = binmask
 
     # Snake force from original image edge map.
-    emap = snakeMap4e(f, T, Sig, NSig, 'both')
+    emap = snakeMap4e(f, T, Sig, NSig, "both")
     emap = img_as_float(intScaling4e(emap))
 
-    FTx, FTy = snakeForce4e(emap, 'gvf', Mu, NIterForce)
+    FTx, FTy = snakeForce4e(emap, "gvf", Mu, NIterForce)
     mag = np.sqrt(FTx**2 + FTy**2)
     FTx = FTx / (mag + 1e-10)
     FTy = FTy / (mag + 1e-10)

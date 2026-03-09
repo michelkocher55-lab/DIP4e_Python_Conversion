@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import rank_filter, median_filter
 
 
-def adpmedian(g, Smax):
+def adpmedian(g: Any, Smax: Any):
     """
     Adaptive median filtering (Gonzalez & Woods / DIPUM).
 
@@ -33,26 +34,22 @@ def adpmedian(g, Smax):
         window_size = (k, k)
 
         # ordfilt2 equivalents
-        zmin = rank_filter(g, rank=0, size=window_size, mode='reflect')
-        zmax = rank_filter(g, rank=k*k - 1, size=window_size, mode='reflect')
+        zmin = rank_filter(g, rank=0, size=window_size, mode="reflect")
+        zmax = rank_filter(g, rank=k * k - 1, size=window_size, mode="reflect")
 
         # medfilt2 equivalent
-        zmed = median_filter(g, size=window_size, mode='reflect')
+        zmed = median_filter(g, size=window_size, mode="reflect")
 
         # Level A
-        processUsingLevelB = (
-            (zmed > zmin) &
-            (zmax > zmed) &
-            (~alreadyProcessed)
-        )
+        processUsingLevelB = (zmed > zmin) & (zmax > zmed) & (~alreadyProcessed)
 
         # Level B
         zB = (g > zmin) & (zmax > g)
 
-        outputZxy  = processUsingLevelB & zB
+        outputZxy = processUsingLevelB & zB
         outputZmed = processUsingLevelB & (~zB)
 
-        f[outputZxy]  = g[outputZxy]
+        f[outputZxy] = g[outputZxy]
         f[outputZmed] = zmed[outputZmed]
 
         alreadyProcessed |= processUsingLevelB

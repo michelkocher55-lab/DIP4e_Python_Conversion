@@ -1,4 +1,4 @@
-import numpy as np
+from typing import Any
 import sys
 import os
 
@@ -7,10 +7,11 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from libDIP.lpFilterTF4e import lpFilterTF4e
 
-def hpFilterTF4e(filter_type, P, Q, D0, n=1):
+
+def hpFilterTF4e(filter_type: Any, P: Any, Q: Any, D0: Any, n: Any = 1):
     """
     Circularly-symmetric highpass filter transfer function.
-    
+
     Parameters:
     -----------
     filter_type : str
@@ -23,17 +24,17 @@ def hpFilterTF4e(filter_type, P, Q, D0, n=1):
         Cutoff frequency.
     n : float, optional
         Order of the Butterworth filter. Default is 1.
-        
+
     Returns:
     --------
     H : numpy.ndarray
         P x Q transfer function.
     """
-    
+
     # Generate lowpass filter
     H_lp = lpFilterTF4e(filter_type, P, Q, D0, n)
-    
+
     # Generate highpass from lowpass: HP = 1 - LP
     H = 1.0 - H_lp
-    
+
     return H

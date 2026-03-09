@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def pointmin(I):
+def pointmin(I: Any):
     """
     Python transcription of MATLAB pointmin.m.
 
@@ -22,19 +23,27 @@ def pointmin(I):
     if I.ndim == 2:
         Iwork = I.copy()
         J[1:-1, 1:-1] = Iwork
-        Ne = np.array([
-            [-1, -1], [-1, 0], [-1, 1],
-            [0, -1],           [0, 1],
-            [1, -1],  [1, 0],  [1, 1],
-        ], dtype=int)
+        Ne = np.array(
+            [
+                [-1, -1],
+                [-1, 0],
+                [-1, 1],
+                [0, -1],
+                [0, 1],
+                [1, -1],
+                [1, 0],
+                [1, 1],
+            ],
+            dtype=int,
+        )
 
         for k in range(Ne.shape[0]):
             dx, dy = Ne[k]
-            In = J[1 + dx:J.shape[0] - 1 + dx, 1 + dy:J.shape[1] - 1 + dy]
+            In = J[1 + dx : J.shape[0] - 1 + dx, 1 + dy : J.shape[1] - 1 + dy]
             check = In < Iwork
             Iwork[check] = In[check]
             D = Ne[k].astype(float)
-            D = D / np.sqrt(np.sum(D ** 2))
+            D = D / np.sqrt(np.sum(D**2))
             Fx[check] = D[0]
             Fy[check] = D[1]
 
@@ -43,33 +52,53 @@ def pointmin(I):
     if I.ndim == 3:
         Iwork = I.copy()
         J[1:-1, 1:-1, 1:-1] = Iwork
-        Ne = np.array([
-            [-1, -1, -1], [-1, -1, 0], [-1, -1, 1],
-            [-1, 0, -1],  [-1, 0, 0],  [-1, 0, 1],
-            [-1, 1, -1],  [-1, 1, 0],  [-1, 1, 1],
-            [0, -1, -1],  [0, -1, 0],  [0, -1, 1],
-            [0, 0, -1],                 [0, 0, 1],
-            [0, 1, -1],   [0, 1, 0],   [0, 1, 1],
-            [1, -1, -1],  [1, -1, 0],  [1, -1, 1],
-            [1, 0, -1],   [1, 0, 0],   [1, 0, 1],
-            [1, 1, -1],   [1, 1, 0],   [1, 1, 1],
-        ], dtype=int)
+        Ne = np.array(
+            [
+                [-1, -1, -1],
+                [-1, -1, 0],
+                [-1, -1, 1],
+                [-1, 0, -1],
+                [-1, 0, 0],
+                [-1, 0, 1],
+                [-1, 1, -1],
+                [-1, 1, 0],
+                [-1, 1, 1],
+                [0, -1, -1],
+                [0, -1, 0],
+                [0, -1, 1],
+                [0, 0, -1],
+                [0, 0, 1],
+                [0, 1, -1],
+                [0, 1, 0],
+                [0, 1, 1],
+                [1, -1, -1],
+                [1, -1, 0],
+                [1, -1, 1],
+                [1, 0, -1],
+                [1, 0, 0],
+                [1, 0, 1],
+                [1, 1, -1],
+                [1, 1, 0],
+                [1, 1, 1],
+            ],
+            dtype=int,
+        )
 
         for k in range(Ne.shape[0]):
             dx, dy, dz = Ne[k]
             In = J[
-                1 + dx:J.shape[0] - 1 + dx,
-                1 + dy:J.shape[1] - 1 + dy,
-                1 + dz:J.shape[2] - 1 + dz,
+                1 + dx : J.shape[0] - 1 + dx,
+                1 + dy : J.shape[1] - 1 + dy,
+                1 + dz : J.shape[2] - 1 + dz,
             ]
             check = In < Iwork
             Iwork[check] = In[check]
             D = Ne[k].astype(float)
-            D = D / np.sqrt(np.sum(D ** 2))
+            D = D / np.sqrt(np.sum(D**2))
             Fx[check] = D[0]
             Fy[check] = D[1]
             Fz[check] = D[2]
 
         return Fy, Fx, Fz
 
-    raise ValueError('I must be a 2D or 3D array.')
+    raise ValueError("I must be a 2D or 3D array.")

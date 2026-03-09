@@ -11,9 +11,9 @@ from libDIPUM.data_path import dip_data
 
 print("Running Figure1266 (matching rotated and half-size corners)...")
 
-img_base = dip_data('building-600by600.pgm')
-img_rot_corner = dip_data('building-rot-corner.pgm')
-img_half_corner = dip_data('building-halfsize-corner.pgm')
+img_base = dip_data("building-600by600.pgm")
+img_rot_corner = dip_data("building-rot-corner.pgm")
+img_half_corner = dip_data("building-halfsize-corner.pgm")
 
 # Match rotated corner against original building
 num1, match1 = match(img_base, img_rot_corner)

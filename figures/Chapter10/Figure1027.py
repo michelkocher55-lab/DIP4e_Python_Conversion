@@ -1,7 +1,3 @@
-
-import sys
-import os
-import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from skimage.util import img_as_float
@@ -15,7 +11,7 @@ print("Running Figure1027 (Local Edge Linking)...")
 # Filename in script is 'van-rear.tif'.
 # I'll rely on the finding tool or standard paths.
 
-img_path = dip_data('van-rear.tif')
+img_path = dip_data("van-rear.tif")
 
 f = img_as_float(imread(img_path))
 
@@ -49,31 +45,31 @@ Gthin = thin(G)
 fig, axes = plt.subplots(2, 3, figsize=(15, 10))
 axes = axes.flatten()
 
-axes[0].imshow(f, cmap='gray')
-axes[0].set_title('Original')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray")
+axes[0].set_title("Original")
+axes[0].axis("off")
 
-axes[1].imshow(MAGH, cmap='gray')
-axes[1].set_title('Gradient Magnitude') # MAGH ~ MAGV
-axes[1].axis('off')
+axes[1].imshow(MAGH, cmap="gray")
+axes[1].set_title("Gradient Magnitude")  # MAGH ~ MAGV
+axes[1].axis("off")
 
-axes[2].imshow(GH, cmap='gray')
-axes[2].set_title('Horizontal Linking')
-axes[2].axis('off')
+axes[2].imshow(GH, cmap="gray")
+axes[2].set_title("Horizontal Linking")
+axes[2].axis("off")
 
-axes[3].imshow(GV, cmap='gray')
-axes[3].set_title('Vertical Linking')
-axes[3].axis('off')
+axes[3].imshow(GV, cmap="gray")
+axes[3].set_title("Vertical Linking")
+axes[3].axis("off")
 
-axes[4].imshow(G, cmap='gray')
-axes[4].set_title('Combined (OR)')
-axes[4].axis('off')
+axes[4].imshow(G, cmap="gray")
+axes[4].set_title("Combined (OR)")
+axes[4].axis("off")
 
-axes[5].imshow(Gthin, cmap='gray')
-axes[5].set_title('Thinned Result')
-axes[5].axis('off')
+axes[5].imshow(Gthin, cmap="gray")
+axes[5].set_title("Thinned Result")
+axes[5].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1027.png')
+plt.savefig("Figure1027.png")
 print("Saved Figure1027.png")
 plt.show()

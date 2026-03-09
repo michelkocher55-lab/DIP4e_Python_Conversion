@@ -52,11 +52,29 @@ ax2 = fig.add_subplot(1, 2, 2, projection="3d")
 
 # Use the same physical coordinate domain as subplot 1 for a clearer view.
 surf_color = np.ones((41, 41, 3), dtype=float) * 0.75
-ax2.plot_surface(x1, x2, d, facecolors=surf_color, linewidth=0, antialiased=True, shade=False, alpha=0.7)
+ax2.plot_surface(
+    x1,
+    x2,
+    d,
+    facecolors=surf_color,
+    linewidth=0,
+    antialiased=True,
+    shade=False,
+    alpha=0.7,
+)
 
 C = 0.205 * float(np.max(d))
 plane = np.zeros_like(x1, dtype=float) + C
-ax2.plot_surface(x1, x2, plane, color="#9ecae1", linewidth=0, antialiased=True, shade=False, alpha=0.95)
+ax2.plot_surface(
+    x1,
+    x2,
+    plane,
+    color="#9ecae1",
+    linewidth=0,
+    antialiased=True,
+    shade=False,
+    alpha=0.95,
+)
 
 ax2.view_init(elev=28, azim=-55)
 ax2.grid(False)

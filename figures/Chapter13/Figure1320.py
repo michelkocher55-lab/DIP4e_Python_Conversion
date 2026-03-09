@@ -39,8 +39,12 @@ if choix == 1:
         dtype=float,
     ).T  # (3,4)
 elif choix == 2:
-    X1 = 0.2 * np.random.randn(3, 10) + np.tile(np.array([[1.0], [1.0], [1.0]]), (1, 10))
-    X2 = 0.2 * np.random.randn(3, 10) + np.tile(np.array([[-1.0], [-1.0], [-1.0]]), (1, 10))
+    X1 = 0.2 * np.random.randn(3, 10) + np.tile(
+        np.array([[1.0], [1.0], [1.0]]), (1, 10)
+    )
+    X2 = 0.2 * np.random.randn(3, 10) + np.tile(
+        np.array([[-1.0], [-1.0], [-1.0]]), (1, 10)
+    )
 else:
     raise ValueError("Plouc")
 
@@ -75,20 +79,32 @@ b2 = np.log(0.5) - 0.5 * float((m2.T @ C2i @ m2).item())
 w = w1 - w2
 b = b1 - b2
 
-print("d1(X) =", f"{w1[0,0]:.3f}*x1 + {w1[1,0]:.3f}*x2 + {w1[2,0]:.3f}*x3 + {b1:.3f}")
-print("d2(X) =", f"{w2[0,0]:.3f}*x1 + {w2[1,0]:.3f}*x2 + {w2[2,0]:.3f}*x3 + {b2:.3f}")
-print("d12(X)=", f"{w[0,0]:.3f}*x1 + {w[1,0]:.3f}*x2 + {w[2,0]:.3f}*x3 + {b:.3f}")
+print(
+    "d1(X) =", f"{w1[0, 0]:.3f}*x1 + {w1[1, 0]:.3f}*x2 + {w1[2, 0]:.3f}*x3 + {b1:.3f}"
+)
+print(
+    "d2(X) =", f"{w2[0, 0]:.3f}*x1 + {w2[1, 0]:.3f}*x2 + {w2[2, 0]:.3f}*x3 + {b2:.3f}"
+)
+print("d12(X)=", f"{w[0, 0]:.3f}*x1 + {w[1, 0]:.3f}*x2 + {w[2, 0]:.3f}*x3 + {b:.3f}")
 
 # Display
 fig = plt.figure(1, figsize=(8, 6))
 ax = fig.add_subplot(111, projection="3d")
 
 # Points and means
-ax.scatter(X1[0, :], X1[1, :], X1[2, :], marker="o", s=90, edgecolors="k", facecolors="r")
-ax.scatter(m1[0, 0], m1[1, 0], m1[2, 0], marker="s", s=90, edgecolors="k", facecolors="r")
+ax.scatter(
+    X1[0, :], X1[1, :], X1[2, :], marker="o", s=90, edgecolors="k", facecolors="r"
+)
+ax.scatter(
+    m1[0, 0], m1[1, 0], m1[2, 0], marker="s", s=90, edgecolors="k", facecolors="r"
+)
 
-ax.scatter(X2[0, :], X2[1, :], X2[2, :], marker="o", s=90, edgecolors="k", facecolors="g")
-ax.scatter(m2[0, 0], m2[1, 0], m2[2, 0], marker="s", s=90, edgecolors="k", facecolors="g")
+ax.scatter(
+    X2[0, :], X2[1, :], X2[2, :], marker="o", s=90, edgecolors="k", facecolors="g"
+)
+ax.scatter(
+    m2[0, 0], m2[1, 0], m2[2, 0], marker="s", s=90, edgecolors="k", facecolors="g"
+)
 
 # Decision plane: w1*x + w2*y + w3*z + b = 0 -> z = -(w1*x + w2*y + b)/w3
 les_x, les_y = np.meshgrid(np.linspace(0, 1, 3), np.linspace(0, 1, 3))
@@ -111,10 +127,12 @@ print(f"Saved {out_path}")
 
 plt.show()
 
+
 # -----------------------------------------------------------------------------
 # LaTeX-style outputs (console)
 # -----------------------------------------------------------------------------
 def to_latex_matrix(A: np.ndarray) -> str:
+    """to_latex_matrix."""
     rows = []
     for r in A:
         rows.append(" & ".join(f"{float(v):.3f}" for v in np.ravel(r)))
@@ -127,6 +145,15 @@ print("latex(m1):", to_latex_matrix(m1))
 print("latex(m2):", to_latex_matrix(m2))
 print("latex(C1):", to_latex_matrix(C1))
 print("latex(C2):", to_latex_matrix(C2))
-print("latex(d1):", f"{w1[0,0]:.3f} x_1 + {w1[1,0]:.3f} x_2 + {w1[2,0]:.3f} x_3 + {b1:.3f}")
-print("latex(d2):", f"{w2[0,0]:.3f} x_1 + {w2[1,0]:.3f} x_2 + {w2[2,0]:.3f} x_3 + {b2:.3f}")
-print("latex(d12):", f"{w[0,0]:.3f} x_1 + {w[1,0]:.3f} x_2 + {w[2,0]:.3f} x_3 + {b:.3f}")
+print(
+    "latex(d1):",
+    f"{w1[0, 0]:.3f} x_1 + {w1[1, 0]:.3f} x_2 + {w1[2, 0]:.3f} x_3 + {b1:.3f}",
+)
+print(
+    "latex(d2):",
+    f"{w2[0, 0]:.3f} x_1 + {w2[1, 0]:.3f} x_2 + {w2[2, 0]:.3f} x_3 + {b2:.3f}",
+)
+print(
+    "latex(d12):",
+    f"{w[0, 0]:.3f} x_1 + {w[1, 0]:.3f} x_2 + {w[2, 0]:.3f} x_3 + {b:.3f}",
+)

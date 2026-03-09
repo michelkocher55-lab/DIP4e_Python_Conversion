@@ -1,7 +1,8 @@
+from typing import Any
 import matplotlib.pyplot as plt
 
 
-def curve_display(x, y, style=None, ax=None):
+def curve_display(x: Any, y: Any, style: Any = None, ax: Any = None):
     """
     Display of 2-D curve.
 
@@ -14,7 +15,7 @@ def curve_display(x, y, style=None, ax=None):
     Default is black dots with no lines ('.k').
     """
     if style is None:
-        style = '.k'
+        style = ".k"
 
     if ax is None:
         ax = plt.gca()

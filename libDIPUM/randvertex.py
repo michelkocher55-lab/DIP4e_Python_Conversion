@@ -1,37 +1,39 @@
+from typing import Any
 import numpy as np
 
-def randvertex(x, y, npix):
+
+def randvertex(x: Any, y: Any, npix: Any):
     """
     Adds random noise to the vertices of a polygon.
-    
+
     [xn, yn] = randvertex(x, y, npix) adds uniformly distributed noise to
     the coordinates of vertices of a polygon.
-    
+
     Parameters
     ----------
     x, y : array_like
         Coordinates of vertices.
     npix : float or int
         Maximum number of pixel locations to deviate.
-        
+
     Returns
     -------
     xn, yn : numpy.ndarray
         New coordinates with noise added (rounded and clamped to >= 0).
     """
-    
+
     x = np.array(x).flatten()
     y = np.array(y).flatten()
-    
+
     L = len(x)
     if len(y) != L:
         raise ValueError("x and y must have same length")
-        
+
     # Generate noise
     # MATLAB: rand(L, 1) -> uniform [0, 1]
     xnoise = np.random.rand(L)
     ynoise = np.random.rand(L)
-    
+
     # Calculate deviation matches MATLAB logic exactly
     # dev = npix * noise * sign(noise - 0.5)
     # Note: This creates a distribution with a gap in the center [-0.5*npix, 0.5*npix]?
@@ -55,16 +57,16 @@ def randvertex(x, y, npix):
     # It *excludes* positive deviations between 0 and 0.5*npix.
     # And it *excludes* negative deviations between -npix and -0.5*npix.
     # Okay, weird distribution, but I will implement it faithfully.
-    
+
     xdev = npix * xnoise * np.sign(xnoise - 0.5)
     ydev = npix * ynoise * np.sign(ynoise - 0.5)
-    
+
     # Add noise and round
     xn = np.round(x + xdev)
     yn = np.round(y + ydev)
-    
+
     # Clamp to >= 0 (Python convention, MATLAB was 1)
     xn = np.maximum(xn, 0)
     yn = np.maximum(yn, 0)
-    
+
     return xn.astype(int), yn.astype(int)

@@ -1,8 +1,9 @@
+from typing import Any
 import sys
 import numpy as np
 
 
-def huffman(p, return_tree=False):
+def huffman(p: Any, return_tree: Any = False):
     """
     Build a variable-length Huffman code for source probability vector p.
     MATLAB-faithful translation of DIPUM huffman.m.
@@ -35,7 +36,7 @@ def huffman(p, return_tree=False):
         return ([], []) if return_tree else []
 
     # Shared CODE container (MATLAB nested-function semantics).
-    code = [''] * n
+    code = [""] * n
 
     if n > 1:
         ps = p.astype(float)
@@ -48,18 +49,19 @@ def huffman(p, return_tree=False):
 
         sys.setrecursionlimit(max(sys.getrecursionlimit(), 100000))
 
-        def makecode(sc, codeword):
+        def makecode(sc: Any, codeword: Any):
+            """makecode."""
             # sc is either a list node {left,right} or a numeric leaf symbol index (1-based).
             if isinstance(sc, list):
                 makecode(sc[0], codeword + [0])
                 makecode(sc[1], codeword + [1])
             else:
                 idx = int(sc) - 1  # MATLAB leaf indices are 1-based.
-                code[idx] = ''.join('1' if b else '0' for b in codeword)
+                code[idx] = "".join("1" if b else "0" for b in codeword)
 
         makecode(s, [])
     else:
-        code = ['1']
+        code = ["1"]
         s = [1]
 
     if return_tree:
@@ -67,7 +69,7 @@ def huffman(p, return_tree=False):
     return code
 
 
-def _reduce(p):
+def _reduce(p: Any):
     """
     Create Huffman source reduction tree (MATLAB reduce function).
     Leaves are 1-based symbol indices.
@@ -79,7 +81,7 @@ def _reduce(p):
 
     while len(s) > 2:
         # MATLAB: [p, i] = sort(p)
-        i = np.argsort(p, kind='mergesort')
+        i = np.argsort(p, kind="mergesort")
         p = p[i]
 
         # Merge and prune two lowest probabilities.

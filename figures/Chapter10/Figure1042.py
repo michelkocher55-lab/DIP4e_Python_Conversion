@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -9,7 +6,7 @@ from General.imquantize import imquantize
 from libDIPUM.data_path import dip_data
 
 # Data
-image_path = dip_data('iceberg.tif')
+image_path = dip_data("iceberg.tif")
 f = imread(image_path)
 if f.ndim == 3:
     f = f[:, :, 0]
@@ -28,26 +25,26 @@ g = imquantize(f, T)
 fig, axes = plt.subplots(1, 3, figsize=(15, 6))
 
 # 1. Original
-axes[0].imshow(f, cmap='gray')
-axes[0].set_title('Original Image')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray")
+axes[0].set_title("Original Image")
+axes[0].axis("off")
 
 # 2. Histogram
 # hist(double(f(:)), 256)
 axes[1].plot(hist)
-axes[1].set_title('Histogram')
-axes[1].set_aspect('auto')
+axes[1].set_title("Histogram")
+axes[1].set_aspect("auto")
 axes[1].set_xlim([0, 255])
 
 # 3. Quantized
 # imshow(g, [])
 # g has values 1, 2, 3.
 # auto-scaling with imshow(..., []) handled by matplotlib default or vmin/vmax
-axes[2].imshow(g, cmap='gray')
-axes[2].set_title('Multilevel Thresholding')
-axes[2].axis('off')
+axes[2].imshow(g, cmap="gray")
+axes[2].set_title("Multilevel Thresholding")
+axes[2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1042.png')
+plt.savefig("Figure1042.png")
 print("Saved Figure1042.png")
 plt.show()

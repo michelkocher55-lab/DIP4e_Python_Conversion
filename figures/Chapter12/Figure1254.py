@@ -13,17 +13,21 @@ from libDIPUM.data_path import dip_data
 
 
 def _to_gray(a: np.ndarray) -> np.ndarray:
+    """_to_gray."""
     arr = np.asarray(a)
     if arr.ndim == 2:
         return arr
     if arr.ndim == 3:
         if arr.shape[2] == 1:
             return arr[..., 0]
-        return (0.2989 * arr[..., 0] + 0.5870 * arr[..., 1] + 0.1140 * arr[..., 2]).astype(arr.dtype)
+        return (
+            0.2989 * arr[..., 0] + 0.5870 * arr[..., 1] + 0.1140 * arr[..., 2]
+        ).astype(arr.dtype)
     raise ValueError("Input image must be 2-D grayscale or 3-D color")
 
 
 def _to_uint8_graylevels(a: np.ndarray) -> np.ndarray:
+    """_to_uint8_graylevels."""
     arr = np.asarray(a)
     if arr.dtype == np.uint8:
         return arr
@@ -35,7 +39,9 @@ def _to_uint8_graylevels(a: np.ndarray) -> np.ndarray:
     return np.uint8(np.clip(np.round(out), 0.0, 255.0))
 
 
-def _linear_idx_to_mask(pixel_idx_1based: np.ndarray, shape_hw: tuple[int, int]) -> np.ndarray:
+def _linear_idx_to_mask(
+    pixel_idx_1based: np.ndarray, shape_hw: tuple[int, int]
+) -> np.ndarray:
     """Convert MATLAB 1-based column-major linear indices to uint8 mask."""
     H, W = shape_hw
     out = np.zeros((H, W), dtype=np.uint8)
@@ -51,7 +57,7 @@ def _linear_idx_to_mask(pixel_idx_1based: np.ndarray, shape_hw: tuple[int, int])
 print("Running Figure1254 (MSER of rotated building)...")
 
 # Data
-img_path = dip_data('building-600by600.tif')
+img_path = dip_data("building-600by600.tif")
 I = _to_gray(iio.imread(img_path))
 Ir = ndimage.rotate(I, 5.0, reshape=True, order=1, mode="constant", cval=0.0)
 
@@ -103,4 +109,3 @@ fig.savefig(out_path, dpi=150, bbox_inches="tight")
 print(f"Detected regions: {R.Count}")
 print(f"Saved {out_path}")
 plt.show()
-

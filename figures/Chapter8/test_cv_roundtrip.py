@@ -1,3 +1,4 @@
+from typing import Any
 import argparse
 import sys
 from pathlib import Path
@@ -15,7 +16,8 @@ from libDIPUM.cv2tifs import cv2tifs
 from libDIPUM.tifs2cv import tifs2cv
 
 
-def _load_frames(path):
+def _load_frames(path: Any):
+    """_load_frames."""
     arr = np.asarray(imread(path))
     if arr.ndim == 2:
         return [arr]
@@ -27,12 +29,14 @@ def _load_frames(path):
     raise ValueError("Unsupported TIFF dimensions.")
 
 
-def _rmse(a, b):
+def _rmse(a: Any, b: Any):
+    """_rmse."""
     d = a.astype(float) - b.astype(float)
     return float(np.sqrt(np.mean(d * d)))
 
 
-def run_roundtrip(input_tif, output_tif, m, d, q):
+def run_roundtrip(input_tif: Any, output_tif: Any, m: Any, d: Any, q: Any):
+    """run_roundtrip."""
     if not Path(input_tif).exists():
         raise FileNotFoundError(
             f"Input TIFF not found: {input_tif}\n"
@@ -92,9 +96,15 @@ if __name__ == "__main__":
         help=f"Output reconstructed TIFF path (default: {default_output})",
     )
     parser.add_argument("--m", type=int, default=8, help="Macroblock size (default: 8)")
-    parser.add_argument("--dx", type=int, default=16, help="Search displacement x (default: 16)")
-    parser.add_argument("--dy", type=int, default=8, help="Search displacement y (default: 8)")
-    parser.add_argument("--q", type=float, default=0, help="JPEG quality; 0 means lossless path")
+    parser.add_argument(
+        "--dx", type=int, default=16, help="Search displacement x (default: 16)"
+    )
+    parser.add_argument(
+        "--dy", type=int, default=8, help="Search displacement y (default: 8)"
+    )
+    parser.add_argument(
+        "--q", type=float, default=0, help="JPEG quality; 0 means lossless path"
+    )
     args = parser.parse_args()
 
     run_roundtrip(

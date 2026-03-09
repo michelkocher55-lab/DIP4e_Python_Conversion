@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def frdescp(s):
+def frdescp(s: Any):
     """
     Computes Fourier descriptors.
 
@@ -21,7 +22,7 @@ def frdescp(s):
     """
     s = np.asarray(s, dtype=float)
     if s.ndim != 2 or s.shape[1] != 2:
-        raise ValueError('S must be of size np-by-2.')
+        raise ValueError("S must be of size np-by-2.")
 
     np_ = s.shape[0]
     if np_ % 2 != 0:

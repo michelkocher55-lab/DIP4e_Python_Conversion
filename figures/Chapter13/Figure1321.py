@@ -12,7 +12,9 @@ from libDIPUM.data_path import dip_data
 
 print("Running Figure1321 (Bayes classification of remote data)...")
 
+
 def _imread_gray(path: str) -> np.ndarray:
+    """_imread_gray."""
     arr = np.asarray(Image.open(path))
     if arr.ndim == 3:
         arr = arr[..., 0]
@@ -20,15 +22,15 @@ def _imread_gray(path: str) -> np.ndarray:
 
 
 # Read masks
-B1 = _imread_gray(dip_data('WashingtonDC-mask-water-512.tif'))
-B2 = _imread_gray(dip_data('WashingtonDC-mask-urban-512.tif'))
-B3 = _imread_gray(dip_data('WashingtonDC-mask-vegetation-512.tif'))
+B1 = _imread_gray(dip_data("WashingtonDC-mask-water-512.tif"))
+B2 = _imread_gray(dip_data("WashingtonDC-mask-urban-512.tif"))
+B3 = _imread_gray(dip_data("WashingtonDC-mask-vegetation-512.tif"))
 
 # Read multispectral images
-f1 = _imread_gray(dip_data('WashingtonDC-Band1-Blue-512.tif'))
-f2 = _imread_gray(dip_data('WashingtonDC-Band2-Green-512.tif'))
-f3 = _imread_gray(dip_data('WashingtonDC-Band3-Red-512.tif'))
-f4 = _imread_gray(dip_data('WashingtonDC-Band4-NearInfrared-512.tif'))
+f1 = _imread_gray(dip_data("WashingtonDC-Band1-Blue-512.tif"))
+f2 = _imread_gray(dip_data("WashingtonDC-Band2-Green-512.tif"))
+f3 = _imread_gray(dip_data("WashingtonDC-Band3-Red-512.tif"))
+f4 = _imread_gray(dip_data("WashingtonDC-Band4-NearInfrared-512.tif"))
 
 # Stack images
 stack = np.dstack((f1, f2, f3, f4))

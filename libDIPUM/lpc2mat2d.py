@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def lpc2mat2d(y, alpha, beta, gamma):
+def lpc2mat2d(y: Any, alpha: Any, beta: Any, gamma: Any):
     """
     Decode 2-D lossless predictive coding.
     fHat(x,y) = alpha*f(x, y-1) + beta*f(x-1, y) + gamma*f(x-1, y-1)

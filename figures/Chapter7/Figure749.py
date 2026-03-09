@@ -12,7 +12,7 @@ from libDIPUM.data_path import dip_data
 Quality = 20
 
 # %% Data
-RGB = imread(dip_data('Fig0604(a)(iris).tif'))
+RGB = imread(dip_data("Fig0604(a)(iris).tif"))
 R = RGB[:, :, 0]
 G = RGB[:, :, 1]
 B = RGB[:, :, 2]
@@ -41,13 +41,13 @@ plt.figure(figsize=(10, 4))
 
 plt.subplot(1, 2, 1)
 plt.imshow(RGB)
-plt.axis('off')
+plt.axis("off")
 
 plt.subplot(1, 2, 2)
 plt.imshow(RGBCompressed)
-plt.axis('off')
-plt.title(f'CR = {CR_R:.3g}, {CR_G:.3g}, {CR_B:.3g}')
+plt.axis("off")
+plt.title(f"CR = {CR_R:.3g}, {CR_G:.3g}, {CR_B:.3g}")
 
 plt.tight_layout()
-plt.savefig('Figure749.png')
+plt.savefig("Figure749.png")
 plt.show()

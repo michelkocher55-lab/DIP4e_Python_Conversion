@@ -1,8 +1,10 @@
+from typing import Any
 import numpy as np
 import matplotlib.pyplot as plt
 from libDIPUM.interparc import interparc
 
-def curve_manual_input(f, numpoints='auto', style=None):
+
+def curve_manual_input(f: Any, numpoints: Any = "auto", style: Any = None):
     """
     Manual input of a closed polygonal curve using matplotlib ginput.
 
@@ -15,8 +17,8 @@ def curve_manual_input(f, numpoints='auto', style=None):
     print("  3) When DONE, press RETURN")
 
     fig, ax = plt.subplots()
-    ax.imshow(f, cmap='gray')
-    ax.set_title('Click to input points, press Enter when done')
+    ax.imshow(f, cmap="gray")
+    ax.set_title("Click to input points, press Enter when done")
     plt.pause(0.01)
     input()  # wait for any key
 
@@ -40,7 +42,7 @@ def curve_manual_input(f, numpoints='auto', style=None):
     y = np.concatenate([y, [y[0]]])
 
     # Compute number of points
-    if numpoints == 'auto':
+    if numpoints == "auto":
         xd = x.reshape(-1, 1)
         yd = y.reshape(-1, 1)
         d = np.sqrt((xd - np.roll(xd, 1)) ** 2 + (yd - np.roll(yd, 1)) ** 2)
@@ -59,7 +61,7 @@ def curve_manual_input(f, numpoints='auto', style=None):
     # If style provided, display curve
     if style is not None:
         fig2, ax2 = plt.subplots()
-        ax2.imshow(f, cmap='gray')
+        ax2.imshow(f, cmap="gray")
         ax2.plot(y, x, style)
         plt.show()
 

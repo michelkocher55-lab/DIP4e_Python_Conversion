@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def zoneplate(K, del_, R=None):
+def zoneplate(K: Any, del_: Any, R: Any = None):
     """
     ZONEPLATE generates a zoneplate image.
 
@@ -23,7 +24,7 @@ def zoneplate(K, del_, R=None):
         Zone plate image in floating-point range [0, 1].
     """
     if del_ <= 0:
-        raise ValueError('del must be positive.')
+        raise ValueError("del must be positive.")
 
     # MATLAB: -K:del:K (inclusive when possible)
     t = np.arange(-K, K + del_ / 2.0, del_, dtype=np.float64)
@@ -35,7 +36,7 @@ def zoneplate(K, del_, R=None):
     # Optional circular border set to R
     if R is not None:
         if R < 0 or R > 1:
-            raise ValueError('Values of R must be in the range [0,1].')
+            raise ValueError("Values of R must be in the range [0,1].")
 
         M = g.shape[0]
         center = (M - 1) / 2.0

@@ -13,17 +13,22 @@ from libDIPUM.data_path import dip_data
 
 
 def _to_gray(a: np.ndarray) -> np.ndarray:
+    """_to_gray."""
     arr = np.asarray(a)
     if arr.ndim == 2:
         return arr
     if arr.ndim == 3:
         if arr.shape[2] == 1:
             return arr[..., 0]
-        return (0.2989 * arr[..., 0] + 0.5870 * arr[..., 1] + 0.1140 * arr[..., 2]).astype(arr.dtype)
+        return (
+            0.2989 * arr[..., 0] + 0.5870 * arr[..., 1] + 0.1140 * arr[..., 2]
+        ).astype(arr.dtype)
     raise ValueError("Input image must be 2-D grayscale or 3-D color")
 
 
-def _linear_idx_to_mask(pixel_idx_1based: np.ndarray, shape_hw: tuple[int, int]) -> np.ndarray:
+def _linear_idx_to_mask(
+    pixel_idx_1based: np.ndarray, shape_hw: tuple[int, int]
+) -> np.ndarray:
     """Convert MATLAB 1-based column-major linear indices to uint8 mask."""
     H, W = shape_hw
     out = np.zeros((H, W), dtype=np.uint8)
@@ -39,7 +44,7 @@ def _linear_idx_to_mask(pixel_idx_1based: np.ndarray, shape_hw: tuple[int, int])
 print("Running Figure1252 (MSER of head CT)...")
 
 # Data
-img_path = dip_data('headCT.tif')
+img_path = dip_data("headCT.tif")
 I = _to_gray(iio.imread(img_path))
 
 # Kernel

@@ -1,5 +1,3 @@
-
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -7,7 +5,6 @@ from skimage.color import rgb2gray
 from skimage.filters import threshold_otsu
 import ia870
 from scipy.ndimage import uniform_filter
-from skimage.measure import find_contours
 
 from libDIPUM.bwboundaries import bwboundaries
 from libDIPUM.freemanChainCode import freemanChainCode
@@ -18,13 +15,13 @@ from libDIPUM.data_path import dip_data
 print("Running Figure1205...")
 
 # 1. Data
-path = dip_data('noisy-stroke.tif')
+path = dip_data("noisy-stroke.tif")
 f = imread(path)
 if f.ndim == 3:
     f = rgb2gray(f)
 
 # 2. Denoising
-f1 = uniform_filter(f.astype(float), size=9, mode='reflect')
+f1 = uniform_filter(f.astype(float), size=9, mode="reflect")
 f1 = np.clip(f1, 0, 255).astype(np.uint8)
 
 # 3. Thresholding
@@ -35,8 +32,8 @@ bw = f1 > thresh
 X1 = ia870.iaareaopen(bw, 100, ia870.iasebox())
 
 # 5. Boundaries
-#contours = find_contours(X1, 0.5)
-contours = bwboundaries(    X1, 8)
+# contours = find_contours(X1, 0.5)
+contours = bwboundaries(X1, 8)
 
 if len(contours) == 0:
     print("No contours found.")
@@ -50,7 +47,7 @@ print(f"Longest boundary length: {len(B)}")
 
 # 6. Boundary subsampling
 r = 50
-B1 = bsubsamp(B, 1/r, f.shape[0], f.shape[1])
+B1 = bsubsamp(B, 1 / r, f.shape[0], f.shape[1])
 
 # Scale back
 B1 = B1 * r
@@ -69,26 +66,26 @@ fig, axes = plt.subplots(2, 3, figsize=(14, 9))
 ax = axes.ravel()
 
 # f
-ax[0].imshow(f, cmap='gray')
-ax[0].set_title(f'f, Size={f.shape}')
+ax[0].imshow(f, cmap="gray")
+ax[0].set_title(f"f, Size={f.shape}")
 
 # f1
-ax[1].imshow(f1, cmap='gray')
-ax[1].set_title('f1 (Average 9x9)')
+ax[1].imshow(f1, cmap="gray")
+ax[1].set_title("f1 (Average 9x9)")
 
 # X1
-ax[2].imshow(X1, cmap='gray')
-ax[2].set_title(f'X1 (Thresh={thresh:.1f}, Lambda=100)')
+ax[2].imshow(X1, cmap="gray")
+ax[2].set_title(f"X1 (Thresh={thresh:.1f}, Lambda=100)")
 
 # N (original boundary, previously B)
-ax[3].plot(B[:, 1], -B[:, 0], 'r')
-ax[3].axis('equal')
-ax[3].set_title('N')
+ax[3].plot(B[:, 1], -B[:, 0], "r")
+ax[3].axis("equal")
+ax[3].set_title("N")
 
 # B1 (subsampled boundary)
-ax[4].plot(B1[:, 1], -B1[:, 0], 'o', color='green', fillstyle='none')
-ax[4].axis('equal')
-ax[4].set_title(f'B1 (r={r})')
+ax[4].plot(B1[:, 1], -B1[:, 0], "o", color="green", fillstyle="none")
+ax[4].axis("equal")
+ax[4].set_title(f"B1 (r={r})")
 
 # B1C rendered as zero-order hold (horizontal/vertical only) between knots.
 if len(B1) > 1:
@@ -101,11 +98,11 @@ if len(B1) > 1:
 else:
     step_pts = B1
 
-ax[5].plot(step_pts[:, 1], -step_pts[:, 0], 'b', linewidth=1.0)
-ax[5].plot(B1[:, 1], -B1[:, 0], 'o', color='black', markersize=3)
-ax[5].axis('equal')
-ax[5].set_title('B1C')
+ax[5].plot(step_pts[:, 1], -step_pts[:, 0], "b", linewidth=1.0)
+ax[5].plot(B1[:, 1], -B1[:, 0], "o", color="black", markersize=3)
+ax[5].axis("equal")
+ax[5].set_title("B1C")
 
 plt.tight_layout()
-plt.savefig('Figure1205.png')
+plt.savefig("Figure1205.png")
 plt.show()

@@ -1,7 +1,9 @@
+from typing import Any
 import numpy as np
 
 
-def _as_size(v, default):
+def _as_size(v: Any, default: Any):
+    """_as_size."""
     if v is None:
         return np.array(default, dtype=int)
     a = np.asarray(v, dtype=float).reshape(-1)
@@ -20,11 +22,19 @@ def _as_size(v, default):
     raise ValueError("HSIZE must be scalar or length-2.")
 
 
-def _parse_inputs(filter_type, *args):
+def _parse_inputs(filter_type: Any, *args: Any):
+    """_parse_inputs."""
     t = str(filter_type).lower()
     valid = {
-        "average", "disk", "gaussian", "laplacian", "log",
-        "motion", "prewitt", "sobel", "unsharp"
+        "average",
+        "disk",
+        "gaussian",
+        "laplacian",
+        "log",
+        "motion",
+        "prewitt",
+        "sobel",
+        "unsharp",
     }
     if t not in valid:
         raise ValueError(f"Unknown filter TYPE: {filter_type}")
@@ -56,7 +66,10 @@ def _parse_inputs(filter_type, *args):
             if sigma <= 0:
                 raise ValueError("SIGMA must be positive.")
             size_arg = args[0]
-            if isinstance(size_arg, (list, tuple, np.ndarray)) and np.asarray(size_arg).size == 0:
+            if (
+                isinstance(size_arg, (list, tuple, np.ndarray))
+                and np.asarray(size_arg).size == 0
+            ):
                 n = int(2 * np.ceil(2 * sigma) + 1)
                 siz = np.array([n, n], dtype=int)
             else:
@@ -84,7 +97,10 @@ def _parse_inputs(filter_type, *args):
             if sigma <= 0:
                 raise ValueError("SIGMA must be positive.")
             size_arg = args[0]
-            if isinstance(size_arg, (list, tuple, np.ndarray)) and np.asarray(size_arg).size == 0:
+            if (
+                isinstance(size_arg, (list, tuple, np.ndarray))
+                and np.asarray(size_arg).size == 0
+            ):
                 n = int(2 * np.ceil(2 * sigma) + 1)
                 siz = np.array([n, n], dtype=int)
             else:
@@ -111,7 +127,7 @@ def _parse_inputs(filter_type, *args):
     return t, None, None
 
 
-def fspecial(filter_type, *args):
+def fspecial(filter_type: Any, *args: Any):
     """
     MATLAB-like FSPECIAL for predefined 2-D filters.
 
@@ -134,32 +150,49 @@ def fspecial(filter_type, *args):
         a1 = (maxxy + 0.5) ** 2 + (minxy - 0.5) ** 2
         a2 = (maxxy - 0.5) ** 2 + (minxy + 0.5) ** 2
 
-        m1 = np.where(rad ** 2 < a1, minxy - 0.5, np.sqrt(np.maximum(rad ** 2 - (maxxy + 0.5) ** 2, 0.0)))
-        m2 = np.where(rad ** 2 > a2, minxy + 0.5, np.sqrt(np.maximum(rad ** 2 - (maxxy - 0.5) ** 2, 0.0)))
+        m1 = np.where(
+            rad**2 < a1,
+            minxy - 0.5,
+            np.sqrt(np.maximum(rad**2 - (maxxy + 0.5) ** 2, 0.0)),
+        )
+        m2 = np.where(
+            rad**2 > a2,
+            minxy + 0.5,
+            np.sqrt(np.maximum(rad**2 - (maxxy - 0.5) ** 2, 0.0)),
+        )
 
         m1r = np.clip(m1 / rad, -1.0, 1.0)
         m2r = np.clip(m2 / rad, -1.0, 1.0)
 
         term = (
-            rad ** 2 * (0.5 * (np.arcsin(m2r) - np.arcsin(m1r)) + 0.25 * (np.sin(2 * np.arcsin(m2r)) - np.sin(2 * np.arcsin(m1r))))
+            rad**2
+            * (
+                0.5 * (np.arcsin(m2r) - np.arcsin(m1r))
+                + 0.25 * (np.sin(2 * np.arcsin(m2r)) - np.sin(2 * np.arcsin(m1r)))
+            )
             - (maxxy - 0.5) * (m2 - m1)
             + (m1 - minxy + 0.5)
         )
 
         cond = (
-            ((rad ** 2 < (maxxy + 0.5) ** 2 + (minxy + 0.5) ** 2) & (rad ** 2 > (maxxy - 0.5) ** 2 + (minxy - 0.5) ** 2))
-            | ((minxy == 0) & (maxxy - 0.5 < rad) & (maxxy + 0.5 >= rad))
-        )
+            (rad**2 < (maxxy + 0.5) ** 2 + (minxy + 0.5) ** 2)
+            & (rad**2 > (maxxy - 0.5) ** 2 + (minxy - 0.5) ** 2)
+        ) | ((minxy == 0) & (maxxy - 0.5 < rad) & (maxxy + 0.5 >= rad))
 
         sgrid = term * cond.astype(float)
-        sgrid = sgrid + (((maxxy + 0.5) ** 2 + (minxy + 0.5) ** 2) < rad ** 2).astype(float)
+        sgrid = sgrid + (((maxxy + 0.5) ** 2 + (minxy + 0.5) ** 2) < rad**2).astype(
+            float
+        )
 
-        sgrid[crad, crad] = min(np.pi * rad ** 2, np.pi / 2)
+        sgrid[crad, crad] = min(np.pi * rad**2, np.pi / 2)
 
-        if (crad > 0) and (rad > crad - 0.5) and (rad ** 2 < (crad - 0.5) ** 2 + 0.25):
-            m1s = np.sqrt(np.maximum(rad ** 2 - (crad - 0.5) ** 2, 0.0))
+        if (crad > 0) and (rad > crad - 0.5) and (rad**2 < (crad - 0.5) ** 2 + 0.25):
+            m1s = np.sqrt(np.maximum(rad**2 - (crad - 0.5) ** 2, 0.0))
             m1n = np.clip(m1s / rad, -1.0, 1.0)
-            sg0 = 2 * (rad ** 2 * (0.5 * np.arcsin(m1n) + 0.25 * np.sin(2 * np.arcsin(m1n))) - m1s * (crad - 0.5))
+            sg0 = 2 * (
+                rad**2 * (0.5 * np.arcsin(m1n) + 0.25 * np.sin(2 * np.arcsin(m1n)))
+                - m1s * (crad - 0.5)
+            )
 
             sgrid[2 * crad, crad] = sg0
             sgrid[crad, 2 * crad] = sg0
@@ -212,7 +245,7 @@ def fspecial(filter_type, *args):
         s = np.sum(h)
         if s != 0:
             h = h / s
-        h1 = h * (x * x + y * y - 2.0 * std2) / (std2 ** 2)
+        h1 = h * (x * x + y * y - 2.0 * std2) / (std2**2)
         h = h1 - np.sum(h1) / float(np.prod(p2))
         return h
 
@@ -240,8 +273,10 @@ def fspecial(filter_type, *args):
 
         lastpix = np.where((rad >= half) & (np.abs(dist2line) <= linewdt))
         if lastpix[0].size > 0 and np.abs(cosphi) > np.finfo(float).eps:
-            x2lastpix = half - np.abs((x[lastpix] + dist2line[lastpix] * sinphi) / cosphi)
-            dist2line[lastpix] = np.sqrt(dist2line[lastpix] ** 2 + x2lastpix ** 2)
+            x2lastpix = half - np.abs(
+                (x[lastpix] + dist2line[lastpix] * sinphi) / cosphi
+            )
+            dist2line[lastpix] = np.sqrt(dist2line[lastpix] ** 2 + x2lastpix**2)
 
         dist2line = linewdt + np.finfo(float).eps - np.abs(dist2line)
         dist2line[dist2line < 0] = 0.0
@@ -251,7 +286,7 @@ def fspecial(filter_type, *args):
         hr, hc = h.shape
         out = np.zeros((hr + nr - 1, hc + nc - 1), dtype=float)
         out[:hr, :hc] = h
-        out[hr - 1:, hc - 1:] = np.maximum(out[hr - 1:, hc - 1:], dist2line)
+        out[hr - 1 :, hc - 1 :] = np.maximum(out[hr - 1 :, hc - 1 :], dist2line)
 
         h = out / (np.sum(out) + np.finfo(float).eps * length * length)
         if cosphi > 0:
@@ -266,6 +301,8 @@ def fspecial(filter_type, *args):
 
     if t == "unsharp":
         alpha = float(p2)
-        return np.array([[0, 0, 0], [0, 1, 0], [0, 0, 0]], dtype=float) - fspecial("laplacian", alpha)
+        return np.array([[0, 0, 0], [0, 1, 0], [0, 0, 0]], dtype=float) - fspecial(
+            "laplacian", alpha
+        )
 
     raise ValueError("Unsupported filter type.")

@@ -1,20 +1,23 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import map_coordinates
 
 from libDIPUM.pointmin import pointmin
 
 
-def _sample_vector_field(field, p):
+def _sample_vector_field(field: Any, p: Any):
+    """_sample_vector_field."""
     # field shape: (*shape, ndim), p is 0-based continuous coordinate (ndim,)
     ndim = field.shape[-1]
     out = np.zeros(ndim, dtype=float)
     coords = [np.array([p[d]], dtype=float) for d in range(ndim)]
     for d in range(ndim):
-        out[d] = map_coordinates(field[..., d], coords, order=1, mode='nearest')[0]
+        out[d] = map_coordinates(field[..., d], coords, order=1, mode="nearest")[0]
     return out
 
 
-def _e1(p, grad_vol, step):
+def _e1(p: Any, grad_vol: Any, step: Any):
+    """_e1."""
     v = _sample_vector_field(grad_vol, p)
     n = np.linalg.norm(v)
     if n > 0:
@@ -22,8 +25,11 @@ def _e1(p, grad_vol, step):
     return p + step * v
 
 
-def _rk4(p, grad_vol, step):
-    def f(x):
+def _rk4(p: Any, grad_vol: Any, step: Any):
+    """_rk4."""
+
+    def f(x: Any):
+        """f."""
         v = _sample_vector_field(grad_vol, x)
         n = np.linalg.norm(v)
         if n > 0:
@@ -37,7 +43,8 @@ def _rk4(p, grad_vol, step):
     return p + (step / 6.0) * (k1 + 2.0 * k2 + 2.0 * k3 + k4)
 
 
-def _s1(p, D):
+def _s1(p: Any, D: Any):
+    """_s1."""
     # Move to lowest-distance direct neighbor.
     idx = tuple(np.clip(np.rint(p).astype(int), 0, np.array(D.shape) - 1))
     ndim = D.ndim
@@ -45,7 +52,7 @@ def _s1(p, D):
     bestv = D[idx]
 
     ranges = [(-1, 0, 1)] * ndim
-    for off in np.array(np.meshgrid(*ranges, indexing='ij')).reshape(ndim, -1).T:
+    for off in np.array(np.meshgrid(*ranges, indexing="ij")).reshape(ndim, -1).T:
         if np.all(off == 0):
             continue
         q = tuple(np.array(idx) + off)
@@ -57,7 +64,13 @@ def _s1(p, D):
     return np.asarray(best, dtype=float)
 
 
-def shortestpath(DistanceMap, StartPoint, SourcePoint=None, Stepsize=0.5, Method='rk4'):
+def shortestpath(
+    DistanceMap: Any,
+    StartPoint: Any,
+    SourcePoint: Any = None,
+    Stepsize: Any = 0.5,
+    Method: Any = "rk4",
+):
     """
     Python transcription of MATLAB shortestpath.m.
 
@@ -67,11 +80,11 @@ def shortestpath(DistanceMap, StartPoint, SourcePoint=None, Stepsize=0.5, Method
     D = np.asarray(DistanceMap, dtype=float)
     ndim = D.ndim
     if ndim not in (2, 3):
-        raise ValueError('DistanceMap must be 2D or 3D.')
+        raise ValueError("DistanceMap must be 2D or 3D.")
 
     sp = np.asarray(StartPoint, dtype=float).reshape(-1)
     if sp.size != ndim:
-        raise ValueError('StartPoint has wrong dimension.')
+        raise ValueError("StartPoint has wrong dimension.")
     p = sp - 1.0  # convert 1-based to 0-based
 
     src = None
@@ -82,7 +95,7 @@ def shortestpath(DistanceMap, StartPoint, SourcePoint=None, Stepsize=0.5, Method
         if src.shape[0] != ndim and src.shape[1] == ndim:
             src = src.T
         if src.shape[0] != ndim:
-            raise ValueError('SourcePoint must have shape (ndim, N).')
+            raise ValueError("SourcePoint must have shape (ndim, N).")
         src = src - 1.0
 
     if ndim == 2:
@@ -98,14 +111,14 @@ def shortestpath(DistanceMap, StartPoint, SourcePoint=None, Stepsize=0.5, Method
 
     while True:
         method = Method.lower()
-        if method == 'rk4':
+        if method == "rk4":
             q = _rk4(p, grad_vol, Stepsize)
-        elif method == 'euler':
+        elif method == "euler":
             q = _e1(p, grad_vol, Stepsize)
-        elif method == 'simple':
+        elif method == "simple":
             q = _s1(p, D)
         else:
-            raise ValueError('unknown method')
+            raise ValueError("unknown method")
 
         # out-of-bound stop
         if np.any(q < 0) or np.any(q >= np.array(D.shape) - 1e-9):

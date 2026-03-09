@@ -1,6 +1,7 @@
 """Watermark insertion/attack/detection (MATLAB watermarkMKR equivalent)."""
 
 from __future__ import annotations
+from typing import Any
 
 import os
 from tempfile import NamedTemporaryFile
@@ -18,14 +19,17 @@ from libDIPUM.mat2gray import mat2gray
 
 
 def _dct2(a: np.ndarray) -> np.ndarray:
+    """_dct2."""
     return dct(dct(a, axis=0, norm="ortho"), axis=1, norm="ortho")
 
 
 def _idct2(a: np.ndarray) -> np.ndarray:
+    """_idct2."""
     return idct(idct(a, axis=1, norm="ortho"), axis=0, norm="ortho")
 
 
 def _corr2(a: np.ndarray, b: np.ndarray) -> float:
+    """_corr2."""
     aa = np.asarray(a, dtype=float).ravel()
     bb = np.asarray(b, dtype=float).ravel()
     if aa.size != bb.size:
@@ -36,6 +40,7 @@ def _corr2(a: np.ndarray, b: np.ndarray) -> float:
 
 
 def _as_uint8(img: np.ndarray) -> np.ndarray:
+    """_as_uint8."""
     x = np.asarray(img)
     if x.dtype == np.uint8:
         return x
@@ -47,6 +52,7 @@ def _as_uint8(img: np.ndarray) -> np.ndarray:
 
 
 def _jpeg_roundtrip(img: np.ndarray, quality: int) -> np.ndarray:
+    """_jpeg_roundtrip."""
     img_u8 = _as_uint8(img)
     with NamedTemporaryFile(suffix=".jpg", delete=False) as tf:
         tmpname = tf.name
@@ -59,7 +65,9 @@ def _jpeg_roundtrip(img: np.ndarray, quality: int) -> np.ndarray:
     return _as_uint8(out)
 
 
-def watermarkMKR(f, w, alpha, attack="none", compare="same"):
+def watermarkMKR(
+    f: Any, w: Any, alpha: Any, attack: Any = "none", compare: Any = "same"
+):
     """Insert, attack, and detect a pseudorandom watermark.
 
     Parameters
@@ -136,7 +144,7 @@ def watermarkMKR(f, w, alpha, attack="none", compare="same"):
             _as_uint8(wi),
             1.0,
             reshape=False,
-            order=1,          # bilinear
+            order=1,  # bilinear
             mode="constant",
             cval=0.0,
             prefilter=False,
@@ -146,7 +154,7 @@ def watermarkMKR(f, w, alpha, attack="none", compare="same"):
             wi,
             -1.0,
             reshape=False,
-            order=1,          # bilinear
+            order=1,  # bilinear
             mode="constant",
             cval=0.0,
             prefilter=False,

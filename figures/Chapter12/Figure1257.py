@@ -20,7 +20,7 @@ k = np.sqrt(2.0)
 images_per_octave = 5
 
 # Data
-img_path = dip_data('building-600by600.tif')
+img_path = dip_data("building-600by600.tif")
 f = plt.imread(img_path)
 if f.ndim == 3:
     f = f[..., 0]
@@ -43,12 +43,16 @@ for i in range(images_per_octave):
     if i == 0:
         first_octave[:, :, i] = ndimage.convolve(f, kernel, mode="reflect")
     else:
-        first_octave[:, :, i] = ndimage.convolve(first_octave[:, :, i - 1], kernel, mode="reflect")
+        first_octave[:, :, i] = ndimage.convolve(
+            first_octave[:, :, i - 1], kernel, mode="reflect"
+        )
 
 # Second octave
 size_kernel_second_oct = [9, 13, 17, 25, 35]
 second_base = f[::2, ::2]
-second_octave = np.zeros((second_base.shape[0], second_base.shape[1], images_per_octave), dtype=np.float64)
+second_octave = np.zeros(
+    (second_base.shape[0], second_base.shape[1], images_per_octave), dtype=np.float64
+)
 les_sigma_second_oct = np.zeros(images_per_octave, dtype=np.float64)
 
 for i in range(images_per_octave):
@@ -61,12 +65,16 @@ for i in range(images_per_octave):
     if i == 0:
         second_octave[:, :, i] = ndimage.convolve(second_base, kernel, mode="reflect")
     else:
-        second_octave[:, :, i] = ndimage.convolve(second_octave[:, :, i - 1], kernel, mode="reflect")
+        second_octave[:, :, i] = ndimage.convolve(
+            second_octave[:, :, i - 1], kernel, mode="reflect"
+        )
 
 # Third octave
 size_kernel_third_oct = [17, 25, 35, 49, 67]
 third_base = f[::4, ::4]
-third_octave = np.zeros((third_base.shape[0], third_base.shape[1], images_per_octave), dtype=np.float64)
+third_octave = np.zeros(
+    (third_base.shape[0], third_base.shape[1], images_per_octave), dtype=np.float64
+)
 les_sigma_third_oct = np.zeros(images_per_octave, dtype=np.float64)
 
 for i in range(images_per_octave):
@@ -79,12 +87,15 @@ for i in range(images_per_octave):
     if i == 0:
         third_octave[:, :, i] = ndimage.convolve(third_base, kernel, mode="reflect")
     else:
-        third_octave[:, :, i] = ndimage.convolve(third_octave[:, :, i - 1], kernel, mode="reflect")
+        third_octave[:, :, i] = ndimage.convolve(
+            third_octave[:, :, i - 1], kernel, mode="reflect"
+        )
 
 
 # Display helper: place image at top-left in full-size coordinates
 # without padded white image data.
 def show_octave(ax: plt.Axes, img: np.ndarray, nr_: int, nc_: int, title: str) -> None:
+    """show_octave."""
     ax.imshow(
         img,
         cmap="gray",

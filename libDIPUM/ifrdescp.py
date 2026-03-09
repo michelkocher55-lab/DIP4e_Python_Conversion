@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def ifrdescp(z, nd=None):
+def ifrdescp(z: Any, nd: Any = None):
     """
     Computes inverse Fourier descriptors.
 
@@ -25,12 +26,12 @@ def ifrdescp(z, nd=None):
         nd = np_
 
     if np_ % 2 != 0:
-        raise ValueError('length(z) must be an even integer.')
+        raise ValueError("length(z) must be an even integer.")
     if int(nd) != nd or nd % 2 != 0:
-        raise ValueError('nd must be an even integer.')
+        raise ValueError("nd must be an even integer.")
     nd = int(nd)
     if nd < 0 or nd > np_:
-        raise ValueError('nd must satisfy 0 <= nd <= length(z).')
+        raise ValueError("nd must satisfy 0 <= nd <= length(z).")
 
     # Alternating sequence of 1 and -1 (undo centering done in frdescp).
     x = np.arange(np_)
@@ -41,7 +42,7 @@ def ifrdescp(z, nd=None):
     d = (np_ - nd) // 2
     if d > 0:
         z_use[:d] = 0
-        z_use[np_ - d:] = 0
+        z_use[np_ - d :] = 0
 
     # Inverse transform and boundary coordinates.
     zz = np.fft.ifft(z_use)

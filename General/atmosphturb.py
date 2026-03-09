@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from libDIPUM.dftuv import dftuv
 
 
-def atmosphturb(M, N, k):
+def atmosphturb(M: Any, N: Any, k: Any):
     """
     Atmospheric turbulence transfer function.
 
@@ -22,7 +23,7 @@ def atmosphturb(M, N, k):
     D = np.hypot(U, V)
 
     # Filter
-    H = np.exp(-k * ((D ** 2) ** (5.0 / 6.0)))
+    H = np.exp(-k * ((D**2) ** (5.0 / 6.0)))
     H = np.fft.ifftshift(H)
 
     return H

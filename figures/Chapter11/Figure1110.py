@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -15,7 +13,7 @@ from libDIPUM.data_path import dip_data
 NIter = 400
 
 # Data
-img_path = dip_data('U200.tif')
+img_path = dip_data("U200.tif")
 f = imread(img_path)
 
 # Specify a circle
@@ -28,16 +26,16 @@ xi = np.concatenate([xi, [xi[0]]])
 yi = np.concatenate([yi, [yi[0]]])
 
 # Edge map
-emap = snakeMap4e(f, 0.001, 3, 1, 'after')
+emap = snakeMap4e(f, 0.001, 3, 1, "after")
 
 # Scale to range [0,1]
 emap = intScaling4e(emap)
 
 # Snake force (GVF)
-FTx, FTy = snakeForce4e(emap, 'gvf', 0.25, 80)
+FTx, FTy = snakeForce4e(emap, "gvf", 0.25, 80)
 
 # Normalize
-mag = np.sqrt(FTx ** 2 + FTy ** 2)
+mag = np.sqrt(FTx**2 + FTy**2)
 FTx = FTx / (mag + np.finfo(float).eps)
 FTy = FTy / (mag + np.finfo(float).eps)
 
@@ -55,21 +53,21 @@ x, y = snakeReparam4e(x, y)
 # Display
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
-axes[0, 0].imshow(f, cmap='gray')
-axes[0, 0].axis('off')
-axes[0, 0].plot(np.append(yi, yi[0]), np.append(xi, xi[0]), 'g.')
+axes[0, 0].imshow(f, cmap="gray")
+axes[0, 0].axis("off")
+axes[0, 0].plot(np.append(yi, yi[0]), np.append(xi, xi[0]), "g.")
 
-axes[0, 1].imshow(emap, cmap='gray')
-axes[0, 1].axis('off')
+axes[0, 1].imshow(emap, cmap="gray")
+axes[0, 1].axis("off")
 
 axes[1, 0].quiver(np.flipud(FTy[::2, ::2]), np.flipud(-FTx[::2, ::2]))
-axes[1, 0].axis('off')
+axes[1, 0].axis("off")
 
-axes[1, 1].imshow(f, cmap='gray')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(f, cmap="gray")
+axes[1, 1].axis("off")
 plt.sca(axes[1, 1])
-snake_display(x, y, 'g.')
+snake_display(x, y, "g.")
 
 plt.tight_layout()
-plt.savefig('Figure1110.png')
+plt.savefig("Figure1110.png")
 plt.show()

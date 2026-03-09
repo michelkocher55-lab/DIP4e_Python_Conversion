@@ -11,7 +11,7 @@ Example (MATLAB-like positional name/value style):
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, Dict, Iterable, List, Sequence, Tuple
+from typing import Any, Dict, List, Sequence, Tuple
 
 import numpy as np
 
@@ -29,16 +29,19 @@ class MSERRegions:
 
     @property
     def Count(self) -> int:
+        """Count."""
         return len(self.PixelList)
 
     @property
     def Lengths(self) -> np.ndarray:
+        """Lengths."""
         if not self.PixelList:
             return np.zeros((0,), dtype=np.int32)
         return np.asarray([p.shape[0] for p in self.PixelList], dtype=np.int32)
 
 
 def _im2uint8(I: np.ndarray) -> np.ndarray:
+    """_im2uint8."""
     a = np.asarray(I)
     if a.ndim != 2:
         raise ValueError("I must be a 2-D grayscale image")
@@ -49,7 +52,7 @@ def _im2uint8(I: np.ndarray) -> np.ndarray:
         return a.copy()
 
     if a.dtype == np.bool_:
-        return (a.astype(np.uint8) * 255)
+        return a.astype(np.uint8) * 255
 
     if np.issubdtype(a.dtype, np.floating):
         # MATLAB im2uint8 semantics: [0,1] expected for float.
@@ -70,6 +73,7 @@ def _im2uint8(I: np.ndarray) -> np.ndarray:
 
 
 def _default_params(image_shape: Tuple[int, int]) -> Dict[str, Any]:
+    """_default_params."""
     h, w = image_shape
     return {
         "ThresholdDelta": 5 * 100.0 / 255.0,
@@ -81,6 +85,7 @@ def _default_params(image_shape: Tuple[int, int]) -> Dict[str, Any]:
 
 
 def _to_param_dict(args: Sequence[Any], kwargs: Dict[str, Any]) -> Dict[str, Any]:
+    """_to_param_dict."""
     if len(args) % 2 != 0:
         raise ValueError("Name/value arguments must come in pairs")
 
@@ -102,6 +107,7 @@ def _to_param_dict(args: Sequence[Any], kwargs: Dict[str, Any]) -> Dict[str, Any
 
 
 def _check_roi(roi: Sequence[int], image_shape: Tuple[int, int]) -> None:
+    """_check_roi."""
     if len(roi) != 4:
         raise ValueError("ROI must be [x y width height]")
 
@@ -115,6 +121,7 @@ def _check_roi(roi: Sequence[int], image_shape: Tuple[int, int]) -> None:
 
 
 def _apply_roi(I: np.ndarray, roi: Sequence[int], using_roi: bool) -> np.ndarray:
+    """_apply_roi."""
     if not using_roi:
         return I
     x, y, w, h = [int(v) for v in roi]
@@ -123,17 +130,21 @@ def _apply_roi(I: np.ndarray, roi: Sequence[int], using_roi: bool) -> np.ndarray
     return I[y0 : y0 + h, x0 : x0 + w]
 
 
-def _offset_region_points(points_xy_1based: np.ndarray, roi: Sequence[int], using_roi: bool) -> np.ndarray:
+def _offset_region_points(
+    points_xy_1based: np.ndarray, roi: Sequence[int], using_roi: bool
+) -> np.ndarray:
+    """_offset_region_points."""
     if not using_roi:
         return points_xy_1based
     x, y, _, _ = [int(v) for v in roi]
     out = points_xy_1based.copy()
-    out[:, 0] += (x - 1)
-    out[:, 1] += (y - 1)
+    out[:, 0] += x - 1
+    out[:, 1] += y - 1
     return out
 
 
 def _region2cc(regions: MSERRegions, image_shape: Tuple[int, int]) -> Dict[str, Any]:
+    """_region2cc."""
     # MATLAB-like connected component struct fields.
     H, W = image_shape
     pixel_idx_list: List[np.ndarray] = []

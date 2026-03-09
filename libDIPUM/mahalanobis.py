@@ -1,9 +1,10 @@
 from __future__ import annotations
+from typing import Any
 import numpy as np
 from libDIPUM.covmatrix import covmatrix
 
 
-def mahalanobis(*args):
+def mahalanobis(*args: Any):
     """Compute Mahalanobis distances.
 
     Usage

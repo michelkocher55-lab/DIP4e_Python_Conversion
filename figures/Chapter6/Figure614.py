@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from libDIP.tmat4e import tmat4e
@@ -14,7 +12,7 @@ Te = 1e-3  # Sampling period
 f = (np.array([0, 1, 2, 3], dtype=float) ** 2).reshape(-1, 1)
 
 # DST Transform (MATLAB dstmtx)
-DST = tmat4e('DST', N)
+DST = tmat4e("DST", N)
 
 # Reconstruction
 t = np.arange(0, 4 * N + Te, Te)
@@ -39,10 +37,10 @@ plt.figure(figsize=(8, 8))
 for iter_idx in range(1, N + 1):
     ax = plt.subplot(N, 1, iter_idx)
     ax.plot(t, Factor * Rec[iter_idx - 1, :])
-    ax.stem(tn, f.ravel(), basefmt=' ')
+    ax.stem(tn, f.ravel(), basefmt=" ")
     ax.set_xlim(t[0], t[-1])
 
 plt.tight_layout()
-plt.savefig('Figure614.png')
-print('Saved Figure614.png')
+plt.savefig("Figure614.png")
+print("Saved Figure614.png")
 plt.show()

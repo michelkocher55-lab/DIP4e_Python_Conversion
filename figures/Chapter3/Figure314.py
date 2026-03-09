@@ -1,15 +1,12 @@
-
-import sys
-import os
-import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from libDIPUM.data_path import dip_data
 
 # Image loading (Exact path)
-img_name = dip_data('trophozoite.tif')
+img_name = dip_data("trophozoite.tif")
 f = imread(img_name)
-if f.ndim == 3: f = f[:,:,0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 
 # Bit slicing
 # MATLAB loop implementation:
@@ -50,9 +47,9 @@ fig, axes = plt.subplots(3, 3, figsize=(10, 10))
 axes = axes.flatten()
 
 # Plot 1: Original
-axes[0].imshow(f, cmap='gray', vmin=0, vmax=255)
-axes[0].set_title('Original')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray", vmin=0, vmax=255)
+axes[0].set_title("Original")
+axes[0].axis("off")
 
 # Plot 2..9: Bit planes
 # MATLAB: title(['b', num2str(i-1)]).
@@ -62,12 +59,12 @@ axes[0].axis('off')
 # i=1 (MSB). Title 'b0'.
 
 for i in range(NBits):
-    ax = axes[i+1]
-    ax.imshow(Bits[i], cmap='gray')
-    ax.set_title(f'b{i}') # i starts at 0. matches MATLAB 'i-1'.
-    ax.axis('off')
+    ax = axes[i + 1]
+    ax.imshow(Bits[i], cmap="gray")
+    ax.set_title(f"b{i}")  # i starts at 0. matches MATLAB 'i-1'.
+    ax.axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure314.png')
+plt.savefig("Figure314.png")
 print("Saved Figure314.png")
 plt.show()

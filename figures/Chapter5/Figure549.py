@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.data import shepp_logan_phantom
@@ -29,23 +26,26 @@ for i in range(4):
     rot_inc = FanRotInc[i]
     sensor_spacing = FanSensorSpacing[i]
 
-    print(f"Case {i+1}: FanRotInc={rot_inc}, FanSensorSpacing={sensor_spacing}...")
+    print(f"Case {i + 1}: FanRotInc={rot_inc}, FanSensorSpacing={sensor_spacing}...")
 
     # Fanbeam
-    F, gamma, beta = fanbeam(f, D=d_source,
-                             FanRotationIncrement=rot_inc,
-                             FanSensorSpacing=sensor_spacing)
+    F, gamma, beta = fanbeam(
+        f, D=d_source, FanRotationIncrement=rot_inc, FanSensorSpacing=sensor_spacing
+    )
 
     # Inverse Fanbeam
     # OutputSize=600
-    g_recon = ifanbeam(F, D=d_source,
-                       FanRotationIncrement=rot_inc,
-                       FanSensorSpacing=sensor_spacing,
-                       filter='Hamming',
-                       OutputSize=NR)
+    g_recon = ifanbeam(
+        F,
+        D=d_source,
+        FanRotationIncrement=rot_inc,
+        FanSensorSpacing=sensor_spacing,
+        filter="Hamming",
+        OutputSize=NR,
+    )
 
     # Scale
-    g_scaled = intScaling4e(g_recon, 'full')
+    g_scaled = intScaling4e(g_recon, "full")
     results.append(g_scaled)
 
 # Display
@@ -53,11 +53,11 @@ fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 axes = axes.flatten()
 
 for i, ax in enumerate(axes):
-    ax.imshow(results[i], cmap='gray')
-    ax.set_title(f'Inc: {FanRotInc[i]}')
-    ax.axis('off')
+    ax.imshow(results[i], cmap="gray")
+    ax.set_title(f"Inc: {FanRotInc[i]}")
+    ax.axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure549.png')
+plt.savefig("Figure549.png")
 print("Saved Figure549.png")
 plt.show()

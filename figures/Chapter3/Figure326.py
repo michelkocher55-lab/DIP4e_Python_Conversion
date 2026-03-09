@@ -8,7 +8,7 @@ from libDIPUM.data_path import dip_data
 # Histogram specification of hidden horse image
 
 # %% Data
-f = np.array(Image.open(dip_data('hidden-horse.tif')))
+f = np.array(Image.open(dip_data("hidden-horse.tif")))
 if f.ndim == 3:
     f = f[..., 0]
 f = f.astype(np.uint8)
@@ -26,7 +26,7 @@ ct = np.cumsum(p)
 mapping = np.zeros(256, dtype=np.uint8)
 for r in range(256):
     # First target gray level whose CDF reaches source CDF.
-    mapping[r] = np.searchsorted(ct, cs[r], side='left')
+    mapping[r] = np.searchsorted(ct, cs[r], side="left")
 
 g = mapping[f]
 
@@ -38,23 +38,23 @@ fig = plt.figure(1, figsize=(10, 8))
 
 plt.subplot(2, 2, 1)
 plt.plot(p)
-plt.axis('square')
-plt.axis('tight')
+plt.axis("square")
+plt.axis("tight")
 
 plt.subplot(2, 2, 2)
 plt.plot(255 * tsh)
-plt.axis('square')
-plt.axis('tight')
+plt.axis("square")
+plt.axis("tight")
 
 plt.subplot(2, 2, 3)
-plt.imshow(g, cmap='gray')
-plt.axis('off')
+plt.imshow(g, cmap="gray")
+plt.axis("off")
 
 plt.subplot(2, 2, 4)
 plt.bar(np.arange(256), hns)
-plt.axis('square')
-plt.axis('tight')
+plt.axis("square")
+plt.axis("tight")
 
 plt.tight_layout()
-fig.savefig('Figure326.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure326.png", dpi=150, bbox_inches="tight")
 plt.show()

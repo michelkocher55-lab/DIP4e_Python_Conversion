@@ -1,14 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
-import sys
 from libDIPUM.otsuthresh import otsuthresh
 from libDIPUM.data_path import dip_data
 
 # Figure 10.36
 
 # Data
-img_path = dip_data('polymercell.tif')
+img_path = dip_data("polymercell.tif")
 I = imread(img_path)
 if I.ndim == 3:
     I = I[:, :, 0]
@@ -57,25 +56,25 @@ print(f"Iterative threshold: {T_iter:.2f}, iterations: {count}")
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
 axes = axes.ravel()
 
-axes[0].imshow(I, cmap='gray')
-axes[0].set_title('Original Image (Polymersomes)')
-axes[0].axis('off')
+axes[0].imshow(I, cmap="gray")
+axes[0].set_title("Original Image (Polymersomes)")
+axes[0].axis("off")
 
-axes[1].plot(h, 'k')
+axes[1].plot(h, "k")
 line_x = T_otsu if I.dtype == np.uint8 else (T_otsu * 256)
-axes[1].axvline(x=line_x, color='r', linestyle='--', label=f'Otsu T={T_otsu:.1f}')
-axes[1].set_title('Histogram')
+axes[1].axvline(x=line_x, color="r", linestyle="--", label=f"Otsu T={T_otsu:.1f}")
+axes[1].set_title("Histogram")
 axes[1].legend()
 
-axes[2].imshow(g_iter, cmap='gray')
-axes[2].set_title(f'Iterative Mean (T={T_iter:.1f})')
-axes[2].axis('off')
+axes[2].imshow(g_iter, cmap="gray")
+axes[2].set_title(f"Iterative Mean (T={T_iter:.1f})")
+axes[2].axis("off")
 
-axes[3].imshow(g_otsu, cmap='gray')
-axes[3].set_title(f'Otsu (SM={SM:.2f})')
-axes[3].axis('off')
+axes[3].imshow(g_otsu, cmap="gray")
+axes[3].set_title(f"Otsu (SM={SM:.2f})")
+axes[3].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1036.png', dpi=300, bbox_inches='tight')
-print('Saved Figure1036.png')
+plt.savefig("Figure1036.png", dpi=300, bbox_inches="tight")
+print("Saved Figure1036.png")
 plt.show()

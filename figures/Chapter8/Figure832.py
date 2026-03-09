@@ -6,8 +6,8 @@ from libDIPUM.ntrop import ntrop
 from libDIPUM.data_path import dip_data
 
 # Data
-f_raw = imread(dip_data('nasaframe78.tif'))
-f_next_raw = imread(dip_data('nasaframe79.tif'))
+f_raw = imread(dip_data("nasaframe78.tif"))
+f_next_raw = imread(dip_data("nasaframe79.tif"))
 if f_raw.ndim == 3:
     f_raw = f_raw[..., 0]
 if f_next_raw.ndim == 3:
@@ -31,26 +31,26 @@ delta = f - f_next
 fig = plt.figure(1, figsize=(10, 8))
 
 plt.subplot(2, 2, 1)
-plt.imshow(f, cmap='gray')
-plt.title('Frame 78')
-plt.axis('off')
+plt.imshow(f, cmap="gray")
+plt.title("Frame 78")
+plt.axis("off")
 
 plt.subplot(2, 2, 2)
-plt.imshow(f_next, cmap='gray')
-plt.title('Frame 79')
-plt.axis('off')
+plt.imshow(f_next, cmap="gray")
+plt.title("Frame 79")
+plt.axis("off")
 
 plt.subplot(2, 2, 3)
-plt.imshow(delta, cmap='gray')
-plt.title('Delta')
-plt.axis('off')
+plt.imshow(delta, cmap="gray")
+plt.title("Delta")
+plt.axis("off")
 
 plt.subplot(2, 2, 4)
 hd, _ = np.histogram(delta.ravel(), bins=256)
 plt.bar(np.arange(hd.size), hd)
 sigma = np.std(delta, ddof=1)  # MATLAB std2 equivalent normalization (N-1)
-plt.title(f'H = {ntrop(delta.ravel()):g}, $\sigma$ = {sigma:g}')
+plt.title(rf"H = {ntrop(delta.ravel()):g}, $\sigma$ = {sigma:g}")
 
 plt.tight_layout()
-fig.savefig('Figure832.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure832.png", dpi=150, bbox_inches="tight")
 plt.show()

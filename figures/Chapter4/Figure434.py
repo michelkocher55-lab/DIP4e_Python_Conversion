@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -10,10 +7,11 @@ from libDIPUM.data_path import dip_data
 print("Running Figure434 (Phase Manipulation)...")
 
 # Image loading
-img_path = dip_data('integrated-ckt-damaged.tif')
+img_path = dip_data("integrated-ckt-damaged.tif")
 
 f = imread(img_path)
-if f.ndim == 3: f = f[:,:,0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 
 f = img_as_float(f)
 
@@ -36,21 +34,21 @@ g2 = np.real(np.fft.ifft2(np.abs(F) * np.exp(1j * 0.25 * a)))
 fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 
 # Original
-axes[0].imshow(f, cmap='gray', vmin=0, vmax=1)
-axes[0].set_title('Original')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray", vmin=0, vmax=1)
+axes[0].set_title("Original")
+axes[0].axis("off")
 
 # g1 (Negative Phase)
-axes[1].imshow(g1, cmap='gray', vmin=0, vmax=1)
-axes[1].set_title('Phase Angle * -1')
-axes[1].axis('off')
+axes[1].imshow(g1, cmap="gray", vmin=0, vmax=1)
+axes[1].set_title("Phase Angle * -1")
+axes[1].axis("off")
 
 # g2 (Phase * 0.25)
-axes[2].imshow(g2, cmap='gray', vmin=0, vmax=1)
-axes[2].set_title('Phase Angle * 0.25')
-axes[2].axis('off')
+axes[2].imshow(g2, cmap="gray", vmin=0, vmax=1)
+axes[2].set_title("Phase Angle * 0.25")
+axes[2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure434.png')
+plt.savefig("Figure434.png")
 print("Saved Figure434.png")
 plt.show()

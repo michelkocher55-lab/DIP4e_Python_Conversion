@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -21,22 +19,22 @@ NSig = 3
 NIter = 265
 
 # Data
-img_path = dip_data('noisy-elliptical-object.tif')
+img_path = dip_data("noisy-elliptical-object.tif")
 g = imread(img_path)
 
 # Load initial snake
-mat = loadmat('Figure112.mat')
-xi = mat['xi'].squeeze()
-yi = mat['yi'].squeeze()
+mat = loadmat("Figure112.mat")
+xi = mat["xi"].squeeze()
+yi = mat["yi"].squeeze()
 
 # Edge map
-emap = snakeMap4e(g, T, Sig, NSig, 'both')
+emap = snakeMap4e(g, T, Sig, NSig, "both")
 
 # Snake force
-FTx, FTy = snakeForce4e(emap, 'gradient')
+FTx, FTy = snakeForce4e(emap, "gradient")
 
 # Normalize forces
-mag = np.sqrt(FTx ** 2 + FTy ** 2)
+mag = np.sqrt(FTx**2 + FTy**2)
 FTx = FTx / (mag + 1e-10)
 FTy = FTy / (mag + 1e-10)
 
@@ -71,26 +69,26 @@ for _ in range(NIter):
 # Display
 fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 
-axes[0, 0].imshow(g, cmap='gray')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(g, cmap="gray")
+axes[0, 0].axis("off")
 plt.sca(axes[0, 0])
-snake_display(x1, y1, 'g.')
+snake_display(x1, y1, "g.")
 
-axes[0, 1].imshow(g, cmap='gray')
-axes[0, 1].axis('off')
+axes[0, 1].imshow(g, cmap="gray")
+axes[0, 1].axis("off")
 plt.sca(axes[0, 1])
-snake_display(x2, y2, 'g.')
+snake_display(x2, y2, "g.")
 
-axes[1, 0].imshow(g, cmap='gray')
-axes[1, 0].axis('off')
+axes[1, 0].imshow(g, cmap="gray")
+axes[1, 0].axis("off")
 plt.sca(axes[1, 0])
-snake_display(x3, y3, 'g.')
+snake_display(x3, y3, "g.")
 
-axes[1, 1].imshow(g, cmap='gray')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(g, cmap="gray")
+axes[1, 1].axis("off")
 plt.sca(axes[1, 1])
-snake_display(x4, y4, 'g.')
+snake_display(x4, y4, "g.")
 
 plt.tight_layout()
-plt.savefig('Figure116.png')
+plt.savefig("Figure116.png")
 plt.show()

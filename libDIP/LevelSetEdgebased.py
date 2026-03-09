@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import convolve
 from skimage.measure import find_contours
@@ -9,7 +10,7 @@ from libDIP.levelSetReInit4e import levelSetReInit4e
 from libDIPUM.gaussKernel4e import gaussKernel4e
 
 
-def _zero_level_contours_all(phi):
+def _zero_level_contours_all(phi: Any):
     """Return all zero-level contours as 2xN [x; y] with NaN separators."""
     contours = find_contours(phi, level=0.0)
     if len(contours) == 0:
@@ -29,7 +30,9 @@ def _zero_level_contours_all(phi):
     return np.vstack([x_all, y_all])
 
 
-def LevelSetEdgebased(f, binmask, HSize, Sigma, p, lambda_, niter):
+def LevelSetEdgebased(
+    f: Any, binmask: Any, HSize: Any, Sigma: Any, p: Any, lambda_: Any, niter: Any
+):
     """
     Edge-based level-set segmentation.
 
@@ -39,7 +42,7 @@ def LevelSetEdgebased(f, binmask, HSize, Sigma, p, lambda_, niter):
     Note: Python uses `lambda_` because `lambda` is a reserved keyword.
     """
     # Create initial level set function.
-    phi0 = levelSetFunction4e('mask', binmask)
+    phi0 = levelSetFunction4e("mask", binmask)
 
     # Obtain the zero-level set contour (for parity with MATLAB flow).
     c0 = _zero_level_contours_all(phi0)
@@ -47,17 +50,17 @@ def LevelSetEdgebased(f, binmask, HSize, Sigma, p, lambda_, niter):
 
     # Smooth image.
     G = gaussKernel4e(HSize, Sigma)
-    fsmooth = convolve(f, G, mode='nearest')
+    fsmooth = convolve(f, G, mode="nearest")
 
     # Compute edge-marking function.
-    W = levelSetForce4e('gradient', [fsmooth, p, lambda_])
+    W = levelSetForce4e("gradient", [fsmooth, p, lambda_])
     T = (W.max() + W.min()) / 2.0
     WBin = W > T
 
     phi = phi0.copy()
     C = 0.5
     for I in range(1, int(niter) + 1):
-        F = levelSetForce4e('geodesic', [phi, C, WBin])
+        F = levelSetForce4e("geodesic", [phi, C, WBin])
         phi = levelSetIterate4e(phi, F)
 
         # Update every 5 iterations.

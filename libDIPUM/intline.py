@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def intline(x1, x2, y1, y2):
+def intline(x1: Any, x2: Any, y1: Any, y2: Any):
     """
     Integer-coordinate line drawing algorithm.
     MATLAB-faithful translation of intline.m.

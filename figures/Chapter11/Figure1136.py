@@ -25,7 +25,7 @@ from libDIPUM.snake_display import snake_display
 from libDIPUM.data_path import dip_data
 
 # Data
-img_path = dip_data('breast-implant.tif')
+img_path = dip_data("breast-implant.tif")
 f = img_as_float(imread(img_path))
 if f.ndim == 3:
     f = f[..., 0]
@@ -48,11 +48,11 @@ xi = np.append(xi, xi[0])
 yi = np.append(yi, yi[0])
 
 # Edge map
-emap = snakeMap4e(f, T, Sig, NSig, 'both')
+emap = snakeMap4e(f, T, Sig, NSig, "both")
 emap = img_as_float(intScaling4e(emap))
 
 # Snake force
-FTx, FTy = snakeForce4e(emap, 'gvf', 0.2, 160)
+FTx, FTy = snakeForce4e(emap, "gvf", 0.2, 160)
 mag = np.sqrt(FTx**2 + FTy**2)
 FTx = FTx / (mag + 1e-10)
 FTy = FTy / (mag + 1e-10)
@@ -70,29 +70,29 @@ n = 21
 sig = 5
 NIter = 1500
 
-if os.path.exists('Figure1124.mat'):
-    mat = sio.loadmat('Figure1124.mat')
+if os.path.exists("Figure1124.mat"):
+    mat = sio.loadmat("Figure1124.mat")
     # Keep same convention as Figure1124.py in this project
-    x_ls = np.asarray(mat['y']).squeeze()
-    y_ls = np.asarray(mat['x']).squeeze()
+    x_ls = np.asarray(mat["y"]).squeeze()
+    y_ls = np.asarray(mat["x"]).squeeze()
 else:
-    x_ls, y_ls, vx, vy = curve_manual_input(f, 200, 'g.')
-    sio.savemat('Figure1124.mat', {'x': x_ls, 'y': y_ls, 'vx': vx, 'vy': vy})
+    x_ls, y_ls, vx, vy = curve_manual_input(f, 200, "g.")
+    sio.savemat("Figure1124.mat", {"x": x_ls, "y": y_ls, "vx": vx, "vy": vy})
 
 binmask = coord2mask(M, N, x_ls, y_ls)
-phi0 = levelSetFunction4e('mask', binmask)
+phi0 = levelSetFunction4e("mask", binmask)
 
 G = gaussKernel4e(n, sig)
-fsmooth = convolve(f, G, mode='nearest')
+fsmooth = convolve(f, G, mode="nearest")
 
-W = levelSetForce4e('gradient', [fsmooth, 1, 50])
+W = levelSetForce4e("gradient", [fsmooth, 1, 50])
 T = (np.max(W) + np.min(W)) / 2.0
 WBin = W > T
 
 phi = phi0.copy()
 C = 0.5
 for I in range(1, NIter + 1):
-    F = levelSetForce4e('geodesic', [phi, C, WBin])
+    F = levelSetForce4e("geodesic", [phi, C, WBin])
     phi = levelSetIterate4e(phi, F)
     if I % 5 == 0:
         phi = levelSetReInit4e(phi, 5, 0.5)
@@ -107,11 +107,11 @@ lambda2 = 1
 y1, x1 = np.meshgrid(np.arange(1, N + 1), np.arange(1, M + 1))
 center = [330, 350]
 r = 30
-phi0 = np.sqrt((x1 - center[0])**2 + (y1 - center[1])**2) - r
+phi0 = np.sqrt((x1 - center[0]) ** 2 + (y1 - center[1]) ** 2) - r
 
 phi = phi0.copy()
 for I in range(1, 800 + 1):
-    F = levelSetForce4e('regioncurve', [f, phi, mu, nu, lambda1, lambda2], ['Fn', 'Cn'])
+    F = levelSetForce4e("regioncurve", [f, phi, mu, nu, lambda1, lambda2], ["Fn", "Cn"])
     phi = levelSetIterate4e(phi, F)
     if I % 5 == 0:
         phi = levelSetReInit4e(phi, 5, 0.5)
@@ -121,22 +121,22 @@ cLevelSetRegion = contourc(phi, [0, 0])
 plt.figure(figsize=(12, 4))
 
 plt.subplot(1, 3, 1)
-plt.imshow(f, cmap='gray')
-plt.axis('off')
-snake_display(xSnake, ySnake, 'g.')
-plt.title('snake')
+plt.imshow(f, cmap="gray")
+plt.axis("off")
+snake_display(xSnake, ySnake, "g.")
+plt.title("snake")
 
 plt.subplot(1, 3, 2)
-plt.imshow(f, cmap='gray')
-plt.axis('off')
-plt.title('Level Set edge')
-curve_display(cLevelSetEdge[1, :], cLevelSetEdge[0, :], 'g.')
+plt.imshow(f, cmap="gray")
+plt.axis("off")
+plt.title("Level Set edge")
+curve_display(cLevelSetEdge[1, :], cLevelSetEdge[0, :], "g.")
 
 plt.subplot(1, 3, 3)
-plt.imshow(f, cmap='gray')
-plt.axis('off')
-curve_display(cLevelSetRegion[1, :], cLevelSetRegion[0, :], 'g.')
+plt.imshow(f, cmap="gray")
+plt.axis("off")
+curve_display(cLevelSetRegion[1, :], cLevelSetRegion[0, :], "g.")
 
 plt.tight_layout()
-plt.savefig('Figure1136.png')
+plt.savefig("Figure1136.png")
 plt.show()

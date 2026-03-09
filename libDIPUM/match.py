@@ -1,6 +1,7 @@
 """Match SIFT keypoints between two images (MATLAB-style)."""
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 
@@ -9,6 +10,7 @@ from libDIPUM.sift import sift
 
 
 def _to_float_gray(image: np.ndarray) -> np.ndarray:
+    """_to_float_gray."""
     img = np.asarray(image).astype(np.float64, copy=False)
     if img.size == 0:
         return img
@@ -20,7 +22,10 @@ def _to_float_gray(image: np.ndarray) -> np.ndarray:
     return np.clip(img, 0.0, 1.0)
 
 
-def _draw_line_rgb(out: np.ndarray, r1: float, c1: float, r2: float, c2: float, color) -> None:
+def _draw_line_rgb(
+    out: np.ndarray, r1: float, c1: float, r2: float, c2: float, color: Any
+) -> None:
+    """_draw_line_rgb."""
     rows, cols = out.shape[:2]
     n = int(max(abs(r2 - r1), abs(c2 - c1))) + 1
     n = max(n, 2)
@@ -43,7 +48,7 @@ def _draw_line_rgb(out: np.ndarray, r1: float, c1: float, r2: float, c2: float, 
                 out[rr2[valid2], cc2[valid2], :] = color
 
 
-def match(image1, image2):
+def match(image1: Any, image2: Any):
     """Find SIFT matches and return match count + overlay image.
 
     Parameters
@@ -65,7 +70,9 @@ def match(image1, image2):
 
     n1 = des1.shape[0]
     n2 = des2.shape[0]
-    matches = np.zeros((n1,), dtype=np.int64)  # 0 means no match, else 1-based index into image2 keypoints.
+    matches = np.zeros(
+        (n1,), dtype=np.int64
+    )  # 0 means no match, else 1-based index into image2 keypoints.
 
     if n1 > 0 and n2 >= 2:
         des2t = des2.T

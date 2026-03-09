@@ -1,16 +1,21 @@
+from typing import Any
 import numpy as np
 from scipy.optimize import fminbound
 from skimage.util import img_as_float
 
 
-def _padlength(size_a, size_b, size_c):
+def _padlength(size_a: Any, size_b: Any, size_c: Any):
+    """_padlength."""
     maxlen = max(len(size_a), len(size_b), len(size_c))
-    def pad(s):
+
+    def pad(s: Any):
+        """pad."""
         return list(s) + [1] * (maxlen - len(s))
+
     return pad(size_a), pad(size_b), pad(size_c)
 
 
-def _psf2otf(psf, out_size):
+def _psf2otf(psf: Any, out_size: Any):
     """ND psf2otf matching MATLAB behavior."""
     psf = np.asarray(psf, dtype=float)
     out = np.zeros(out_size, dtype=float)
@@ -24,7 +29,8 @@ def _psf2otf(psf, out_size):
     return np.fft.fftn(out)
 
 
-def _default_regop(size_psf, num_ns_dim):
+def _default_regop(size_psf: Any, num_ns_dim: Any):
+    """_default_regop."""
     nsd = len(num_ns_dim)
     if nsd == 1:
         regop = np.array([1, -2, 1], dtype=float)
@@ -38,13 +44,16 @@ def _default_regop(size_psf, num_ns_dim):
             regop[tuple(idx)] = 1
 
         idx = [slice(None), slice(None)] + [2] * (nsd - 2)
-        regop[tuple(idx)] = np.array([[0, 1, 0], [1, -nsd * 2, 1], [0, 1, 0]], dtype=float)
+        regop[tuple(idx)] = np.array(
+            [[0, 1, 0], [1, -nsd * 2, 1], [0, 1, 0]], dtype=float
+        )
 
     # Return the small Laplacian kernel; psf2otf will expand it to image size.
     return regop
 
 
-def _change_class_like(original_dtype, arr):
+def _change_class_like(original_dtype: Any, arr: Any):
+    """_change_class_like."""
     # Match MATLAB behavior for common integer types; otherwise return float.
     if original_dtype == np.uint8:
         return np.clip(arr, 0, 1) * 255.0
@@ -53,7 +62,7 @@ def _change_class_like(original_dtype, arr):
     return arr
 
 
-def deconvreg(I, PSF, NP=0, LR=None, REGOP=None):
+def deconvreg(I: Any, PSF: Any, NP: Any = 0, LR: Any = None, REGOP: Any = None):
     """
     Deblur image using regularized filter (MATLAB deconvreg).
 
@@ -94,7 +103,11 @@ def deconvreg(I, PSF, NP=0, LR=None, REGOP=None):
     if LR.size == 0:
         LR = np.array([1e-9, 1e9], dtype=float)
 
-    sizeREGOP = list(np.asarray(REGOP).shape) if REGOP is not None and np.size(REGOP) > 0 else [1]
+    sizeREGOP = (
+        list(np.asarray(REGOP).shape)
+        if REGOP is not None and np.size(REGOP) > 0
+        else [1]
+    )
     sizeI, sizePSF, sizeREGOP = _padlength(sizeI, sizePSF, sizeREGOP)
 
     numNSdim = [i for i, s in enumerate(sizePSF) if s != 1]
@@ -118,15 +131,21 @@ def deconvreg(I, PSF, NP=0, LR=None, REGOP=None):
         LAGRA = float(LR[0])
     else:
         R4G2 = (R2 * np.abs(fftnI)) ** 2
-        H4 = H2 ** 2
-        R4 = R2 ** 2
+        H4 = H2**2
+        R4 = R2**2
         H2R22 = 2 * H2 * R2
         ScaledNP = float(NP) * np.prod(sizeI)
 
-        def ResOffset(LAGRA_val):
-            denom = H4 + LAGRA_val * H2R22 + (LAGRA_val ** 2) * R4 + np.sqrt(np.finfo(float).eps)
+        def ResOffset(LAGRA_val: Any):
+            """ResOffset."""
+            denom = (
+                H4
+                + LAGRA_val * H2R22
+                + (LAGRA_val**2) * R4
+                + np.sqrt(np.finfo(float).eps)
+            )
             residuals = R4G2 / denom
-            return abs((LAGRA_val ** 2) * np.sum(residuals) - ScaledNP)
+            return abs((LAGRA_val**2) * np.sum(residuals) - ScaledNP)
 
         LAGRA = float(fminbound(ResOffset, LR[0], LR[1]))
 

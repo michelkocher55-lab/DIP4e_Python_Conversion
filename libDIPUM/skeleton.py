@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import binary_dilation
 
@@ -5,7 +6,7 @@ from libDIPUM.msfm import msfm
 from libDIPUM.shortestpath import shortestpath
 
 
-def skeleton(I, verbose=True):
+def skeleton(I: Any, verbose: Any = True):
     """
     Python transcription of MATLAB skeleton.m.
 
@@ -24,13 +25,13 @@ def skeleton(I, verbose=True):
     """
     I = np.asarray(I).astype(bool)
     if I.ndim not in (2, 3):
-        raise ValueError('I must be 2D or 3D binary array.')
+        raise ValueError("I must be 2D or 3D binary array.")
 
-    IS3D = (I.ndim == 3)
+    IS3D = I.ndim == 3
 
     BoundaryDistance = getBoundaryDistance(I, IS3D)
     if verbose:
-        print('Distance Map Constructed')
+        print("Distance Map Constructed")
 
     SourcePoint, maxD = maxDistancePoint(BoundaryDistance, I, IS3D)
 
@@ -42,13 +43,13 @@ def skeleton(I, verbose=True):
 
     while True:
         if verbose:
-            print(f'Find Branches Iterations : {itt}')
+            print(f"Find Branches Iterations : {itt}")
 
         T, Y = msfm(SpeedImage, SourcePoint, False, False)
 
         StartPoint, _ = maxDistancePoint(Y, I, IS3D)
 
-        ShortestLine = shortestpath(T, StartPoint, SourcePoint, 1, 'simple')
+        ShortestLine = shortestpath(T, StartPoint, SourcePoint, 1, "simple")
         linelength = GetLineLength(ShortestLine, IS3D)
 
         if linelength < maxD * 1.2:
@@ -64,12 +65,13 @@ def skeleton(I, verbose=True):
     S = OrganizeSkeleton(SkeletonSegments, IS3D)
 
     if verbose:
-        print(f'Skeleton Branches Found : {len(S)}')
+        print(f"Skeleton Branches Found : {len(S)}")
 
     return S
 
 
-def GetLineLength(L, IS3D):
+def GetLineLength(L: Any, IS3D: Any):
+    """GetLineLength."""
     L = np.asarray(L, dtype=float)
     if L.shape[0] < 2:
         return 0.0
@@ -81,7 +83,8 @@ def GetLineLength(L, IS3D):
     return float(np.sum(dist))
 
 
-def OrganizeSkeleton(SkeletonSegments, IS3D):
+def OrganizeSkeleton(SkeletonSegments: Any, IS3D: Any):
+    """OrganizeSkeleton."""
     n = len(SkeletonSegments)
     if n == 0:
         return []
@@ -97,7 +100,7 @@ def OrganizeSkeleton(SkeletonSegments, IS3D):
         Endpoints[w * 2 + 1, :] = ss[-1, :]
 
     CutSkel = np.zeros((n, lmax), dtype=bool)
-    ConnectDistance = 2 ** 2
+    ConnectDistance = 2**2
 
     for w, ss in enumerate(SkeletonSegments):
         ss = np.asarray(ss, dtype=float)
@@ -128,18 +131,19 @@ def OrganizeSkeleton(SkeletonSegments, IS3D):
     S = []
     for w, ss in enumerate(SkeletonSegments):
         ss = np.asarray(ss, dtype=float)
-        cuts = np.where(CutSkel[w, :len(ss)])[0].tolist()
+        cuts = np.where(CutSkel[w, : len(ss)])[0].tolist()
         r = [0] + cuts + [len(ss) - 1]
 
         for i in range(len(r) - 1):
             a, b = r[i], r[i + 1]
             if b >= a:
-                S.append(ss[a:b + 1, :])
+                S.append(ss[a : b + 1, :])
 
     return S
 
 
-def getBoundaryDistance(I, IS3D):
+def getBoundaryDistance(I: Any, IS3D: Any):
+    """getBoundaryDistance."""
     # Boundary pixels: xor(I, imdilate(I,ones(...)))
     S = np.ones((3, 3, 3), dtype=bool) if IS3D else np.ones((3, 3), dtype=bool)
     B = np.logical_xor(I, binary_dilation(I, structure=S))
@@ -158,7 +162,8 @@ def getBoundaryDistance(I, IS3D):
     return BoundaryDistance
 
 
-def maxDistancePoint(BoundaryDistance, I, IS3D):
+def maxDistancePoint(BoundaryDistance: Any, I: Any, IS3D: Any):
+    """maxDistancePoint."""
     D = np.array(BoundaryDistance, dtype=float, copy=True)
     D[~I] = 0.0
 
@@ -166,7 +171,7 @@ def maxDistancePoint(BoundaryDistance, I, IS3D):
     maxD = float(np.max(D))
 
     if not np.isfinite(maxD):
-        raise ValueError('Skeleton:Maximum: Maximum from MSFM is infinite!')
+        raise ValueError("Skeleton:Maximum: Maximum from MSFM is infinite!")
 
     if IS3D:
         x, y, z = np.unravel_index(ind, I.shape)

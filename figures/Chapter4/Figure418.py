@@ -1,9 +1,5 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
-from skimage.io import imsave
 from libDIP.checkerimage import checkerimage
 
 print("Running Figure418 (Aliasing with Checkerboard)...")
@@ -40,23 +36,23 @@ g4_u8 = (g4 * 255).astype(np.uint8)
 fig, axes = plt.subplots(1, 4, figsize=(16, 4))
 axes = axes.flatten()
 
-axes[0].imshow(g1, cmap='gray')
-axes[0].set_title('delX = 0.0625 (No aliasing)')
-axes[0].axis('off')
+axes[0].imshow(g1, cmap="gray")
+axes[0].set_title("delX = 0.0625 (No aliasing)")
+axes[0].axis("off")
 
-axes[1].imshow(g2, cmap='gray')
-axes[1].set_title('delX = 0.1667 (No aliasing)')
-axes[1].axis('off')
+axes[1].imshow(g2, cmap="gray")
+axes[1].set_title("delX = 0.1667 (No aliasing)")
+axes[1].axis("off")
 
-axes[2].imshow(g3, cmap='gray')
-axes[2].set_title('delX = 1.05 (Aliasing)')
-axes[2].axis('off')
+axes[2].imshow(g3, cmap="gray")
+axes[2].set_title("delX = 1.05 (Aliasing)")
+axes[2].axis("off")
 
-axes[3].imshow(g4, cmap='gray')
-axes[3].set_title('delX = 2.084 (Severe Aliasing)')
-axes[3].axis('off')
+axes[3].imshow(g4, cmap="gray")
+axes[3].set_title("delX = 2.084 (Severe Aliasing)")
+axes[3].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure418.png')
+plt.savefig("Figure418.png")
 print("Saved Figure418.png and component TIFs.")
 plt.show()

@@ -15,17 +15,14 @@ t = np.arange(1, N + Te, Te)
 # Slant transform matrix
 a = 3 / np.sqrt(5)
 b = 1 / np.sqrt(5)
-sp = np.array([
-    [1, 1, 1, 1],
-    [a, b, -b, -a],
-    [1, -1, -1, 1],
-    [b, -a, a, -b]
-], dtype=float)
+sp = np.array(
+    [[1, 1, 1, 1], [a, b, -b, -a], [1, -1, -1, 1], [b, -a, a, -b]], dtype=float
+)
 
 for i in range(3, LN + 1):
-    NN = 2 ** i
-    aN = np.sqrt((3 * NN ** 2) / (4 * (NN ** 2 - 1)))
-    bN = np.sqrt((NN ** 2 - 4) / (4 * (NN ** 2 - 1)))
+    NN = 2**i
+    aN = np.sqrt((3 * NN**2) / (4 * (NN**2 - 1)))
+    bN = np.sqrt((NN**2 - 4) / (4 * (NN**2 - 1)))
 
     sr1 = np.array([[1, 0], [aN, bN]], dtype=float)
     sr2 = np.array([[1, 0], [-aN, bN]], dtype=float)
@@ -44,10 +41,7 @@ for i in range(3, LN + 1):
 
     sn = np.vstack([sn1, sn2, sn3, sn4])
 
-    m2 = np.block([
-        [sp, np.zeros_like(sp)],
-        [np.zeros_like(sp), sp]
-    ])
+    m2 = np.block([[sp, np.zeros_like(sp)], [np.zeros_like(sp), sp]])
 
     sp = sn @ m2
 
@@ -75,7 +69,7 @@ for i in range(3, LN + 1):
 sp = sp / np.sqrt(N)
 SLANT = sp.copy()
 
-S_COMPOSITE, S_DISPLAY = basisImage4e('SLT', N, P)
+S_COMPOSITE, S_DISPLAY = basisImage4e("SLT", N, P)
 
 # Display
 plt.figure()
@@ -83,30 +77,32 @@ plt.subplot(1, 2, 1)
 for i in range(N):
     ax = plt.subplot(N, plots, (plots * (i + 1)) - (plots - position))
     markerline, stemlines, baseline = ax.stem(
-        np.arange(1, N + 1),
-        SLANT[i, :],
-        markerfmt='o',
-        basefmt=' '
+        np.arange(1, N + 1), SLANT[i, :], markerfmt="o", basefmt=" "
     )
-    markerline.set_markeredgecolor('none')
-    markerline.set_markerfacecolor((0, 105/255, 166/255))
+    markerline.set_markeredgecolor("none")
+    markerline.set_markerfacecolor((0, 105 / 255, 166 / 255))
     markerline.set_markersize(2.25 * 4 / 1.5)
     stemlines.set_linewidth(0.5 * 0.5 / 0.75)
 
-    Temp = interp1d(np.arange(1, N + 1), SLANT[i, :], kind='previous', bounds_error=False,
-                    fill_value=(SLANT[i, 0], SLANT[i, -1]))(t)
+    Temp = interp1d(
+        np.arange(1, N + 1),
+        SLANT[i, :],
+        kind="previous",
+        bounds_error=False,
+        fill_value=(SLANT[i, 0], SLANT[i, -1]),
+    )(t)
     ax.plot(t, Temp)
 
     ax.set_frame_on(False)
-    ax.axis('off')
+    ax.axis("off")
     ax.set_xticklabels([])
     ax.set_yticklabels([])
     if i == 0:
-        ax.set_title('SLANT')
+        ax.set_title("SLANT")
 
 plt.subplot(1, 2, 2)
-plt.imshow(S_DISPLAY, cmap='gray', vmin=S_DISPLAY.min(), vmax=S_DISPLAY.max())
-plt.axis('off')
+plt.imshow(S_DISPLAY, cmap="gray", vmin=S_DISPLAY.min(), vmax=S_DISPLAY.max())
+plt.axis("off")
 
-plt.savefig('Figure617.png')
+plt.savefig("Figure617.png")
 plt.show()

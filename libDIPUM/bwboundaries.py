@@ -1,26 +1,25 @@
-
+from typing import Any
 import numpy as np
 from scipy import ndimage as ndi
 
-def bwboundaries(BW, conn=8):
+
+def bwboundaries(BW: Any, conn: Any = 8):
     """
     Traces the boundaries of objects in binary image BW.
     Returns list of arrays (N x 2) [row, col], mimicking MATLAB bwboundaries.
     """
     BW = np.asarray(BW).astype(bool)
     if BW.ndim != 2:
-        raise ValueError('BW must be a 2D binary image.')
+        raise ValueError("BW must be a 2D binary image.")
 
     if conn == 4:
-        structure = np.array([[0, 1, 0],
-                              [1, 1, 1],
-                              [0, 1, 0]], dtype=np.uint8)
+        structure = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=np.uint8)
         tracer = trace_boundary_4
     elif conn == 8:
         structure = np.ones((3, 3), dtype=np.uint8)
         tracer = trace_boundary_8
     else:
-        raise ValueError('conn must be 4 or 8.')
+        raise ValueError("conn must be 4 or 8.")
 
     labels, num = ndi.label(BW, structure=structure)
     if num == 0:
@@ -29,8 +28,8 @@ def bwboundaries(BW, conn=8):
     boundaries = []
     # Label order follows row-major scan order, matching MATLAB-like output order.
     for k in range(1, num + 1):
-        comp = (labels == k)
-        bounded = np.pad(comp, 1, mode='constant', constant_values=0)
+        comp = labels == k
+        bounded = np.pad(comp, 1, mode="constant", constant_values=0)
 
         rows, _ = np.where(bounded)
         if len(rows) == 0:
@@ -46,18 +45,20 @@ def bwboundaries(BW, conn=8):
 
     return boundaries
 
-def trace_boundary_4(img, start):
+
+def trace_boundary_4(img: Any, start: Any):
+    """trace_boundary_4."""
     offsets = [(-1, 0), (0, 1), (1, 0), (0, -1)]
     boundary = [start]
     curr = start
-    backtrack = 3 
+    backtrack = 3
     max_steps = img.size * 2
     steps = 0
-    
+
     while True:
         steps += 1
         if steps > max_steps:
-             break
+            break
         found = False
         for i in range(4):
             idx = (backtrack + 1 + i) % 4
@@ -72,7 +73,8 @@ def trace_boundary_4(img, start):
                 # (e.g. small concave cases), producing short boundaries.
                 backtrack = (idx + 2) % 4
                 break
-        if not found: break
+        if not found:
+            break
         # Close when we return to the start after at least one move.
         # The previous condition (`backtrack == 0`) could leave open traces,
         # which then create apparent diagonal jumps when codes are computed.
@@ -89,19 +91,20 @@ def trace_boundary_4(img, start):
 
     return boundary
 
-def trace_boundary_8(img, start):
-    offsets = [(-1, 0), (-1, 1), (0, 1), (1, 1), 
-               (1, 0), (1, -1), (0, -1), (-1, -1)]
+
+def trace_boundary_8(img: Any, start: Any):
+    """trace_boundary_8."""
+    offsets = [(-1, 0), (-1, 1), (0, 1), (1, 1), (1, 0), (1, -1), (0, -1), (-1, -1)]
     boundary = [start]
     curr = start
-    backtrack = 6 
+    backtrack = 6
     max_steps = img.size * 2
     steps = 0
-    
+
     while True:
         steps += 1
         if steps > max_steps:
-             break
+            break
         found_next = False
         for i in range(8):
             idx = (backtrack + 1 + i) % 8
@@ -113,6 +116,8 @@ def trace_boundary_8(img, start):
                 backtrack = (idx + 5) % 8
                 found_next = True
                 break
-        if not found_next: break
-        if curr == start and len(boundary) > 2: break
+        if not found_next:
+            break
+        if curr == start and len(boundary) > 2:
+            break
     return boundary

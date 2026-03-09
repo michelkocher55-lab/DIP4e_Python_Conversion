@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def mat2lpc(x, f=1):
+def mat2lpc(x: Any, f: Any = 1):
     """
     Compress a matrix using 1-D lossless predictive coding.
     """

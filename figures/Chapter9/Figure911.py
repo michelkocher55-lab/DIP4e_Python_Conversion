@@ -15,7 +15,7 @@ from libDIPUM.data_path import dip_data
 # %% Figure911
 
 # %% Data
-f = np.array(Image.open(dip_data('fingerprint-noisy.tif')))
+f = np.array(Image.open(dip_data("fingerprint-noisy.tif")))
 if f.ndim == 3:
     f = f[..., 0]
 
@@ -37,34 +37,34 @@ f4 = ia.iaclose(f2, B1)
 # %% Display
 fig, ax = plt.subplots(2, 3, figsize=(12, 8), sharex=True, sharey=True, num=1)
 try:
-    fig.canvas.manager.set_window_title('Figure 9.11')
+    fig.canvas.manager.set_window_title("Figure 9.11")
 except Exception:
     pass
 
 ax = ax.ravel()
 
-ax[0].imshow(f, cmap='gray')
-ax[0].set_title('f')
-ax[0].axis('off')
+ax[0].imshow(f, cmap="gray")
+ax[0].set_title("f")
+ax[0].axis("off")
 
-ax[1].imshow(f1, cmap='gray')
-ax[1].set_title(r'f1 = $\epsilon_{B1}(f)$')
-ax[1].axis('off')
+ax[1].imshow(f1, cmap="gray")
+ax[1].set_title(r"f1 = $\epsilon_{B1}(f)$")
+ax[1].axis("off")
 
-ax[2].imshow(f2, cmap='gray')
-ax[2].set_title(r'f2 = $\gamma_{B1}(f)$')
-ax[2].axis('off')
+ax[2].imshow(f2, cmap="gray")
+ax[2].set_title(r"f2 = $\gamma_{B1}(f)$")
+ax[2].axis("off")
 
-ax[3].imshow(f3, cmap='gray')
-ax[3].set_title(r'f3 = $\delta_{B1}(f2)$')
-ax[3].axis('off')
+ax[3].imshow(f3, cmap="gray")
+ax[3].set_title(r"f3 = $\delta_{B1}(f2)$")
+ax[3].axis("off")
 
-ax[4].imshow(f4, cmap='gray')
-ax[4].set_title(r'f4 = $\phi_{B1}(f2)$')
-ax[4].axis('off')
+ax[4].imshow(f4, cmap="gray")
+ax[4].set_title(r"f4 = $\phi_{B1}(f2)$")
+ax[4].axis("off")
 
-ax[5].axis('off')
+ax[5].axis("off")
 
 plt.tight_layout()
-fig.savefig('Figure911.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure911.png", dpi=150, bbox_inches="tight")
 plt.show()

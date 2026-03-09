@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -14,7 +12,7 @@ var_noise = [10 ** (-37), 10 ** (-2), 10 ** (-1)]
 gamma = [10 ** (-35), 0.015, 1.5]
 
 # Data
-img_path = dip_data('original_DIP.tif')
+img_path = dip_data("original_DIP.tif")
 f_orig = imread(img_path)
 if f_orig.ndim == 3:
     f_orig = rgb2gray(f_orig)
@@ -63,15 +61,15 @@ fHatLowNoiseLowGamma = np.abs(np.real(np.fft.ifft2(Fh)))
 
 # Display
 fig, axes = plt.subplots(1, 3, figsize=(12, 4))
-axes[0].imshow(fHatHighNoiseHighGamma, cmap='gray')
-axes[0].axis('off')
+axes[0].imshow(fHatHighNoiseHighGamma, cmap="gray")
+axes[0].axis("off")
 
-axes[1].imshow(fHatMediumNoiseMediumGamma, cmap='gray')
-axes[1].axis('off')
+axes[1].imshow(fHatMediumNoiseMediumGamma, cmap="gray")
+axes[1].axis("off")
 
-axes[2].imshow(fHatLowNoiseLowGamma, cmap='gray')
-axes[2].axis('off')
+axes[2].imshow(fHatLowNoiseLowGamma, cmap="gray")
+axes[2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure530.png')
+plt.savefig("Figure530.png")
 plt.show()

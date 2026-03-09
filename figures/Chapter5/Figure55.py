@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -12,7 +10,7 @@ from libDIPUM.dftfilt import dftfilt
 from libDIPUM.data_path import dip_data
 
 # Data
-img_path = dip_data('astronaut.tif')
+img_path = dip_data("astronaut.tif")
 
 f_orig = imread(img_path)
 if f_orig.ndim == 3:
@@ -34,7 +32,7 @@ Glog = intScaling4e(1 + np.log(G + 1e-9))
 # Create notch filters
 # MATLAB: [M/2+1+25, N/2+1+25] (1-based). For Python 0-based, use M//2 + 25, N//2 + 25.
 impulse_loc = [M // 2 + 25, N // 2 + 25]
-H = cnotch('ideal', 'reject', M, N, [impulse_loc], 2)
+H = cnotch("ideal", "reject", M, N, [impulse_loc], 2)
 Hc = intScaling4e(np.fft.fftshift(H))
 
 # Filter image
@@ -43,18 +41,18 @@ gf = intScaling4e(dftfilt(g, H))
 # Display results
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
-axes[0, 0].imshow(gs, cmap='gray')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(gs, cmap="gray")
+axes[0, 0].axis("off")
 
-axes[0, 1].imshow(Glog, cmap='gray')
-axes[0, 1].axis('off')
+axes[0, 1].imshow(Glog, cmap="gray")
+axes[0, 1].axis("off")
 
-axes[1, 0].imshow(Hc, cmap='gray')
-axes[1, 0].axis('off')
+axes[1, 0].imshow(Hc, cmap="gray")
+axes[1, 0].axis("off")
 
-axes[1, 1].imshow(gf, cmap='gray')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(gf, cmap="gray")
+axes[1, 1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure55.png')
+plt.savefig("Figure55.png")
 plt.show()

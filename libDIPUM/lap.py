@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import convolve
 
 
-def lap(f):
+def lap(f: Any):
     """
     L = lap(f)
 
@@ -21,5 +22,5 @@ def lap(f):
     h = np.array([[1, 1, 1], [1, -8, 1], [1, 1, 1]], dtype=np.float64)
 
     # MATLAB: imfilter(..., 'replicate')
-    L = convolve(f, h, mode='nearest')
+    L = convolve(f, h, mode="nearest")
     return L

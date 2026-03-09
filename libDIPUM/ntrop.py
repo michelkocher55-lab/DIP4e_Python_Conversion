@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def ntrop(x, n=256):
+def ntrop(x: Any, n: Any = 256):
     """
     First-order estimate of the entropy of a matrix.
     H = ntrop(x, n) where n is number of symbols (bins).

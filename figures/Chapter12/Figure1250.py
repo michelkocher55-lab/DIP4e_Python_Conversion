@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import ndimage
@@ -12,6 +11,7 @@ from libDIPUM.data_path import dip_data
 
 
 def im2double(arr: np.ndarray) -> np.ndarray:
+    """im2double."""
     a = np.asarray(arr)
     if np.issubdtype(a.dtype, np.floating):
         return a.astype(np.float64)
@@ -28,7 +28,7 @@ def im2double(arr: np.ndarray) -> np.ndarray:
 print("Running Figure1250...")
 
 # Data
-img_path = dip_data('building-600by600.tif')
+img_path = dip_data("building-600by600.tif")
 IB = im2double(plt.imread(img_path))
 
 # Rotation (uncropped / loose)
@@ -54,4 +54,3 @@ out_path = os.path.join(os.path.dirname(__file__), "Figure1250.png")
 fig.savefig(out_path, dpi=150, bbox_inches="tight")
 print(f"Saved {out_path}")
 plt.show()
-

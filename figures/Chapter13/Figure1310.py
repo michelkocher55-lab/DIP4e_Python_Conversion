@@ -12,10 +12,11 @@ from libDIPUM.data_path import dip_data
 print("Running Figure1310 (minimum distance classifier)...")
 
 # Data
-mat_path = dip_data('fisheriris.mat')
+mat_path = dip_data("fisheriris.mat")
 
 
 def _load_fisheriris(path: str):
+    """_load_fisheriris."""
     try:
         data = loadmat(path, simplify_cells=True)
     except TypeError:
@@ -87,7 +88,17 @@ else:
     x_const = -c / a if abs(a) > 1e-12 else min_petal_length
     plt.plot([x_const, x_const], [min_petal_width, max_petal_width], "b-")
 
-plt.plot(X1[:, 0], X1[:, 1], "or", X2[:, 0], X2[:, 1], "*g", X_test[0, 0], X_test[0, 1], test_marker)
+plt.plot(
+    X1[:, 0],
+    X1[:, 1],
+    "or",
+    X2[:, 0],
+    X2[:, 1],
+    "*g",
+    X_test[0, 0],
+    X_test[0, 1],
+    test_marker,
+)
 plt.xlabel("Petal length [cm]")
 plt.ylabel("Petal width [cm]")
 
@@ -108,8 +119,8 @@ print(f"Saved {out_path}")
 plt.show()
 
 # LaTeX-like output strings (no sympy dependency)
-m1_latex = r"\begin{bmatrix}" + f"{m1[0,0]:.3f}\\\\{m1[1,0]:.3f}" + r"\end{bmatrix}"
-m2_latex = r"\begin{bmatrix}" + f"{m2[0,0]:.3f}\\\\{m2[1,0]:.3f}" + r"\end{bmatrix}"
+m1_latex = r"\begin{bmatrix}" + f"{m1[0, 0]:.3f}\\\\{m1[1, 0]:.3f}" + r"\end{bmatrix}"
+m2_latex = r"\begin{bmatrix}" + f"{m2[0, 0]:.3f}\\\\{m2[1, 0]:.3f}" + r"\end{bmatrix}"
 d12_latex = f"{a:.3f} x_1 + {b:.3f} x_2 + {c:.3f}"
 print("latex(m1):", m1_latex)
 print("latex(m2):", m2_latex)

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from General.corner import corner
@@ -11,6 +10,7 @@ from libDIPUM.data_path import dip_data
 
 
 def im2double(arr: np.ndarray) -> np.ndarray:
+    """im2double."""
     a = np.asarray(arr)
     if np.issubdtype(a.dtype, np.floating):
         return a.astype(np.float64)
@@ -27,7 +27,7 @@ def im2double(arr: np.ndarray) -> np.ndarray:
 print("Running Figure1247...")
 
 # Data
-img_path = dip_data('checkerboard-noisy1.tif')
+img_path = dip_data("checkerboard-noisy1.tif")
 In1 = im2double(plt.imread(img_path))
 
 # Corner detection

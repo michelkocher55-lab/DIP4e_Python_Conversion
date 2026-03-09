@@ -1,13 +1,14 @@
 """Bayes classifier for Gaussian patterns (MATLAB bayesgauss equivalent)."""
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 
 from libDIPUM.mahalanobis import mahalanobis
 
 
-def bayesgauss(X, C, M, P=None):
+def bayesgauss(X: Any, C: Any, M: Any, P: Any = None):
     """Classify row patterns using Bayes Gaussian decision functions.
 
     Parameters

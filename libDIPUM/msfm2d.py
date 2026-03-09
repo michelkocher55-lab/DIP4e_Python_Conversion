@@ -1,21 +1,24 @@
+from typing import Any
 import heapq
 import numpy as np
 from scipy.ndimage import distance_transform_edt
 
 
-def _as_source_points_2d(source_points):
+def _as_source_points_2d(source_points: Any):
+    """_as_source_points_2d."""
     sp = np.asarray(source_points, dtype=float)
     if sp.ndim == 1:
         sp = sp.reshape(2, 1)
     if sp.shape[0] != 2 and sp.shape[1] == 2:
         sp = sp.T
     if sp.shape[0] != 2:
-        raise ValueError('SourcePoints must be shape (2, N) or (N, 2).')
+        raise ValueError("SourcePoints must be shape (2, N) or (N, 2).")
     # MATLAB code uses int32(floor(SourcePoints)) in 1-based coordinates.
     return np.floor(sp).astype(int)
 
 
-def _roots_quadratic(coeff):
+def _roots_quadratic(coeff: Any):
+    """_roots_quadratic."""
     a, b, c = float(coeff[0]), float(coeff[1]), float(coeff[2])
     d = max(b * b - 4.0 * a * c, 0.0)
     sd = np.sqrt(d)
@@ -24,14 +27,24 @@ def _roots_quadratic(coeff):
         z2 = (-b + sd) / (2.0 * a)
     else:
         # same algebraic form used in the provided MATLAB helper.
-        den1 = (-b - sd)
-        den2 = (-b + sd)
+        den1 = -b - sd
+        den2 = -b + sd
         z1 = (2.0 * c) / den1 if den1 != 0 else np.inf
         z2 = (2.0 * c) / den2 if den2 != 0 else np.inf
     return z1, z2
 
 
-def _calculate_distance(T, Fij, i, j, usesecond, usecross, frozen, eps=1e-12):
+def _calculate_distance(
+    T: Any,
+    Fij: Any,
+    i: Any,
+    j: Any,
+    usesecond: Any,
+    usecross: Any,
+    frozen: Any,
+    eps: Any = 1e-12,
+):
+    """_calculate_distance."""
     nrows, ncols = T.shape
 
     # Build local 5x5 patch with frozen-only values.
@@ -71,8 +84,10 @@ def _calculate_distance(T, Fij, i, j, usesecond, usecross, frozen, eps=1e-12):
         ch1 = (Tpatch[0, 2] < Tpatch[1, 2]) and np.isfinite(Tpatch[1, 2])
         ch2 = (Tpatch[4, 2] < Tpatch[3, 2]) and np.isfinite(Tpatch[3, 2])
         if ch1 and ch2:
-            Tm2[0] = min((4.0 * Tpatch[1, 2] - Tpatch[0, 2]) / 3.0,
-                         (4.0 * Tpatch[3, 2] - Tpatch[4, 2]) / 3.0)
+            Tm2[0] = min(
+                (4.0 * Tpatch[1, 2] - Tpatch[0, 2]) / 3.0,
+                (4.0 * Tpatch[3, 2] - Tpatch[4, 2]) / 3.0,
+            )
             order[0] = 2
         elif ch1:
             Tm2[0] = (4.0 * Tpatch[1, 2] - Tpatch[0, 2]) / 3.0
@@ -84,8 +99,10 @@ def _calculate_distance(T, Fij, i, j, usesecond, usecross, frozen, eps=1e-12):
         ch1 = (Tpatch[2, 0] < Tpatch[2, 1]) and np.isfinite(Tpatch[2, 1])
         ch2 = (Tpatch[2, 4] < Tpatch[2, 3]) and np.isfinite(Tpatch[2, 3])
         if ch1 and ch2:
-            Tm2[1] = min((4.0 * Tpatch[2, 1] - Tpatch[2, 0]) / 3.0,
-                         (4.0 * Tpatch[2, 3] - Tpatch[2, 4]) / 3.0)
+            Tm2[1] = min(
+                (4.0 * Tpatch[2, 1] - Tpatch[2, 0]) / 3.0,
+                (4.0 * Tpatch[2, 3] - Tpatch[2, 4]) / 3.0,
+            )
             order[1] = 2
         elif ch1:
             Tm2[1] = (4.0 * Tpatch[2, 1] - Tpatch[2, 0]) / 3.0
@@ -98,8 +115,10 @@ def _calculate_distance(T, Fij, i, j, usesecond, usecross, frozen, eps=1e-12):
             ch1 = (Tpatch[0, 0] < Tpatch[1, 1]) and np.isfinite(Tpatch[1, 1])
             ch2 = (Tpatch[4, 4] < Tpatch[3, 3]) and np.isfinite(Tpatch[3, 3])
             if ch1 and ch2:
-                Tm2[2] = min((4.0 * Tpatch[1, 1] - Tpatch[0, 0]) / 3.0,
-                             (4.0 * Tpatch[3, 3] - Tpatch[4, 4]) / 3.0)
+                Tm2[2] = min(
+                    (4.0 * Tpatch[1, 1] - Tpatch[0, 0]) / 3.0,
+                    (4.0 * Tpatch[3, 3] - Tpatch[4, 4]) / 3.0,
+                )
                 order[2] = 2
             elif ch1:
                 Tm2[2] = (4.0 * Tpatch[1, 1] - Tpatch[0, 0]) / 3.0
@@ -111,8 +130,10 @@ def _calculate_distance(T, Fij, i, j, usesecond, usecross, frozen, eps=1e-12):
             ch1 = (Tpatch[0, 4] < Tpatch[1, 3]) and np.isfinite(Tpatch[1, 3])
             ch2 = (Tpatch[4, 0] < Tpatch[3, 1]) and np.isfinite(Tpatch[3, 1])
             if ch1 and ch2:
-                Tm2[3] = min((4.0 * Tpatch[1, 3] - Tpatch[0, 4]) / 3.0,
-                             (4.0 * Tpatch[3, 1] - Tpatch[4, 0]) / 3.0)
+                Tm2[3] = min(
+                    (4.0 * Tpatch[1, 3] - Tpatch[0, 4]) / 3.0,
+                    (4.0 * Tpatch[3, 1] - Tpatch[4, 0]) / 3.0,
+                )
                 order[3] = 2
             elif ch1:
                 Tm2[3] = (4.0 * Tpatch[1, 3] - Tpatch[0, 4]) / 3.0
@@ -151,13 +172,13 @@ def _calculate_distance(T, Fij, i, j, usesecond, usecross, frozen, eps=1e-12):
     return float(Tt)
 
 
-def msfm2d(F, SourcePoints, usesecond=False, usecross=False):
+def msfm2d(F: Any, SourcePoints: Any, usesecond: Any = False, usecross: Any = False):
     """Python transcription of msfm2d.m (2D only)."""
     F = np.asarray(F, dtype=float)
     if F.ndim != 2:
-        raise ValueError('Speed image must be 2D.')
+        raise ValueError("Speed image must be 2D.")
     if np.any(F <= 0):
-        raise ValueError('Speed image values must be > 0.')
+        raise ValueError("Speed image values must be > 0.")
 
     sources = _as_source_points_2d(SourcePoints)
 

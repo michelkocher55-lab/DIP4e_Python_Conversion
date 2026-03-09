@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -10,12 +11,12 @@ from libDIPUM.data_path import dip_data
 # Figure 823
 
 
-def blkdct(x, a):
+def blkdct(x: Any, a: Any):
     """Block transform using matrix multiplications."""
     return a @ x @ a.conj().T
 
 
-def blkzero(x, keep_frac):
+def blkzero(x: Any, keep_frac: Any):
     """Keep the largest-magnitude coefficients in a block."""
     n = x.size
     k = int(np.round(keep_frac * n))
@@ -27,25 +28,28 @@ def blkzero(x, keep_frac):
     return y
 
 
-def blockproc_square(f, block_size, func):
+def blockproc_square(f: Any, block_size: Any, func: Any):
     """Apply func to non-overlapping square blocks with zero-padding of partial blocks."""
     m, n = f.shape
     pad_m = (block_size - (m % block_size)) % block_size
     pad_n = (block_size - (n % block_size)) % block_size
 
-    fp = np.pad(f, ((0, pad_m), (0, pad_n)), mode='constant')
+    fp = np.pad(f, ((0, pad_m), (0, pad_n)), mode="constant")
     out = np.zeros_like(fp, dtype=np.complex128)
 
     mp, np_ = fp.shape
     for r in range(0, mp, block_size):
         for c in range(0, np_, block_size):
-            out[r:r + block_size, c:c + block_size] = func(fp[r:r + block_size, c:c + block_size])
+            out[r : r + block_size, c : c + block_size] = func(
+                fp[r : r + block_size, c : c + block_size]
+            )
 
     # Crop back to original size for fair RMS comparison.
     return out[:m, :n]
 
 
-def process(f, t, block_size, keep_frac):
+def process(f: Any, t: Any, block_size: Any, keep_frac: Any):
+    """process."""
     # Compute forward transform of block_size x block_size blocks.
     y = blockproc_square(f, block_size, lambda b: blkdct(b, t))
 
@@ -64,7 +68,7 @@ BlockSize = [2, 4, 8, 16, 32, 64, 128, 256, 512]
 KeepFrac = 0.25  # 75% are zeroed
 
 # Data
-f = imread(dip_data('lena.tif')).astype(float)
+f = imread(dip_data("lena.tif")).astype(float)
 if f.ndim == 3:
     f = f[..., 0]
 
@@ -75,25 +79,25 @@ transforms = [[None for _ in BlockSize] for _ in range(3)]
 for iter_idx in range(3):
     for iter1, bsz in enumerate(BlockSize):
         if iter_idx == 0:
-            transforms[iter_idx][iter1] = tmat4e('DFT', bsz)
+            transforms[iter_idx][iter1] = tmat4e("DFT", bsz)
         elif iter_idx == 1:
-            transforms[iter_idx][iter1] = tmat4e('DCT', bsz)
+            transforms[iter_idx][iter1] = tmat4e("DCT", bsz)
         else:
-            transforms[iter_idx][iter1] = tmat4e('WHT', bsz)
+            transforms[iter_idx][iter1] = tmat4e("WHT", bsz)
 
         RMS[iter_idx, iter1] = process(f, transforms[iter_idx][iter1], bsz, KeepFrac)
 
 # Display
 fig, ax = plt.subplots(figsize=(8, 5))
-ax.plot(BlockSize, RMS[0, :], 'k-s', label='DFT')
-ax.plot(BlockSize, RMS[1, :], 'k--o', label='DCT')
-ax.plot(BlockSize, RMS[2, :], 'k:d', label='WHT')
+ax.plot(BlockSize, RMS[0, :], "k-s", label="DFT")
+ax.plot(BlockSize, RMS[1, :], "k--o", label="DCT")
+ax.plot(BlockSize, RMS[2, :], "k:d", label="WHT")
 ax.legend()
-ax.set_xlabel('Block size')
-ax.set_ylabel('RMS error')
-ax.set_title(f'Only {KeepFrac * 100:g} % of the coefficients are kept')
-ax.autoscale(enable=True, axis='both', tight=True)
+ax.set_xlabel("Block size")
+ax.set_ylabel("RMS error")
+ax.set_title(f"Only {KeepFrac * 100:g} % of the coefficients are kept")
+ax.autoscale(enable=True, axis="both", tight=True)
 
 plt.tight_layout()
-fig.savefig('Figure823.png', dpi=300, bbox_inches='tight')
+fig.savefig("Figure823.png", dpi=300, bbox_inches="tight")
 plt.show()

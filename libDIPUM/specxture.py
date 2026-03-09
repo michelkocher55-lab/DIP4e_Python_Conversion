@@ -1,10 +1,11 @@
+from typing import Any
 import numpy as np
 
 from libDIPUM.intline import intline
 from libDIPUM.mat2gray import mat2gray
 
 
-def halfcircle(r, x0, y0):
+def halfcircle(r: Any, x0: Any, y0: Any):
     """
     Integer coordinates of a half circle of radius r centered at (x0, y0).
     Uses theta = 91..270 degrees (inclusive), matching MATLAB code.
@@ -15,13 +16,13 @@ def halfcircle(r, x0, y0):
     return xc, yc
 
 
-def radial(x0, y0, x, y):
+def radial(x0: Any, y0: Any, x: Any, y: Any):
     """Integer coordinates of line segment from (x0,y0) to (x,y)."""
     xr, yr = intline(x0, x, y0, y)
     return xr, yr
 
 
-def specxture(f):
+def specxture(f: Any):
     """
     Computes spectral texture of an image.
 
@@ -41,7 +42,7 @@ def specxture(f):
     """
     f = np.asarray(f, dtype=float)
     if f.ndim != 2:
-        raise ValueError('f must be a 2D image.')
+        raise ValueError("f must be a 2D image.")
 
     # Centered magnitude spectrum.
     Smag = np.abs(np.fft.fftshift(np.fft.fft2(f)))

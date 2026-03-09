@@ -1,6 +1,3 @@
-import os
-import sys
-import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from skimage.util import img_as_float
@@ -15,43 +12,43 @@ mean = 0
 std = 0.1
 
 # Data
-img_path = dip_data('circuitboard.tif')
+img_path = dip_data("circuitboard.tif")
 f_orig = imread(img_path)
 if f_orig.ndim == 3:
     f_orig = rgb2gray(f_orig)
 f = img_as_float(f_orig)
 
 # Noise adding
-fn, _ = imnoise2 (f, 'gaussian', mean, std)
+fn, _ = imnoise2(f, "gaussian", mean, std)
 
 # Filtering
-fHatArithMean = spfilt(fn, 'amean', kernel_size, kernel_size)
-fHatGeoMean = spfilt(fn, 'gmean', kernel_size, kernel_size)
+fHatArithMean = spfilt(fn, "amean", kernel_size, kernel_size)
+fHatGeoMean = spfilt(fn, "gmean", kernel_size, kernel_size)
 
 # Display
-#show_image_window(f, "Original")
-#show_image_window(fn, "Noisy")
-#show_image_window(fHatArithMean, "Arithmetic Mean Filter")
-#show_image_window(fHatGeoMean, "Geometric Mean Filter")
+# show_image_window(f, "Original")
+# show_image_window(fn, "Noisy")
+# show_image_window(fHatArithMean, "Arithmetic Mean Filter")
+# show_image_window(fHatGeoMean, "Geometric Mean Filter")
 
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
-axes[0, 0].imshow(f, cmap='gray', vmin=0, vmax=1, interpolation = 'nearest')
-axes[0, 0].axis('off')
-axes[0, 0].set_title('Original')
+axes[0, 0].imshow(f, cmap="gray", vmin=0, vmax=1, interpolation="nearest")
+axes[0, 0].axis("off")
+axes[0, 0].set_title("Original")
 
-axes[0, 1].imshow(fn, cmap = 'gray', interpolation = 'nearest', resample=False)
-axes[0, 1].axis('off')
-axes[0, 1].set_title('Gaussian noise')
+axes[0, 1].imshow(fn, cmap="gray", interpolation="nearest", resample=False)
+axes[0, 1].axis("off")
+axes[0, 1].set_title("Gaussian noise")
 
-axes[1, 0].imshow(fHatArithMean, cmap='gray')
-axes[1, 0].axis('off')
-axes[1, 0].set_title('Arithmetic mean')
+axes[1, 0].imshow(fHatArithMean, cmap="gray")
+axes[1, 0].axis("off")
+axes[1, 0].set_title("Arithmetic mean")
 
-axes[1, 1].imshow(fHatGeoMean, cmap='gray')
-axes[1, 1].axis('off')
-axes[1, 1].set_title('Geometric mean')
+axes[1, 1].imshow(fHatGeoMean, cmap="gray")
+axes[1, 1].axis("off")
+axes[1, 1].set_title("Geometric mean")
 
 plt.tight_layout()
-plt.savefig('Figure57.png')
+plt.savefig("Figure57.png")
 plt.show()

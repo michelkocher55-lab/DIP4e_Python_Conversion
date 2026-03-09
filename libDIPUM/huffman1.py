@@ -1,8 +1,9 @@
+from typing import Any
 import heapq
 import numpy as np
 
 
-def huffman1(p, return_tree=False):
+def huffman1(p: Any, return_tree: Any = False):
     """
     Faster Huffman code builder with deterministic tie handling.
     API-compatible alternative to huffman().
@@ -20,7 +21,7 @@ def huffman1(p, return_tree=False):
     if n == 0:
         return ([], []) if return_tree else []
 
-    code = [''] * n
+    code = [""] * n
 
     if n > 1:
         ps = p.astype(float)
@@ -33,7 +34,7 @@ def huffman1(p, return_tree=False):
         _makecode_iterative(tree, code)
         s = tree
     else:
-        code = ['1']
+        code = ["1"]
         s = [1]
 
     if return_tree:
@@ -41,7 +42,8 @@ def huffman1(p, return_tree=False):
     return code
 
 
-def _reduce_heap(p):
+def _reduce_heap(p: Any):
+    """_reduce_heap."""
     heap = []
     order = 0
     for k, pk in enumerate(np.asarray(p).reshape(-1), start=1):
@@ -60,7 +62,8 @@ def _reduce_heap(p):
     return [n1, n2]
 
 
-def _makecode_iterative(root, code):
+def _makecode_iterative(root: Any, code: Any):
+    """_makecode_iterative."""
     stack = [(root, [])]
     while stack:
         node, prefix = stack.pop()
@@ -69,4 +72,4 @@ def _makecode_iterative(root, code):
             stack.append((node[0], prefix + [0]))
         else:
             idx = int(node) - 1
-            code[idx] = ''.join('1' if b else '0' for b in prefix)
+            code[idx] = "".join("1" if b else "0" for b in prefix)

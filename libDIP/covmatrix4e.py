@@ -1,13 +1,15 @@
+from typing import Any
 import numpy as np
 
-def covmatrix4e(X):
+
+def covmatrix4e(X: Any):
     """
     Computes the covariance matrix and mean vector.
 
     Parameters:
     -----------
     X : numpy.ndarray
-        A K-by-N matrix where K is the number of samples and N is their 
+        A K-by-N matrix where K is the number of samples and N is their
         dimensionality.
 
     Returns:
@@ -18,19 +20,19 @@ def covmatrix4e(X):
         N-by-1 mean vector.
     """
     X = np.array(X, dtype=float)
-    
+
     K, N = X.shape
-    
+
     # Compute unbiased estimate of m
     # MATLAB: m = sum(X, 1)/K; -> Row vector 1xN
     # Python: mean over axis 0 -> vector of size N
-    m = np.mean(X, axis=0) # shape (N,)
-    
+    m = np.mean(X, axis=0)  # shape (N,)
+
     # Subtract the mean from each row of X
     # MATLAB: X = X - m(ones(K, 1), :);
     # Python: Broadcasting handles X - m (N,) correctly for (K, N) array
     X_centered = X - m
-    
+
     # Compute unbiased estimate of C.
     if K > 1:
         # MATLAB: C = (X'*X)/(K - 1);
@@ -39,8 +41,8 @@ def covmatrix4e(X):
     else:
         # If population contains a single sample, return C as NaNs
         C = np.full((N, N), np.nan)
-        
+
     # Convert m to column vector
     m = m.reshape(N, 1)
-    
+
     return C, m

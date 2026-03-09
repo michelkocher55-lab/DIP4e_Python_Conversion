@@ -1,11 +1,12 @@
 """Append two images side-by-side (MATLAB appendimages equivalent)."""
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 
 
-def appendimages(image1, image2):
+def appendimages(image1: Any, image2: Any):
     """Return a new image that appends the two images side-by-side."""
     im1 = np.asarray(image1)
     im2 = np.asarray(image2)
@@ -36,4 +37,3 @@ def appendimages(image1, image2):
 
 
 __all__ = ["appendimages"]
-

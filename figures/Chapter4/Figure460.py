@@ -15,7 +15,7 @@ c = 5
 D0 = 20
 
 # Data
-img_path = dip_data('PET-scan.tif')
+img_path = dip_data("PET-scan.tif")
 if not os.path.exists(img_path):
     raise FileNotFoundError(f"Image not found: {img_path}")
 

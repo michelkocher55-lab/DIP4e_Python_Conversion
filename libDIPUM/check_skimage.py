@@ -1,4 +1,3 @@
-
 import skimage
 import inspect
 from skimage.morphology import thin

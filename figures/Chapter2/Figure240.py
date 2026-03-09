@@ -1,16 +1,13 @@
-
-import sys
-import os
-import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from skimage.transform import rotate
 from skimage.util import img_as_float
 from libDIPUM.data_path import dip_data
 
-img_name = dip_data('letterT.tif')
+img_name = dip_data("letterT.tif")
 f_orig = imread(img_name)
-if f_orig.ndim == 3: f_orig = f_orig[:,:,0]
+if f_orig.ndim == 3:
+    f_orig = f_orig[:, :, 0]
 
 # f = f(1:8:end, 1:8:end);
 # Need lower resolution to show effects of rotation.
@@ -50,23 +47,23 @@ frbc = rotate(f, -21, resize=False, order=3)
 # Display
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
-axes[0, 0].imshow(f, cmap='gray')
-axes[0, 0].set_title('Original (Subsampled)')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(f, cmap="gray")
+axes[0, 0].set_title("Original (Subsampled)")
+axes[0, 0].axis("off")
 
-axes[0, 1].imshow(frn, cmap='gray')
-axes[0, 1].set_title('Nearest Neighbor')
-axes[0, 1].axis('off')
+axes[0, 1].imshow(frn, cmap="gray")
+axes[0, 1].set_title("Nearest Neighbor")
+axes[0, 1].axis("off")
 
-axes[1, 0].imshow(frbl, cmap='gray')
-axes[1, 0].set_title('Bilinear')
-axes[1, 0].axis('off')
+axes[1, 0].imshow(frbl, cmap="gray")
+axes[1, 0].set_title("Bilinear")
+axes[1, 0].axis("off")
 
-axes[1, 1].imshow(frbc, cmap='gray')
-axes[1, 1].set_title('Bicubic')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(frbc, cmap="gray")
+axes[1, 1].set_title("Bicubic")
+axes[1, 1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure240.png')
+plt.savefig("Figure240.png")
 print("Saved Figure240.png")
 plt.show()

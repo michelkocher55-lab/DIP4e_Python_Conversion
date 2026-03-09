@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -9,7 +6,7 @@ from General.kmeans import kmeans
 from libDIPUM.data_path import dip_data
 
 # Data
-image_path = dip_data('book-cover.tif')
+image_path = dip_data("book-cover.tif")
 f_raw = imread(image_path)
 if f_raw.ndim == 3:
     pass
@@ -27,19 +24,19 @@ fseg = idx_reshaped.astype(np.float64)
 fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
 if f_raw.ndim == 2:
-    axes[0].imshow(f, cmap='gray')
+    axes[0].imshow(f, cmap="gray")
 else:
     axes[0].imshow(f)
-axes[0].set_title('Original Image')
-axes[0].axis('off')
+axes[0].set_title("Original Image")
+axes[0].axis("off")
 
 # MATLAB: imshow(fseg, [], 'InitialMagnification', 'fit')
 # [] means scale display range to [min(fseg) max(fseg)]
-axes[1].imshow(fseg, cmap='gray')
-axes[1].set_title('Segmented Image')
-axes[1].axis('off')
+axes[1].imshow(fseg, cmap="gray")
+axes[1].set_title("Segmented Image")
+axes[1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1049.png')
+plt.savefig("Figure1049.png")
 print("Saved Figure1049.png")
 plt.show()

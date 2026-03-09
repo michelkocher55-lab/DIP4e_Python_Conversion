@@ -1,16 +1,17 @@
-
+from typing import Any
 import matplotlib.pyplot as plt
 import numpy as np
 
-def ginput(n=1, timeout=30, show_clicks=True):
+
+def ginput(n: Any = 1, timeout: Any = 30, show_clicks: Any = True):
     """
     Graphical input from mouse clicks.
-    
+
     Parameters:
         n: Number of clicks to accumulate. If negative, accumulate until <Enter>.
         timeout: Timeout in seconds.
         show_clicks: Whether to show a crosshair/marker at click locations.
-        
+
     Returns:
         x, y: Arrays of coordinates.
     """
@@ -25,9 +26,9 @@ def ginput(n=1, timeout=30, show_clicks=True):
 
     if not pts:
         return np.array([]), np.array([])
-        
+
     pts = np.array(pts)
     x = pts[:, 0]
     y = pts[:, 1]
-    
+
     return x, y

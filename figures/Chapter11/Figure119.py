@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -12,7 +10,7 @@ from libDIP.intScaling4e import intScaling4e
 from libDIPUM.data_path import dip_data
 
 # Data
-img_path = dip_data('U200.tif')
+img_path = dip_data("U200.tif")
 f = imread(img_path)
 
 # Parameters
@@ -34,16 +32,16 @@ xi = np.concatenate([xi, [xi[0]]])
 yi = np.concatenate([yi, [yi[0]]])
 
 # Edge map
-emap = snakeMap4e(f, T, Sig, NSig, 'after')
+emap = snakeMap4e(f, T, Sig, NSig, "after")
 
 # Scale to range [0,1]
 emap = intScaling4e(emap)
 
 # Snake force
-FTx, FTy = snakeForce4e(emap, 'gradient')
+FTx, FTy = snakeForce4e(emap, "gradient")
 
 # Normalize it
-mag = np.sqrt(FTx ** 2 + FTy ** 2)
+mag = np.sqrt(FTx**2 + FTy**2)
 FTx = FTx / (mag + np.finfo(float).eps)
 FTy = FTy / (mag + np.finfo(float).eps)
 
@@ -60,21 +58,21 @@ x, y = snakeReparam4e(x, y)
 
 # Display figure 1
 fig2, axes2 = plt.subplots(2, 2, figsize=(10, 8))
-axes2[0, 0].imshow(f, cmap='gray')
-axes2[0, 0].axis('off')
-axes2[0, 0].plot(np.append(yi, yi[0]), np.append(xi, xi[0]), 'k.')
+axes2[0, 0].imshow(f, cmap="gray")
+axes2[0, 0].axis("off")
+axes2[0, 0].plot(np.append(yi, yi[0]), np.append(xi, xi[0]), "k.")
 
-axes2[0, 1].imshow(emap, cmap='gray')
-axes2[0, 1].axis('off')
+axes2[0, 1].imshow(emap, cmap="gray")
+axes2[0, 1].axis("off")
 
 axes2[1, 0].quiver(np.flipud(FTy[::2, ::2]), np.flipud(-FTx[::2, ::2]))
-axes2[1, 0].axis('off')
+axes2[1, 0].axis("off")
 
-axes2[1, 1].imshow(f, cmap='gray')
-axes2[1, 1].axis('off')
+axes2[1, 1].imshow(f, cmap="gray")
+axes2[1, 1].axis("off")
 plt.sca(axes2[1, 1])
-snake_display(x, y, 'g.')
+snake_display(x, y, "g.")
 
 plt.tight_layout()
-plt.savefig('Figure118.png')
+plt.savefig("Figure118.png")
 plt.show()

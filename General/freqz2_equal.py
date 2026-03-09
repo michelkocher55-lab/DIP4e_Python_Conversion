@@ -1,6 +1,9 @@
+from typing import Any
 import numpy as np
 
-def freqz2_equal(h, ny, nx, dx=0.5, dy=0.5):
+
+def freqz2_equal(h: Any, ny: Any, nx: Any, dx: Any = 0.5, dy: Any = 0.5):
+    """freqz2_equal."""
     a = np.array(h, dtype=float)
     # Unrotate filter since FIR filters are rotated
     a = np.rot90(a, -2)
@@ -23,4 +26,3 @@ def freqz2_equal(h, ny, nx, dx=0.5, dy=0.5):
 
     H = np.fft.fftshift(np.fft.fft2(a))
     return H
-

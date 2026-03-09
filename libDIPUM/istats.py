@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def istats(i):
+def istats(i: Any):
     """
     ISTATS computes mean, variance, and standard deviation of a matrix.
 

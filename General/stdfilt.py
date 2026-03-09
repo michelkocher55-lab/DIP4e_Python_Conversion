@@ -1,8 +1,10 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import convolve
 
 
-def _validate_nhood(h):
+def _validate_nhood(h: Any):
+    """_validate_nhood."""
     h = np.asarray(h)
     if h.ndim < 1:
         raise ValueError("NHOOD must be at least 1-D.")
@@ -18,7 +20,7 @@ def _validate_nhood(h):
     return h.astype(np.float64, copy=False)
 
 
-def stdfilt(I, nhood=None):
+def stdfilt(I: Any, nhood: Any = None):
     """
     Local standard deviation of image (simplified MATLAB-like stdfilt).
 
@@ -63,8 +65,8 @@ def stdfilt(I, nhood=None):
         raise ValueError("NHOOD must contain at least one nonzero element.")
 
     # E[X] and E[X^2] over neighborhood, then std = sqrt(E[X^2] - E[X]^2).
-    mean = convolve(I, h, mode='reflect') / denom
-    mean2 = convolve(I * I, h, mode='reflect') / denom
+    mean = convolve(I, h, mode="reflect") / denom
+    mean2 = convolve(I * I, h, mode="reflect") / denom
     var = np.maximum(mean2 - mean * mean, 0.0)
 
     J = np.sqrt(var)

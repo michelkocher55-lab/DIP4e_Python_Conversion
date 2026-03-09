@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -11,7 +8,7 @@ from libDIPUM.movingthresh import movingthresh
 from libDIPUM.data_path import dip_data
 
 # Data
-image_path = dip_data('Fig1049(original_cursive_text_WITHOUT_SHADING).tif')
+image_path = dip_data("Fig1049(original_cursive_text_WITHOUT_SHADING).tif")
 f_raw = imread(image_path)
 if f_raw.ndim == 3:
     f_raw = f_raw[:, :, 0]
@@ -44,23 +41,23 @@ gmoving2 = movingthresh(fs2, n, 0.5)
 # Display
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
-axes[0, 0].imshow(f, cmap='gray')
-axes[0, 0].set_title('Original Image')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(f, cmap="gray")
+axes[0, 0].set_title("Original Image")
+axes[0, 0].axis("off")
 
-axes[0, 1].imshow(fs2, cmap='gray')
-axes[0, 1].set_title('Shaded Image (Sinusoidal)')
-axes[0, 1].axis('off')
+axes[0, 1].imshow(fs2, cmap="gray")
+axes[0, 1].set_title("Shaded Image (Sinusoidal)")
+axes[0, 1].axis("off")
 
-axes[1, 0].imshow(gotsu2, cmap='gray')
+axes[1, 0].imshow(gotsu2, cmap="gray")
 axes[1, 0].set_title("Otsu's Method")
-axes[1, 0].axis('off')
+axes[1, 0].axis("off")
 
-axes[1, 1].imshow(gmoving2, cmap='gray')
-axes[1, 1].set_title('Moving Average Threshold')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(gmoving2, cmap="gray")
+axes[1, 1].set_title("Moving Average Threshold")
+axes[1, 1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1045.png')
+plt.savefig("Figure1045.png")
 print("Saved Figure1045.png")
 plt.show()

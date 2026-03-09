@@ -28,7 +28,7 @@ r = 18
 iterations = [50, 100, 200, 400]
 
 # Data
-img_path = dip_data('breast-implant.tif')
+img_path = dip_data("breast-implant.tif")
 f = img_as_float(imread(img_path))
 M, N = f.shape
 

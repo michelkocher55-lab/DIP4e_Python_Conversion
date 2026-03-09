@@ -1,6 +1,7 @@
 """Figure 11.7 - Different starting configuration for segmenting ellipse."""
 
 from __future__ import annotations
+from typing import Any
 
 import os
 import numpy as np
@@ -18,7 +19,10 @@ from libDIPUM.data_path import dip_data
 print("Running Figure117...")
 
 
-def Process(alpha, beta, gamma, x, y, FTx, FTy, n_iter):
+def Process(
+    alpha: Any, beta: Any, gamma: Any, x: Any, y: Any, FTx: Any, FTy: Any, n_iter: Any
+):
+    """Process."""
     # Iterate.
     for _ in range(n_iter):
         x, y = snakeIterate4e(alpha, beta, gamma, x, y, 1, FTx, FTy)
@@ -39,7 +43,7 @@ NSig = 3
 NIter = [200, 400, 400]
 
 # Data
-img_path = dip_data('noisy-elliptical-object.tif')
+img_path = dip_data("noisy-elliptical-object.tif")
 g = imread(img_path)
 
 # Initial snake coordinates: circle

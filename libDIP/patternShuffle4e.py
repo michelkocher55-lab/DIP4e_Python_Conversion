@@ -1,11 +1,12 @@
 """Shuffle pattern vectors (MATLAB patternShuffle4e equivalent)."""
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 
 
-def patternShuffle4e(X, R, mode="random"):
+def patternShuffle4e(X: Any, R: Any, mode: Any = "random"):
     """Shuffle columns of pattern and response matrices in the same order.
 
     Parameters

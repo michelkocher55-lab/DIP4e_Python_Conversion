@@ -1,53 +1,60 @@
+from typing import Any
 import numpy as np
 
 
-_ALL_STATS = ['Contrast', 'Correlation', 'Energy', 'Homogeneity']
+_ALL_STATS = ["Contrast", "Correlation", "Energy", "Homogeneity"]
 
 
-def _validate_glcm(glcm):
+def _validate_glcm(glcm: Any):
+    """_validate_glcm."""
     g = np.asarray(glcm)
 
     if g.ndim > 3:
-        raise ValueError('GLCM must be 2D or 3D.')
+        raise ValueError("GLCM must be 2D or 3D.")
 
     if np.iscomplexobj(g):
-        raise ValueError('GLCM must be real.')
+        raise ValueError("GLCM must be real.")
 
     if np.any(~np.isfinite(g)):
-        raise ValueError('GLCM must be finite.')
+        raise ValueError("GLCM must be finite.")
 
     if np.any(g < 0):
-        raise ValueError('GLCM must be nonnegative.')
+        raise ValueError("GLCM must be nonnegative.")
 
     # MATLAB requires integer-valued entries.
     if not np.all(np.equal(g, np.round(g))):
-        raise ValueError('GLCM must contain integer-valued entries.')
+        raise ValueError("GLCM must contain integer-valued entries.")
 
     return g.astype(float, copy=False)
 
 
-def _normalize_glcm(glcm2d):
+def _normalize_glcm(glcm2d: Any):
+    """_normalize_glcm."""
     s = np.sum(glcm2d)
     if s != 0:
         return glcm2d / s
     return glcm2d
 
 
-def _mean_index(index, glcm):
+def _mean_index(index: Any, glcm: Any):
+    """_mean_index."""
     return np.sum(index * glcm.ravel())
 
 
-def _std_index(index, glcm, m):
+def _std_index(index: Any, glcm: Any, m: Any):
+    """_std_index."""
     return np.sqrt(np.sum(((index - m) ** 2) * glcm.ravel()))
 
 
-def _calculate_contrast(glcm, r, c):
+def _calculate_contrast(glcm: Any, r: Any, c: Any):
+    """_calculate_contrast."""
     term1 = np.abs(r - c) ** 2
     term = term1 * glcm.ravel()
     return np.sum(term)
 
 
-def _calculate_correlation(glcm, r, c):
+def _calculate_correlation(glcm: Any, r: Any, c: Any):
+    """_calculate_correlation."""
     mr = _mean_index(r, glcm)
     sr = _std_index(r, glcm, mr)
 
@@ -62,16 +69,19 @@ def _calculate_correlation(glcm, r, c):
     return term2 / denom
 
 
-def _calculate_energy(glcm):
-    return np.sum(glcm ** 2)
+def _calculate_energy(glcm: Any):
+    """_calculate_energy."""
+    return np.sum(glcm**2)
 
 
-def _calculate_homogeneity(glcm, r, c):
+def _calculate_homogeneity(glcm: Any, r: Any, c: Any):
+    """_calculate_homogeneity."""
     term = glcm.ravel() / (1.0 + np.abs(r - c))
     return np.sum(term)
 
 
-def _parse_properties(properties):
+def _parse_properties(properties: Any):
+    """_parse_properties."""
     if properties is None:
         req = list(_ALL_STATS)
         req.sort()
@@ -96,12 +106,12 @@ def _parse_properties(properties):
         # users can pass a tuple/list for equivalent behavior.
         items = [properties]
 
-    anyprop = _ALL_STATS + ['all']
+    anyprop = _ALL_STATS + ["all"]
     req = []
 
     for k, raw in enumerate(items, start=1):
         if not isinstance(raw, str):
-            raise ValueError(f'Invalid property at position {k}. Must be a string.')
+            raise ValueError(f"Invalid property at position {k}. Must be a string.")
         key = raw.strip().lower()
         matches = [name for name in anyprop if name.lower().startswith(key)]
         if len(matches) == 0:
@@ -109,18 +119,18 @@ def _parse_properties(properties):
         if len(matches) > 1:
             raise ValueError(f"Ambiguous property abbreviation '{raw}'.")
         m = matches[0]
-        if m == 'all':
+        if m == "all":
             req = list(_ALL_STATS)
             break
         req.append(m)
 
     req = sorted(set(req))
     if len(req) == 0:
-        raise ValueError('No valid properties were requested.')
+        raise ValueError("No valid properties were requested.")
     return req
 
 
-def graycoprops(glcm, properties='all'):
+def graycoprops(glcm: Any, properties: Any = "all"):
     """
     Properties of gray-level co-occurrence matrix.
 
@@ -158,13 +168,13 @@ def graycoprops(glcm, properties='all'):
         c = c.ravel().astype(float)
 
         for name in req_stats:
-            if name == 'Contrast':
+            if name == "Contrast":
                 stats[name][p] = _calculate_contrast(tglcm, r, c)
-            elif name == 'Correlation':
+            elif name == "Correlation":
                 stats[name][p] = _calculate_correlation(tglcm, r, c)
-            elif name == 'Energy':
+            elif name == "Energy":
                 stats[name][p] = _calculate_energy(tglcm)
-            elif name == 'Homogeneity':
+            elif name == "Homogeneity":
                 stats[name][p] = _calculate_homogeneity(tglcm, r, c)
 
     return stats

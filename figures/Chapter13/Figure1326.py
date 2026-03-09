@@ -13,7 +13,7 @@ from libDIPUM.data_path import dip_data
 
 print("Running Figure1326 (LMSE perceptron errors on iris data)...")
 
-MAT_PATH = dip_data('fisheriris.mat')
+MAT_PATH = dip_data("fisheriris.mat")
 
 
 # Parameters
@@ -70,8 +70,12 @@ routNonSep, numErrorsNonSep, recogRateNonSep = perceptronClassifier4e(
     np.asarray(inputNonSep["X"]), outputNonSep["W"], np.asarray(inputNonSep["R"])
 )
 
-print(f"Separable set (setosa vs versicolor): errors = {int(numErrorsSep)}, recognition = {recogRateSep:.2f}%")
-print(f"Nonseparable set (versicolor vs virginica): errors = {int(numErrorsNonSep)}, recognition = {recogRateNonSep:.2f}%")
+print(
+    f"Separable set (setosa vs versicolor): errors = {int(numErrorsSep)}, recognition = {recogRateSep:.2f}%"
+)
+print(
+    f"Nonseparable set (versicolor vs virginica): errors = {int(numErrorsNonSep)}, recognition = {recogRateNonSep:.2f}%"
+)
 
 # Display
 fig = plt.figure(1, figsize=(10, 4.5))

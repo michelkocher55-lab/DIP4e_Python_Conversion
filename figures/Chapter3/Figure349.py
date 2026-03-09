@@ -9,17 +9,17 @@ from libDIPUM.gaussiankernel import gaussiankernel
 from libDIPUM.data_path import dip_data
 
 # Data
-f = imread(dip_data('circuitboard.tif'))
+f = imread(dip_data("circuitboard.tif"))
 if f.ndim == 3:
     f = f[:, :, 0]
 
 # Add noise
-fn, _ = imnoise2(f, 'salt & pepper')
+fn, _ = imnoise2(f, "salt & pepper")
 
 # Linear filtering
-w, _ = gaussiankernel(7, 'sampled', 3.0, 1.0)
+w, _ = gaussiankernel(7, "sampled", 3.0, 1.0)
 w = w / np.sum(w)
-gG = correlate(fn, w, mode='reflect')  # MATLAB 'symmetric'
+gG = correlate(fn, w, mode="reflect")  # MATLAB 'symmetric'
 
 # Non linear filtering
 gM = medfilt2d(fn, kernel_size=7)
@@ -28,18 +28,18 @@ gM = medfilt2d(fn, kernel_size=7)
 plt.figure(figsize=(12, 4))
 
 plt.subplot(1, 3, 1)
-plt.imshow(fn, cmap='gray', vmin=0, vmax=1)
-plt.axis('off')
+plt.imshow(fn, cmap="gray", vmin=0, vmax=1)
+plt.axis("off")
 
 plt.subplot(1, 3, 2)
-plt.imshow(gG, cmap='gray', vmin=0, vmax=1)
-plt.axis('off')
+plt.imshow(gG, cmap="gray", vmin=0, vmax=1)
+plt.axis("off")
 
 plt.subplot(1, 3, 3)
-plt.imshow(gM, cmap='gray', vmin=0, vmax=1)
-plt.axis('off')
+plt.imshow(gM, cmap="gray", vmin=0, vmax=1)
+plt.axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure349.png')
-print('Saved Figure349.png')
+plt.savefig("Figure349.png")
+print("Saved Figure349.png")
 plt.show()

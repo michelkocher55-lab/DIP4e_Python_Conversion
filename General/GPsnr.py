@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def GPsnr(x, y):
+def GPsnr(x: Any, y: Any):
     """
     Signal-to-noise ratio:
     v = 20*log10(norm(x(:)) / norm(x(:)-y(:)))

@@ -1,4 +1,7 @@
-def celldisp(c, name=None):
+from typing import Any
+
+
+def celldisp(c: Any, name: Any = None):
     """
     Display nested list/tuple contents (MATLAB-like celldisp).
     """
@@ -8,7 +11,8 @@ def celldisp(c, name=None):
     if name is None or name == "":
         name = "ans"
 
-    def _subs(idx, shape):
+    def _subs(idx: Any, shape: Any):
+        """_subs."""
         # idx is flat index, shape is tuple
         if len(shape) == 2 and (shape[0] == 1 or shape[1] == 1):
             shape = (max(shape),)
@@ -23,7 +27,8 @@ def celldisp(c, name=None):
     # Determine shape as 1D list length
     shape = (len(c),)
 
-    def _disp(obj, prefix):
+    def _disp(obj: Any, prefix: Any):
+        """_disp."""
         if isinstance(obj, (list, tuple)) and len(obj) > 0:
             for i, item in enumerate(obj):
                 _disp(item, f"{prefix}{_subs(i, (len(obj),))}")

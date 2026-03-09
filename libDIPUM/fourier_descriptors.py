@@ -1,6 +1,8 @@
+from typing import Any
 import numpy as np
 
-def fourier_descriptors(b):
+
+def fourier_descriptors(b: Any):
     """
     Computes Fourier descriptors of a boundary.
 
@@ -24,7 +26,7 @@ def fourier_descriptors(b):
     # Create an alternating sequence of 1s and -1s for use in centering the transform.
     x = np.arange(np_points)
     minusone = (-1) ** x
-    
+
     # Multiply the input sequence by alternating 1s and -1s to center the transform.
     # Note: MATLAB code used b(:,1) = minusone.*b(:,1). Here we do it element-wise.
     b[:, 0] = minusone * b[:, 0]
@@ -35,5 +37,5 @@ def fourier_descriptors(b):
 
     # Compute the descriptors.
     z = np.fft.fft(b_complex)
-    
+
     return z

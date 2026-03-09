@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 
 try:
@@ -7,7 +8,7 @@ except ImportError:
     from ..General.imgradient import imgradient
 
 
-def sobel(f):
+def sobel(f: Any):
     """
     [Gmag, Gdir] = sobel(f)
 
@@ -26,6 +27,6 @@ def sobel(f):
     # [Gx, Gy] = imgradientxy(f, 'Sobel');
     # [Gmag, Gdir] = imgradient(Gx, Gy);
     # Using imgradient(f,'sobel') gives the same Gmag/Gdir pair.
-    Gmag, Gdir = imgradient(f, 'sobel')
+    Gmag, Gdir = imgradient(f, "sobel")
 
     return Gmag, Gdir

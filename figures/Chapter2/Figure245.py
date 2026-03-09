@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -13,7 +10,7 @@ from libDIPUM.dftfilt import dftfilt
 from libDIPUM.data_path import dip_data
 
 # Data
-img_path = dip_data('astronaut.tif')
+img_path = dip_data("astronaut.tif")
 
 # Load and convert to double
 f = img_as_float(imread(img_path))
@@ -53,15 +50,15 @@ Glog = intScaling4e(1 + np.log(G))
 # H = cnotch('ideal', 'reject', M, N, [M/2+1+25, N/2+1+25], 2);
 # In Python, we might provide center + Offset.
 # Let's calculate the exact center coords.
-u_impulse = M//2 + 25
-v_impulse = N//2 + 25
+u_impulse = M // 2 + 25
+v_impulse = N // 2 + 25
 
 # cnotch parameters (type, mode, M, N, C, D0, n)
 # C is list of coordinates.
-H = cnotch('ideal', 'reject', M, N, [[u_impulse, v_impulse]], 2)
+H = cnotch("ideal", "reject", M, N, [[u_impulse, v_impulse]], 2)
 
 # Scale filter for display
-Hc = intScaling4e(fftshift(H)) # H is usually centered already by cnotch?
+Hc = intScaling4e(fftshift(H))  # H is usually centered already by cnotch?
 # Typically cnotch returns centered filter H(u,v) corresponding to centered spectrum?
 # Wait, MATLAB cnotch returns H matching centered spectrum if we use dftfilt with centered?
 # Let's check cnotch/dftfilt implementation.
@@ -79,24 +76,24 @@ gf = intScaling4e(gf_raw)
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 axes = axes.flatten()
 
-axes[0].imshow(gs, cmap='gray')
-axes[0].set_title('Noisy Image')
-axes[0].axis('off')
+axes[0].imshow(gs, cmap="gray")
+axes[0].set_title("Noisy Image")
+axes[0].axis("off")
 
-axes[1].imshow(Glog, cmap='gray')
-axes[1].set_title('Spectrum (Log)')
-axes[1].axis('off')
+axes[1].imshow(Glog, cmap="gray")
+axes[1].set_title("Spectrum (Log)")
+axes[1].axis("off")
 
-axes[2].imshow(Hc, cmap='gray')
-axes[2].set_title('Notch Filter')
-axes[2].axis('off')
+axes[2].imshow(Hc, cmap="gray")
+axes[2].set_title("Notch Filter")
+axes[2].axis("off")
 
-axes[3].imshow(gf, cmap='gray')
-axes[3].set_title('Restored Image')
-axes[3].axis('off')
+axes[3].imshow(gf, cmap="gray")
+axes[3].set_title("Restored Image")
+axes[3].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure245.png')
+plt.savefig("Figure245.png")
 print("Saved Figure245.png")
 
 plt.show()

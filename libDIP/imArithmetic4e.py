@@ -1,9 +1,11 @@
+from typing import Any
 import numpy as np
 
-def imArithmetic4e(f1, f2, op):
+
+def imArithmetic4e(f1: Any, f2: Any, op: Any):
     """
     Arithmetic operations between two grayscale images.
-    
+
     Parameters:
     -----------
     f1 : numpy.ndarray
@@ -12,7 +14,7 @@ def imArithmetic4e(f1, f2, op):
         Second input image.
     op : str
         Operation: 'add', 'subtract', 'multiply', 'divide'.
-        
+
     Returns:
     --------
     g : numpy.ndarray
@@ -21,20 +23,20 @@ def imArithmetic4e(f1, f2, op):
     # Convert inputs to floating point
     f1 = np.array(f1, dtype=float)
     f2 = np.array(f2, dtype=float)
-    
+
     op = op.lower()
-    
-    if op == 'add':
+
+    if op == "add":
         g = f1 + f2
-    elif op == 'subtract':
+    elif op == "subtract":
         g = f1 - f2
-    elif op == 'multiply':
+    elif op == "multiply":
         g = f1 * f2
-    elif op == 'divide':
+    elif op == "divide":
         # Add eps to prevent division by 0
         eps = np.finfo(float).eps
         g = f1 / (f2 + eps)
     else:
         raise ValueError(f"Unknown operation: {op}")
-        
+
     return g

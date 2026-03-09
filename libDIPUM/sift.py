@@ -15,11 +15,13 @@ locs : ndarray, shape (K, 4)
 """
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 
 
 def _im2double(arr: np.ndarray) -> np.ndarray:
+    """_im2double."""
     a = np.asarray(arr)
     if np.issubdtype(a.dtype, np.floating):
         return a.astype(np.float64)
@@ -29,6 +31,7 @@ def _im2double(arr: np.ndarray) -> np.ndarray:
 
 
 def _to_float01(arr: np.ndarray) -> np.ndarray:
+    """_to_float01."""
     a = np.asarray(arr)
     if np.issubdtype(a.dtype, np.integer):
         info = np.iinfo(a.dtype)
@@ -51,6 +54,7 @@ def _to_float01(arr: np.ndarray) -> np.ndarray:
 
 
 def _to_u8_for_sift(arr: np.ndarray) -> np.ndarray:
+    """_to_u8_for_sift."""
     a = np.asarray(arr)
     if a.dtype == np.uint8:
         return a
@@ -63,21 +67,19 @@ def _to_u8_for_sift(arr: np.ndarray) -> np.ndarray:
 
 
 def _to_gray(image: np.ndarray) -> np.ndarray:
+    """_to_gray."""
     if image.ndim == 2:
         return image
     if image.ndim == 3:
         if image.shape[2] == 1:
             return image[..., 0]
         # RGB luminance conversion.
-        return (
-            0.2989 * image[..., 0]
-            + 0.5870 * image[..., 1]
-            + 0.1140 * image[..., 2]
-        )
+        return 0.2989 * image[..., 0] + 0.5870 * image[..., 1] + 0.1140 * image[..., 2]
     raise ValueError("Input image must be 2-D grayscale or 3-D color.")
 
 
 def _normalize_descriptors(descriptors: np.ndarray) -> np.ndarray:
+    """_normalize_descriptors."""
     if descriptors.size == 0:
         return descriptors.reshape(0, 128)
     d = descriptors.astype(np.float64, copy=False)
@@ -86,7 +88,8 @@ def _normalize_descriptors(descriptors: np.ndarray) -> np.ndarray:
     return d / n
 
 
-def _locs_from_cv_keypoints(keypoints) -> np.ndarray:
+def _locs_from_cv_keypoints(keypoints: Any) -> np.ndarray:
+    """_locs_from_cv_keypoints."""
     if not keypoints:
         return np.zeros((0, 4), dtype=np.float64)
 
@@ -141,7 +144,11 @@ def sift(imageFile: str):
         keypoints, descriptors = detector.detectAndCompute(image_u8, None)
 
         if descriptors is None:
-            return image, np.zeros((0, 128), dtype=np.float64), np.zeros((0, 4), dtype=np.float64)
+            return (
+                image,
+                np.zeros((0, 128), dtype=np.float64),
+                np.zeros((0, 4), dtype=np.float64),
+            )
 
         locs = _locs_from_cv_keypoints(keypoints)
         descriptors = _normalize_descriptors(descriptors)
@@ -161,7 +168,11 @@ def sift(imageFile: str):
         descriptors = detector.descriptors
 
         if keypoints is None or len(keypoints) == 0:
-            return image, np.zeros((0, 128), dtype=np.float64), np.zeros((0, 4), dtype=np.float64)
+            return (
+                image,
+                np.zeros((0, 128), dtype=np.float64),
+                np.zeros((0, 4), dtype=np.float64),
+            )
 
         # scikit-image exposes scales and orientations with same ordering.
         scales = np.asarray(detector.scales, dtype=np.float64)
@@ -169,12 +180,14 @@ def sift(imageFile: str):
         # Ensure orientation range [-pi, pi].
         oris = ((oris + np.pi) % (2.0 * np.pi)) - np.pi
 
-        locs = np.column_stack([
-            keypoints[:, 0].astype(np.float64),
-            keypoints[:, 1].astype(np.float64),
-            scales,
-            oris,
-        ])
+        locs = np.column_stack(
+            [
+                keypoints[:, 0].astype(np.float64),
+                keypoints[:, 1].astype(np.float64),
+                scales,
+                oris,
+            ]
+        )
 
         descriptors = _normalize_descriptors(descriptors)
         return image, descriptors, locs

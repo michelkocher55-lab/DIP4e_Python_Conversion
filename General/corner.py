@@ -4,6 +4,7 @@ Implements corner() behavior using cornermetric + local-peak selection.
 """
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 from scipy import ndimage
@@ -14,7 +15,8 @@ except Exception:
     from cornermetric import cornermetric
 
 
-def _parse_corner_args(I, args, kwargs):
+def _parse_corner_args(I: Any, args: Any, kwargs: Any):
+    """_parse_corner_args."""
     method = "Harris"
     max_corners = 200
     quality_level = 0.01
@@ -75,7 +77,8 @@ def _parse_corner_args(I, args, kwargs):
     return I, method, sensitivity_factor, filter_coef, max_corners, quality_level
 
 
-def _suppress_low_corner_metric_maxima(cmetric, bw, quality_level):
+def _suppress_low_corner_metric_maxima(cmetric: Any, bw: Any, quality_level: Any):
+    """_suppress_low_corner_metric_maxima."""
     max_cmetric = float(np.max(cmetric)) if cmetric.size else 0.0
     if max_cmetric > 0:
         min_metric = quality_level * max_cmetric
@@ -85,7 +88,7 @@ def _suppress_low_corner_metric_maxima(cmetric, bw, quality_level):
     return bw
 
 
-def _thin_plateaus_to_single_pixel(bw, cmetric):
+def _thin_plateaus_to_single_pixel(bw: Any, cmetric: Any):
     """MATLAB bwmorph(...,'shrink',Inf)-like simplification for local maxima.
 
     For each connected local-max component (8-connectivity), keep one pixel
@@ -106,7 +109,8 @@ def _thin_plateaus_to_single_pixel(bw, cmetric):
     return out
 
 
-def _find_local_peak(cmetric, quality_level):
+def _find_local_peak(cmetric: Any, quality_level: Any):
+    """_find_local_peak."""
     nr, nc = cmetric.shape
     if nr < 4 or nc < 4:
         return np.empty((0,), dtype=int), np.empty((0,), dtype=int)
@@ -130,7 +134,7 @@ def _find_local_peak(cmetric, quality_level):
     return c + 1, r + 1
 
 
-def corner(I, *args, **kwargs):
+def corner(I: Any, *args: Any, **kwargs: Any):
     """Find corner points in an image (MATLAB-like API).
 
     Returns
@@ -138,8 +142,8 @@ def corner(I, *args, **kwargs):
     corners : (M,2) ndarray
         Columns are [x, y] coordinates (1-based, MATLAB-style).
     """
-    _, method, sensitivity_factor, filter_coef, max_corners, quality_level = _parse_corner_args(
-        I, args, kwargs
+    _, method, sensitivity_factor, filter_coef, max_corners, quality_level = (
+        _parse_corner_args(I, args, kwargs)
     )
 
     if str(method).lower() == "harris":

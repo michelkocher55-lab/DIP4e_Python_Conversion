@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 
 try:
@@ -9,7 +10,7 @@ except ImportError:
         pass
 
 
-def homomorphictf(P, Q, gL, gH, c, D0):
+def homomorphictf(P: Any, Q: Any, gL: Any, gH: Any, c: Any, D0: Any):
     """
     Homomorphic filter transfer function.
 

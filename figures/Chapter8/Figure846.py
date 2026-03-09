@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -9,10 +10,11 @@ from libDIPUM.jpeg2k2im import jpeg2k2im
 from libDIPUM.data_path import dip_data
 
 
-def imcrop_matlab(img, rect):
+def imcrop_matlab(img: Any, rect: Any):
+    """imcrop_matlab."""
     # MATLAB: rect = [x, y, w, h], inclusive integer rectangle.
     x, y, w, h = [int(v) for v in rect]
-    return img[y:y + h + 1, x:x + w + 1]
+    return img[y : y + h + 1, x : x + w + 1]
 
 
 # Parameters
@@ -21,7 +23,7 @@ epsilon_b = [8.5, 7, 6.5, 6.0]
 n_level = 5
 
 # Data
-f = imread(dip_data('lena.tif'))
+f = imread(dip_data("lena.tif"))
 if f.ndim == 3:
     f = f[..., 0]
 if f.dtype != np.uint8:
@@ -45,21 +47,21 @@ for i in range(len(mu_b)):
 fig = plt.figure(1, figsize=(12, 14))
 for i in range(len(mu_b)):
     plt.subplot(4, 3, 1 + i * 3)
-    plt.imshow(f_hat[i], cmap='gray')
-    plt.title(f'RMSE = {rmse[i]:.2g} Comp. = {compression_ratio[i]:.2g}')
-    plt.axis('off')
+    plt.imshow(f_hat[i], cmap="gray")
+    plt.title(f"RMSE = {rmse[i]:.2g} Comp. = {compression_ratio[i]:.2g}")
+    plt.axis("off")
 
     plt.subplot(4, 3, 2 + i * 3)
-    plt.imshow(f.astype(float) - f_hat[i].astype(float), cmap='gray')
-    plt.title('error')
-    plt.axis('off')
+    plt.imshow(f.astype(float) - f_hat[i].astype(float), cmap="gray")
+    plt.title("error")
+    plt.axis("off")
 
     plt.subplot(4, 3, 3 + i * 3)
     temp = imcrop_matlab(f_hat[i], [243 - 21, 249 - 21, 64, 64])
-    plt.imshow(temp, cmap='gray')
-    plt.title('zoom')
-    plt.axis('off')
+    plt.imshow(temp, cmap="gray")
+    plt.title("zoom")
+    plt.axis("off")
 
 plt.tight_layout()
-fig.savefig('Figure846.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure846.png", dpi=150, bbox_inches="tight")
 plt.show()

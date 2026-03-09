@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -10,9 +7,10 @@ from libDIPUM.data_path import dip_data
 print("Running Figure428 (Blown IC and Spectrum)...")
 
 # Image loading
-img_path = dip_data('blown_ic.tif')
+img_path = dip_data("blown_ic.tif")
 f = imread(img_path)
-if f.ndim == 3: f = f[:,:,0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 
 f = img_as_float(f)
 
@@ -39,15 +37,15 @@ if np.max(S_disp) > 0:
 # Display
 fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
-axes[0].imshow(f, cmap='gray')
-axes[0].set_title('Original Image')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray")
+axes[0].set_title("Original Image")
+axes[0].axis("off")
 
-axes[1].imshow(S_disp, cmap='gray')
-axes[1].set_title('Fourier Spectrum')
-axes[1].axis('off')
+axes[1].imshow(S_disp, cmap="gray")
+axes[1].set_title("Fourier Spectrum")
+axes[1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure428.png')
+plt.savefig("Figure428.png")
 print("Saved Figure428.png")
 plt.show()

@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 from skimage.measure import find_contours
 
@@ -7,7 +8,7 @@ from libDIP.levelSetIterate4e import levelSetIterate4e
 from libDIP.levelSetReInit4e import levelSetReInit4e
 
 
-def _zero_level_contours_all(phi):
+def _zero_level_contours_all(phi: Any):
     """Return all zero-level contours as 2xN [x; y] with NaN separators."""
     contours = find_contours(phi, level=0.0)
     if len(contours) == 0:
@@ -27,7 +28,9 @@ def _zero_level_contours_all(phi):
     return np.vstack([x_all, y_all])
 
 
-def LevelSetRegionBased(f, binmask, mu, nu, lambda1, lambda2, niter):
+def LevelSetRegionBased(
+    f: Any, binmask: Any, mu: Any, nu: Any, lambda1: Any, lambda2: Any, niter: Any
+):
     """
     Region-based level-set segmentation.
 
@@ -35,10 +38,12 @@ def LevelSetRegionBased(f, binmask, mu, nu, lambda1, lambda2, niter):
       c = LevelSetRegionBased(f, binmask, mu, nu, lambda1, lambda2, niter)
     """
     # Create initial level set function from the mask.
-    phi = levelSetFunction4e('mask', binmask)
+    phi = levelSetFunction4e("mask", binmask)
 
     for I in range(1, int(niter) + 1):
-        F = levelSetForce4e('regioncurve', [f, phi, mu, nu, lambda1, lambda2], ['Fn', 'Cn'])
+        F = levelSetForce4e(
+            "regioncurve", [f, phi, mu, nu, lambda1, lambda2], ["Fn", "Cn"]
+        )
         phi = levelSetIterate4e(phi, F)
 
         # Update every 5 iterations.

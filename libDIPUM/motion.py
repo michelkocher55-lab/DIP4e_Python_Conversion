@@ -1,11 +1,13 @@
+from typing import Any
 import numpy as np
 from scipy.interpolate import RegularGridInterpolator
 
 
-def _im2col_distinct(img, n):
+def _im2col_distinct(img: Any, n: Any):
+    """_im2col_distinct."""
     rows, cols = img.shape
     if rows % n != 0 or cols % n != 0:
-        raise ValueError('The image size must be divisible by the block size.')
+        raise ValueError("The image size must be divisible by the block size.")
 
     br = rows // n
     bc = cols // n
@@ -14,13 +16,14 @@ def _im2col_distinct(img, n):
     # MATLAB-like block ordering: row blocks vary fastest (column-major in block grid)
     for by in range(bc):
         for bx in range(br):
-            block = img[bx * n:(bx + 1) * n, by * n:(by + 1) * n]
-            out[:, k] = block.reshape(-1, order='F')
+            block = img[bx * n : (bx + 1) * n, by * n : (by + 1) * n]
+            out[:, k] = block.reshape(-1, order="F")
             k += 1
     return out
 
 
-def _col2im_distinct(cols, n, shape):
+def _col2im_distinct(cols: Any, n: Any, shape: Any):
+    """_col2im_distinct."""
     rows, cols_n = shape
     br = rows // n
     bc = cols_n // n
@@ -28,13 +31,14 @@ def _col2im_distinct(cols, n, shape):
     k = 0
     for by in range(bc):
         for bx in range(br):
-            block = cols[:, k].reshape((n, n), order='F')
-            out[bx * n:(bx + 1) * n, by * n:(by + 1) * n] = block
+            block = cols[:, k].reshape((n, n), order="F")
+            out[bx * n : (bx + 1) * n, by * n : (by + 1) * n] = block
             k += 1
     return out
 
 
-def _im2col_sliding(img, n):
+def _im2col_sliding(img: Any, n: Any):
+    """_im2col_sliding."""
     r, c = img.shape
     msx = r - n + 1
     msy = c - n + 1
@@ -43,12 +47,13 @@ def _im2col_sliding(img, n):
     # MATLAB-like sliding column order: x varies fastest, then y
     for y in range(msy):
         for x in range(msx):
-            out[:, k] = img[x:x + n, y:y + n].reshape(-1, order='F')
+            out[:, k] = img[x : x + n, y : y + n].reshape(-1, order="F")
             k += 1
     return out
 
 
-def _ci2i(col, n, mi):
+def _ci2i(col: Any, n: Any, mi: Any):
+    """_ci2i."""
     # 1-based in / out
     col = col - 1
     x = (n * (col % mi)) + 1
@@ -56,14 +61,16 @@ def _ci2i(col, n, mi):
     return x, y
 
 
-def _i2b(x, y, n):
+def _i2b(x: Any, y: Any, n: Any):
+    """_i2b."""
     # 1-based
     bx = 1 + ((x - 1) // n)
     by = 1 + ((y - 1) // n)
     return bx, by
 
 
-def _s2i(col, ms):
+def _s2i(col: Any, ms: Any):
+    """_s2i."""
     # 1-based
     col = col - 1
     x = (col % ms) + 1
@@ -71,17 +78,20 @@ def _s2i(col, ms):
     return x, y
 
 
-def _i2s(x, y, ms):
+def _i2s(x: Any, y: Any, ms: Any):
+    """_i2s."""
     # 1-based
     return x + (ms * (y - 1))
 
 
-def _line(a, x0, y0, x1, y1):
+def _line(a: Any, x0: Any, y0: Any, x1: Any, y1: Any):
+    """_line."""
     # All coordinates are 1-based image coordinates.
     ao = a.copy()
     rows, cols = ao.shape
 
-    def set_px(x, y, val):
+    def set_px(x: Any, y: Any, val: Any):
+        """set_px."""
         if 1 <= x <= rows and 1 <= y <= cols:
             ao[x - 1, y - 1] = val
 
@@ -113,7 +123,7 @@ def _line(a, x0, y0, x1, y1):
     return ao
 
 
-def motion(i, j, n, delta, subP):
+def motion(i: Any, j: Any, n: Any, delta: Any, subP: Any):
     """
     Motion estimation between current frame i and previous frame j.
 
@@ -138,20 +148,20 @@ def motion(i, j, n, delta, subP):
         Block motion vectors (vertical and horizontal offsets).
     """
     if subP not in (1, 0.5, 0.25):
-        raise ValueError('The sub-pixel resolution must be 1, 0.5, or 0.25.')
+        raise ValueError("The sub-pixel resolution must be 1, 0.5, or 0.25.")
 
     i = np.asarray(i, dtype=float)
     j = np.asarray(j, dtype=float)
     sz = i.shape
     if i.ndim != 2 or j.ndim != 2 or j.shape != sz:
-        raise ValueError('i and j must be 2-D arrays of equal shape.')
+        raise ValueError("i and j must be 2-D arrays of equal shape.")
 
     if (sz[0] % n != 0) or (sz[1] % n != 0):
-        raise ValueError('The image size must be divisible by the block size.')
+        raise ValueError("The image size must be divisible by the block size.")
 
     delta = np.asarray(delta).astype(int).ravel()
     if delta.size != 2:
-        raise ValueError('delta must have two elements [deltaX deltaY].')
+        raise ValueError("delta must have two elements [deltaX deltaY].")
 
     a = np.zeros(sz, dtype=np.uint8) + 192
     ci = _im2col_distinct(i, n)
@@ -162,8 +172,10 @@ def motion(i, j, n, delta, subP):
     yi = np.arange(1, sz[0] + 1e-12, subP, dtype=float)
     xi = np.arange(1, sz[1] + 1e-12, subP, dtype=float)
 
-    interp = RegularGridInterpolator((y, x), j, method='linear', bounds_error=False, fill_value=None)
-    YY, XX = np.meshgrid(yi, xi, indexing='ij')
+    interp = RegularGridInterpolator(
+        (y, x), j, method="linear", bounds_error=False, fill_value=None
+    )
+    YY, XX = np.meshgrid(yi, xi, indexing="ij")
     ji = interp(np.stack([YY.ravel(), XX.ravel()], axis=-1)).reshape(len(yi), len(xi))
 
     w = int(round(1.0 / subP))
@@ -172,7 +184,7 @@ def motion(i, j, n, delta, subP):
 
     for u1 in range(1, w + 1):
         for v1 in range(1, w + 1):
-            jisub = ji[(u1 - 1)::w, (v1 - 1)::w]
+            jisub = ji[(u1 - 1) :: w, (v1 - 1) :: w]
             mssub[u1 - 1, v1 - 1] = jisub.shape[0]
             cji_map[(u1, v1)] = _im2col_sliding(jisub, n)
 

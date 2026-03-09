@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 from scipy import sparse
 from scipy.ndimage import label, binary_fill_holes, binary_erosion
@@ -19,7 +20,7 @@ except Exception:
     from boundarydir import boundarydir
 
 
-def im2minperpoly(I, cellsize):
+def im2minperpoly(I: Any, cellsize: Any):
     """Minimum perimeter polygon approximation for a single binary region.
 
     Parameters
@@ -38,7 +39,7 @@ def im2minperpoly(I, cellsize):
     """
     cellsize = int(cellsize)
     if cellsize <= 1:
-        raise ValueError('cellsize must be an integer > 1.')
+        raise ValueError("cellsize must be an integer > 1.")
 
     I = np.asarray(I)
     I = I > 0
@@ -46,14 +47,14 @@ def im2minperpoly(I, cellsize):
     # MATLAB bwlabel default connectivity is 8.
     lbl, num = label(I, structure=np.ones((3, 3), dtype=bool))
     if num > 1:
-        raise ValueError('Input image cannot contain more than one region.')
+        raise ValueError("Input image cannot contain more than one region.")
 
     R = cellcomplex(I, cellsize)
     X, Y = mppvertices(R, cellsize)
     return X, Y, R
 
 
-def cellcomplex(I, cellsize):
+def cellcomplex(I: Any, cellsize: Any):
     """Compute 4-connected region enclosed by the cellular complex."""
     I = np.asarray(I).astype(bool)
 
@@ -101,7 +102,7 @@ def cellcomplex(I, cellsize):
     return R[:M, :N]
 
 
-def mppvertices(R, cellsize):
+def mppvertices(R: Any, cellsize: Any):
     """Output MPP vertices around region R."""
     B = bwboundaries(R, conn=4)
     if not B:
@@ -162,7 +163,8 @@ def mppvertices(R, cellsize):
     return np.asarray(X), np.asarray(Y)
 
 
-def vertexlist(x, y, cellsize):
+def vertexlist(x: Any, y: Any, cellsize: Any):
+    """vertexlist."""
     x = np.asarray(x).astype(int).ravel()
     y = np.asarray(y).astype(int).ravel()
 
@@ -196,7 +198,9 @@ def vertexlist(x, y, cellsize):
     xnew = [xext[0]]
     ynew = [yext[0]]
     for k in range(1, K):
-        s = vsign([xext[k - 1], yext[k - 1]], [xext[k], yext[k]], [xext[k + 1], yext[k + 1]])
+        s = vsign(
+            [xext[k - 1], yext[k - 1]], [xext[k], yext[k]], [xext[k + 1], yext[k + 1]]
+        )
         if s != 0:
             xnew.append(xext[k])
             ynew.append(yext[k])
@@ -205,7 +209,7 @@ def vertexlist(x, y, cellsize):
     y = np.asarray(ynew, dtype=int)
 
     # Force counter-clockwise order.
-    _, x, y = boundarydir(x, y, orderout='ccw')
+    _, x, y = boundarydir(x, y, orderout="ccw")
     x = np.asarray(x).astype(int)
     y = np.asarray(y).astype(int)
 
@@ -222,7 +226,9 @@ def vertexlist(x, y, cellsize):
         C[0] = 1
     elif s < 0:
         C[0] = -1
-        rx, ry = vreplacement([x[K - 1], y[K - 1]], [x[0], y[0]], [x[1], y[1]], cellsize)
+        rx, ry = vreplacement(
+            [x[K - 1], y[K - 1]], [x[0], y[0]], [x[1], y[1]], cellsize
+        )
         L[0, 0], L[0, 1] = rx, ry
 
     # Last vertex.
@@ -231,7 +237,9 @@ def vertexlist(x, y, cellsize):
         C[K - 1] = 1
     elif s < 0:
         C[K - 1] = -1
-        rx, ry = vreplacement([x[K - 2], y[K - 2]], [x[K - 1], y[K - 1]], [x[0], y[0]], cellsize)
+        rx, ry = vreplacement(
+            [x[K - 2], y[K - 2]], [x[K - 1], y[K - 1]], [x[0], y[0]], cellsize
+        )
         L[K - 1, 0], L[K - 1, 1] = rx, ry
 
     # Middle vertices.
@@ -241,21 +249,23 @@ def vertexlist(x, y, cellsize):
             C[k] = 1
         elif s < 0:
             C[k] = -1
-            rx, ry = vreplacement([x[k - 1], y[k - 1]], [x[k], y[k]], [x[k + 1], y[k + 1]], cellsize)
+            rx, ry = vreplacement(
+                [x[k - 1], y[k - 1]], [x[k], y[k]], [x[k + 1], y[k + 1]], cellsize
+            )
             L[k, 0], L[k, 1] = rx, ry
 
     L[:, 2] = C
     return L
 
 
-def vsign(v1, v2, v3):
-    A = np.array(
-        [[v1[0], v1[1], 1], [v2[0], v2[1], 1], [v3[0], v3[1], 1]], dtype=float
-    )
+def vsign(v1: Any, v2: Any, v3: Any):
+    """vsign."""
+    A = np.array([[v1[0], v1[1], 1], [v2[0], v2[1], 1], [v3[0], v3[1], 1]], dtype=float)
     return int(np.round(np.linalg.det(A)))
 
 
-def vreplacement(v1, v, v2, cellsize):
+def vreplacement(v1: Any, v: Any, v2: Any, cellsize: Any):
+    """vreplacement."""
     if v[0] > v1[0] and v[1] == v1[1] and v[0] == v2[0] and v[1] > v2[1]:
         return v[0] - cellsize, v[1] - cellsize
     if v[0] == v1[0] and v[1] > v1[1] and v[0] < v2[0] and v[1] == v2[1]:
@@ -264,10 +274,11 @@ def vreplacement(v1, v, v2, cellsize):
         return v[0] + cellsize, v[1] + cellsize
     if v[0] == v1[0] and v[1] < v1[1] and v[0] > v2[0] and v[1] == v2[1]:
         return v[0] - cellsize, v[1] + cellsize
-    raise ValueError('Vertex configuration is not valid.')
+    raise ValueError("Vertex configuration is not valid.")
 
 
-def mppVtest(cMPPV, cV, classcV, cWH, cBL):
+def mppVtest(cMPPV: Any, cV: Any, classcV: Any, cWH: Any, cBL: Any):
+    """mppVtest."""
     I = 0
     newMPPV = np.array([0, 0], dtype=int)
     W = cWH.copy()
@@ -296,11 +307,11 @@ def mppVtest(cMPPV, cV, classcV, cWH, cBL):
 
 
 __all__ = [
-    'im2minperpoly',
-    'cellcomplex',
-    'mppvertices',
-    'vertexlist',
-    'vsign',
-    'vreplacement',
-    'mppVtest',
+    "im2minperpoly",
+    "cellcomplex",
+    "mppvertices",
+    "vertexlist",
+    "vsign",
+    "vreplacement",
+    "mppVtest",
 ]

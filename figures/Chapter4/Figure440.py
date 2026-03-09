@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -9,7 +7,7 @@ from libDIP.lpFilterTF4e import lpFilterTF4e
 from libDIPUM.data_path import dip_data
 
 # Data
-img_path = dip_data('characterTestPattern688.tif')
+img_path = dip_data("characterTestPattern688.tif")
 f = img_as_float(imread(img_path))
 M, N = f.shape
 
@@ -25,7 +23,7 @@ PT = np.sum(Power)
 radii = [10, 30, 60, 160, 460]
 E = []
 for k in radii:
-    H = lpFilterTF4e('ideal', P, Q, k)
+    H = lpFilterTF4e("ideal", P, Q, k)
     prod = H * Power_shift
     E.append(np.sum(prod) / PT)
 E = np.array(E)
@@ -49,14 +47,14 @@ S = S[::2, ::2]
 
 # Display
 fig, axes = plt.subplots(1, 2, figsize=(10, 5))
-axes[0].imshow(f, cmap='gray')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray")
+axes[0].axis("off")
 
-energy_str = np.array2string(E, precision=2, floatmode='fixed')
-axes[1].imshow(S, cmap='gray', vmin=0, vmax=1)
-axes[1].set_title(f'Energy = {energy_str}')
-axes[1].axis('off')
+energy_str = np.array2string(E, precision=2, floatmode="fixed")
+axes[1].imshow(S, cmap="gray", vmin=0, vmax=1)
+axes[1].set_title(f"Energy = {energy_str}")
+axes[1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure440.png')
+plt.savefig("Figure440.png")
 plt.show()

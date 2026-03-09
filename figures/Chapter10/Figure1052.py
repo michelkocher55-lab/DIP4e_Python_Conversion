@@ -1,6 +1,4 @@
-
-import sys
-import os
+from typing import Any
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -10,15 +8,18 @@ from scipy.ndimage import mean
 from General.superpixels import superpixels
 from libDIPUM.data_path import dip_data
 
-def mat2gray(img):
+
+def mat2gray(img: Any):
+    """mat2gray."""
     min_v = img.min()
     max_v = img.max()
     if max_v - min_v < 1e-10:
         return np.zeros_like(img)
     return (img - min_v) / (max_v - min_v)
 
+
 # Data
-image_path = dip_data('totem-poles.tif')
+image_path = dip_data("totem-poles.tif")
 f_raw = imread(image_path)
 f = img_as_float(f_raw)
 
@@ -36,12 +37,12 @@ for i, n_seg in enumerate(NSUP):
     if f.ndim == 3:
         fSP = np.zeros_like(f)
         for c in range(f.shape[2]):
-             means = mean(f[:,:,c], labels=L, index=np.arange(1, NL+1))
-             mapping = np.zeros(NL + 1)
-             mapping[1:] = means
-             fSP[:,:,c] = mapping[L]
+            means = mean(f[:, :, c], labels=L, index=np.arange(1, NL + 1))
+            mapping = np.zeros(NL + 1)
+            mapping[1:] = means
+            fSP[:, :, c] = mapping[L]
     else:
-        means = mean(f, labels=L, index=np.arange(1, NL+1))
+        means = mean(f, labels=L, index=np.arange(1, NL + 1))
         mapping = np.zeros(NL + 1)
         mapping[1:] = means
         fSP = mapping[L]
@@ -50,7 +51,7 @@ for i, n_seg in enumerate(NSUP):
     fSPStore.append(fSP)
 
     # Boundaries
-    BW = find_boundaries(L, mode='thick')
+    BW = find_boundaries(L, mode="thick")
     BWStore.append(BW)
 
 # Display
@@ -63,24 +64,24 @@ for i in range(3):
 
     if fSP.ndim == 2:
         f_overlay = fSP.copy()
-        f_overlay[BW] = 1.0 # White
-        cmap = 'gray'
+        f_overlay[BW] = 1.0  # White
+        cmap = "gray"
     else:
         f_overlay = fSP.copy()
         for c in range(3):
-            f_overlay[:,:,c][BW] = 1.0
+            f_overlay[:, :, c][BW] = 1.0
         cmap = None
 
     axes[0, i].imshow(f_overlay, cmap=cmap)
-    axes[0, i].set_title(f'N={NSUP[i]} (Overlay)')
-    axes[0, i].axis('off')
+    axes[0, i].set_title(f"N={NSUP[i]} (Overlay)")
+    axes[0, i].axis("off")
 
     # Bottom row: Mean Images
     axes[1, i].imshow(fSP, cmap=cmap)
-    axes[1, i].set_title(f'N={NSUP[i]} (Mean)')
-    axes[1, i].axis('off')
+    axes[1, i].set_title(f"N={NSUP[i]} (Mean)")
+    axes[1, i].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1052.png')
+plt.savefig("Figure1052.png")
 print("Saved Figure1052.png")
 plt.show()

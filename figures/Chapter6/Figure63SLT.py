@@ -11,17 +11,14 @@ LN = int(np.log2(N))
 # Slant transform
 a = 3 / np.sqrt(5)
 b = 1 / np.sqrt(5)
-sp = np.array([
-    [1, 1, 1, 1],
-    [a, b, -b, -a],
-    [1, -1, -1, 1],
-    [b, -a, a, -b]
-], dtype=float)
+sp = np.array(
+    [[1, 1, 1, 1], [a, b, -b, -a], [1, -1, -1, 1], [b, -a, a, -b]], dtype=float
+)
 
 for i in range(3, LN + 1):
-    NN = 2 ** i
-    aN = np.sqrt((3 * NN ** 2) / (4 * (NN ** 2 - 1)))
-    bN = np.sqrt((NN ** 2 - 4) / (4 * (NN ** 2 - 1)))
+    NN = 2**i
+    aN = np.sqrt((3 * NN**2) / (4 * (NN**2 - 1)))
+    bN = np.sqrt((NN**2 - 4) / (4 * (NN**2 - 1)))
 
     sr1 = np.array([[1, 0], [aN, bN]], dtype=float)
     sr2 = np.array([[1, 0], [-aN, bN]], dtype=float)
@@ -40,10 +37,7 @@ for i in range(3, LN + 1):
 
     sn = np.vstack([sn1, sn2, sn3, sn4])
 
-    m2 = np.block([
-        [sp, np.zeros_like(sp)],
-        [np.zeros_like(sp), sp]
-    ])
+    m2 = np.block([[sp, np.zeros_like(sp)], [np.zeros_like(sp), sp]])
 
     sp = sn @ m2
 
@@ -74,8 +68,8 @@ SLANT = sp.copy()
 # Display
 plt.figure()
 position = 1
-Error = MyDisp(SLANT, N, NC, position, 'Slant')
+Error = MyDisp(SLANT, N, NC, position, "Slant")
 
 # Print to file
-plt.savefig('Figure63SLT.png')
+plt.savefig("Figure63SLT.png")
 plt.show()

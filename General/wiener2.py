@@ -1,6 +1,7 @@
 """2-D adaptive noise-removal filtering (MATLAB wiener2 equivalent)."""
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 from scipy.signal import convolve2d
@@ -42,7 +43,8 @@ def _from_double_image(f: np.ndarray, classin: np.dtype):
     return f.astype(classin)
 
 
-def _parse_inputs(*args):
+def _parse_inputs(*args: Any):
+    """_parse_inputs."""
     nhood = np.array([3, 3], dtype=int)
     noise = None
 
@@ -86,7 +88,7 @@ def _parse_inputs(*args):
     return g, tuple(int(v) for v in nhood), noise
 
 
-def wiener2(*args):
+def wiener2(*args: Any):
     """Adaptive Wiener filtering on 2-D images.
 
     Supported call forms:
@@ -103,8 +105,13 @@ def wiener2(*args):
     denom = float(np.prod(nhood))
 
     # MATLAB filter2 defaults to zero-padding with same-size output.
-    local_mean = convolve2d(g, kernel, mode="same", boundary="fill", fillvalue=0.0) / denom
-    local_var = convolve2d(g * g, kernel, mode="same", boundary="fill", fillvalue=0.0) / denom - local_mean * local_mean
+    local_mean = (
+        convolve2d(g, kernel, mode="same", boundary="fill", fillvalue=0.0) / denom
+    )
+    local_var = (
+        convolve2d(g * g, kernel, mode="same", boundary="fill", fillvalue=0.0) / denom
+        - local_mean * local_mean
+    )
 
     if noise is None:
         noise = float(np.mean(local_var))

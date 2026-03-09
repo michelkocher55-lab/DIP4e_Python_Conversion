@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 from skimage.transform import resize
 from skimage.segmentation import slic
@@ -5,10 +6,10 @@ from skimage.segmentation import slic
 try:
     from skimage.future import graph
 except Exception as e:
-    raise ImportError('skimage.future.graph is required for nCutSegmentation') from e
+    raise ImportError("skimage.future.graph is required for nCutSegmentation") from e
 
 
-def mat2gray(img):
+def mat2gray(img: Any):
     """Scale array to [0, 1] like MATLAB mat2gray."""
     arr = np.asarray(img, dtype=np.float64)
     min_v = arr.min()
@@ -18,7 +19,7 @@ def mat2gray(img):
     return (arr - min_v) / (max_v - min_v)
 
 
-def _slic_compat(image, n_segments, compactness):
+def _slic_compat(image: Any, n_segments: Any, compactness: Any):
     """Call slic with compatibility across scikit-image versions."""
     try:
         return slic(
@@ -38,7 +39,7 @@ def _slic_compat(image, n_segments, compactness):
         )
 
 
-def _force_k_labels_from_region_means(labels, image, k):
+def _force_k_labels_from_region_means(labels: Any, image: Any, k: Any):
     """Reduce any label map to exactly k labels using weighted 1D k-means on region means."""
     if k <= 1:
         return np.ones_like(labels, dtype=np.int32)
@@ -83,7 +84,7 @@ def _force_k_labels_from_region_means(labels, image, k):
     return out
 
 
-def _kmeans1d_pixels(image, k, max_iter=40):
+def _kmeans1d_pixels(image: Any, k: Any, max_iter: Any = 40):
     """Cluster pixel intensities into exactly k classes, labels in {1..k}."""
     x = np.asarray(image, dtype=np.float64).ravel()
     if k <= 1:
@@ -106,7 +107,7 @@ def _kmeans1d_pixels(image, k, max_iter=40):
     return out
 
 
-def nCutSegmentation(I, NR, sf=1.0, **kwargs):
+def nCutSegmentation(I: Any, NR: Any, sf: Any = 1.0, **kwargs: Any):
     """Segment grayscale image using a normalized-cut equivalent in Python.
 
     Parameters
@@ -136,28 +137,33 @@ def nCutSegmentation(I, NR, sf=1.0, **kwargs):
     """
     I = np.asarray(I)
     if I.ndim != 2:
-        raise ValueError('Input image must be grayscale (2D).')
+        raise ValueError("Input image must be grayscale (2D).")
 
     NR = int(NR)
     if NR < 1:
-        raise ValueError('NR must be >= 1.')
+        raise ValueError("NR must be >= 1.")
 
     sf = float(sf)
     if sf <= 0:
-        raise ValueError('sf must be > 0.')
+        raise ValueError("sf must be > 0.")
 
     # Process scale
     if sf != 1.0:
-        new_shape = (max(2, int(round(I.shape[0] * sf))), max(2, int(round(I.shape[1] * sf))))
-        I_proc = resize(I.astype(np.float64), new_shape, anti_aliasing=True, preserve_range=True)
+        new_shape = (
+            max(2, int(round(I.shape[0] * sf))),
+            max(2, int(round(I.shape[1] * sf))),
+        )
+        I_proc = resize(
+            I.astype(np.float64), new_shape, anti_aliasing=True, preserve_range=True
+        )
     else:
         I_proc = I.astype(np.float64)
 
     I_proc = mat2gray(I_proc)
 
     # Superpixel graph size heuristic
-    n_segments = int(kwargs.get('n_segments', max(800, min(6000, I_proc.size // 60))))
-    compactness = float(kwargs.get('compactness', 10.0))
+    n_segments = int(kwargs.get("n_segments", max(800, min(6000, I_proc.size // 60))))
+    compactness = float(kwargs.get("compactness", 10.0))
 
     # 1) Build superpixels
     sp_labels = _slic_compat(I_proc, n_segments=n_segments, compactness=compactness)
@@ -165,10 +171,10 @@ def nCutSegmentation(I, NR, sf=1.0, **kwargs):
     # 2) Build RAG and run normalized cuts
     # rag_mean_color expects multichannel image; use gray replicated to 3 channels.
     I_rgb = np.dstack([I_proc, I_proc, I_proc])
-    rag = graph.rag_mean_color(I_rgb, sp_labels, mode='distance')
+    rag = graph.rag_mean_color(I_rgb, sp_labels, mode="distance")
 
-    ncut_thresh = float(kwargs.get('ncut_thresh', 1e-3))
-    ncut_num_cuts = int(kwargs.get('ncut_num_cuts', max(10, NR * 6)))
+    ncut_thresh = float(kwargs.get("ncut_thresh", 1e-3))
+    ncut_num_cuts = int(kwargs.get("ncut_num_cuts", max(10, NR * 6)))
 
     sp_ncut = graph.cut_normalized(
         sp_labels,
@@ -200,6 +206,8 @@ def nCutSegmentation(I, NR, sf=1.0, **kwargs):
 
     # Guarantee exactly NR labels in the final output.
     if np.unique(S).size < NR:
-        S = _kmeans1d_pixels(I_proc if sf == 1.0 else mat2gray(I.astype(np.float64)), NR)
+        S = _kmeans1d_pixels(
+            I_proc if sf == 1.0 else mat2gray(I.astype(np.float64)), NR
+        )
 
     return S

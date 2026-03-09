@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -8,10 +5,11 @@ from skimage import exposure
 from libDIPUM.data_path import dip_data
 
 # Image loading
-img_name = dip_data('hidden-symbols.tif')
+img_name = dip_data("hidden-symbols.tif")
 
 f = imread(img_name)
-if f.ndim == 3: f = f[:, :, 0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 
 NR, NC = f.shape
 Local = 3
@@ -55,21 +53,21 @@ fig, axes = plt.subplots(1, 3, figsize=(10, 10))
 axes = axes.flatten()
 
 # 1. Original
-axes[0].imshow(f, cmap='gray', vmin=0, vmax=255)
-axes[0].set_title('Original')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray", vmin=0, vmax=255)
+axes[0].set_title("Original")
+axes[0].axis("off")
 
 # 2. Global HE
-axes[1].imshow(g1, cmap='gray', vmin=0, vmax=255)
-axes[1].set_title('Global hist eq.')
-axes[1].axis('off')
+axes[1].imshow(g1, cmap="gray", vmin=0, vmax=255)
+axes[1].set_title("Global hist eq.")
+axes[1].axis("off")
 
 # 3. Local HE
-axes[2].imshow(g2, cmap='gray', vmin=0, vmax=255)
-axes[2].set_title(f'Local Size = {Local}')
-axes[2].axis('off')
+axes[2].imshow(g2, cmap="gray", vmin=0, vmax=255)
+axes[2].set_title(f"Local Size = {Local}")
+axes[2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure332.png')
+plt.savefig("Figure332.png")
 print("Saved Figure332.png")
 plt.show()

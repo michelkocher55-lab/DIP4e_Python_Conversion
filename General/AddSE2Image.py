@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 import ia870 as ia
 
 
-def AddSE2Image(f, B, gris):
+def AddSE2Image(f: Any, B: Any, gris: Any):
     """
     MATLAB translation of AddSE2Image(f, B, gris).
 
@@ -37,7 +38,7 @@ def AddSE2Image(f, B, gris):
         else:
             g = np.zeros(f.shape, dtype=np.uint16)
     else:
-        raise ValueError('Data type not supported')
+        raise ValueError("Data type not supported")
 
     # MATLAB: g(round(size(BImg,1)/2)+5, round(size(BImg,2)/2)+5) = gris;
     r = int(round(BImg.shape[0] / 2.0) + 5) - 1

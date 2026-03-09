@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import os
-import numpy as np
 import matplotlib.pyplot as plt
 import imageio.v2 as iio
 from scipy import ndimage
@@ -19,7 +18,7 @@ print("Running Figure1265 (matching of half-size building corner)...")
 ScaleFactor = 0.5
 
 # Data (rotated image) - kept for parity with MATLAB script
-I = iio.imread(dip_data('building-600by600.tif'))
+I = iio.imread(dip_data("building-600by600.tif"))
 if I.ndim == 2:
     Ih = ndimage.zoom(I, ScaleFactor, order=1)
 else:
@@ -27,12 +26,12 @@ else:
 _ = Ih  # variable intentionally retained to mirror MATLAB flow
 
 # Keypoints for half-size building
-img1 = dip_data('building-halfsize.pgm')
+img1 = dip_data("building-halfsize.pgm")
 image, descrips, locs1 = sift(img1)
 overlay1 = showkeys(image, locs1)
 
 # Keypoints for half-size building corner
-img2 = dip_data('building-halfsize-corner.pgm')
+img2 = dip_data("building-halfsize-corner.pgm")
 image, descrips, locs2 = sift(img2)
 overlay2 = showkeys(image, locs2)
 

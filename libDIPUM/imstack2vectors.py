@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def imstack2vectors(S, MASK=None):
+def imstack2vectors(S: Any, MASK: Any = None):
     """
     Extract vectors from an image stack.
 
@@ -23,7 +24,7 @@ def imstack2vectors(S, MASK=None):
     """
     S = np.asarray(S)
     if S.ndim != 3:
-        raise ValueError('S must be an M-by-N-by-n stack array.')
+        raise ValueError("S must be an M-by-N-by-n stack array.")
 
     M, N, n = S.shape
 
@@ -32,13 +33,15 @@ def imstack2vectors(S, MASK=None):
     else:
         mask = np.asarray(MASK) != 0
         if mask.shape != (M, N):
-            raise ValueError('MASK must have shape (M, N) matching the first two dimensions of S.')
+            raise ValueError(
+                "MASK must have shape (M, N) matching the first two dimensions of S."
+            )
 
     Q = M * N
 
     # MATLAB order for reshape/find is column-major ('F').
-    X = np.reshape(S, (Q, n), order='F')
-    mask_vec = np.reshape(mask, (Q,), order='F')
+    X = np.reshape(S, (Q, n), order="F")
+    mask_vec = np.reshape(mask, (Q,), order="F")
 
     X = X[mask_vec, :]
 

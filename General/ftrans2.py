@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from scipy.signal import convolve2d
 
 
-def ftrans2(b, t=None):
+def ftrans2(b: Any, t: Any = None):
     """
     FTRANS2 2-D FIR filter using frequency transformation.
 
@@ -25,9 +26,7 @@ def ftrans2(b, t=None):
         raise ValueError("B must contain at least one nonzero element.")
 
     if t is None:
-        t = np.array([[1, 2, 1],
-                      [2, -4, 2],
-                      [1, 2, 1]], dtype=float) / 8.0
+        t = np.array([[1, 2, 1], [2, -4, 2], [1, 2, 1]], dtype=float) / 8.0
     else:
         t = np.asarray(t, dtype=float)
         if t.size == 0 or np.all(t == 0):
@@ -49,7 +48,7 @@ def ftrans2(b, t=None):
     b = np.fft.ifftshift(b)
 
     # Convert 1-D filter to sum_n a(n) cos(w n) form
-    a = np.concatenate(([b[0]], 2.0 * b[1:n + 1]))
+    a = np.concatenate(([b[0]], 2.0 * b[1 : n + 1]))
 
     inset = ((np.array(t.shape) - 1) // 2).astype(int)
 
@@ -65,7 +64,7 @@ def ftrans2(b, t=None):
     h[np.ix_(rows_idx, cols_idx)] += a[0] * P0
 
     for i in range(2, n + 1):
-        P2 = 2.0 * convolve2d(t, P1, mode='full')
+        P2 = 2.0 * convolve2d(t, P1, mode="full")
 
         # rows = rows + inset; cols = cols + inset;
         rows_idx = rows_idx + inset[0]

@@ -1,16 +1,13 @@
-
-import sys
-import os
-import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from General.ReconstructionUsingBitPlanes import ReconstructionUsingBitPlanes
 from libDIPUM.data_path import dip_data
 
 # Image loading
-img_name = dip_data('trophozoite.tif')
+img_name = dip_data("trophozoite.tif")
 f = imread(img_name)
-if f.ndim == 3: f = f[:,:,0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 
 NBits = 8
 
@@ -20,7 +17,7 @@ NBits = 8
 # i=1 -> 2^7.
 
 BitPlanes = []
-for i in range(NBits): # 0..7
+for i in range(NBits):  # 0..7
     # Power of 2:
     power = NBits - 1 - i
     # i=0 (iter 1) -> 7. 2^7.
@@ -47,11 +44,11 @@ for i in range(NBits):
     rec_img = Recs[i]
     snr_v = SNRs[i]
 
-    ax.imshow(rec_img, cmap='gray', vmin=0, vmax=255)
-    ax.set_title(f'{i+1} MSB planes\nSNR = {snr_v:.2f} [dB]')
-    ax.axis('off')
+    ax.imshow(rec_img, cmap="gray", vmin=0, vmax=255)
+    ax.set_title(f"{i + 1} MSB planes\nSNR = {snr_v:.2f} [dB]")
+    ax.axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure315.png')
+plt.savefig("Figure315.png")
 print("Saved Figure315.png")
 plt.show()

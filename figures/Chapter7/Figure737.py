@@ -7,7 +7,7 @@ from libDIP.rgb2hsi4e import rgb2hsi4e
 from libDIPUM.data_path import dip_data
 
 # %% Data
-img_path = dip_data('lenna-RGB.tif')
+img_path = dip_data("lenna-RGB.tif")
 f = img_as_float(imread(img_path))
 
 # %% Extract individual RGB and HSI components
@@ -26,20 +26,20 @@ i = H[:, :, 2]
 plt.figure(figsize=(10, 3.5))
 
 plt.subplot(1, 3, 1)
-plt.imshow(h, cmap='gray', vmin=np.min(h), vmax=np.max(h))
-plt.axis('off')
-plt.title('Hue')
+plt.imshow(h, cmap="gray", vmin=np.min(h), vmax=np.max(h))
+plt.axis("off")
+plt.title("Hue")
 
 plt.subplot(1, 3, 2)
-plt.imshow(s, cmap='gray', vmin=np.min(s), vmax=np.max(s))
-plt.axis('off')
-plt.title('Saturation')
+plt.imshow(s, cmap="gray", vmin=np.min(s), vmax=np.max(s))
+plt.axis("off")
+plt.title("Saturation")
 
 plt.subplot(1, 3, 3)
-plt.imshow(i, cmap='gray', vmin=np.min(i), vmax=np.max(i))
-plt.axis('off')
-plt.title('Intensity')
+plt.imshow(i, cmap="gray", vmin=np.min(i), vmax=np.max(i))
+plt.axis("off")
+plt.title("Intensity")
 
 plt.tight_layout()
-plt.savefig('Figure737.png')
+plt.savefig("Figure737.png")
 plt.show()

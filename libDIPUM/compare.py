@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-def compare(f1, f2, scale=1):
+def compare(f1: Any, f2: Any, scale: Any = 1):
     """
     Compute RMSE between two matrices and optionally display error histogram/image.
     Mirrors MATLAB compare.m behavior.
@@ -23,13 +24,13 @@ def compare(f1, f2, scale=1):
                 bins = 1
             h, edges = np.histogram(e.ravel(), bins=bins)
             plt.figure()
-            plt.bar(edges[:-1], h, color='k', width=edges[1] - edges[0])
+            plt.bar(edges[:-1], h, color="k", width=edges[1] - edges[0])
 
             # Scale error image symmetrically
             emax = emax / scale
             e_scaled = (e + emax) / (2 * emax)
             e_scaled = np.clip(e_scaled, 0, 1)
             plt.figure()
-            plt.imshow(e_scaled, cmap='gray')
+            plt.imshow(e_scaled, cmap="gray")
 
     return rmse

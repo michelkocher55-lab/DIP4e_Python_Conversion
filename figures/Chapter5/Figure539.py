@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.data import shepp_logan_phantom
@@ -13,9 +10,9 @@ Theta = np.arange(0, 180, 0.5)
 
 # Data
 Rectangle = np.zeros((NR, NR))
-r_start = int(NR/4)
-r_end = int(3*NR/4)
-c_center = int(NR/2)
+r_start = int(NR / 4)
+r_end = int(3 * NR / 4)
+c_center = int(NR / 2)
 c_start = c_center - 20
 c_end = c_center + 20
 
@@ -34,9 +31,9 @@ rt_shepp = radon(SheppLogan, theta=Theta, circle=False)
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
 # 1. Rectangle
-axes[0, 0].imshow(Rectangle, cmap='gray')
-axes[0, 0].set_title('A rectangle')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(Rectangle, cmap="gray")
+axes[0, 0].set_title("A rectangle")
+axes[0, 0].axis("off")
 
 # 2. Sinogram Rectangle
 # MATLAB: axis xy.
@@ -57,30 +54,30 @@ axes[0, 0].axis('off')
 # We need (Theta, Rho) array -> Python (Rows=Theta, Cols=Rho).
 # So we should transpose `radon` output.
 
-sinogram_rect = rt_rectangle.T # (theta, rho)
+sinogram_rect = rt_rectangle.T  # (theta, rho)
 # flipud? Theta 0 to 180.
 # MATLAB YData: [Theta(end), Theta(1)]. 179.5 down to 0? Or 0 down to 179.5?
 # Usually sinograms are shown with 0 at top or bottom.
 # Let's just transpose to get Theta on Y-axis.
 
-axes[0, 1].imshow(sinogram_rect, cmap='gray', aspect='auto', origin='lower')
-axes[0, 1].set_title('Sinogram (Rect)')
-axes[0, 1].set_xlabel('rho')
-axes[0, 1].set_ylabel('theta')
+axes[0, 1].imshow(sinogram_rect, cmap="gray", aspect="auto", origin="lower")
+axes[0, 1].set_title("Sinogram (Rect)")
+axes[0, 1].set_xlabel("rho")
+axes[0, 1].set_ylabel("theta")
 
 # 3. Shepp Logan
-axes[1, 0].imshow(SheppLogan, cmap='gray')
-axes[1, 0].set_title('Shepp Logan')
-axes[1, 0].axis('off')
+axes[1, 0].imshow(SheppLogan, cmap="gray")
+axes[1, 0].set_title("Shepp Logan")
+axes[1, 0].axis("off")
 
 # 4. Sinogram Shepp
 sinogram_shepp = rt_shepp.T
-axes[1, 1].imshow(sinogram_shepp, cmap='gray', aspect='auto', origin='lower')
-axes[1, 1].set_title('Sinogram (Shepp)')
-axes[1, 1].set_xlabel('rho')
-axes[1, 1].set_ylabel('theta')
+axes[1, 1].imshow(sinogram_shepp, cmap="gray", aspect="auto", origin="lower")
+axes[1, 1].set_title("Sinogram (Shepp)")
+axes[1, 1].set_xlabel("rho")
+axes[1, 1].set_ylabel("theta")
 
 plt.tight_layout()
-plt.savefig('Figure539.png')
+plt.savefig("Figure539.png")
 print("Saved Figure539.png")
 plt.show()

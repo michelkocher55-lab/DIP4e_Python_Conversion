@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -8,7 +5,7 @@ from scipy.ndimage import uniform_filter
 from libDIPUM.data_path import dip_data
 
 # Data
-img_path = dip_data('angiogram-aortic-kidney.tif')
+img_path = dip_data("angiogram-aortic-kidney.tif")
 
 # Load image
 f = imread(img_path)
@@ -27,7 +24,7 @@ f = imread(img_path)
 # Let's use float for calculation.
 
 f_float = f.astype(float)
-g_float = uniform_filter(f_float, size=41, mode='reflect')
+g_float = uniform_filter(f_float, size=41, mode="reflect")
 
 # Convert back to uint8 for display if original was uint8, or keep as is.
 # MATLAB imshow handles class.
@@ -38,16 +35,16 @@ g = np.clip(g_float, 0, 255).astype(f.dtype)
 fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 axes = axes.flatten()
 
-axes[0].imshow(f, cmap='gray')
-axes[0].set_title('Original Image')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray")
+axes[0].set_title("Original Image")
+axes[0].axis("off")
 
-axes[1].imshow(g, cmap='gray')
-axes[1].set_title('Smoothed Image (41x41 Average)')
-axes[1].axis('off')
+axes[1].imshow(g, cmap="gray")
+axes[1].set_title("Smoothed Image (41x41 Average)")
+axes[1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure239.png')
+plt.savefig("Figure239.png")
 print("Saved Figure239.png")
 
 plt.show()

@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -17,10 +14,11 @@ print("Running Figure435 (Gaussian Lowpass Filtering Steps)...")
 D0 = 25
 
 # Data Loading
-img_path = dip_data('blown_ic_crop.tif')
+img_path = dip_data("blown_ic_crop.tif")
 
 f = imread(img_path)
-if f.ndim == 3: f = f[:,:,0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 f = img_as_float(f)
 M, N = f.shape
 
@@ -30,7 +28,7 @@ PQ = paddedsize(f.shape)
 # fp = padarray(f, [PQ(1)-M, PQ(2)-N], 'post') - defaults to zero padding
 pad_h = PQ[0] - M
 pad_w = PQ[1] - N
-fp = np.pad(f, ((0, pad_h), (0, pad_w)), mode='constant', constant_values=0)
+fp = np.pad(f, ((0, pad_h), (0, pad_w)), mode="constant", constant_values=0)
 
 # Fourier Transform of padded image
 # FP = fft2(fp)
@@ -41,7 +39,7 @@ FP = np.fft.fft2(fp)
 # lpfilter returns centered or uncentered?
 # My implementation of lpfilter uses dftuv which uses uncentered coordinates (0 to M-1 wrapped).
 # So lpfilter returns UNCENTERED H (corners are DC).
-H = lpfilter('gaussian', PQ[0], PQ[1], D0)
+H = lpfilter("gaussian", PQ[0], PQ[1], D0)
 
 # Filtering
 # G = H .* FP
@@ -68,7 +66,7 @@ g = gp[:M, :N]
 # So `g` and `g1` will differ at boundaries.
 # I will replicate this exactly.
 
-g1 = dftfilt(f, H, 'symmetric') # 'symmetric' -> mode='reflect' in my implementation
+g1 = dftfilt(f, H, "symmetric")  # 'symmetric' -> mode='reflect' in my implementation
 
 # Display
 # Preparing spectra for display (Log magnitude, shifted)
@@ -82,45 +80,45 @@ S_G = np.log(1 + np.abs(G_shifted))
 
 fig1, axes1 = plt.subplots(2, 2, figsize=(10, 10))
 
-axes1[0, 0].imshow(f, cmap='gray')
-axes1[0, 0].set_title(f'f, Size = {f.shape}')
-axes1[0, 0].axis('off')
+axes1[0, 0].imshow(f, cmap="gray")
+axes1[0, 0].set_title(f"f, Size = {f.shape}")
+axes1[0, 0].axis("off")
 
-axes1[0, 1].imshow(fp, cmap='gray')
-axes1[0, 1].set_title(f'fp (padded), Size = {fp.shape}')
-axes1[0, 1].axis('off')
+axes1[0, 1].imshow(fp, cmap="gray")
+axes1[0, 1].set_title(f"fp (padded), Size = {fp.shape}")
+axes1[0, 1].axis("off")
 
-axes1[1, 0].imshow(S_FP, cmap='gray')
-axes1[1, 0].set_title(f'DFT(fp), Size = {FP.shape}')
-axes1[1, 0].axis('off')
+axes1[1, 0].imshow(S_FP, cmap="gray")
+axes1[1, 0].set_title(f"DFT(fp), Size = {FP.shape}")
+axes1[1, 0].axis("off")
 
-axes1[1, 1].imshow(H_shifted, cmap='gray')
-axes1[1, 1].set_title(f'H (Gaussian), Size = {H.shape}, D0={D0}')
-axes1[1, 1].axis('off')
+axes1[1, 1].imshow(H_shifted, cmap="gray")
+axes1[1, 1].set_title(f"H (Gaussian), Size = {H.shape}, D0={D0}")
+axes1[1, 1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure435_1.png')
+plt.savefig("Figure435_1.png")
 
 fig2, axes2 = plt.subplots(2, 2, figsize=(10, 10))
 
-axes2[0, 0].imshow(S_G, cmap='gray')
-axes2[0, 0].set_title(f'DFT(fp) * H, Size = {G.shape}')
-axes2[0, 0].axis('off')
+axes2[0, 0].imshow(S_G, cmap="gray")
+axes2[0, 0].set_title(f"DFT(fp) * H, Size = {G.shape}")
+axes2[0, 0].axis("off")
 
-axes2[0, 1].imshow(gp, cmap='gray')
-axes2[0, 1].set_title(f'gp (padded result), Size = {gp.shape}')
-axes2[0, 1].axis('off')
+axes2[0, 1].imshow(gp, cmap="gray")
+axes2[0, 1].set_title(f"gp (padded result), Size = {gp.shape}")
+axes2[0, 1].axis("off")
 
-axes2[1, 0].imshow(g, cmap='gray')
-axes2[1, 0].set_title(f'g (cropped), Size = {g.shape}')
-axes2[1, 0].axis('off')
+axes2[1, 0].imshow(g, cmap="gray")
+axes2[1, 0].set_title(f"g (cropped), Size = {g.shape}")
+axes2[1, 0].axis("off")
 
-axes2[1, 1].imshow(g1, cmap='gray')
-axes2[1, 1].set_title('g using dftfilt (symmetric pad)')
-axes2[1, 1].axis('off')
+axes2[1, 1].imshow(g1, cmap="gray")
+axes2[1, 1].set_title("g using dftfilt (symmetric pad)")
+axes2[1, 1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure435_2.png')
+plt.savefig("Figure435_2.png")
 
 print("Saved Figure435_1.png and Figure435_2.png")
 plt.show()

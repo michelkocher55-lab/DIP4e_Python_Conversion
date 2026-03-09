@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from libDIPUM.triangmf import triangmf
@@ -9,6 +6,7 @@ from libDIPUM.sigmamf import sigmamf
 from libDIPUM.smf import smf
 from libDIPUM.bellmf import bellmf
 from libDIPUM.truncgaussmf import truncgaussmf
+
 print("Running Figure366 (Fuzzy Membership Functions)...")
 
 z = np.linspace(0, 255, 500)
@@ -42,12 +40,12 @@ fig, axes = plt.subplots(2, 3, figsize=(15, 8))
 axes = axes.flatten()
 
 plots = [
-    (u_triangle, 'Triangle'),
-    (u_trapez, 'Trapezoid'),
-    (u_sigma, 'Sigma'),
-    (u_s, 'S-shape'),
-    (u_bell, 'Bell'),
-    (u_gauss, 'Truncated Gaussian')
+    (u_triangle, "Triangle"),
+    (u_trapez, "Trapezoid"),
+    (u_sigma, "Sigma"),
+    (u_s, "S-shape"),
+    (u_bell, "Bell"),
+    (u_gauss, "Truncated Gaussian"),
 ]
 
 for i, (data, title) in enumerate(plots):
@@ -59,6 +57,6 @@ for i, (data, title) in enumerate(plots):
     # ax.axis('tight') # MATLAB axis tight
 
 plt.tight_layout()
-plt.savefig('Figure366.png')
+plt.savefig("Figure366.png")
 print("Saved Figure366.png")
 plt.show()

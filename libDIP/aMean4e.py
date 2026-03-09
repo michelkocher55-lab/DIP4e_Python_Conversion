@@ -1,8 +1,10 @@
+from typing import Any
 import numpy as np
 from lib.intScaling4e import intScaling4e
 from lib.twodConv4e import twodConv4e
 
-def aMean4e(g, m, n):
+
+def aMean4e(g: Any, m: Any, n: Any):
     """
     Arithmetic mean spatial filter.
 
@@ -32,6 +34,6 @@ def aMean4e(g, m, n):
     f_hat = twodConv4e(g, w)
 
     # Scale result to the full interval [0, 1].
-    f_hat = intScaling4e(f_hat, mode='full')
+    f_hat = intScaling4e(f_hat, mode="full")
 
     return f_hat

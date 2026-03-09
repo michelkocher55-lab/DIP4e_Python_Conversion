@@ -1,20 +1,22 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import distance_transform_edt
 from skimage.graph import MCP_Geometric
 
 
-def _as_source_points(source_points, ndim):
+def _as_source_points(source_points: Any, ndim: Any):
+    """_as_source_points."""
     sp = np.asarray(source_points, dtype=float)
     if sp.ndim == 1:
         sp = sp.reshape(ndim, 1)
     if sp.shape[0] != ndim and sp.shape[1] == ndim:
         sp = sp.T
     if sp.shape[0] != ndim:
-        raise ValueError('SourcePoints must have shape (ndim, N) or (N, ndim).')
+        raise ValueError("SourcePoints must have shape (ndim, N) or (N, ndim).")
     return np.rint(sp).astype(int) - 1
 
 
-def msfm(F, SourcePoints, UseSecond=False, UseCross=False):
+def msfm(F: Any, SourcePoints: Any, UseSecond: Any = False, UseCross: Any = False):
     """
     Robust Python MSFM-compatible API.
 
@@ -29,9 +31,9 @@ def msfm(F, SourcePoints, UseSecond=False, UseCross=False):
     """
     F = np.asarray(F, dtype=float)
     if F.ndim not in (2, 3):
-        raise ValueError('F must be a 2D or 3D array.')
+        raise ValueError("F must be a 2D or 3D array.")
     if np.any(F <= 0):
-        raise ValueError('Speed image must be strictly positive.')
+        raise ValueError("Speed image must be strictly positive.")
 
     shape = F.shape
     ndim = F.ndim
@@ -43,7 +45,7 @@ def msfm(F, SourcePoints, UseSecond=False, UseCross=False):
         if all(0 <= p[d] < shape[d] for d in range(ndim)):
             starts.append(p)
     if not starts:
-        raise ValueError('No valid source points inside F bounds.')
+        raise ValueError("No valid source points inside F bounds.")
 
     costs = 1.0 / np.maximum(F, np.finfo(float).tiny)
     mcp = MCP_Geometric(costs, fully_connected=bool(UseCross))

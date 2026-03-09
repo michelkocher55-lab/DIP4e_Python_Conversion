@@ -8,7 +8,7 @@ from libDIPUM.data_path import dip_data
 # Histogram equalization of hidden horse image
 
 # %% Data
-f = np.array(Image.open(dip_data('hidden-horse.tif')))
+f = np.array(Image.open(dip_data("hidden-horse.tif")))
 if f.ndim == 3:
     f = f[..., 0]
 
@@ -30,18 +30,18 @@ fig = plt.figure(1, figsize=(12, 4))
 
 plt.subplot(1, 3, 1)
 plt.plot(255 * thf)
-plt.axis('square')
-plt.axis('tight')
+plt.axis("square")
+plt.axis("tight")
 
 plt.subplot(1, 3, 2)
-plt.imshow(g, cmap='gray')
-plt.axis('off')
+plt.imshow(g, cmap="gray")
+plt.axis("off")
 
 plt.subplot(1, 3, 3)
 plt.bar(np.arange(256), hng)
-plt.axis('square')
-plt.axis('tight')
+plt.axis("square")
+plt.axis("tight")
 
 plt.tight_layout()
-fig.savefig('Figure325.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure325.png", dpi=150, bbox_inches="tight")
 plt.show()

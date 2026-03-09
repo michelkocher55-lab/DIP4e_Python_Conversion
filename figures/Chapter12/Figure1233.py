@@ -6,15 +6,15 @@ from skimage.io import imread
 from General.graycomatrix import graycomatrix
 from General.graycoprops import graycoprops
 
-print('Running Figure1233 (Correlation vs horizontal offset)...')
+print("Running Figure1233 (Correlation vs horizontal offset)...")
 
 # Data
-base_dir = '/Users/michelkocher/michel/Data/DIP-DIPUM/DIP'
-Names = ['strip-uniform-noise', 'strip-2Dsinusoidal-waveform', 'strip-cktboard-section']
+base_dir = "/Users/michelkocher/michel/Data/DIP-DIPUM/DIP"
+Names = ["strip-uniform-noise", "strip-2Dsinusoidal-waveform", "strip-cktboard-section"]
 
 f = []
 for name in Names:
-    img = imread(os.path.join(base_dir, f'{name}.tif'))
+    img = imread(os.path.join(base_dir, f"{name}.tif"))
     if img.ndim == 3:
         img = img[:, :, 0]
     f.append(img)
@@ -25,25 +25,25 @@ Properties = np.zeros((len(Names), 50), dtype=float)
 for cpt in range(len(Names)):
     for offset in range(1, 51):
         G, _ = graycomatrix(f[cpt], NumLevels=256, Offset=np.array([[0, offset]]))
-        st = graycoprops(G, 'correlation')
-        Properties[cpt, offset - 1] = st['Correlation'][0]
+        st = graycoprops(G, "correlation")
+        Properties[cpt, offset - 1] = st["Correlation"][0]
 
 # Display
 fig, ax = plt.subplots(2, 3, figsize=(13, 8))
 ax = ax.ravel()
 
 for i in range(len(Names)):
-    ax[i].imshow(f[i], cmap='gray')
-    ax[i].axis('off')
+    ax[i].imshow(f[i], cmap="gray")
+    ax[i].axis("off")
 
     ax[i + 3].plot(np.arange(1, 51), Properties[i, :])
-    ax[i + 3].set_xlabel('Horizontal offset')
-    ax[i + 3].set_title('correlation')
+    ax[i + 3].set_xlabel("Horizontal offset")
+    ax[i + 3].set_title("correlation")
     ax[i + 3].set_xlim(1, 50)
     ax[i + 3].set_ylim(-1, 1)
 
 fig.tight_layout()
-fig.savefig('Figure1233.png')
+fig.savefig("Figure1233.png")
 
-print('Saved Figure1233.png')
+print("Saved Figure1233.png")
 plt.show()

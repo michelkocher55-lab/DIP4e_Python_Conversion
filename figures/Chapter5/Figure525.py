@@ -1,5 +1,3 @@
-import os
-import sys
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from skimage.util import img_as_float
@@ -12,7 +10,7 @@ from libDIPUM.data_path import dip_data
 k_vals = [0.0025, 0.001, 0.00025]
 
 # Data
-img_path = dip_data('aerial_view_no_turb.tif')
+img_path = dip_data("aerial_view_no_turb.tif")
 f_orig = imread(img_path)
 if f_orig.ndim == 3:
     f_orig = rgb2gray(f_orig)
@@ -32,18 +30,18 @@ for idx in range(len(k_vals)):
 
 # Display
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
-imshow_kwargs = dict(cmap='gray', vmin=0, vmax=1, interpolation='nearest')
+imshow_kwargs = dict(cmap="gray", vmin=0, vmax=1, interpolation="nearest")
 
 axes[0, 0].imshow(f, **imshow_kwargs)
-axes[0, 0].set_title('Original')
-axes[0, 0].axis('off')
+axes[0, 0].set_title("Original")
+axes[0, 0].axis("off")
 
 for i, k in enumerate(k_vals):
     ax = axes.flat[i + 1]
     ax.imshow(g[i], **imshow_kwargs)
     ax.set_title(f"k = {k}")
-    ax.axis('off')
+    ax.axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure525.png')
+plt.savefig("Figure525.png")
 plt.show()

@@ -1,14 +1,15 @@
+from typing import Any
 import numpy as np
 
 
-def _map(n):
+def _map(n: Any):
     """Compute forward interleave index (MATLAB map)."""
     if n >= 0:
         return 2 * n
     return -2 * n + 1
 
 
-def _imap(m):
+def _imap(m: Any):
     """Compute inverse interleave index (MATLAB imap)."""
     odd = m - 2 * (m // 2)
     if odd == 0:
@@ -16,7 +17,7 @@ def _imap(m):
     return -1 * (m // 2) - 1
 
 
-def golomb(x, m):
+def golomb(x: Any, m: Any):
     """
     Compute the Golomb-coded size estimate for input array x.
 
@@ -80,7 +81,7 @@ def golomb(x, m):
             raise ValueError("m must be > 0 for Golomb coding mode.")
 
         k = int(np.ceil(np.log(m) / np.log(2)))
-        bound = (2 ** k) - m
+        bound = (2**k) - m
 
         for i in range(1, zlen + 1):
             bit = np.floor((i - 1) / m) + 1 + k

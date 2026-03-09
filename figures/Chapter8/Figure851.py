@@ -18,7 +18,7 @@ Sigma = 7
 Alpha = 0.1
 
 # Data (fixed path)
-f_path = dip_data('lena.tif')
+f_path = dip_data("lena.tif")
 f = imread(f_path)
 if f.ndim == 3:
     f = f[..., 0]

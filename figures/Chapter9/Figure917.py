@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-from pathlib import Path
 import ia870 as ia
 
 # %% Figure917
@@ -44,21 +42,21 @@ g = ia.iaunion(f, X_list[-1])
 fig = plt.figure(1, figsize=(12, 9))
 
 plt.subplot(3, 4, 1)
-plt.imshow(f, cmap='gray')
-plt.title('A')
-plt.axis('off')
+plt.imshow(f, cmap="gray")
+plt.title("A")
+plt.axis("off")
 
 plt.subplot(3, 4, 2)
-plt.imshow(ia.ianeg(f), cmap='gray')
-plt.title('A^C')
-plt.axis('off')
+plt.imshow(ia.ianeg(f), cmap="gray")
+plt.title("A^C")
+plt.axis("off")
 
 for iter_idx in range(len(X_list)):
     plt.subplot(3, 4, iter_idx + 3)
-    plt.imshow(X_list[iter_idx], cmap='gray')
-    plt.title(f'X_{{{iter_idx}}}')
-    plt.axis('off')
+    plt.imshow(X_list[iter_idx], cmap="gray")
+    plt.title(f"X_{{{iter_idx}}}")
+    plt.axis("off")
 
 plt.tight_layout()
-fig.savefig('Figure917.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure917.png", dpi=150, bbox_inches="tight")
 plt.show()

@@ -7,7 +7,7 @@ from libDIPUM.data_path import dip_data
 # Image of hidden horse and its histogram
 
 # %% Data
-f = np.array(Image.open(dip_data('hidden-horse.tif')))
+f = np.array(Image.open(dip_data("hidden-horse.tif")))
 if f.ndim == 3:
     f = f[..., 0]
 
@@ -19,13 +19,13 @@ pf = counts.astype(float) / f.size
 fig = plt.figure(1, figsize=(10, 4))
 
 plt.subplot(1, 2, 1)
-plt.imshow(f, cmap='gray')
-plt.axis('off')
+plt.imshow(f, cmap="gray")
+plt.axis("off")
 
 plt.subplot(1, 2, 2)
 plt.bar(np.arange(256), pf)
-#plt.axis('square')
+# plt.axis('square')
 
 plt.tight_layout()
-fig.savefig('Figure324.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure324.png", dpi=150, bbox_inches="tight")
 plt.show()

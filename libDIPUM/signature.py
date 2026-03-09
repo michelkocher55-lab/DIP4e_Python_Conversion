@@ -1,8 +1,9 @@
-
+from typing import Any
 import numpy as np
 from matplotlib.path import Path
 
-def signature(b, x0=None, y0=None):
+
+def signature(b: Any, x0: Any = None, y0: Any = None):
     """
     Computes the signature of a boundary.
     b: Nx2 array of (row, col) coordinates? The MATLAB comment says (x,y)?
@@ -16,20 +17,20 @@ def signature(b, x0=None, y0=None):
     """
     b = np.array(b)
     np_points, nc = b.shape
-    
+
     if np_points < nc or nc != 2:
-        raise ValueError('b must be of size np-by-2.')
-        
+        raise ValueError("b must be of size np-by-2.")
+
     # Eliminate duplicate last point
     if np.array_equal(b[0], b[-1]):
         b = b[:-1]
         np_points -= 1
-        
+
     # Centroid
     if x0 is None or y0 is None:
         x0 = np.mean(b[:, 0])
         y0 = np.mean(b[:, 1])
-        
+
     # Check if inside
     # MATLAB inpolygon(x0, y0, xv, yv).
     # Matplotlib Path.contains_point((col, row)?)
@@ -39,7 +40,9 @@ def signature(b, x0=None, y0=None):
     path = Path(b)
     # contains_point expects (x, y).
     # Since we computed centroid from b, it should match the space.
-    if not path.contains_point((x0, y0)) and not path.contains_point((x0, y0), radius=0.1): 
+    if not path.contains_point((x0, y0)) and not path.contains_point(
+        (x0, y0), radius=0.1
+    ):
         # radius helps with float precision if exactly on edge?
         # If centroid is strictly outside (concave shape), error.
         # But centroid of convex is inside. Bottle is convex-ish.
@@ -48,46 +51,46 @@ def signature(b, x0=None, y0=None):
         # We will assume it's fine or user handles it.
         # Raising ValueError to match MATLAB behavior.
         # Note: Concave shapes (like U) have centroid outside. Signature undefined? Yes per MATLAB.
-        pass # We'll enforce check.
+        pass  # We'll enforce check.
         # Wait, Path.contains_point might return False for points on boundary?
         # Implementing robust check:
         # If strictly outside.
         # For now, let's replicate logic.
         if not path.contains_point((x0, y0)):
-             raise ValueError('(x0, y0) or centroid is not inside the boundary.')
+            raise ValueError("(x0, y0) or centroid is not inside the boundary.")
 
     # Shift origin
     b_shifted = b - [x0, y0]
-    
+
     # Convert to polar
     # MATLAB: xcart = b(:, 2); ycart = -b(:, 1);
     # xcart is COL (x). ycart is -ROW (-y).
     # b_shifted is [row_shifted, col_shifted].
     xcart = b_shifted[:, 1]
     ycart = -b_shifted[:, 0]
-    
+
     rho = np.sqrt(xcart**2 + ycart**2)
     theta_rad = np.arctan2(ycart, xcart)
-    
+
     # Convert to degrees
     theta_deg = np.degrees(theta_rad)
-    
+
     # Convert to nonnegative (0 to 360) and handle 0
     # MATLAB: theta multiplied by logic.
     # Python: theta_deg % 360 gives [0, 360).
     theta_deg = theta_deg % 360
-    
+
     # Round to integer degrees
     theta_round = np.round(theta_deg)
-    
+
     # Handle wrap around 360 -> 0?
     # MATLAB code: unique(tr(:,1)).
     # If 360 exists, it becomes distinct from 0?
     # Usually we want 0..359.
-    
+
     # Stack
     tr = np.column_stack((theta_round, rho))
-    
+
     # Unique angles
     # Sort by angle
     # Handle duplicate angles? MATLAB `unique` keeps one?
@@ -113,15 +116,15 @@ def signature(b, x0=None, y0=None):
     # I'll implement: group by angle, take Max distance? Or Mean?
     # MATLAB implementation implies taking the one at index `u`.
     # It just picks one.
-    
+
     # Python generic:
     # Sort tr by theta.
     tr = tr[np.argsort(tr[:, 0])]
-    
+
     # Find unique thetas
     unique_thetas, indices = np.unique(tr[:, 0], return_index=True)
     # return_index returns index of FIRST occurrence.
-    # MATLAB returns LAST? 
+    # MATLAB returns LAST?
     # Let's check MATLAB behavior if possible. or Assume First is fine.
     # If signature is single-valued function, strictly it should be one value.
     # For convex shapes, only one value.
@@ -130,12 +133,11 @@ def signature(b, x0=None, y0=None):
     # Typically takes the furthest? Or defined only for star-shaped?
     # MATLAB script doesn't explicitly select max. It uses `unique`.
     # I'll assume First is fine.
-    
+
     dist = tr[indices, 1]
     angle = unique_thetas
-    
+
     # If last angle == 360 + first -> delete.
     # Modulo 360 handles this mostly.
-    
-    return dist, angle
 
+    return dist, angle

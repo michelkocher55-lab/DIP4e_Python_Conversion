@@ -9,7 +9,7 @@ from libDIPUM.ntrop import ntrop
 from libDIPUM.data_path import dip_data
 
 # Data
-f = imread(dip_data('lena.tif'))
+f = imread(dip_data("lena.tif"))
 if f.ndim == 3:
     f = f[..., 0]
 
@@ -30,35 +30,35 @@ rmse3 = compare(f.astype(float), f_hat3, 0)
 fig = plt.figure(1, figsize=(10, 7))
 
 plt.subplot(2, 3, 1)
-plt.imshow(y1, cmap='gray')
-plt.title(f'RMSE = {rmse1:g}')
-plt.axis('off')
+plt.imshow(y1, cmap="gray")
+plt.title(f"RMSE = {rmse1:g}")
+plt.axis("off")
 
 plt.subplot(2, 3, 2)
-plt.imshow(y2, cmap='gray')
-plt.title(f'RMSE = {rmse2:g}')
-plt.axis('off')
+plt.imshow(y2, cmap="gray")
+plt.title(f"RMSE = {rmse2:g}")
+plt.axis("off")
 
 plt.subplot(2, 3, 3)
-plt.imshow(y3, cmap='gray')
-plt.title(f'RMSE = {rmse3:g}')
-plt.axis('off')
+plt.imshow(y3, cmap="gray")
+plt.title(f"RMSE = {rmse3:g}")
+plt.axis("off")
 
 plt.subplot(2, 3, 4)
 hist1, _ = np.histogram(y1.ravel(), bins=256)
 plt.bar(np.arange(hist1.size), hist1)
-plt.title(f'H = {ntrop(y1.astype(np.int8)):g}')
+plt.title(f"H = {ntrop(y1.astype(np.int8)):g}")
 
 plt.subplot(2, 3, 5)
 hist2, _ = np.histogram(y2.ravel(), bins=256)
 plt.bar(np.arange(hist2.size), hist2)
-plt.title(f'H = {ntrop(y2.astype(np.int8)):g}')
+plt.title(f"H = {ntrop(y2.astype(np.int8)):g}")
 
 plt.subplot(2, 3, 6)
 hist3, _ = np.histogram(y3.ravel(), bins=256)
 plt.bar(np.arange(hist3.size), hist3)
-plt.title(f'H = {ntrop(y3.astype(np.int8)):g}')
+plt.title(f"H = {ntrop(y3.astype(np.int8)):g}")
 
 plt.tight_layout()
-fig.savefig('Figure840.png', dpi=150, bbox_inches='tight')
+fig.savefig("Figure840.png", dpi=150, bbox_inches="tight")
 plt.show()

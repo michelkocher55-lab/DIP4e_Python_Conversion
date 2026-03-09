@@ -12,8 +12,8 @@ I = np.eye(NR)
 # Display
 plt.figure()
 position = 1
-Error = MyDisp(I, NR, NC, position, 'Canonical Basis')
+Error = MyDisp(I, NR, NC, position, "Canonical Basis")
 
 # Print to file
-plt.savefig('Figure63STD.png')
+plt.savefig("Figure63STD.png")
 plt.show()

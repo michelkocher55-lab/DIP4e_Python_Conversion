@@ -15,7 +15,9 @@ r = 1.0
 E = 0.5 * ((r - x) ** 2)
 
 # Plot of 2D quadratic function.
-w2, w1 = np.meshgrid(np.arange(0.0, 2.0 + 0.005, 0.005), np.arange(0.0, 2.0 + 0.01, 0.01))
+w2, w1 = np.meshgrid(
+    np.arange(0.0, 2.0 + 0.005, 0.005), np.arange(0.0, 2.0 + 0.01, 0.01)
+)
 f = 0.5 * ((w1 - 1.0) ** 2 + (w2 - 1.0) ** 2)
 
 # Display

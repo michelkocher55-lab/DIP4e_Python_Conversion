@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
-import pywt
 
-def wavedec(x, n, in3, in4=None):
+
+def wavedec(x: Any, n: Any, in3: Any, in4: Any = None):
     """
     Multi-level 1-D wavelet decomposition (MATLAB-compatible layout).
 
@@ -16,7 +17,7 @@ def wavedec(x, n, in3, in4=None):
     x = np.asarray(x)
     if x.ndim != 1 and not (x.ndim == 2 and 1 in x.shape):
         raise ValueError("Input x must be a vector.")
-    x_is_col = (x.ndim == 2 and x.shape[0] > 1)
+    x_is_col = x.ndim == 2 and x.shape[0] > 1
     x = x.reshape(-1)
 
     if in4 is None:
@@ -29,12 +30,12 @@ def wavedec(x, n, in3, in4=None):
         Hi_D = np.asarray(in4).reshape(-1)
         # Build custom wavelet filter bank: (dec_lo, dec_hi, rec_lo, rec_hi)
         # For decomposition only, rec filters can mirror dec filters.
-        wavelet = pywt.Wavelet('custom', filter_bank=(Lo_D, Hi_D, Lo_D, Hi_D))
+        wavelet = pywt.Wavelet("custom", filter_bank=(Lo_D, Hi_D, Lo_D, Hi_D))
 
     # PyWavelets returns [cA_n, cD_n, ..., cD_1]
     # Use periodization to keep total coefficient length equal to len(x),
     # matching MATLAB wavedec output size expectations in DIP4e scripts.
-    coeffs = pywt.wavedec(x, wavelet, level=int(n), mode='periodization')
+    coeffs = pywt.wavedec(x, wavelet, level=int(n), mode="periodization")
     cA_n = coeffs[0]
     details = coeffs[1:]
 

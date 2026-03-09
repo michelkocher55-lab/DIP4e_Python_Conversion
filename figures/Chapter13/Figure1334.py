@@ -42,7 +42,9 @@ Inputt["Epochs"] = NEpochs
 MSE = []
 for _ in range(5):
     Output = neuralNet4e(Inputt, Specs)
-    Inputt["X"], Inputt["R"], order = patternShuffle4e(Inputt["X"], Inputt["R"], "random")
+    Inputt["X"], Inputt["R"], order = patternShuffle4e(
+        Inputt["X"], Inputt["R"], "random"
+    )
     Specs["W"] = Output["W"]
     Specs["b"] = Output["b"]
     MSE.extend(Output.get("MSE", []))

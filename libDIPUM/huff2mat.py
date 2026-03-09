@@ -1,14 +1,15 @@
+from typing import Any
 import numpy as np
 
 from libDIPUM.huffman import huffman
 
 
-def _build_search_table(map_codes):
+def _build_search_table(map_codes: Any):
     """
     MATLAB-faithful construction of code/link tables from huff2mat.m.
     Uses 1-based node indexing semantics internally.
     """
-    code = ['', '0', '1']
+    code = ["", "0", "1"]
     link = [2, 0, 0]
     left = [2, 3]
     found = 0
@@ -31,8 +32,8 @@ def _build_search_table(map_codes):
             link[node - 1] = ln + 1
 
             link.extend([0, 0])
-            code.append(code[node - 1] + '0')
-            code.append(code[node - 1] + '1')
+            code.append(code[node - 1] + "0")
+            code.append(code[node - 1] + "1")
 
             left = left[1:]
             left.extend([ln + 1, ln + 2])
@@ -40,7 +41,7 @@ def _build_search_table(map_codes):
     return np.asarray(link, dtype=int)
 
 
-def _bits_from_codewords(code_field, pad=0):
+def _bits_from_codewords(code_field: Any, pad: Any = 0):
     """
     Yield bits MSB->LSB from MATLAB-style uint16 code words.
     Also supports legacy byte-packed code fields.
@@ -61,7 +62,7 @@ def _bits_from_codewords(code_field, pad=0):
     return bits
 
 
-def _unravel(code_field, link, nvals, pad=0):
+def _unravel(code_field: Any, link: Any, nvals: Any, pad: Any = 0):
     """
     Decode code words using UNRAVEL state-machine semantics.
     Returns 1-based symbol indices into the Huffman map.
@@ -103,25 +104,30 @@ def _unravel(code_field, link, nvals, pad=0):
     return out
 
 
-def huff2mat(y):
+def huff2mat(y: Any):
     """
     Decode a Huffman encoded matrix structure returned by mat2huff.
     MATLAB-faithful translation of DIPUM huff2mat.m.
     """
-    if (not isinstance(y, dict) or 'min' not in y or 'size' not in y
-            or 'hist' not in y or 'code' not in y):
+    if (
+        not isinstance(y, dict)
+        or "min" not in y
+        or "size" not in y
+        or "hist" not in y
+        or "code" not in y
+    ):
         raise ValueError("The input must be a structure as returned by MAT2HUFF.")
 
-    sz = np.asarray(y['size']).reshape(-1).astype(float)
+    sz = np.asarray(y["size"]).reshape(-1).astype(float)
     m = int(sz[0])
     n = int(sz[1])
 
-    xmin = float(np.asarray(y['min']).reshape(-1)[0]) - 32768.0
-    map_codes = huffman(np.asarray(y['hist']).reshape(-1).astype(float))
+    xmin = float(np.asarray(y["min"]).reshape(-1)[0]) - 32768.0
+    map_codes = huffman(np.asarray(y["hist"]).reshape(-1).astype(float))
 
     link = _build_search_table(map_codes)
 
-    x = _unravel(y['code'], link, m * n, pad=int(y.get('pad', 0)))
+    x = _unravel(y["code"], link, m * n, pad=int(y.get("pad", 0)))
     x = x + xmin - 1.0
-    x = np.asarray(x, dtype=float).reshape((m, n), order='F')
+    x = np.asarray(x, dtype=float).reshape((m, n), order="F")
     return x

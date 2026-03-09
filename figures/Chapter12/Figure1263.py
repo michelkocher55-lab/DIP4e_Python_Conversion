@@ -13,8 +13,8 @@ from libDIPUM.data_path import dip_data
 print("Running Figure1263 (matching of building corner)...")
 
 # Data
-img1 = dip_data('building-600by600.pgm')
-img2 = dip_data('building-corner.pgm')
+img1 = dip_data("building-600by600.pgm")
+img2 = dip_data("building-corner.pgm")
 
 # Keypoints for building
 image, descrips, locs1 = sift(img1)

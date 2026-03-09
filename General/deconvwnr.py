@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def psf2otf(psf, out_size):
+def psf2otf(psf: Any, out_size: Any):
     """
     Convert a point-spread function (PSF) to an optical transfer function (OTF).
     Matches MATLAB psf2otf behavior for 2D inputs.
@@ -10,7 +11,7 @@ def psf2otf(psf, out_size):
     out = np.zeros(out_size, dtype=float)
 
     psf_shape = psf.shape
-    out[:psf_shape[0], :psf_shape[1]] = psf
+    out[: psf_shape[0], : psf_shape[1]] = psf
 
     # Circularly shift so that the PSF center is at the (0,0) element
     for axis, dim in enumerate(psf_shape):
@@ -19,7 +20,7 @@ def psf2otf(psf, out_size):
     return np.fft.fft2(out)
 
 
-def deconvwnr(g, psf, nsr):
+def deconvwnr(g: Any, psf: Any, nsr: Any):
     """
     Wiener deconvolution (frequency-domain). Equivalent to MATLAB deconvwnr.
 

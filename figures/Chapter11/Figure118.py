@@ -22,6 +22,7 @@ print("Running Figure118...")
 
 
 def _im2double_like(a: np.ndarray) -> np.ndarray:
+    """_im2double_like."""
     a = np.asarray(a)
     if np.issubdtype(a.dtype, np.floating):
         return a.astype(np.float64)
@@ -35,7 +36,7 @@ def _im2double_like(a: np.ndarray) -> np.ndarray:
 
 
 # Data
-img_path = dip_data('rose957by1024.tif')
+img_path = dip_data("rose957by1024.tif")
 f = imread(img_path)
 if f.ndim == 3:
     f = f[..., 0]

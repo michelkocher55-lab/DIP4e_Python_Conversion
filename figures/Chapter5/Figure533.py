@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-import os
 from libDIP.imRecon4e import imRecon4e
 
 # Parameters
@@ -51,39 +49,39 @@ fig, axes = plt.subplots(2, 3, figsize=(15, 10))
 axes = axes.flatten()
 
 # 1. X
-axes[0].imshow(X, cmap='gray')
-axes[0].set_title('X')
-axes[0].axis('off')
+axes[0].imshow(X, cmap="gray")
+axes[0].set_title("X")
+axes[0].axis("off")
 
 # 2. BackProj (0)
-axes[1].imshow(recon_0, cmap='gray')
-axes[1].set_title('BackProj (0)')
-axes[1].axis('off')
+axes[1].imshow(recon_0, cmap="gray")
+axes[1].set_title("BackProj (0)")
+axes[1].axis("off")
 
 # 3. BackProj (0, 45)
-axes[2].imshow(recon_0_45, cmap='gray')
-axes[2].set_title('BackProj (0, 45)')
-axes[2].axis('off')
+axes[2].imshow(recon_0_45, cmap="gray")
+axes[2].set_title("BackProj (0, 45)")
+axes[2].axis("off")
 
 # 4. BackProj (0, 45, 90)
-axes[3].imshow(recon_0_45_90, cmap='gray')
-axes[3].set_title('BackProj (0, 45, 90)')
-axes[3].axis('off')
+axes[3].imshow(recon_0_45_90, cmap="gray")
+axes[3].set_title("BackProj (0, 45, 90)")
+axes[3].axis("off")
 
 # 5. BackProj (0, 45, 90, 135)
-axes[4].imshow(recon_0_45_90_135, cmap='gray')
-axes[4].set_title('BackProj (0, 45, 90, 135)')
-axes[4].axis('off')
+axes[4].imshow(recon_0_45_90_135, cmap="gray")
+axes[4].set_title("BackProj (0, 45, 90, 135)")
+axes[4].axis("off")
 
 # 6. BackProj (31 angles) -> 32 actually
-axes[5].imshow(recon_angles, cmap='gray')
-axes[5].set_title('BackProj (31 angles)') # Keeping MATLAB title
-axes[5].axis('off')
+axes[5].imshow(recon_angles, cmap="gray")
+axes[5].set_title("BackProj (31 angles)")  # Keeping MATLAB title
+axes[5].axis("off")
 
 plt.tight_layout()
 
 # Save to file
-filename = 'Figure533.png'
+filename = "Figure533.png"
 plt.savefig(filename)
 print(f"Saved figure to {filename}")
 

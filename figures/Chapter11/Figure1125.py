@@ -13,28 +13,28 @@ n = 21
 sig = 5
 
 # Data
-img_path = dip_data('breast-implant.tif')
+img_path = dip_data("breast-implant.tif")
 f = img_as_float(imread(img_path))
 M, N = f.shape
 
 # Smooth image (fspecial('gaussian') + imfilter('replicate'))
 G = gaussKernel4e(n, sig)
-fsmooth = convolve(f, G, mode='nearest')
+fsmooth = convolve(f, G, mode="nearest")
 
 # Compute edge-marking function
-W = levelSetForce4e('gradient', [fsmooth, 1, 50])
+W = levelSetForce4e("gradient", [fsmooth, 1, 50])
 T = (np.max(W) + np.min(W)) / 2.0
 WBin = W > T
 
 # Display
 fig, axes = plt.subplots(1, 3, figsize=(12, 4))
-axes[0].imshow(fsmooth, cmap='gray')
-axes[0].axis('off')
-axes[1].imshow(W, cmap='gray')
-axes[1].axis('off')
-axes[2].imshow(WBin, cmap='gray')
-axes[2].axis('off')
+axes[0].imshow(fsmooth, cmap="gray")
+axes[0].axis("off")
+axes[1].imshow(W, cmap="gray")
+axes[1].axis("off")
+axes[2].imshow(WBin, cmap="gray")
+axes[2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure1125.png')
+plt.savefig("Figure1125.png")
 plt.show()

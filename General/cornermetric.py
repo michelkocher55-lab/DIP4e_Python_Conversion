@@ -6,12 +6,14 @@ Supports methods:
 """
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 from scipy import ndimage
 
 
 def _default_filter_coefficients() -> np.ndarray:
+    """_default_filter_coefficients."""
     # MATLAB default: fspecial('gaussian',[5 1],1.5)
     sigma = 1.5
     x = np.arange(-2, 3, dtype=np.float64)
@@ -21,6 +23,7 @@ def _default_filter_coefficients() -> np.ndarray:
 
 
 def _convert_to_double(im: np.ndarray) -> np.ndarray:
+    """_convert_to_double."""
     a = np.asarray(im)
 
     if a.dtype == np.uint32:
@@ -43,10 +46,10 @@ def _convert_to_double(im: np.ndarray) -> np.ndarray:
 
 
 def cornermetric(
-    I,
+    I: Any,
     method: str = "Harris",
     sensitivity_factor: float = 0.04,
-    filter_coefficients=None,
+    filter_coefficients: Any = None,
 ):
     """Compute corner metric matrix from an image.
 
@@ -84,8 +87,12 @@ def cornermetric(
     I2 = _convert_to_double(arr)
 
     # MATLAB: imfilter(..., 'replicate', 'same', 'conv') with [-1 0 1] and transpose.
-    gx = ndimage.convolve(I2, np.array([[-1.0, 0.0, 1.0]], dtype=np.float64), mode="nearest")
-    gy = ndimage.convolve(I2, np.array([[-1.0], [0.0], [1.0]], dtype=np.float64), mode="nearest")
+    gx = ndimage.convolve(
+        I2, np.array([[-1.0, 0.0, 1.0]], dtype=np.float64), mode="nearest"
+    )
+    gy = ndimage.convolve(
+        I2, np.array([[-1.0], [0.0], [1.0]], dtype=np.float64), mode="nearest"
+    )
 
     # Keep only valid interior gradients (as in MATLAB code).
     gx = gx[1:-1, 1:-1]

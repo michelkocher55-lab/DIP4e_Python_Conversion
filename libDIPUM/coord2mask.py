@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from skimage.draw import polygon
 
 
-def coord2mask(M, N, vx, vy):
+def coord2mask(M: Any, N: Any, vx: Any, vy: Any):
     """
     Generates a binary mask from given coordinates.
 

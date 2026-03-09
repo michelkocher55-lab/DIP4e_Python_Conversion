@@ -1,15 +1,17 @@
+from typing import Any
 import os
 import numpy as np
 
 
-def imratio(f1, f2):
+def imratio(f1: Any, f2: Any):
     """
     Compute ratio of bytes in two images/variables.
     """
     return _bytes(f1) / _bytes(f2)
 
 
-def _bytes(f):
+def _bytes(f: Any):
+    """_bytes."""
     # If f is a string, treat as filename
     if isinstance(f, str):
         path = f
@@ -33,4 +35,4 @@ def _bytes(f):
         return sum(_bytes(v) for v in f)
 
     # Fallback: estimate by string encoding length
-    return len(str(f).encode('utf-8'))
+    return len(str(f).encode("utf-8"))

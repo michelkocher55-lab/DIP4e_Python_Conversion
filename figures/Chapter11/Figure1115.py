@@ -1,6 +1,3 @@
-import os
-import sys
-import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
 from skimage.util import img_as_float
@@ -15,18 +12,18 @@ r = 1
 times = [50, 100, 300, 700, 800]
 
 # Data
-img_path = dip_data('gray-lakes.tif')
+img_path = dip_data("gray-lakes.tif")
 lakes = img_as_float(imread(img_path))
 M, N = lakes.shape
 
 # Initial level set function
 x0 = int(round(M / 2))
 y0 = int(round(N / 2))
-phi = [levelSetFunction4e('circular', M, N, x0, y0, r)]
+phi = [levelSetFunction4e("circular", M, N, x0, y0, r)]
 
 # Force field
 f = (lakes > 0.9).astype(float)
-F = levelSetForce4e('binary', [f, 1, 0])
+F = levelSetForce4e("binary", [f, 1, 0])
 
 # Process
 contours = [None]  # 1-based indexing style
@@ -45,14 +42,14 @@ fig, axes = plt.subplots(2, 3, figsize=(12, 8))
 
 for idx in range(K + 1):
     ax = axes.flat[idx]
-    ax.imshow(lakes, cmap='gray')
-    ax.axis('off')
+    ax.imshow(lakes, cmap="gray")
+    ax.axis("off")
     # Plot contours (skip index 0 since it is placeholder)
     if idx > 0:
         for c in contours[idx]:
             # c is (row, col); plot x=col, y=row
-            ax.plot(c[:, 1], c[:, 0], 'g.')
+            ax.plot(c[:, 1], c[:, 0], "g.")
 
 plt.tight_layout()
-plt.savefig('Figure1115.png')
+plt.savefig("Figure1115.png")
 plt.show()

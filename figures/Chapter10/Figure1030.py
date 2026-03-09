@@ -1,9 +1,6 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
-from skimage.transform import hough_line, hough_line_peaks
+from skimage.transform import hough_line
 
 print("Running Figure1030 (Hough Transform)...")
 
@@ -44,8 +41,8 @@ H_binary = H > 0
 # Display
 fig, axes = plt.subplots(1, 2, figsize=(10, 5))
 
-axes[0].imshow(f, cmap='gray')
-axes[0].set_title('Original Image (5 points)')
+axes[0].imshow(f, cmap="gray")
+axes[0].set_title("Original Image (5 points)")
 # axes[0].axis('off')
 
 # Display Hough Transform
@@ -65,12 +62,12 @@ extent = [theta_deg.min(), theta_deg.max(), d.min(), d.max()]
 # But for 'rho', it might be from -diag to +diag.
 # Let's adjust aspect
 
-axes[1].imshow(H_binary, cmap='gray', extent=extent, aspect='auto', origin='lower')
-axes[1].set_title('Hough Transform')
-axes[1].set_xlabel('Theta (degrees)')
-axes[1].set_ylabel('Rho (pixels)')
+axes[1].imshow(H_binary, cmap="gray", extent=extent, aspect="auto", origin="lower")
+axes[1].set_title("Hough Transform")
+axes[1].set_xlabel("Theta (degrees)")
+axes[1].set_ylabel("Rho (pixels)")
 
 plt.tight_layout()
-plt.savefig('Figure1030.png')
+plt.savefig("Figure1030.png")
 print("Saved Figure1030.png")
 plt.show()

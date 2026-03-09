@@ -1,7 +1,8 @@
-
+from typing import Any
 import numpy as np
 
-def imageHist4e(f, mode='n'):
+
+def imageHist4e(f: Any, mode: Any = "n"):
     """
     Computes histogram of an input image.
 
@@ -15,25 +16,25 @@ def imageHist4e(f, mode='n'):
     - h: Histogram with 256 bins.
     """
     f = np.array(f, dtype=np.float64)
-    
+
     if np.any(f < 0):
-        raise ValueError('All image intensities must be positive')
-        
+        raise ValueError("All image intensities must be positive")
+
     # Check range
     if np.max(f) <= 1.0:
         f = np.round(255 * f)
-        
+
     f = f.astype(np.int64)
-    
+
     # Histogram
     hist, _ = np.histogram(f, bins=256, range=(0, 256))
-    
-    if mode.lower() == 'n':
+
+    if mode.lower() == "n":
         num_pixels = f.size
         h = hist / num_pixels
-    elif mode.lower() == 'u':
+    elif mode.lower() == "u":
         h = hist
     else:
         h = hist
-        
+
     return h

@@ -10,6 +10,7 @@ from libDIPUM.data_path import dip_data
 
 
 def gaussian_kernel(size: int, sigma: float) -> np.ndarray:
+    """gaussian_kernel."""
     size = int(size)
     if size < 1:
         size = 1
@@ -26,11 +27,13 @@ def gaussian_kernel(size: int, sigma: float) -> np.ndarray:
 
 
 def im2uint8_from_double(a: np.ndarray) -> np.ndarray:
+    """im2uint8_from_double."""
     # MATLAB im2uint8 behavior for double input: clamp to [0,1], then scale.
     return np.uint8(np.clip(a, 0.0, 1.0) * 255.0)
 
 
 def im2double(a: np.ndarray) -> np.ndarray:
+    """im2double."""
     arr = np.asarray(a)
     if np.issubdtype(arr.dtype, np.floating):
         out = arr.astype(np.float64)
@@ -56,7 +59,7 @@ sdev = k / 2.0
 T = 3
 
 # Data
-img_path = dip_data('building-600by600.tif')
+img_path = dip_data("building-600by600.tif")
 f1 = plt.imread(img_path)
 if f1.ndim == 3:
     f1 = f1[..., 0]

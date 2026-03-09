@@ -1,5 +1,3 @@
-import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from libDIP.tmat4e import tmat4e
@@ -13,7 +11,7 @@ N = 8
 f = np.array([1, 1, 0, 0, 0, 0, 0, 0], dtype=float)
 
 # DHT / DFT matrices
-DHT = tmat4e('DHT', N)
+DHT = tmat4e("DHT", N)
 
 # MATLAB dftmtx(N)
 k = np.arange(N)
@@ -49,15 +47,17 @@ plt.figure(figsize=(10, 7), dpi=100)
 for iter_idx in range(N):
     ax1 = plt.subplot(N, 2, 2 * iter_idx + 1)
     ax1.plot(t, Factor * Rec[iter_idx, :])
-    ax1.stem(tn, f, linefmt='C1-', markerfmt='C1o', basefmt=' ')
+    ax1.stem(tn, f, linefmt="C1-", markerfmt="C1o", basefmt=" ")
     ax1.set_xlim(t[0], t[-1])
 
     ax2 = plt.subplot(N, 2, 2 * iter_idx + 2)
     ax2.plot(t, np.real(Factor1 * Rec1[iter_idx, :]))
-    ax2.stem(tn, f, linefmt='C1-', markerfmt='C1o', basefmt=' ')
+    ax2.stem(tn, f, linefmt="C1-", markerfmt="C1o", basefmt=" ")
     ax2.set_xlim(t[0], t[-1])
 
-plt.subplots_adjust(left=0.06, right=0.98, top=0.96, bottom=0.06, wspace=0.18, hspace=0.35)
-plt.savefig('Figure69.png')
-print('Saved Figure69.png')
+plt.subplots_adjust(
+    left=0.06, right=0.98, top=0.96, bottom=0.06, wspace=0.18, hspace=0.35
+)
+plt.savefig("Figure69.png")
+print("Saved Figure69.png")
 plt.show()

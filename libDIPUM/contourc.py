@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from skimage.measure import find_contours
 
 
-def contourc(Z, levels):
+def contourc(Z: Any, levels: Any):
     """
     Approximate MATLAB contourc for a single level.
 

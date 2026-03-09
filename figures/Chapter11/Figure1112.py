@@ -1,5 +1,4 @@
 import os
-import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -21,36 +20,36 @@ r = 10
 NIter = 100
 
 # Data
-img_path = dip_data('rose957by1024.tif')
+img_path = dip_data("rose957by1024.tif")
 f = imread(img_path)
 
-if os.path.exists('Figure118.mat'):
-    mat = loadmat('Figure118.mat')
-    xi = mat['xi'].squeeze()
-    yi = mat['yi'].squeeze()
+if os.path.exists("Figure118.mat"):
+    mat = loadmat("Figure118.mat")
+    xi = mat["xi"].squeeze()
+    yi = mat["yi"].squeeze()
 else:
-    xi, yi = snake_manual_input(f, 150, 'ro')
-    savemat('Figure118.mat', {'xi': xi, 'yi': yi})
+    xi, yi = snake_manual_input(f, 150, "ro")
+    savemat("Figure118.mat", {"xi": xi, "yi": yi})
 
 # Edge map
-emap = snakeMap4e(f, T, Sig, NSig, 'both')
+emap = snakeMap4e(f, T, Sig, NSig, "both")
 
 # Scale to [0,1]
 emap = intScaling4e(emap)
 
 # Snake force (gradient)
-FTxa, FTya = snakeForce4e(emap, 'gradient')
+FTxa, FTya = snakeForce4e(emap, "gradient")
 
 # Normalize
-maga = np.sqrt(FTxa ** 2 + FTya ** 2)
+maga = np.sqrt(FTxa**2 + FTya**2)
 FTxa = FTxa / (maga + 1e-10)
 FTya = FTya / (maga + 1e-10)
 
 # Snake force (GVF)
-FTxb, FTyb = snakeForce4e(emap, 'gvf', 0.2, 160)
+FTxb, FTyb = snakeForce4e(emap, "gvf", 0.2, 160)
 
 # Normalize
-magb = np.sqrt(FTxb ** 2 + FTyb ** 2)
+magb = np.sqrt(FTxb**2 + FTyb**2)
 FTxb = FTxb / (magb + 1e-10)
 FTyb = FTyb / (magb + 1e-10)
 
@@ -76,31 +75,31 @@ fig, axes = plt.subplots(2, 2, figsize=(10, 8))
 axes[0, 0].quiver(
     np.flipud(FTya[::r, ::r]),
     np.flipud(-FTxa[::r, ::r]),
-    angles='xy',
-    scale_units='xy',
-    scale=1
+    angles="xy",
+    scale_units="xy",
+    scale=1,
 )
-axes[0, 0].axis('off')
+axes[0, 0].axis("off")
 
-axes[1, 0].imshow(f, cmap='gray')
-axes[1, 0].axis('off')
+axes[1, 0].imshow(f, cmap="gray")
+axes[1, 0].axis("off")
 plt.sca(axes[1, 0])
-snake_display(xa, ya, 'g.')
+snake_display(xa, ya, "g.")
 
 axes[0, 1].quiver(
     np.flipud(FTyb[::r, ::r]),
     np.flipud(-FTxb[::r, ::r]),
-    angles='xy',
-    scale_units='xy',
-    scale=1
+    angles="xy",
+    scale_units="xy",
+    scale=1,
 )
-axes[0, 1].axis('off')
+axes[0, 1].axis("off")
 
-axes[1, 1].imshow(f, cmap='gray')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(f, cmap="gray")
+axes[1, 1].axis("off")
 plt.sca(axes[1, 1])
-snake_display(xb, yb, 'g.')
+snake_display(xb, yb, "g.")
 
 plt.tight_layout()
-plt.savefig('Figure1112.png')
+plt.savefig("Figure1112.png")
 plt.show()

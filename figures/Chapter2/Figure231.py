@@ -1,18 +1,14 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
-from skimage.util import img_as_float
 import ia870 as ia
 from libDIPUM.data_path import dip_data
 
 # Load images
-forig = imread(dip_data('chronometer-2136x2140-2pt3-inch-930-dpi.tif'))
-f300 = imread(dip_data('chronometer-689x690-2pt3-inch-300-dpi.tif'))
-f150 = imread(dip_data('chronometer-345x345-2pt3-inch-150-dpi.tif'))
-f72 = imread(dip_data('chronometer-165x166-2pt3-inch-72-dpi.tif'))
+forig = imread(dip_data("chronometer-2136x2140-2pt3-inch-930-dpi.tif"))
+f300 = imread(dip_data("chronometer-689x690-2pt3-inch-300-dpi.tif"))
+f150 = imread(dip_data("chronometer-345x345-2pt3-inch-150-dpi.tif"))
+f72 = imread(dip_data("chronometer-165x166-2pt3-inch-72-dpi.tif"))
 
 # Differences
 # Typically resizing differences require images to be same size.
@@ -50,7 +46,7 @@ d150 = np.clip(forig.astype(float) - f150.astype(float), 0, 255).astype(np.uint8
 d72 = np.clip(forig.astype(float) - f72.astype(float), 0, 255).astype(np.uint8)
 
 # Dilate
-B = ia.iasebox (2);
+B = ia.iasebox(2)
 
 gd72 = ia.iadil(d72, B)
 gd150 = ia.iadil(d150, B)
@@ -60,20 +56,20 @@ gd300 = ia.iadil(d300, B)
 fig, axes = plt.subplots(1, 3, figsize=(15, 5))
 axes = axes.flatten()
 
-axes[0].imshow(gd72, cmap='gray')
-axes[0].set_title('Dilated Diff (72 dpi)')
-axes[0].axis('off')
+axes[0].imshow(gd72, cmap="gray")
+axes[0].set_title("Dilated Diff (72 dpi)")
+axes[0].axis("off")
 
-axes[1].imshow(gd150, cmap='gray')
-axes[1].set_title('Dilated Diff (150 dpi)')
-axes[1].axis('off')
+axes[1].imshow(gd150, cmap="gray")
+axes[1].set_title("Dilated Diff (150 dpi)")
+axes[1].axis("off")
 
-axes[2].imshow(gd300, cmap='gray')
-axes[2].set_title('Dilated Diff (300 dpi)')
-axes[2].axis('off')
+axes[2].imshow(gd300, cmap="gray")
+axes[2].set_title("Dilated Diff (300 dpi)")
+axes[2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure231.png')
+plt.savefig("Figure231.png")
 print("Saved Figure231.png")
 
 plt.show()

@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from libDIP.intScaling4e import intScaling4e
@@ -36,23 +33,23 @@ SpectrumCenteredLog = intScaling4e(ScLog)
 # Display
 fig, axes = plt.subplots(2, 2, figsize=(10, 10))
 
-axes[0, 0].imshow(f, cmap='gray')
-axes[0, 0].set_title('Original Image')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(f, cmap="gray")
+axes[0, 0].set_title("Original Image")
+axes[0, 0].axis("off")
 
-axes[0, 1].imshow(Spectrum, cmap='gray')
-axes[0, 1].set_title('Spectrum (Uncentered)')
-axes[0, 1].axis('off')
+axes[0, 1].imshow(Spectrum, cmap="gray")
+axes[0, 1].set_title("Spectrum (Uncentered)")
+axes[0, 1].axis("off")
 
-axes[1, 0].imshow(SpectrumCentered, cmap='gray')
-axes[1, 0].set_title('Centered Spectrum')
-axes[1, 0].axis('off')
+axes[1, 0].imshow(SpectrumCentered, cmap="gray")
+axes[1, 0].set_title("Centered Spectrum")
+axes[1, 0].axis("off")
 
-axes[1, 1].imshow(SpectrumCenteredLog, cmap='gray')
-axes[1, 1].set_title('Centered Log Spectrum')
-axes[1, 1].axis('off')
+axes[1, 1].imshow(SpectrumCenteredLog, cmap="gray")
+axes[1, 1].set_title("Centered Log Spectrum")
+axes[1, 1].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure423.png')
+plt.savefig("Figure423.png")
 print("Saved Figure423.png")
 plt.show()

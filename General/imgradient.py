@@ -1,12 +1,15 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import correlate
 
 
-def _is_method(x):
+def _is_method(x: Any):
+    """_is_method."""
     return isinstance(x, (str, np.str_))
 
 
-def _canonical_method(method):
+def _canonical_method(method: Any):
+    """_canonical_method."""
     m = str(method).strip().lower()
     aliases = {
         "sobel": "sobel",
@@ -22,7 +25,8 @@ def _canonical_method(method):
     return aliases[m]
 
 
-def _validate_2d_real(name, arr):
+def _validate_2d_real(name: Any, arr: Any):
+    """_validate_2d_real."""
     a = np.asarray(arr)
     if a.ndim != 2:
         raise ValueError(f"{name} must be a 2-D matrix.")
@@ -31,7 +35,7 @@ def _validate_2d_real(name, arr):
     return a
 
 
-def _imgradientxy(I, method):
+def _imgradientxy(I: Any, method: Any):
     """
     Directional gradients with replicate boundary handling.
     """
@@ -74,7 +78,7 @@ def _imgradientxy(I, method):
     return Gx, Gy
 
 
-def imgradient(*args):
+def imgradient(*args: Any):
     """
     MATLAB-like IMGRADIENT.
 
@@ -108,15 +112,21 @@ def imgradient(*args):
     if I is not None:
         want_single = np.asarray(I).dtype == np.float32
     else:
-        want_single = (np.asarray(Gx).dtype == np.float32) or (np.asarray(Gy).dtype == np.float32)
+        want_single = (np.asarray(Gx).dtype == np.float32) or (
+            np.asarray(Gy).dtype == np.float32
+        )
 
     work_dtype = np.float32 if want_single else np.float64
 
     if I is not None:
         Iw = np.asarray(I, dtype=work_dtype)
         if method == "roberts":
-            Gx = correlate(Iw, np.array([[1, 0], [0, -1]], dtype=work_dtype), mode="nearest")
-            Gy = correlate(Iw, np.array([[0, 1], [-1, 0]], dtype=work_dtype), mode="nearest")
+            Gx = correlate(
+                Iw, np.array([[1, 0], [0, -1]], dtype=work_dtype), mode="nearest"
+            )
+            Gy = correlate(
+                Iw, np.array([[0, 1], [-1, 0]], dtype=work_dtype), mode="nearest"
+            )
         else:
             Gx, Gy = _imgradientxy(Iw, method)
     else:

@@ -1,4 +1,4 @@
-import os
+from typing import Any
 import sys
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,14 +18,14 @@ Sig = 11
 NSig = 5
 
 # Data
-img_path = dip_data('breast-implant.tif')
+img_path = dip_data("breast-implant.tif")
 if len(sys.argv) > 1:
     img_path = sys.argv[1]
 
 f = imread(img_path)
 
 # Edge map
-emap = snakeMap4e(f, T, Sig, NSig, 'both')
+emap = snakeMap4e(f, T, Sig, NSig, "both")
 # Scale to [0, 1] range
 emap = intScaling4e(emap)
 
@@ -39,15 +39,16 @@ xi = np.concatenate([xi, [xi[0]]])
 yi = np.concatenate([yi, [yi[0]]])
 
 # Snake force
-FTx, FTy = snakeForce4e(emap, 'gvf', 0.2, 160)
+FTx, FTy = snakeForce4e(emap, "gvf", 0.2, 160)
 
 # Normalize
-mag = np.sqrt(FTx ** 2 + FTy ** 2)
+mag = np.sqrt(FTx**2 + FTy**2)
 FTx = FTx / (mag + 1e-10)
 FTy = FTy / (mag + 1e-10)
 
 
-def script_for_fig1113(xi, yi, FTx, FTy, n_iter):
+def script_for_fig1113(xi: Any, yi: Any, FTx: Any, FTy: Any, n_iter: Any):
+    """script_for_fig1113."""
     x = xi.copy()
     y = yi.copy()
     for _ in range(n_iter):
@@ -68,18 +69,18 @@ for n_iter in NIter:
 # Display
 fig, axes = plt.subplots(2, 3, figsize=(12, 8))
 
-axes[0, 0].imshow(f, cmap='gray')
-axes[0, 0].axis('off')
+axes[0, 0].imshow(f, cmap="gray")
+axes[0, 0].axis("off")
 plt.sca(axes[0, 0])
-snake_display(xi[::2], yi[::2], 'g.')
+snake_display(xi[::2], yi[::2], "g.")
 
 for idx, n_iter in enumerate(NIter):
     ax = axes.flat[idx + 1]
-    ax.imshow(f, cmap='gray')
-    ax.axis('off')
+    ax.imshow(f, cmap="gray")
+    ax.axis("off")
     plt.sca(ax)
-    snake_display(xs[idx][::2], ys[idx][::2], 'g.')
+    snake_display(xs[idx][::2], ys[idx][::2], "g.")
 
 plt.tight_layout()
-plt.savefig('Figure1113.png')
+plt.savefig("Figure1113.png")
 plt.show()

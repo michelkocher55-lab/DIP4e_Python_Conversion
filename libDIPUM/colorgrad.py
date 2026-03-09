@@ -1,8 +1,9 @@
+from typing import Any
 import numpy as np
 from scipy.ndimage import convolve
 
 
-def _mat2gray(x):
+def _mat2gray(x: Any):
     """Scale input array to [0, 1], MATLAB mat2gray-style."""
     x = np.asarray(x, dtype=float)
     xmin = np.min(x)
@@ -12,7 +13,7 @@ def _mat2gray(x):
     return np.zeros_like(x, dtype=float)
 
 
-def colorgrad(f, T=None):
+def colorgrad(f: Any, T: Any = None):
     """
     COLORGRAD Computes the vector gradient of an RGB image.
 
@@ -38,10 +39,10 @@ def colorgrad(f, T=None):
     f = np.asarray(f)
 
     if f.ndim != 3 or f.shape[2] != 3:
-        raise ValueError('Input image must be of size M-by-N-by-3')
+        raise ValueError("Input image must be of size M-by-N-by-3")
 
     if T is not None and (T < 0 or T > 1):
-        raise ValueError('T must be in the range [0 1]')
+        raise ValueError("T must be in the range [0 1]")
 
     # Sobel masks matching fspecial('sobel') and its transpose.
     sh = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]], dtype=float)
@@ -52,12 +53,12 @@ def colorgrad(f, T=None):
     G = f[:, :, 1].astype(float)
     B = f[:, :, 2].astype(float)
 
-    Rx = convolve(R, sh, mode='nearest')
-    Ry = convolve(R, sv, mode='nearest')
-    Gx = convolve(G, sh, mode='nearest')
-    Gy = convolve(G, sv, mode='nearest')
-    Bx = convolve(B, sh, mode='nearest')
-    By = convolve(B, sv, mode='nearest')
+    Rx = convolve(R, sh, mode="nearest")
+    Ry = convolve(R, sv, mode="nearest")
+    Gx = convolve(G, sh, mode="nearest")
+    Gy = convolve(G, sv, mode="nearest")
+    Bx = convolve(B, sh, mode="nearest")
+    By = convolve(B, sv, mode="nearest")
 
     # Vector-gradient parameters.
     gxx = Rx**2 + Gx**2 + Bx**2

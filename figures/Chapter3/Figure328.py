@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -11,9 +8,10 @@ from libDIPUM.trapezmf import trapezmf
 from libDIPUM.data_path import dip_data
 
 # Image loading
-img_path = dip_data('hidden-horse.tif')
+img_path = dip_data("hidden-horse.tif")
 f = imread(img_path)
-if f.ndim == 3: f = f[:,:,0]
+if f.ndim == 3:
+    f = f[:, :, 0]
 
 M, N = f.shape
 
@@ -47,27 +45,27 @@ axes = axes.flatten()
 # Given the script variable names: f (input), geq (histeq), gsp (spechist).
 # If variable 'g' is not defined, it might be a typo in user's provided file or referring to previous workspace var.
 # I will assume subplot 1 should show the Original image 'f'.
-axes[0].imshow(f, cmap='gray', vmin=0, vmax=255)
-axes[0].set_title('Original')
-axes[0].axis('off')
+axes[0].imshow(f, cmap="gray", vmin=0, vmax=255)
+axes[0].set_title("Original")
+axes[0].axis("off")
 
 # 2. Hist Eq
-axes[1].imshow(geq, cmap='gray', vmin=0, vmax=255)
-axes[1].set_title('Hist Eq')
-axes[1].axis('off')
+axes[1].imshow(geq, cmap="gray", vmin=0, vmax=255)
+axes[1].set_title("Hist Eq")
+axes[1].axis("off")
 
 # 3. Specified
-axes[2].imshow(gsp, cmap='gray', vmin=0, vmax=255)
-axes[2].set_title('Hist Specified')
-axes[2].axis('off')
+axes[2].imshow(gsp, cmap="gray", vmin=0, vmax=255)
+axes[2].set_title("Hist Specified")
+axes[2].axis("off")
 
 # 4. Histogram of Specified
-counts, centers = histogram(gsp, nbins=256, source_range='image')
+counts, centers = histogram(gsp, nbins=256, source_range="image")
 axes[3].bar(centers, counts, width=1)
-axes[3].set_title('Histogram of Specified')
+axes[3].set_title("Histogram of Specified")
 axes[3].set_xlim([0, 255])
 
 plt.tight_layout()
-plt.savefig('Figure328.png')
+plt.savefig("Figure328.png")
 print("Saved Figure328.png")
 plt.show()

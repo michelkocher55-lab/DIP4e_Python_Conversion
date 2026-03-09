@@ -1,6 +1,3 @@
-
-import sys
-import os
 import numpy as np
 import matplotlib.pyplot as plt
 from skimage.io import imread
@@ -14,9 +11,10 @@ VarNoise = [1e-37, 1e-2, 1e-1]
 VarWiener = [1e-35, 0.15e-1, 0.2e-1]
 
 # Data
-img_name = dip_data('original_DIP.tif')
+img_name = dip_data("original_DIP.tif")
 f_orig = imread(img_name)
-if f_orig.ndim == 3: f_orig = f_orig[:,:,0]
+if f_orig.ndim == 3:
+    f_orig = f_orig[:, :, 0]
 f = img_as_float(f_orig)
 
 M, N = f.shape
@@ -34,9 +32,9 @@ g = np.real(np.fft.ifft2(G))
 z = np.zeros((M, N))
 
 # Generate noise with clip=True to match MATLAB imnoise behavior on zeros
-zn1 = random_noise(z, mode='gaussian', mean=0, var=VarNoise[0], clip=True)
-zn2 = random_noise(z, mode='gaussian', mean=0, var=VarNoise[1], clip=True)
-zn3 = random_noise(z, mode='gaussian', mean=0, var=VarNoise[2], clip=True)
+zn1 = random_noise(z, mode="gaussian", mean=0, var=VarNoise[0], clip=True)
+zn2 = random_noise(z, mode="gaussian", mean=0, var=VarNoise[1], clip=True)
+zn3 = random_noise(z, mode="gaussian", mean=0, var=VarNoise[2], clip=True)
 
 Zn1 = np.fft.fft2(zn1)
 Zn2 = np.fft.fft2(zn2)
@@ -71,51 +69,51 @@ fHatWienerFilter3 = np.real(np.fft.ifft2(W3 * Gn3))
 # Use vmin=0, vmax=1 to match MATLAB imshow(double) behavior
 
 fig1, axes1 = plt.subplots(1, 2, figsize=(10, 5))
-axes1[0].imshow(f, cmap='gray', vmin=0, vmax=1)
-axes1[0].set_title('Original')
-axes1[0].axis('off')
-axes1[1].imshow(g, cmap='gray', vmin=0, vmax=1)
-axes1[1].set_title('Blurred')
-axes1[1].axis('off')
+axes1[0].imshow(f, cmap="gray", vmin=0, vmax=1)
+axes1[0].set_title("Original")
+axes1[0].axis("off")
+axes1[1].imshow(g, cmap="gray", vmin=0, vmax=1)
+axes1[1].set_title("Blurred")
+axes1[1].axis("off")
 plt.tight_layout()
-plt.savefig('Figure529_init.png')
+plt.savefig("Figure529_init.png")
 
 fig2, axes2 = plt.subplots(3, 3, figsize=(12, 12))
 
 # Row 1 High
-axes2[0, 0].imshow(gn3, cmap='gray', vmin=0, vmax=1)
-axes2[0, 0].set_title('Blurred + Noise (High)')
-axes2[0, 0].axis('off')
-axes2[0, 1].imshow(fHatInvFilter3, cmap='gray', vmin=0, vmax=1)
-axes2[0, 1].set_title('Inverse Filter')
-axes2[0, 1].axis('off')
-axes2[0, 2].imshow(fHatWienerFilter3, cmap='gray', vmin=0, vmax=1)
-axes2[0, 2].set_title('Wiener Filter')
-axes2[0, 2].axis('off')
+axes2[0, 0].imshow(gn3, cmap="gray", vmin=0, vmax=1)
+axes2[0, 0].set_title("Blurred + Noise (High)")
+axes2[0, 0].axis("off")
+axes2[0, 1].imshow(fHatInvFilter3, cmap="gray", vmin=0, vmax=1)
+axes2[0, 1].set_title("Inverse Filter")
+axes2[0, 1].axis("off")
+axes2[0, 2].imshow(fHatWienerFilter3, cmap="gray", vmin=0, vmax=1)
+axes2[0, 2].set_title("Wiener Filter")
+axes2[0, 2].axis("off")
 
 # Row 2 Med
-axes2[1, 0].imshow(gn2, cmap='gray', vmin=0, vmax=1)
-axes2[1, 0].set_title('Blurred + Noise (Med)')
-axes2[1, 0].axis('off')
-axes2[1, 1].imshow(fHatInvFilter2, cmap='gray', vmin=0, vmax=1)
-axes2[1, 1].set_title('Inverse Filter')
-axes2[1, 1].axis('off')
-axes2[1, 2].imshow(fHatWienerFilter2, cmap='gray', vmin=0, vmax=1)
-axes2[1, 2].set_title('Wiener Filter')
-axes2[1, 2].axis('off')
+axes2[1, 0].imshow(gn2, cmap="gray", vmin=0, vmax=1)
+axes2[1, 0].set_title("Blurred + Noise (Med)")
+axes2[1, 0].axis("off")
+axes2[1, 1].imshow(fHatInvFilter2, cmap="gray", vmin=0, vmax=1)
+axes2[1, 1].set_title("Inverse Filter")
+axes2[1, 1].axis("off")
+axes2[1, 2].imshow(fHatWienerFilter2, cmap="gray", vmin=0, vmax=1)
+axes2[1, 2].set_title("Wiener Filter")
+axes2[1, 2].axis("off")
 
 # Row 3 Low
-axes2[2, 0].imshow(gn1, cmap='gray', vmin=0, vmax=1)
-axes2[2, 0].set_title('Blurred + Noise (Low)')
-axes2[2, 0].axis('off')
-axes2[2, 1].imshow(fHatInvFilter1, cmap='gray', vmin=0, vmax=1)
-axes2[2, 1].set_title('Inverse Filter')
-axes2[2, 1].axis('off')
-axes2[2, 2].imshow(fHatWienerFilter1, cmap='gray', vmin=0, vmax=1)
-axes2[2, 2].set_title('Wiener Filter')
-axes2[2, 2].axis('off')
+axes2[2, 0].imshow(gn1, cmap="gray", vmin=0, vmax=1)
+axes2[2, 0].set_title("Blurred + Noise (Low)")
+axes2[2, 0].axis("off")
+axes2[2, 1].imshow(fHatInvFilter1, cmap="gray", vmin=0, vmax=1)
+axes2[2, 1].set_title("Inverse Filter")
+axes2[2, 1].axis("off")
+axes2[2, 2].imshow(fHatWienerFilter1, cmap="gray", vmin=0, vmax=1)
+axes2[2, 2].set_title("Wiener Filter")
+axes2[2, 2].axis("off")
 
 plt.tight_layout()
-plt.savefig('Figure529.png')
+plt.savefig("Figure529.png")
 print("Saved Figure529_init.png and Figure529.png")
 plt.show()

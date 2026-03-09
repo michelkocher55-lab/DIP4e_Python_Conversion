@@ -1,13 +1,14 @@
 """Increase size of a training set (MATLAB moreTrainingPatterns4e equivalent)."""
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 
 from libDIP.patternShuffle4e import patternShuffle4e
 
 
-def moreTrainingPatterns4e(X, R, nt):
+def moreTrainingPatterns4e(X: Any, R: Any, nt: Any):
     """Increase training patterns by repetition and shuffle.
 
     This follows the provided MATLAB implementation exactly:

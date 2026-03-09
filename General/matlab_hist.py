@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def matlab_hist(x, centers):
+def matlab_hist(x: Any, centers: Any):
     """
     Replicates MATLAB hist(x, centers) behavior.
 

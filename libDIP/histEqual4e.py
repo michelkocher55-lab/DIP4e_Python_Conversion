@@ -1,3 +1,4 @@
+from typing import Any
 import numpy as np
 import sys
 import os
@@ -9,15 +10,16 @@ from intScaling4e import intScaling4e
 from imageHist4e import imageHist4e
 from intXForm4e import intXForm4e
 
-def histEqual4e(f):
+
+def histEqual4e(f: Any):
     """
     Histogram equalization.
-    
+
     Parameters:
     -----------
     f : numpy.ndarray
         Input image.
-        
+
     Returns:
     --------
     g : numpy.ndarray
@@ -25,16 +27,16 @@ def histEqual4e(f):
     """
     # Scale to [0, 1]
     f = intScaling4e(f)
-    
+
     # Compute normalized histogram
     h = imageHist4e(f)
-    
+
     # Compute CDF
     # Use numpy.cumsum
     cdf = np.cumsum(h)
-    
+
     # Use intXForm4e to map intensities
     # mode='external', param=cdf
-    g, _ = intXForm4e(f, 'external', cdf)
-    
+    g, _ = intXForm4e(f, "external", cdf)
+
     return g

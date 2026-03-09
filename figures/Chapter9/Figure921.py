@@ -1,7 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import sys
-from pathlib import Path
 import ia870 as ia
 from General.mmshow import mmshow
 
@@ -10,7 +8,7 @@ from General.mmshow import mmshow
 # %% Init
 Fig = 1
 try:
-    _raw = input('Figure921 (1) or Problem921c (2) : ').strip()
+    _raw = input("Figure921 (1) or Problem921c (2) : ").strip()
     Choice = int(_raw) if _raw else 1
 except Exception:
     Choice = 1
@@ -38,17 +36,13 @@ elif Choice == 2:
     XX[2:11, 5:8] = True
     XX[5:8, 2:11] = True
 else:
-    raise ValueError('Plouc')
+    raise ValueError("Plouc")
 
 NIter = 10
 
 # %% Interval
-BFG = np.array([[1, 0, 0],
-                [1, 0, 0],
-                [1, 0, 0]], dtype=bool)
-BBG = np.array([[0, 0, 0],
-                [0, 1, 0],
-                [0, 0, 0]], dtype=bool)
+BFG = np.array([[1, 0, 0], [1, 0, 0], [1, 0, 0]], dtype=bool)
+BBG = np.array([[0, 0, 0], [0, 1, 0], [0, 0, 0]], dtype=bool)
 
 B1 = ia.iase2hmt(ia.iaimg2se(BFG), ia.iaimg2se(BBG))
 B2 = ia.iainterot(B1, 90)
@@ -73,8 +67,8 @@ HMT_all = []
 MaxIter = []
 
 for interval_idx in range(NB):
-    y_series = [XX.copy()]           # Y(:,:,Interval,1)
-    h_series = []                    # HMT(:,:,Interval,iter-1)
+    y_series = [XX.copy()]  # Y(:,:,Interval,1)
+    h_series = []  # HMT(:,:,Interval,iter-1)
 
     OK = True
     iter_idx = 2
@@ -109,9 +103,9 @@ for interval_idx in range(4):
     Fig += 1
 
     plt.subplot(2, 5, 1)
-    plt.imshow(Y_all[interval_idx][0], cmap='gray')
-    plt.title('X')
-    plt.axis('off')
+    plt.imshow(Y_all[interval_idx][0], cmap="gray")
+    plt.title("X")
+    plt.axis("off")
 
     max_it = MaxIter[interval_idx]
     # MATLAB: for iter = 2 : MaxIter(Interval)-1
@@ -124,8 +118,8 @@ for interval_idx in range(4):
         y_disp = Y_all[interval_idx][iter_disp - 1]
         h_disp = HMT_all[interval_idx][iter_disp - 2]
         mmshow(y_disp, h_disp)
-        plt.title(f'X^{{I={interval_idx + 1}}}_{{iter={iter_disp}}}')
-        plt.axis('off')
+        plt.title(f"X^{{I={interval_idx + 1}}}_{{iter={iter_disp}}}")
+        plt.axis("off")
 
     plt.tight_layout()
 
@@ -134,26 +128,28 @@ saved_figs.append(fig)
 Fig += 1
 
 plt.subplot(2, 3, 1)
-plt.imshow(XX, cmap='gray')
-plt.title('X')
-plt.axis('off')
+plt.imshow(XX, cmap="gray")
+plt.title("X")
+plt.axis("off")
 
 for interval_idx in range(4):
     plt.subplot(2, 3, interval_idx + 2)
-    plt.imshow(Y_all[interval_idx][-1], cmap='gray')
-    plt.title(f'Y^{{I={interval_idx + 1}}}_{{iter = {MaxIter[interval_idx]}}}')
-    plt.axis('off')
+    plt.imshow(Y_all[interval_idx][-1], cmap="gray")
+    plt.title(f"Y^{{I={interval_idx + 1}}}_{{iter = {MaxIter[interval_idx]}}}")
+    plt.axis("off")
 
 plt.subplot(2, 3, 6)
 mmshow(ConvexHull, XX)
-plt.title('Convex hull, original data')
-plt.axis('off')
+plt.title("Convex hull, original data")
+plt.axis("off")
 
 plt.tight_layout()
 
 # %% Print 2 file
 for iter_idx in range(1, 6):
     if iter_idx - 1 < len(saved_figs):
-        saved_figs[iter_idx - 1].savefig(f'Figure921_{iter_idx}.png', dpi=150, bbox_inches='tight')
+        saved_figs[iter_idx - 1].savefig(
+            f"Figure921_{iter_idx}.png", dpi=150, bbox_inches="tight"
+        )
 
 plt.show()

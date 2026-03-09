@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def covmatrix(X):
+def covmatrix(X: Any):
     """
     Computes the covariance matrix and mean vector.
 
@@ -25,11 +26,11 @@ def covmatrix(X):
     X = np.asarray(X, dtype=float)
 
     if X.ndim != 2:
-        raise ValueError('X must be a 2-D matrix of row vectors.')
+        raise ValueError("X must be a 2-D matrix of row vectors.")
 
     K = X.shape[0]
     if K < 1:
-        raise ValueError('X must contain at least one sample (row).')
+        raise ValueError("X must contain at least one sample (row).")
 
     # Unbiased estimate of mean.
     m = np.sum(X, axis=0) / K

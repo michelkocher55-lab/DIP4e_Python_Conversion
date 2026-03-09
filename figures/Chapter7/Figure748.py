@@ -12,13 +12,13 @@ Ps = 0.05
 Pp = 0.05
 
 # %% Data
-RGB = img_as_float(imread(dip_data('lenna-RGB.tif')))
+RGB = img_as_float(imread(dip_data("lenna-RGB.tif")))
 R = RGB[:, :, 0]
 G = RGB[:, :, 1]
 B = RGB[:, :, 2]
 
 # %% Noise adding
-Gn, n = imnoise2(G, 'salt & pepper', Ps, Pp)
+Gn, n = imnoise2(G, "salt & pepper", Ps, Pp)
 _ = n
 RGBn = np.stack((R, Gn, B), axis=2)
 
@@ -33,24 +33,24 @@ plt.figure(figsize=(8, 8))
 
 plt.subplot(2, 2, 1)
 plt.imshow(RGBn)
-plt.axis('off')
-plt.title('Noisy RGB')
+plt.axis("off")
+plt.title("Noisy RGB")
 
 plt.subplot(2, 2, 2)
-plt.imshow(Hn, cmap='gray', vmin=np.min(Hn), vmax=np.max(Hn))
-plt.axis('off')
-plt.title('Hue')
+plt.imshow(Hn, cmap="gray", vmin=np.min(Hn), vmax=np.max(Hn))
+plt.axis("off")
+plt.title("Hue")
 
 plt.subplot(2, 2, 3)
-plt.imshow(Sn, cmap='gray', vmin=np.min(Sn), vmax=np.max(Sn))
-plt.axis('off')
-plt.title('Saturation')
+plt.imshow(Sn, cmap="gray", vmin=np.min(Sn), vmax=np.max(Sn))
+plt.axis("off")
+plt.title("Saturation")
 
 plt.subplot(2, 2, 4)
-plt.imshow(In, cmap='gray', vmin=np.min(In), vmax=np.max(In))
-plt.axis('off')
-plt.title('Intensity')
+plt.imshow(In, cmap="gray", vmin=np.min(In), vmax=np.max(In))
+plt.axis("off")
+plt.title("Intensity")
 
 plt.tight_layout()
-plt.savefig('Figure748.png')
+plt.savefig("Figure748.png")
 plt.show()

@@ -1,12 +1,12 @@
+from typing import Any
 import numpy as np
-import matplotlib.pyplot as plt
 
 from libDIPUM.huff2mat import huff2mat
 from libDIPUM.intline import intline
 from libDIPUM.jpeg2im import jpeg2im
 
 
-def showmo(cv, i):
+def showmo(cv: Any, i: Any):
     """
     Display the motion vectors of frame i from a TIFS2CV coding structure.
 
@@ -22,23 +22,23 @@ def showmo(cv, i):
     np.ndarray
         Motion-vector visualization image (uint8).
     """
-    frms = int(np.asarray(cv['frames']).reshape(-1)[0])
-    m = int(np.asarray(cv['blksz']).reshape(-1)[0])
-    q = int(np.asarray(cv['quality']).reshape(-1)[0])
+    frms = int(np.asarray(cv["frames"]).reshape(-1)[0])
+    m = int(np.asarray(cv["blksz"]).reshape(-1)[0])
+    q = int(np.asarray(cv["quality"]).reshape(-1)[0])
 
     if i < 1 or i > frms:
         raise ValueError(f"Frame index i must be in [1, {frms}].")
 
     if q == 0:
-        ref = huff2mat(cv['video'][0]).astype(float)
+        ref = huff2mat(cv["video"][0]).astype(float)
     else:
-        ref = jpeg2im(cv['video'][0]).astype(float)
+        ref = jpeg2im(cv["video"][0]).astype(float)
 
     fsz = ref.shape
     mvsz = (fsz[0] // m, fsz[1] // m, 2, frms)
 
-    mv = np.int16(np.round(huff2mat(cv['motion'])))
-    mv = np.asarray(mv).reshape(mvsz, order='F')
+    mv = np.int16(np.round(huff2mat(cv["motion"])))
+    mv = np.asarray(mv).reshape(mvsz, order="F")
 
     v = np.zeros(fsz, dtype=np.uint8) + 128
 
@@ -67,7 +67,5 @@ def showmo(cv, i):
         cc = y[-1] - 1
         if (0 <= rr < fsz[0]) and (0 <= cc < fsz[1]):
             v[rr, cc] = 0
-
-
 
     return v

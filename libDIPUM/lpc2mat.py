@@ -1,7 +1,8 @@
+from typing import Any
 import numpy as np
 
 
-def lpc2mat(y, f=1):
+def lpc2mat(y: Any, f: Any = 1):
     """
     Decompress a 1-D lossless predictive encoded matrix.
     """
@@ -23,9 +24,11 @@ def lpc2mat(y, f=1):
 
     for j in range(n):
         jj = j + order
-        x[:, jj] = y[:, j] + np.round(np.sum(
-            f[:, order-1::-1] * x[:, (jj - 1):(jj - order - 1):-1], axis=1
-        ))
+        x[:, jj] = y[:, j] + np.round(
+            np.sum(
+                f[:, order - 1 :: -1] * x[:, (jj - 1) : (jj - order - 1) : -1], axis=1
+            )
+        )
 
     # Remove left padding
     x = x[:, order:]

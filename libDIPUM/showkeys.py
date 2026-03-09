@@ -5,12 +5,13 @@ MATLAB-like signature:
 """
 
 from __future__ import annotations
+from typing import Any
 
 import numpy as np
 import imageio.v2 as iio
 
 
-def _transform_line_points(keypoint, x1, y1, x2, y2):
+def _transform_line_points(keypoint: Any, x1: Any, y1: Any, x2: Any, y2: Any):
     """Return transformed line endpoints using keypoint [row, col, scale, orientation]."""
     # Approximate descriptor support radius used in original MATLAB code.
     length = 6.0 * float(keypoint[2])
@@ -25,7 +26,10 @@ def _transform_line_points(keypoint, x1, y1, x2, y2):
     return r1, c1, r2, c2
 
 
-def _draw_line_rgb(out: np.ndarray, r1: float, c1: float, r2: float, c2: float, color) -> None:
+def _draw_line_rgb(
+    out: np.ndarray, r1: float, c1: float, r2: float, c2: float, color: Any
+) -> None:
+    """_draw_line_rgb."""
     rows, cols = out.shape[:2]
     n = int(max(abs(r2 - r1), abs(c2 - c1))) + 1
     n = max(n, 2)
@@ -49,6 +53,7 @@ def _draw_line_rgb(out: np.ndarray, r1: float, c1: float, r2: float, c2: float, 
 
 
 def _to_float_gray(image: np.ndarray) -> np.ndarray:
+    """_to_float_gray."""
     img = np.asarray(image)
     if img.ndim == 3:
         img = img[..., 0]
@@ -63,7 +68,7 @@ def _to_float_gray(image: np.ndarray) -> np.ndarray:
     return np.clip(img, 0.0, 1.0)
 
 
-def showkeys(image, locs):
+def showkeys(image: Any, locs: Any):
     """Render image with SIFT keypoints and return the overlay image.
 
     Parameters

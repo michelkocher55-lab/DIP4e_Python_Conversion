@@ -1,28 +1,31 @@
+from typing import Any
 import numpy as np
 from scipy.optimize import fminbound
 from skimage.util import img_as_float, img_as_ubyte, img_as_uint, img_as_int
 
 
 _ALLOWED_IMAGE_DTYPES = {
-    np.dtype('uint8'),
-    np.dtype('uint16'),
-    np.dtype('int16'),
-    np.dtype('float32'),
-    np.dtype('float64'),
+    np.dtype("uint8"),
+    np.dtype("uint16"),
+    np.dtype("int16"),
+    np.dtype("float32"),
+    np.dtype("float64"),
 }
 
 
-def _padlength(size_a, size_b, size_c):
+def _padlength(size_a: Any, size_b: Any, size_c: Any):
+    """_padlength."""
     maxlen = max(len(size_a), len(size_b), len(size_c))
 
-    def pad(s):
+    def pad(s: Any):
+        """pad."""
         s = list(s)
         return s + [1] * (maxlen - len(s))
 
     return pad(size_a), pad(size_b), pad(size_c)
 
 
-def _psf2otf(psf, out_size):
+def _psf2otf(psf: Any, out_size: Any):
     """ND psf2otf approximation compatible with MATLAB usage in deconvreg."""
     psf = np.asarray(psf, dtype=np.float64)
     out = np.zeros(out_size, dtype=np.float64)
@@ -37,7 +40,7 @@ def _psf2otf(psf, out_size):
     return np.fft.fftn(out)
 
 
-def _default_regop_from_psf(size_psf):
+def _default_regop_from_psf(size_psf: Any):
     """
     Build default Laplacian REGOP based on non-singleton dimensions of PSF,
     then expand to PSF dimensionality by inserting singleton dimensions.
@@ -73,34 +76,35 @@ def _default_regop_from_psf(size_psf):
     return reg_small.reshape(full_shape)
 
 
-def _restore_class_like(original_dtype, arr):
+def _restore_class_like(original_dtype: Any, arr: Any):
     """Approximate MATLAB images.internal.changeClass behavior for common classes."""
     dt = np.dtype(original_dtype)
 
-    if dt == np.dtype('float64'):
+    if dt == np.dtype("float64"):
         return arr.astype(np.float64)
-    if dt == np.dtype('float32'):
+    if dt == np.dtype("float32"):
         return arr.astype(np.float32)
-    if dt == np.dtype('uint8'):
+    if dt == np.dtype("uint8"):
         return img_as_ubyte(np.clip(arr, 0.0, 1.0))
-    if dt == np.dtype('uint16'):
+    if dt == np.dtype("uint16"):
         return img_as_uint(np.clip(arr, 0.0, 1.0))
-    if dt == np.dtype('int16'):
+    if dt == np.dtype("int16"):
         return img_as_int(np.clip(arr, -1.0, 1.0))
 
     # Fallback (should not happen with validated inputs)
     return arr.astype(dt)
 
 
-def _validate_real_finite(name, x):
+def _validate_real_finite(name: Any, x: Any):
+    """_validate_real_finite."""
     x = np.asarray(x)
     if not np.isrealobj(x):
-        raise ValueError(f'{name} must be real.')
+        raise ValueError(f"{name} must be real.")
     if not np.all(np.isfinite(x)):
-        raise ValueError(f'{name} must be finite.')
+        raise ValueError(f"{name} must be finite.")
 
 
-def deconvreg1(I, PSF, NP=0, LR=None, REGOP=None):
+def deconvreg1(I: Any, PSF: Any, NP: Any = 0, LR: Any = None, REGOP: Any = None):
     """
     MATLAB-like DECONVREG (regularized deconvolution) with fminbound search.
 
@@ -128,17 +132,17 @@ def deconvreg1(I, PSF, NP=0, LR=None, REGOP=None):
     classI = I.dtype
 
     if classI not in _ALLOWED_IMAGE_DTYPES:
-        raise ValueError('I must be uint8, uint16, int16, single, or double.')
+        raise ValueError("I must be uint8, uint16, int16, single, or double.")
     if I.size < 3:
-        raise ValueError('Input image is too small.')
-    _validate_real_finite('I', I)
+        raise ValueError("Input image is too small.")
+    _validate_real_finite("I", I)
 
     PSF = np.asarray(PSF, dtype=np.float64)
-    _validate_real_finite('PSF', PSF)
+    _validate_real_finite("PSF", PSF)
     if PSF.size < 2:
-        raise ValueError('PSF is too small.')
+        raise ValueError("PSF is too small.")
     if np.all(PSF == 0):
-        raise ValueError('PSF cannot be all zeros.')
+        raise ValueError("PSF cannot be all zeros.")
 
     if NP is None or (np.size(NP) == 0):
         NP = 0.0
@@ -149,15 +153,15 @@ def deconvreg1(I, PSF, NP=0, LR=None, REGOP=None):
     else:
         LR = np.asarray(LR, dtype=np.float64).ravel()
         if LR.size > 2:
-            raise ValueError('LRANGE must be scalar or 2 elements.')
+            raise ValueError("LRANGE must be scalar or 2 elements.")
         if LR.size == 2 and (LR[1] < LR[0]):
-            raise ValueError('LRANGE must satisfy LR(2) >= LR(1).')
+            raise ValueError("LRANGE must satisfy LR(2) >= LR(1).")
 
     if REGOP is None or (np.size(REGOP) == 0):
         REGOP = np.array([])
     else:
         REGOP = np.asarray(REGOP, dtype=np.float64)
-        _validate_real_finite('REGOP', REGOP)
+        _validate_real_finite("REGOP", REGOP)
 
     # Validate dimensional compatibility (MATLAB-style checks)
     sizeI = list(I.shape)
@@ -167,14 +171,16 @@ def deconvreg1(I, PSF, NP=0, LR=None, REGOP=None):
 
     num_ns_psf = [k for k, v in enumerate(sizePSF) if v != 1]
     if any(np.array(sizeI)[num_ns_psf] < np.array(sizePSF)[num_ns_psf]):
-        raise ValueError('PSF dimensions must not exceed image dimensions.')
+        raise ValueError("PSF dimensions must not exceed image dimensions.")
 
     if REGOP.size:
         num_ns_reg = [k for k, v in enumerate(sizeREG) if v != 1]
         if any(np.array(sizeI)[num_ns_reg] < np.array(sizeREG)[num_ns_reg]):
-            raise ValueError('REGOP dimensions must not exceed image dimensions.')
+            raise ValueError("REGOP dimensions must not exceed image dimensions.")
         if any(np.array(sizePSF)[num_ns_reg] == 1):
-            raise ValueError('Any non-singleton REGOP dimensions must correspond to non-singleton PSF dimensions.')
+            raise ValueError(
+                "Any non-singleton REGOP dimensions must correspond to non-singleton PSF dimensions."
+            )
 
     # Convert image to processing float domain
     Iproc = img_as_float(I)
@@ -196,17 +202,18 @@ def deconvreg1(I, PSF, NP=0, LR=None, REGOP=None):
         LAGRA = float(LR[0])
     else:
         R4G2 = (R2 * np.abs(fftnI)) ** 2
-        H4 = H2 ** 2
-        R4 = R2 ** 2
+        H4 = H2**2
+        R4 = R2**2
         H2R22 = 2.0 * H2 * R2
         ScaledNP = NP * np.prod(sizeI)
 
         eps_sqrt = np.sqrt(np.finfo(np.float64).eps)
 
-        def _res_offset(lagra):
-            denom = H4 + lagra * H2R22 + (lagra ** 2) * R4 + eps_sqrt
+        def _res_offset(lagra: Any):
+            """_res_offset."""
+            denom = H4 + lagra * H2R22 + (lagra**2) * R4 + eps_sqrt
             residuals = R4G2 / denom
-            return abs((lagra ** 2) * np.sum(residuals) - ScaledNP)
+            return abs((lagra**2) * np.sum(residuals) - ScaledNP)
 
         LAGRA = float(fminbound(_res_offset, LR[0], LR[1]))
 
@@ -222,5 +229,7 @@ def deconvreg1(I, PSF, NP=0, LR=None, REGOP=None):
 
 # MATLAB-compatible function name alias
 
-def deconvreg(*args, **kwargs):
+
+def deconvreg(*args: Any, **kwargs: Any):
+    """deconvreg."""
     return deconvreg1(*args, **kwargs)
