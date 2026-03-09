@@ -1,0 +1,10 @@
+numpy
+scipy
+matplotlib
+scikit-image
+Pillow
+imageio
+PyWavelets
+tifffile
+opencv-python
+ia870

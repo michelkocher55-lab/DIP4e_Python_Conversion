@@ -3,6 +3,7 @@ import os
 
 
 ENV_VAR = 'DIP4E_DATA_DIR'
+_PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
 
 def _candidate_data_dirs():
@@ -14,7 +15,10 @@ def _candidate_data_dirs():
     if env_dir:
         candidates.append(Path(env_dir).expanduser())
 
-    # 2) Unified dataset directory (single source of truth).
+    # 2) Project-local data directory (works in a fresh clone).
+    candidates.append(_PROJECT_ROOT / 'AllDataFiles')
+
+    # 3) Legacy absolute dataset directory used on the original machine.
     candidates.append(Path('/Users/michelkocher/michel/Data/DIP-DIPUM/AllDataFiles'))
 
     return candidates
@@ -29,7 +33,8 @@ def dip_data(filename: str) -> str:
 
     Resolution order:
         1) $DIP4E_DATA_DIR
-        2) /Users/michelkocher/michel/Data/DIP-DIPUM/AllDataFiles
+        2) <project_root>/AllDataFiles
+        3) /Users/michelkocher/michel/Data/DIP-DIPUM/AllDataFiles
     """
     for base in _candidate_data_dirs():
         p = base / filename
