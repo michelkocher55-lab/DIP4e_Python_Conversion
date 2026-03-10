@@ -4,6 +4,9 @@ from pathlib import Path as _Path
 _PKG_DIR = _Path(__file__).resolve().parent
 for _extra_dir in (
     _PKG_DIR.parent / "helpers",
+    _PKG_DIR.parent / "helpers" / "lib-general",
+    _PKG_DIR.parent / "helpers" / "lib-dip",
+    _PKG_DIR.parent / "helpers" / "lib-dipum",
     _PKG_DIR.parent / "libDIP-full",
 ):
     if _extra_dir.is_dir():
