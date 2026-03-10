@@ -11035,7 +11035,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.chapter08.fig81bc import fig81bc
+            from processing.Chapter08.fig81bc import fig81bc
             from helpers.data_path import dip_data
 
             # Figure81
@@ -12131,7 +12131,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.chapter08.fig81bc import fig81bc
+            from processing.Chapter08.fig81bc import fig81bc
             from libDIP.histEqual4e import histEqual4e
 
             # Figure 8.3
