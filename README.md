@@ -79,7 +79,7 @@ cd processing/Chapter02
 python3 RunAll.py --noshow
 ``` 
 
-To run a specific file, for example `Fig2_01.py`:
+To run a specific file, for example `Figure223.py` from `Chapter02`:
 
 ```bash
 cd processing/Chapter02
@@ -92,3 +92,31 @@ python3 Figure223.py
 2. Copy an existing file, for example `Figure223.py`, and rename it to the new figure name, for example `FigureXXX.py`.
 3. Edit the new file and adapt the parameters.
 4. Change directory to the `LibDIP/Chapters` directory and edit the `Chapter02.py` file to add the new function for the new figure (copy an existing function and rename it).
+
+
+___
+# Example of a new environment creation from scratch
+
+Create the directory, clone the repository, create the virtual environment, install dependencies and copy the ia870 library. 
+```bash
+cd ~/Downloads
+mkdir tMKR
+cd tMKR
+git clone https://github.com/michelkocher55-lab/DIP4e_Python_Conversion.git
+python3 --version
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -c "import site; print(site.getsitepackages()[0])"
+echo "$PWD" > "$(python3 -c 'import site; print(site.getsitepackages()[0])')/dip4e_root.pth"
+pip3 install -r requirements.txt
+cp -r ia870 "$(python3 -c 'import site; print(site.getsitepackages()[0])')/ia870"
+```
+
+
+Process `Figure223` in `Chapter02`. 
+```bash
+cd processing
+cd Chapter02
+python3 Figure223.py
+```
+
