@@ -1861,6 +1861,81 @@ class Chapter08Mixin:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
 
+    def figure850(
+        self,
+        watermark_size: int = 1000,
+        seed: int = 123,
+        image_name: str = "lena.tif",
+        data_dir: str | None = None,
+    ) -> dict[str, Any]:
+        """Run Chapter08 script `Figure850.py` with inlined code."""
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        try:
+            import numpy as np
+            import matplotlib.pyplot as plt
+            from skimage.io import imread
+
+            from helpers.data_path import dip_data
+            from libDIP.watermark4e import watermark4e
+
+            np.random.seed(seed)
+
+            f = imread(dip_data(image_name))
+            if f.ndim == 3:
+                f = f[..., 0]
+            f = f.astype(np.uint8)
+
+            m1 = np.random.randn(watermark_size)
+            m2 = np.random.randn(watermark_size)
+
+            g1, w1 = watermark4e(f, m1)
+            diff1 = g1.astype(float) - f.astype(float)
+
+            g2, w2 = watermark4e(f, m2)
+            diff2 = g2.astype(float) - f.astype(float)
+
+            r1 = self._compute_correlation(g1, w1)
+            r2 = self._compute_correlation(g2, w2)
+
+            fig = plt.figure(1, figsize=(10, 8))
+
+            plt.subplot(2, 2, 1)
+            plt.imshow(g1, cmap="gray")
+            plt.title(f"Watermarked, r = {r1:.3g}")
+            plt.axis("off")
+
+            plt.subplot(2, 2, 2)
+            plt.imshow(diff1, cmap="gray")
+            plt.title(f"Difference (Max) = {np.max(np.abs(diff1)):.6g}")
+            plt.axis("off")
+
+            plt.subplot(2, 2, 3)
+            plt.imshow(g2, cmap="gray")
+            plt.title(f"Watermarked, r = {r2:.3g}")
+            plt.axis("off")
+
+            plt.subplot(2, 2, 4)
+            plt.imshow(diff2, cmap="gray")
+            plt.title(f"Difference (Max) = {np.max(np.abs(diff2)):.6g}")
+            plt.axis("off")
+
+            plt.tight_layout()
+
+            return {
+                "image": f,
+                "g1": g1,
+                "g2": g2,
+                "diff1": diff1,
+                "diff2": diff2,
+                "r1": r1,
+                "r2": r2,
+                "w1": w1,
+                "w2": w2,
+                "figures": [fig],
+            }
+        finally:
+            self._restore_script_context(_ctx, data_dir=data_dir)
+
     def figure851(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure851.py` with inlined code."""
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
@@ -2114,4 +2189,3 @@ class Chapter08Mixin:
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
-
