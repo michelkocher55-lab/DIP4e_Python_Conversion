@@ -89,6 +89,6 @@ python3 Figure223.py
 # Adding a new Figure
 
 1. Change directory to the processing/Chapter02 directory.
-2. Copy an existing file, for example `Figure223.py`, and rename it to the new figure name, for example `Figure224.py`.
-3. Edit the new file to generate the desired figure.
-4. Change directory to the LibDIP directory and edit the `DIP.py` file to add the new function for the new figure (copy an existing function and rename it).
+2. Copy an existing file, for example `Figure223.py`, and rename it to the new figure name, for example `FigureXXX.py`.
+3. Edit the new file and adapt the parameters.
+4. Change directory to the `LibDIP/Chapters` directory and edit the `Chapter02.py` file to add the new function for the new figure (copy an existing function and rename it).
