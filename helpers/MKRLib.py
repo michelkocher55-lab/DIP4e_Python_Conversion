@@ -5,7 +5,6 @@ original function names and behavior as much as possible.
 """
 
 from __future__ import annotations
-from typing import Any
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,7 +13,7 @@ from skimage.draw import line_aa
 import ia870 as ia
 
 
-def mmreadgray(filename: Any):
+def mmreadgray(filename):
     """Read image and return a grayscale array.
 
     If input is RGB/RGBA, returns channel 1 (legacy behavior).
@@ -29,8 +28,7 @@ def mmreadgray(filename: Any):
     raise ValueError("Unsupported image dimensions")
 
 
-def iabggmodel(dim: Any, B: Any = None, R: Any = 3, p: Any = 0.01):
-    """iabggmodel."""
+def iabggmodel(dim, B=None, R=3, p=0.01):
     if B is None:
         B = ia.iasecross()
     dy, dx = dim
@@ -41,8 +39,7 @@ def iabggmodel(dim: Any, B: Any = None, R: Any = 3, p: Any = 0.01):
     return y
 
 
-def iaropen(f: Any, l: Any, rtheta: Any):
-    """iaropen."""
+def iaropen(f, l, rtheta):
     y = ia.iaintersec(f, 0)
     for t in rtheta:
         g = ia.iaopen(f, ia.iaseline(l, t))
@@ -50,8 +47,7 @@ def iaropen(f: Any, l: Any, rtheta: Any):
     return y
 
 
-def newline(p1: Any, p2: Any):
-    """newline."""
+def newline(p1, p2):
     ax = plt.gca()
     xmin, xmax = ax.get_xbound()
 
@@ -67,14 +63,14 @@ def newline(p1: Any, p2: Any):
     return ln
 
 
-def DrawSEAxis(f: Any, dX: Any = 20, dY: Any = 20):
+def DrawSEAxis(f, dX=20, dY=20):
     """Legacy helper: pad a binary structuring element canvas."""
     g = np.zeros((f.shape[0] + 2 * dY, f.shape[1] + 2 * dX), dtype=bool)
     g[dY:-dY, dX:-dX] = f
     return g
 
 
-def draw_se_axis(f: Any, dX: Any = 20, dY: Any = 20):
+def draw_se_axis(f, dX=20, dY=20):
     """Draw padded SE with simple x/y axes and arrowheads.
 
     Returns an RGB uint8 image.
@@ -95,7 +91,7 @@ def draw_se_axis(f: Any, dX: Any = 20, dY: Any = 20):
     rgb[rr, cc] = axis_color
 
     # Arrow heads
-    for r1, c1, r2, c2 in [
+    for (r1, c1, r2, c2) in [
         (yc - 2, w - 3, yc, w - 1),
         (yc + 2, w - 3, yc, w - 1),
         (2, xc - 2, 0, xc),
@@ -109,18 +105,15 @@ def draw_se_axis(f: Any, dX: Any = 20, dY: Any = 20):
     return rgb
 
 
-def magic(n: Any):
-    """magic."""
+def magic(n):
     n = int(n)
     if n < 3:
         raise ValueError("Size must be at least 3")
     if n % 2 == 1:
         p = np.arange(1, n + 1)
-        return (
-            n * np.mod(p[:, None] + p - (n + 3) // 2, n)
-            + np.mod(p[:, None] + 2 * p - 2, n)
-            + 1
-        )
+        return n * np.mod(p[:, None] + p - (n + 3) // 2, n) + np.mod(
+            p[:, None] + 2 * p - 2, n
+        ) + 1
     if n % 4 == 0:
         j = np.mod(np.arange(1, n + 1), 4) // 2
         k = j[:, None] == j
@@ -134,27 +127,27 @@ def magic(n: Any):
     i = np.arange(p)
     k = (n - 2) // 4
     j = np.concatenate((np.arange(k), np.arange(n - k + 1, n)))
-    m[np.ix_(np.concatenate((i, i + p)), j)] = m[np.ix_(np.concatenate((i + p, i)), j)]
+    m[np.ix_(np.concatenate((i, i + p)), j)] = m[
+        np.ix_(np.concatenate((i + p, i)), j)
+    ]
     m[np.ix_([k, k + p], [0, k])] = m[np.ix_([k + p, k], [0, k])]
     return m
 
 
-def mmlblshow(fl: Any = 0):
-    """mmlblshow."""
+def mmlblshow(fl=0):
     temp = ia.iaglblshow(fl)
     return np.moveaxis(temp, 0, -1)
 
 
 def mmshow(
-    m: Any = 0,
-    RedOv: Any = 0,
-    GreenOv: Any = 0,
-    BlueOv: Any = 0,
-    MagentaOv: Any = 0,
-    YellowOv: Any = 0,
-    CyanOv: Any = 0,
+    m=0,
+    RedOv=0,
+    GreenOv=0,
+    BlueOv=0,
+    MagentaOv=0,
+    YellowOv=0,
+    CyanOv=0,
 ):
-    """mmshow."""
     m = np.asarray(m)
     if m.ndim != 2:
         raise ValueError("m must be a 2-D grayscale array")
@@ -182,7 +175,7 @@ def mmshow(
     return n
 
 
-def SSIMIndex(X: Any, Y: Any, k1: Any = 0.01, k2: Any = 0.03):
+def SSIMIndex(X, Y, k1=0.01, k2=0.03):
     """Global SSIM index (legacy single-value implementation)."""
     X = np.asarray(X, dtype=float)
     Y = np.asarray(Y, dtype=float)
@@ -203,14 +196,14 @@ def SSIMIndex(X: Any, Y: Any, k1: Any = 0.01, k2: Any = 0.03):
 
 
 __all__ = [
-    "mmreadgray",
-    "iabggmodel",
-    "iaropen",
-    "newline",
-    "DrawSEAxis",
-    "draw_se_axis",
-    "magic",
-    "mmlblshow",
-    "mmshow",
-    "SSIMIndex",
+    'mmreadgray',
+    'iabggmodel',
+    'iaropen',
+    'newline',
+    'DrawSEAxis',
+    'draw_se_axis',
+    'magic',
+    'mmlblshow',
+    'mmshow',
+    'SSIMIndex',
 ]

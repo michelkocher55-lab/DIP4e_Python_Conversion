@@ -1,8 +1,6 @@
-from typing import Any
+import numpy as np
 from scipy.ndimage import distance_transform_edt
-
-
-def bwdist(BW: Any):
+def bwdist(BW):
     """
     Computes the distance transform of a binary image.
     Distance to the nearest non-zero pixel.

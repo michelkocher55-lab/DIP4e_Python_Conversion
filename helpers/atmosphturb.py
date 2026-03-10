@@ -1,6 +1,6 @@
 from typing import Any
 import numpy as np
-from libDIPUM.dftuv import dftuv
+from helpers.dftuv import dftuv
 
 
 def atmosphturb(M: Any, N: Any, k: Any):

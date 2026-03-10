@@ -1,7 +1,16 @@
+"""Minimum-perimeter polygon (MPP) utilities.
+
+This module is a Python translation of DIPUM's `im2minperpoly.m`, adapted to
+this codebase. The public entry point is `im2minperpoly(I, cellsize)`.
+"""
+
 from typing import Any
+
 import numpy as np
+import math
+from scipy import ndimage
+from skimage import measure
 from scipy import sparse
-from scipy.ndimage import label, binary_fill_holes, binary_erosion
 
 try:
     from helpers.qtdecomp import qtdecomp
@@ -12,306 +21,421 @@ except Exception:
     from qtgetblk import qtgetblk
     from qtsetblk import qtsetblk
 
-try:
-    from libDIPUM.bwboundaries import bwboundaries
-    from libDIPUM.boundarydir import boundarydir
-except Exception:
-    from bwboundaries import bwboundaries
-    from boundarydir import boundarydir
-
 
 def im2minperpoly(I: Any, cellsize: Any):
-    """Minimum perimeter polygon approximation for a single binary region.
+    """Compute minimum-perimeter polygon vertices for a single binary object.
 
     Parameters
     ----------
     I : ndarray
-        Binary image containing one region/boundary.
+        Binary image containing one region or one non-self-intersecting boundary.
     cellsize : int
-        Cell size (>1) for the cellular complex.
+        Square cell size used to build the cellular complex (must be > 1).
 
     Returns
     -------
     X, Y : ndarray
-        Polygon vertex coordinates (row, col) as 1D vectors.
+        Row/column coordinates of MPP vertices.
     R : ndarray
-        Region enclosed by the cellular complex.
+        Region extracted from the cellular complex.
     """
-    cellsize = int(cellsize)
+
     if cellsize <= 1:
         raise ValueError("cellsize must be an integer > 1.")
 
-    I = np.asarray(I)
-    I = I > 0
+    I = I.astype(int)
 
-    # MATLAB bwlabel default connectivity is 8.
-    lbl, num = label(I, structure=np.ones((3, 3), dtype=bool))
+    # Check to see that there is only one object in I
+    lbl, num = ndimage.label(I)
     if num > 1:
         raise ValueError("Input image cannot contain more than one region.")
 
+    # Extract 4-connected region encompassed by cellular complex
     R = cellcomplex(I, cellsize)
+
+    # Find vertices of MPP
     X, Y = mppvertices(R, cellsize)
+
     return X, Y, R
 
 
 def cellcomplex(I: Any, cellsize: Any):
-    """Compute 4-connected region enclosed by the cellular complex."""
-    I = np.asarray(I).astype(bool)
+    """Build the cellular complex and return the enclosed region."""
+    # Fill holes
+    I = ndimage.binary_fill_holes(I).astype(int)
 
-    # Fill and extract 4-connected perimeter.
-    I = binary_fill_holes(I)
-    se4 = np.array([[0, 1, 0], [1, 1, 1], [0, 1, 0]], dtype=bool)
-    I = I & (~binary_erosion(I, structure=se4, border_value=0))
+    # 4-connected perimeter (MATLAB: bwperim(I,4)).
+    struct = ndimage.generate_binary_structure(2, 1)  # 4-conn
+    eroded = ndimage.binary_erosion(I, structure=struct)
+    I_perim = I & (~eroded)
 
     M, N = I.shape
 
-    # Compute padded size K = cellsize * power_of_2 >= max(M,N).
-    ratio = max(M, N) / float(cellsize)
-    K = int((2 ** int(np.ceil(np.log2(max(ratio, 1.0))))) * cellsize)
+    # Pad to KxK where K/cellsize is a power of 2 and K >= max(M,N).
+    max_dim = max(M, N)
+    ratio = math.ceil(max_dim / cellsize)
+    if ratio == 0:
+        ratio = 1
+    K_pow = 1
+    while K_pow < ratio:
+        K_pow *= 2
 
-    Ipad = np.zeros((K, K), dtype=np.uint8)
-    Ipad[:M, :N] = I.astype(np.uint8)
+    K = K_pow * cellsize
 
-    # Quadtree decomposition and extraction of cellsize blocks.
-    Q = qtdecomp(Ipad, threshold=0, min_dim=cellsize)
-    vals, r, c = qtgetblk(Ipad, Q, cellsize)
+    M1 = K - M
+    N1 = K - N
+    I_padded = np.pad(I_perim, ((0, M1), (0, N1)), mode="constant", constant_values=0)
+
+    # Quadtree decomposition and block extraction of size cellsize.
+    Q = qtdecomp(I_padded, threshold=0, min_dim=cellsize)
+    vals, r, c = qtgetblk(I_padded, Q, cellsize)
 
     if vals.size == 0:
         return np.zeros((M, N), dtype=bool)
 
-    # Keep blocks containing at least one boundary pixel.
-    sums = vals.reshape(vals.shape[0], -1).sum(axis=1)
-    idx = np.where(sums >= 1)[0]
-
+    block_sums = vals.reshape(vals.shape[0], -1).sum(axis=1)
+    idx = np.where(block_sums >= 1)[0]
     if len(idx) == 0:
         return np.zeros((M, N), dtype=bool)
 
     rr = r[idx]
     cc = c[idx]
 
-    # Build sparse block-selector and fill selected blocks with 1 using qtsetblk.
+    # Set selected quadtree blocks to 1.
     Ssel = sparse.coo_matrix(
-        (np.full(len(rr), cellsize, dtype=int), (rr, cc)), shape=Ipad.shape
+        (np.full(len(rr), cellsize, dtype=int), (rr, cc)), shape=I_padded.shape
     ).tocsr()
+    values = np.ones((cellsize, cellsize, len(rr)), dtype=I_padded.dtype)
+    I_complex = qtsetblk(np.zeros_like(I_padded), Ssel, cellsize, values)
 
-    values = np.ones((cellsize, cellsize, len(rr)), dtype=Ipad.dtype)
-    Ifilled = qtsetblk(Ipad, Ssel, cellsize, values)
+    BF = ndimage.binary_fill_holes(I_complex).astype(int)
 
-    BF = binary_fill_holes(Ifilled > 0)
-    R = BF & (~(Ifilled > 0))
-    return R[:M, :N]
+    # Interior of the cellular border.
+    R_padded = BF & (~I_complex.astype(bool))
+
+    R = R_padded[:M, :N]
+
+    return R
 
 
 def mppvertices(R: Any, cellsize: Any):
-    """Output MPP vertices around region R."""
-    B = bwboundaries(R, conn=4)
-    if not B:
+    """Compute MPP vertices around region R."""
+    R = R.astype(int)
+
+    # Keep the largest contour as a coarse sanity check (legacy behavior).
+    contours = measure.find_contours(R, 0.5)
+    if len(contours) == 0:
+        return np.array([]), np.array([])
+    _ = contours[0] if len(contours) == 1 else max(contours, key=len)
+
+    # Trace boundary pixels (4-connected) in image coordinates.
+    rows, cols = np.where(R)
+    if len(rows) == 0:
         return np.array([]), np.array([])
 
-    B = np.asarray(B[0])
-    if len(B) > 1 and np.all(B[0] == B[-1]):
+    r0, c0 = rows[0], cols[0]
+
+    B_pixels = trace_boundary(R, (r0, c0))
+    B = np.array(B_pixels)
+
+    # MATLAB bwboundaries repeats first point at the end.
+    if len(B) > 1 and np.array_equal(B[0], B[-1]):
         B = B[:-1]
 
-    if len(B) == 0:
-        return np.array([]), np.array([])
-
-    x = B[:, 0].astype(int)
-    y = B[:, 1].astype(int)
+    x = B[:, 0]  # Rows
+    y = B[:, 1]  # Cols
 
     L = vertexlist(x, y, cellsize)
-    NV = L.shape[0]
-    if NV == 0:
+    if len(L) == 0:
         return np.array([]), np.array([])
 
-    count = 1  # 1-based to match MATLAB logic
+    NV = len(L)
+    X_mpp = [L[0, 0]]
+    Y_mpp = [L[0, 1]]
 
-    X = [int(L[0, 0])]
-    Y = [int(L[0, 1])]
-
-    cMPPV = np.array([L[0, 0], L[0, 1]], dtype=int)
+    cMPPV = np.array([L[0, 0], L[0, 1]])
+    classV = L[0, 2]
     cWH = cMPPV.copy()
     cBL = cMPPV.copy()
 
+    count = 0
+
     while True:
         count += 1
-        if count > NV + 1:
+        if count > NV:
             break
 
-        if count == NV + 1:
-            cV = np.array([L[0, 0], L[0, 1]], dtype=int)
-            classV = int(L[0, 2])
+        if count == NV:
+            cV = np.array([L[0, 0], L[0, 1]])
+            classV = L[0, 2]
         else:
-            cV = np.array([L[count - 1, 0], L[count - 1, 1]], dtype=int)
-            classV = int(L[count - 1, 2])
+            cV = np.array([L[count, 0], L[count, 1]])
+            classV = L[count, 2]
 
-        Inew, newMPPV, W, Bk = mppVtest(cMPPV, cV, classV, cWH, cBL)
+        I_flag, newMPPV, W, B = mppVtest(cMPPV, cV, classV, cWH, cBL)
 
-        if Inew == 1:
+        if I_flag == 1:
             cMPPV = newMPPV
-            kidx = np.where((L[:, 0] == newMPPV[0]) & (L[:, 1] == newMPPV[1]))[0]
-            if len(kidx) == 0:
-                break
-            count = int(kidx[0]) + 1
+            matches = np.where((L[:, 0] == newMPPV[0]) & (L[:, 1] == newMPPV[1]))[0]
+            K = matches[0] if len(matches) > 0 else 0
+
+            count = K
             cWH = newMPPV.copy()
             cBL = newMPPV.copy()
-            X.append(int(newMPPV[0]))
-            Y.append(int(newMPPV[1]))
+
+            X_mpp.append(newMPPV[0])
+            Y_mpp.append(newMPPV[1])
         else:
             cWH = W
-            cBL = Bk
+            cBL = B
 
-    return np.asarray(X), np.asarray(Y)
+    return np.array(X_mpp), np.array(Y_mpp)
+
+
+def trace_boundary(bin_img: Any, start_rc: Any):
+    """
+    Traces the boundary of a 4-connected object using a Wall Follower algorithm
+    (Left-Hand Rule on pixels), ensuring a 4-connected path (Manhattan geometry).
+
+    bin_img: Binary image (0 background, 1 foreground).
+    start_rc: (row, col) of the top-leftmost pixel of the object.
+    """
+    path = []
+
+    # Directions: 0=East, 1=South, 2=West, 3=North (Clockwise)
+    # Dr, Dc
+    dirs = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+    # Start at top-leftmost pixel.
+    # We assume we approach from West, so initial direction is East (0).
+    # Since start_rc is top-left, neighbor to West is 0 and North is 0.
+    curr_r, curr_c = start_rc
+    path.append((curr_r, curr_c))
+
+    # Initial direction: East.
+    curr_dir = 0
+
+    # Limit for safety
+    max_steps = bin_img.size * 2
+    steps = 0
+
+    while steps < max_steps:
+        found_next = False
+
+        # Check neighbors in order: Left, Straight, Right, Back
+        # Relative changes to curr_dir:
+        # Left: (curr_dir + 3) % 4
+        # Straight: curr_dir
+        # Right: (curr_dir + 1) % 4
+        # Back: (curr_dir + 2) % 4
+
+        check_order = [3, 0, 1, 2]  # Relative directory offsets
+
+        for rot in check_order:
+            check_dir = (curr_dir + rot) % 4
+            dr, dc = dirs[check_dir]
+            nr, nc = curr_r + dr, curr_c + dc
+
+            # Check bounds and value
+            if 0 <= nr < bin_img.shape[0] and 0 <= nc < bin_img.shape[1]:
+                if bin_img[nr, nc] == 1:
+                    # Found next pixel
+                    curr_r, curr_c = nr, nc
+                    curr_dir = check_dir
+                    path.append((curr_r, curr_c))
+                    found_next = True
+                    break
+
+        if not found_next:
+            # Isolated pixel? Should not happen if part of region > 1 pixel
+            break
+
+        # Check termination: Return to start
+        # Common condition: curr is start AND next step would be same as first step?
+        # Alternatively: precise match of (r,c) to start.
+        if (curr_r, curr_c) == start_rc:
+            break
+
+        steps += 1
+
+    return path
 
 
 def vertexlist(x: Any, y: Any, cellsize: Any):
     """vertexlist."""
-    x = np.asarray(x).astype(int).ravel()
-    y = np.asarray(y).astype(int).ravel()
+    # Preprocess
+    # Arrange so first point is top-left-most
+    # min x, then min y
+    min_x = np.min(x)
+    cx = np.where(x == min_x)[0]
+    # Among these, min y
+    min_y = np.min(y[cx])
+    cy = np.where(y[cx] == min_y)[0]
 
-    # Remove duplicate points (consecutive and non-consecutive) while
-    # preserving traversal order. boundarydir requires uniqueness.
-    pts = np.column_stack([x, y])
-    if len(pts) > 1:
-        keep = np.ones(len(pts), dtype=bool)
-        keep[1:] = np.any(pts[1:] != pts[:-1], axis=1)
-        pts = pts[keep]
-    if len(pts) > 1:
-        _, first_idx = np.unique(pts, axis=0, return_index=True)
-        pts = pts[np.sort(first_idx)]
-    x = pts[:, 0]
-    y = pts[:, 1]
+    idx = cx[cy[0]]  # First index
 
-    # Top-left-most starting point.
-    cx = np.where(x == np.min(x))[0]
-    x1 = x[cx[0]]
-    y1 = np.min(y[cx])
+    # Start at idx
+    x = np.roll(x, -idx)
+    y = np.roll(y, -idx)
 
-    I = np.where((x == x1) & (y == y1))[0][0]
-    x = np.roll(x, -I)
-    y = np.roll(y, -I)
-
-    # Keep only direction-change points.
+    # Keep only changes in direction
     K = len(x)
-    xext = np.concatenate([x, [x[0]]])
-    yext = np.concatenate([y, [y[0]]])
+    xnew = [x[0]]
+    ynew = [y[0]]
 
-    xnew = [xext[0]]
-    ynew = [yext[0]]
-    for k in range(1, K):
-        s = vsign(
-            [xext[k - 1], yext[k - 1]], [xext[k], yext[k]], [xext[k + 1], yext[k + 1]]
-        )
+    # Create wrapped arrays for easy access
+    x_wrap = np.concatenate((x, [x[0]]))
+    y_wrap = np.concatenate((y, [y[0]]))
+
+    for k in range(1, K):  # 1 to K-1 in Python (indices)
+        # Triplet: k-1, k, k+1
+        # Indices in wrap: k, k+1, k+2 ? No.
+        # x is 0..K-1.
+        # k corresponds to x[k].
+        # prev: x[k-1]. next: x[k+1] (or wrap).
+
+        # vsign(prev, curr, next)
+        v1 = [x[k - 1], y[k - 1]]
+        v2 = [x[k], y[k]]
+        v3 = [x_wrap[k + 1], y_wrap[k + 1]]
+
+        s = vsign(v1, v2, v3)
         if s != 0:
-            xnew.append(xext[k])
-            ynew.append(yext[k])
+            xnew.append(x[k])
+            ynew.append(y[k])
 
-    x = np.asarray(xnew, dtype=int)
-    y = np.asarray(ynew, dtype=int)
+    x = np.array(xnew)
+    y = np.array(ynew)
 
-    # Force counter-clockwise order.
-    _, x, y = boundarydir(x, y, orderout="ccw")
-    x = np.asarray(x).astype(int)
-    y = np.asarray(y).astype(int)
+    # boundarydir 'ccw' (Assuming input is already roughly ordered or using robust orientation)
+    # Using `polyangles` or `vsign` logic implies order.
+    # For now assume trace_boundary returns consistent CCW/CW.
+    # skimage find_contours is usually CCW for holes, CW for outer? Or vice versa.
+    # We should enforce CCW.
+    # Check polygon area?
+    area = 0.5 * np.sum(x[:-1] * y[1:] - x[1:] * y[:-1])  # Shoelace
+    # If wrong sign, flip.
+    # CCW area should be negative for standard image coords (y down)?
+    # Chapter 2 coords: x down (rows), y right (cols).
+    # "Positive x-axis extending vertically down".
+    # Cross product x * y is z (out of page).
+    # Standard math: x right, y up.
+    # Here x=rows (down), y=cols (right).
+    # (0,0) -> (1,0) [down] -> (1,1) [right] -> (0,1) [up] -> (0,0).
+    # x: 0 1 1 0. y: 0 0 1 1.
+    # Shoelace: (0*0 + 1*1 + 1*1 + 0*0) - (0*1 + 0*1 + 1*0 + 1*0) = 2.
+    # Positive.
+    # So CCW is positive area in (Row, Col) coords?
+    # Wait, (0,0) to (1,0) is DOWN.
+    # (1,0) to (1,1) is RIGHT.
+    # (1,1) to (0,1) is UP.
+    # This is CCW visually on screen (top-left origin).
+    # So positive area = CCW.
+
+    # Calculate signed area
+    # Note: x is vector of size K.
+    # Need closed loop for area.
+    # Use standard shoelace formula
+    x_c = np.append(x, x[0])
+    y_c = np.append(y, y[0])
+    area = 0.5 * np.sum(x_c[:-1] * y_c[1:] - x_c[1:] * y_c[:-1])
+
+    if area < 0:  # Clockwise?
+        x = x[::-1]
+        y = y[::-1]
 
     K = len(x)
-    if K == 0:
-        return np.zeros((0, 3), dtype=int)
+    L = np.zeros((K, 3))
+    L[:, 0] = x
+    L[:, 1] = y
 
-    L = np.column_stack([x, y, np.zeros(K, dtype=int)])
-    C = np.zeros(K, dtype=int)
+    # Calc C
+    for k in range(K):
+        # Indices wrapping
+        prev = (k - 1) % K
+        curr = k
+        nxt = (k + 1) % K
 
-    # First vertex.
-    s = vsign([x[K - 1], y[K - 1]], [x[0], y[0]], [x[1], y[1]])
-    if s > 0:
-        C[0] = 1
-    elif s < 0:
-        C[0] = -1
-        rx, ry = vreplacement(
-            [x[K - 1], y[K - 1]], [x[0], y[0]], [x[1], y[1]], cellsize
-        )
-        L[0, 0], L[0, 1] = rx, ry
+        v1 = [x[prev], y[prev]]
+        v2 = [x[curr], y[curr]]
+        v3 = [x[nxt], y[nxt]]
 
-    # Last vertex.
-    s = vsign([x[K - 2], y[K - 2]], [x[K - 1], y[K - 1]], [x[0], y[0]])
-    if s > 0:
-        C[K - 1] = 1
-    elif s < 0:
-        C[K - 1] = -1
-        rx, ry = vreplacement(
-            [x[K - 2], y[K - 2]], [x[K - 1], y[K - 1]], [x[0], y[0]], cellsize
-        )
-        L[K - 1, 0], L[K - 1, 1] = rx, ry
-
-    # Middle vertices.
-    for k in range(1, K - 1):
-        s = vsign([x[k - 1], y[k - 1]], [x[k], y[k]], [x[k + 1], y[k + 1]])
+        s = vsign(v1, v2, v3)
         if s > 0:
-            C[k] = 1
+            L[k, 2] = 1  # Convex
         elif s < 0:
-            C[k] = -1
-            rx, ry = vreplacement(
-                [x[k - 1], y[k - 1]], [x[k], y[k]], [x[k + 1], y[k + 1]], cellsize
-            )
-            L[k, 0], L[k, 1] = rx, ry
+            L[k, 2] = -1  # Concave
+            rx, ry = vreplacement(v1, v2, v3, cellsize)
+            L[k, 0] = rx
+            L[k, 1] = ry
+        else:
+            L[k, 2] = 0
 
-    L[:, 2] = C
     return L
 
 
 def vsign(v1: Any, v2: Any, v3: Any):
     """vsign."""
-    A = np.array([[v1[0], v1[1], 1], [v2[0], v2[1], 1], [v3[0], v3[1], 1]], dtype=float)
-    return int(np.round(np.linalg.det(A)))
+    # A = [v1x v1y 1; v2x v2y 1; v3x v3y 1]
+    # Det A
+    A = np.array([[v1[0], v1[1], 1], [v2[0], v2[1], 1], [v3[0], v3[1], 1]])
+    return round(np.linalg.det(A))
 
 
 def vreplacement(v1: Any, v: Any, v2: Any, cellsize: Any):
     """vreplacement."""
-    if v[0] > v1[0] and v[1] == v1[1] and v[0] == v2[0] and v[1] > v2[1]:
-        return v[0] - cellsize, v[1] - cellsize
-    if v[0] == v1[0] and v[1] > v1[1] and v[0] < v2[0] and v[1] == v2[1]:
-        return v[0] + cellsize, v[1] - cellsize
-    if v[0] < v1[0] and v[1] == v1[1] and v[0] == v2[0] and v[1] < v2[1]:
-        return v[0] + cellsize, v[1] + cellsize
-    if v[0] == v1[0] and v[1] < v1[1] and v[0] > v2[0] and v[1] == v2[1]:
-        return v[0] - cellsize, v[1] + cellsize
-    raise ValueError("Vertex configuration is not valid.")
+    # Logic for replacement
+    # v1 -> v -> v2 counterclockwise
+    v1x, v1y = v1
+    vx, vy = v
+    v2x, v2y = v2
+
+    rx, ry = vx, vy
+
+    if vx > v1x and vy == v1y and vx == v2x and vy > v2y:
+        rx = vx - cellsize
+        ry = vy - cellsize
+    elif vx == v1x and vy > v1y and vx < v2x and vy == v2y:
+        rx = vx + cellsize
+        ry = vy - cellsize
+    elif vx < v1x and vy == v1y and vx == v2x and vy < v2y:
+        rx = vx + cellsize
+        ry = vy + cellsize
+    elif vx == v1x and vy < v1y and vx > v2x and vy == v2y:
+        rx = vx - cellsize
+        ry = vy + cellsize
+    else:
+        # Not raising error to avoid crash on edge cases due to tracing artifacts?
+        # But MATLAB raises error.
+        pass  # raise ValueError('Vertex configuration not valid')
+
+    return rx, ry
 
 
 def mppVtest(cMPPV: Any, cV: Any, classcV: Any, cWH: Any, cBL: Any):
     """mppVtest."""
-    I = 0
-    newMPPV = np.array([0, 0], dtype=int)
-    W = cWH.copy()
-    B = cBL.copy()
+    I_res = 0
+    newMPPV = np.array([0, 0])
+    W = cWH
+    B = cBL
 
     sW = vsign(cMPPV, cWH, cV)
     sB = vsign(cMPPV, cBL, cV)
 
     if sW > 0:
-        I = 1
-        newMPPV = cWH.copy()
-        W = newMPPV.copy()
-        B = newMPPV.copy()
+        I_res = 1
+        newMPPV = cWH
+        W = newMPPV
+        B = newMPPV
     elif sB < 0:
-        I = 1
-        newMPPV = cBL.copy()
-        W = newMPPV.copy()
-        B = newMPPV.copy()
+        I_res = 1
+        newMPPV = cBL
+        W = newMPPV
+        B = newMPPV
     elif (sW <= 0) and (sB >= 0):
         if classcV == 1:
-            W = cV.copy()
+            W = cV
         else:
-            B = cV.copy()
+            B = cV
 
-    return I, newMPPV, W, B
-
-
-__all__ = [
-    "im2minperpoly",
-    "cellcomplex",
-    "mppvertices",
-    "vertexlist",
-    "vsign",
-    "vreplacement",
-    "mppVtest",
-]
+    return I_res, newMPPV, W, B

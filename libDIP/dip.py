@@ -14,7 +14,23 @@ from skimage.io import imread
 from scipy.fftpack import dct
 
 from libDIP.watermark4e import watermark4e
-from libDIPUM.data_path import dip_data
+
+def dip_data(filename: str) -> str:
+    """Resolve data files when libDIPUM.data_path is unavailable."""
+    env_dir = _os.environ.get("DIP4E_DATA_DIR")
+    candidates = []
+    if env_dir:
+        candidates.append(_Path(env_dir).expanduser())
+    candidates.append(_Path(__file__).resolve().parent.parent / "AllDataFiles")
+    for base in candidates:
+        p = base / filename
+        if p.exists():
+            return str(p)
+    searched = "\n".join(f"  - {d}" for d in candidates)
+    raise FileNotFoundError(
+        f"Could not locate '{filename}'.\n"
+        f"Set DIP4E_DATA_DIR to your data directory or place files in one of:\n{searched}"
+    )
 
 
 class Dip:
@@ -359,7 +375,6 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.transform import resize
-            from libDIPUM.data_path import dip_data
 
             # Data
             img_name = dip_data("Chronometer.tif")
@@ -443,9 +458,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_ubyte
-            from libDIPUM.im2bitplanes import im2bitplanes
-            from libDIPUM.bitplanes2im import bitplanes2im
-            from libDIPUM.data_path import dip_data
+            from helpers.im2bitplanes import im2bitplanes
+            from helpers.bitplanes2im import bitplanes2im
 
             # Data
             img_name = dip_data("drip-bottle.tif")
@@ -539,7 +553,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.transform import resize
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_name = dip_data("Chronometer.tif")
@@ -614,7 +628,7 @@ class Dip:
             from skimage.util import img_as_float
             from libDIP.averaging4noisereduction import averaging4noisereduction
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             img_path = dip_data("sombrero-galaxy-original.tif")
             forig = img_as_float(imread(img_path))
@@ -694,7 +708,7 @@ class Dip:
             from skimage.io import imread
             import ia870 as ia
             from helpers import MKRLib
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Load images
             forig = imread(dip_data("chronometer-2136x2140-2pt3-inch-930-dpi.tif"))
@@ -782,9 +796,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.intensityTransformations import intensityTransformations
-            from libDIPUM.mat2gray import mat2gray
-            from libDIPUM.data_path import dip_data
+            from helpers.intensityTransformations import intensityTransformations
+            from helpers.mat2gray import mat2gray
+            from helpers.data_path import dip_data
 
             # Load and convert to double (0-1 float)
             mask = img_as_float(imread(dip_data("angiography-mask-image.tif")))
@@ -841,7 +855,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Load and convert to double (0-1 float)
             f = img_as_float(imread(dip_data("dentalXray.tif")))
@@ -891,7 +905,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("skeleton.tif")
@@ -948,7 +962,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import invert
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_name = dip_data("Chronometer.tif")
@@ -990,7 +1004,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.ndimage import uniform_filter
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("angiogram-aortic-kidney.tif")
@@ -1048,7 +1062,7 @@ class Dip:
             from skimage.io import imread
             from skimage.transform import rotate
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             img_name = dip_data("letterT.tif")
             f_orig = imread(img_name)
@@ -1126,7 +1140,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.transform import AffineTransform, warp, estimate_transform
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_name = dip_data("characterTestPattern688.tif")
@@ -1283,11 +1297,11 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.fft import fft2, fftshift
-            from libDIPUM.imnoise3 import imnoise3
-            from libDIPUM.cnotch import cnotch
+            from helpers.imnoise3 import imnoise3
+            from helpers.cnotch import cnotch
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.dftfilt import dftfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.dftfilt import dftfilt
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("astronaut.tif")
@@ -1455,8 +1469,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage import filters
             from skimage.io import imread
-            from libDIPUM.intensityTransformations import intensityTransformations
-            from libDIPUM.data_path import dip_data
+            from helpers.intensityTransformations import intensityTransformations
+            from helpers.data_path import dip_data
 
             # Image loading
             img_name = dip_data("pollen-lowcontrast.tif")
@@ -1521,7 +1535,7 @@ class Dip:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Image loading (Exact path)
             img_name = dip_data("trophozoite.tif")
@@ -1602,7 +1616,7 @@ class Dip:
             from helpers.ReconstructionUsingBitPlanes import (
                 ReconstructionUsingBitPlanes,
             )
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Image loading
             img_name = dip_data("trophozoite.tif")
@@ -1664,7 +1678,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Filenames key map
             # MATLAB:
@@ -1732,7 +1746,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
             from skimage import exposure
 
             # Filenames key map matches Figure316
@@ -1810,7 +1824,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from PIL import Image
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure 3.24
             # Image of hidden horse and its histogram
@@ -1850,7 +1864,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from PIL import Image
             from skimage.exposure import equalize_hist
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Fig. 3.25
             # Histogram equalization of hidden horse image
@@ -1904,8 +1918,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from PIL import Image
-            from libDIPUM.twomodegauss import twomodegauss
-            from libDIPUM.data_path import dip_data
+            from helpers.twomodegauss import twomodegauss
+            from helpers.data_path import dip_data
 
             # %% Fig 3.26
             # Histogram specification of hidden horse image
@@ -1973,10 +1987,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.exposure import equalize_hist, histogram
-            from libDIPUM.spechist import spechist
-            from libDIPUM.fun2hist import fun2hist
-            from libDIPUM.trapezmf import trapezmf
-            from libDIPUM.data_path import dip_data
+            from helpers.spechist import spechist
+            from helpers.fun2hist import fun2hist
+            from helpers.trapezmf import trapezmf
+            from helpers.data_path import dip_data
 
             # Image loading
             img_path = dip_data("hidden-horse.tif")
@@ -2052,10 +2066,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.exposure import histogram
-            from libDIPUM.exacthist import exacthist
-            from libDIPUM.fun2hist import fun2hist
-            from libDIPUM.trapezmf import trapezmf
-            from libDIPUM.data_path import dip_data
+            from helpers.exacthist import exacthist
+            from helpers.fun2hist import fun2hist
+            from helpers.trapezmf import trapezmf
+            from helpers.data_path import dip_data
 
             # Image loading
             img_path = dip_data("hidden-horse.tif")
@@ -2127,9 +2141,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_ubyte
-            from libDIPUM.exacthist import exacthist
-            from libDIPUM.fun2hist import fun2hist
-            from libDIPUM.data_path import dip_data
+            from helpers.exacthist import exacthist
+            from helpers.fun2hist import fun2hist
+            from helpers.data_path import dip_data
 
             def imhist(img: Any):
                 """Compute histogram for uint8 image with 256 bins [0, 255]."""
@@ -2212,10 +2226,10 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_ubyte
 
-            from libDIPUM.exacthist import exacthist
-            from libDIPUM.fun2hist import fun2hist
-            from libDIPUM.sigmamf import sigmamf  # Assuming this exists based on ls
-            from libDIPUM.data_path import dip_data
+            from helpers.exacthist import exacthist
+            from helpers.fun2hist import fun2hist
+            from helpers.sigmamf import sigmamf  # Assuming this exists based on ls
+            from helpers.data_path import dip_data
 
             def imhist(img: Any, bins: Any = 256):
                 """imhist."""
@@ -2341,7 +2355,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage import exposure
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Image loading
             img_name = dip_data("hidden-symbols.tif")
@@ -2423,8 +2437,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.locstats import locstats
-            from libDIPUM.data_path import dip_data
+            from helpers.locstats import locstats
+            from helpers.data_path import dip_data
 
             # Data Loading
 
@@ -2472,7 +2486,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import uniform_filter
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Image loading
             img_path = dip_data("characterTestPattern688.tif")
@@ -2528,8 +2542,8 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from libDIPUM.gaussiankernel import gaussiankernel
-            from libDIPUM.data_path import dip_data
+            from helpers.gaussiankernel import gaussiankernel
+            from helpers.data_path import dip_data
 
             # Image loading
             img_name = dip_data("testpattern1024.tif")
@@ -2593,8 +2607,8 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from libDIPUM.gaussiankernel import gaussiankernel
-            from libDIPUM.data_path import dip_data
+            from helpers.gaussiankernel import gaussiankernel
+            from helpers.data_path import dip_data
 
             # Image loading
             img_name = dip_data("testpattern1024.tif")
@@ -2670,7 +2684,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.ndimage import correlate, uniform_filter
-            from libDIPUM.gaussiankernel import gaussiankernel
+            from helpers.gaussiankernel import gaussiankernel
 
             # Data: Synthetic image
             f = np.zeros((1024, 1024), dtype=np.uint8)
@@ -2731,8 +2745,8 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from libDIPUM.gaussiankernel import gaussiankernel
-            from libDIPUM.data_path import dip_data
+            from helpers.gaussiankernel import gaussiankernel
+            from helpers.data_path import dip_data
 
             # Image loading
             img_name = dip_data("testpattern1024.tif")
@@ -2806,7 +2820,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate1d
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_name = dip_data("testpattern4096.tif")
@@ -2866,7 +2880,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate1d
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Image loading
             img_path = dip_data("hickson-compact-group.tif")
@@ -2926,7 +2940,7 @@ class Dip:
             from skimage.util import img_as_float
             from skimage.filters import threshold_otsu
             from scipy.signal import fftconvolve
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def fspecial(type_filter: Any, *args: Any):
                 """
@@ -3088,7 +3102,7 @@ class Dip:
                     )
 
             from scipy.ndimage import correlate1d
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def imfilter(img: Any, kernel: Any, mode: Any = "constant"):
                 """
@@ -3202,9 +3216,9 @@ class Dip:
             from scipy.ndimage import correlate
             from scipy.signal import medfilt2d
 
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.gaussiankernel import gaussiankernel
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.gaussiankernel import gaussiankernel
+            from helpers.data_path import dip_data
 
             # Data
             f = imread(dip_data("circuitboard.tif"))
@@ -3255,7 +3269,7 @@ class Dip:
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             f = imread(dip_data("blurry-moon.tif"))
@@ -3319,8 +3333,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.unsharp import unsharp
-            from libDIPUM.data_path import dip_data
+            from helpers.unsharp import unsharp
+            from helpers.data_path import dip_data
 
             # Parameters
             k = [1, 2, 3]
@@ -3389,7 +3403,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.ndimage import correlate
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Sobel kernels
             wh = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]], dtype=float)
@@ -3429,7 +3443,7 @@ class Dip:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
-            from libDIPUM.zoneplate import zoneplate
+            from helpers.zoneplate import zoneplate
 
             # Data
             f = zoneplate(8.2, 0.0275, 0)
@@ -3513,7 +3527,7 @@ class Dip:
             if ROOT not in sys.path:
                 sys.path.append(ROOT)
 
-            from libDIPUM.zoneplate import zoneplate
+            from helpers.zoneplate import zoneplate
             from helpers.fir1 import fir1
             from helpers.ftrans2 import ftrans2
 
@@ -3571,7 +3585,7 @@ class Dip:
             if ROOT not in sys.path:
                 sys.path.append(ROOT)
 
-            from libDIPUM.zoneplate import zoneplate
+            from helpers.zoneplate import zoneplate
             from helpers.fir1 import fir1
             from helpers.ftrans2 import ftrans2
             from libDIP.intScaling4e import intScaling4e
@@ -3663,7 +3677,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure363 (Skeleton Bone Scan Enhancement)...")
 
@@ -3782,12 +3796,12 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.triangmf import triangmf
-            from libDIPUM.trapezmf import trapezmf
-            from libDIPUM.sigmamf import sigmamf
-            from libDIPUM.smf import smf
-            from libDIPUM.bellmf import bellmf
-            from libDIPUM.truncgaussmf import truncgaussmf
+            from helpers.triangmf import triangmf
+            from helpers.trapezmf import trapezmf
+            from helpers.sigmamf import sigmamf
+            from helpers.smf import smf
+            from helpers.bellmf import bellmf
+            from helpers.truncgaussmf import truncgaussmf
 
             print("Running Figure366 (Fuzzy Membership Functions)...")
 
@@ -3852,8 +3866,8 @@ class Dip:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.intensityTransformations import intensityTransformations
-            from libDIPUM.data_path import dip_data
+            from helpers.intensityTransformations import intensityTransformations
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("retina.tif")
@@ -3897,9 +3911,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage import exposure
             from skimage.io import imread
-            from libDIPUM.sigmamf import sigmamf
-            from libDIPUM.triangmf import triangmf
-            from libDIPUM.data_path import dip_data
+            from helpers.sigmamf import sigmamf
+            from helpers.triangmf import triangmf
+            from helpers.data_path import dip_data
 
             print("Running Figure374 (Fuzzy Contrast Enhancement)...")
 
@@ -4013,12 +4027,12 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from libDIPUM.bellmf import bellmf
-            from libDIPUM.onemf import onemf
-            from libDIPUM.triangmf import triangmf
-            from libDIPUM.fuzzysysfcn import fuzzysysfcn
-            from libDIPUM.approxfcn import approxfcn
-            from libDIPUM.data_path import dip_data
+            from helpers.bellmf import bellmf
+            from helpers.onemf import onemf
+            from helpers.triangmf import triangmf
+            from helpers.fuzzysysfcn import fuzzysysfcn
+            from helpers.approxfcn import approxfcn
+            from helpers.data_path import dip_data
 
             # MATLAB-like tofloat/revertClass behavior for this script
             f_in = imread(dip_data("headCT.tif"))
@@ -4219,7 +4233,7 @@ class Dip:
             from skimage.util import img_as_float
             from skimage.transform import resize
             from scipy.ndimage import correlate
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure419 (Aliasing and Lowpass Filtering)...")
 
@@ -4491,7 +4505,7 @@ class Dip:
             from skimage.io import imread
             from skimage.transform import resize
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("boy.tif")
@@ -4559,7 +4573,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure428 (Blown IC and Spectrum)...")
 
@@ -4619,7 +4633,7 @@ class Dip:
             from skimage.util import img_as_float
             from libDIP.lpFilterTF4e import lpFilterTF4e
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Image loading
             img_path = dip_data("blown_ic.tif")
@@ -4706,7 +4720,7 @@ class Dip:
             from libDIP.lpFilterTF4e import lpFilterTF4e
             from libDIP.hpFilterTF4e import hpFilterTF4e
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def mesh_plot(ax: Any, H: Any):
                 """mesh_plot."""
@@ -4867,7 +4881,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure434 (Phase Manipulation)...")
 
@@ -4930,10 +4944,10 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from libDIPUM.lpfilter import lpfilter
-            from libDIPUM.dftfilt import dftfilt
-            from libDIPUM.paddedsize import paddedsize
-            from libDIPUM.data_path import dip_data
+            from helpers.lpfilter import lpfilter
+            from helpers.dftfilt import dftfilt
+            from helpers.paddedsize import paddedsize
+            from helpers.data_path import dip_data
 
             print("Running Figure435 (Gaussian Lowpass Filtering Steps)...")
 
@@ -5062,7 +5076,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-600by600.tif")
@@ -5103,10 +5117,10 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from libDIPUM.paddedsize import paddedsize
-            from libDIPUM.dftfilt import dftfilt
+            from helpers.paddedsize import paddedsize
+            from helpers.dftfilt import dftfilt
             from helpers.freqz2_equal import freqz2_equal
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-600by600.tif")
@@ -5221,7 +5235,7 @@ class Dip:
             from skimage.util import img_as_float
             from libDIP.intScaling4e import intScaling4e
             from libDIP.lpFilterTF4e import lpFilterTF4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("characterTestPattern688.tif")
@@ -5288,7 +5302,7 @@ class Dip:
             from skimage.util import img_as_float
             from libDIP.lpFilterTF4e import lpFilterTF4e
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             D0 = [10, 30, 60, 160, 460]
@@ -5332,7 +5346,7 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
 
             # Transfer function
             H = lpfilter("ideal", 1000, 1000, 30)
@@ -5373,7 +5387,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
 
             # Parameters
             D0 = [10, 20, 40, 60]
@@ -5429,9 +5443,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             D0 = [10, 30, 60, 160, 460]
@@ -5475,7 +5489,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
 
             # Parameters
             D0 = [10, 20, 40, 60]
@@ -5528,9 +5542,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             D0 = [10, 30, 60, 160, 460]
@@ -5573,7 +5587,7 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.intScaling4e import intScaling4e
 
             # Parameters
@@ -5620,10 +5634,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("text_gaps_of_1_and_2_pixels.tif")
@@ -5662,9 +5676,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("woman512x512.tif")
@@ -5724,9 +5738,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("satellite_original.tif")
@@ -5768,7 +5782,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from libDIPUM.hpfilter import hpfilter
+            from helpers.hpfilter import hpfilter
 
             # IDEAL HIGHPASS
             meshIHPF = np.fft.fftshift(hpfilter("ideal", 40, 40, 6))
@@ -5843,7 +5857,7 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.intScaling4e import intScaling4e
 
             # Parameters
@@ -5897,10 +5911,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.hpfilter import hpfilter
+            from helpers.hpfilter import hpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("characterTestPattern688.tif")
@@ -5979,9 +5993,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.hpfilter import hpfilter
+            from helpers.hpfilter import hpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("thumb-print.tif")
@@ -6025,9 +6039,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.dftuv import dftuv
+            from helpers.dftuv import dftuv
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("blurry-moon.tif")
@@ -6074,10 +6088,10 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.exposure import equalize_hist
-            from libDIPUM.hpfilter import hpfilter
+            from helpers.hpfilter import hpfilter
             from libDIP.dftFiltering4e import dftFiltering4e
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("chestXray.tif")
@@ -6133,10 +6147,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.homomorphictf import homomorphictf
+            from helpers.homomorphictf import homomorphictf
             from libDIP.dftFiltering4e import dftFiltering4e
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             GammaH = 3
@@ -6187,10 +6201,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.paddedsize import paddedsize
-            from libDIPUM.dftuv import dftuv
-            from libDIPUM.lpfilter import lpfilter
-            from libDIPUM.data_path import dip_data
+            from helpers.paddedsize import paddedsize
+            from helpers.dftuv import dftuv
+            from helpers.lpfilter import lpfilter
+            from helpers.data_path import dip_data
 
             # Parameters
             GammaH = 1.2
@@ -6355,7 +6369,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from libDIPUM.bandfilter import bandfilter
+            from helpers.bandfilter import bandfilter
 
             # Parameters
             r = 12
@@ -6436,9 +6450,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.cnotch import cnotch
-            from libDIPUM.dftfilt import dftfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.cnotch import cnotch
+            from helpers.dftfilt import dftfilt
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("car-moire-pattern.tif")
@@ -6490,9 +6504,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.recnotch import recnotch
+            from helpers.recnotch import recnotch
             from libDIP.dftFiltering4e import dftFiltering4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("Saturnringe.tif")
@@ -6541,8 +6555,8 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.recnotch import recnotch
-            from libDIPUM.data_path import dip_data
+            from helpers.recnotch import recnotch
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("cassini-interference.tif")
@@ -6584,9 +6598,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -6642,9 +6656,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -6692,9 +6706,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             # Parameters
             kernel_size = 5
@@ -6770,9 +6784,9 @@ class Dip:
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
             from scipy.ndimage import uniform_filter
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             def adaptive_noise_reduction_filter(f: Any, w: Any, noise_var: Any):
                 """
@@ -6851,10 +6865,10 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.adpmedian import adpmedian
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.adpmedian import adpmedian
+            from helpers.data_path import dip_data
 
             # Parameters
             KernelSize = 5
@@ -6935,7 +6949,7 @@ class Dip:
             from typing import Any
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.cnotch import cnotch
+            from helpers.cnotch import cnotch
 
             def plot_mesh(ax: Any, H: Any, title: Any):
                 """plot_mesh."""
@@ -7000,10 +7014,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.cnotch import cnotch
-            from libDIPUM.imnoise3 import imnoise3
+            from helpers.cnotch import cnotch
+            from helpers.imnoise3 import imnoise3
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_name = dip_data("astronaut.tif")
@@ -7094,9 +7108,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.recnotch import recnotch
+            from helpers.recnotch import recnotch
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_name = dip_data("satellite_original.tif")
@@ -7187,7 +7201,7 @@ class Dip:
             from skimage.color import rgb2gray
             from libDIP.dftFiltering4e import dftFiltering4e
             from helpers.atmosphturb import atmosphturb
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             k_vals = [0.0025, 0.001, 0.00025]
@@ -7241,7 +7255,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from libDIP.motionBlurTF4e import motionBlurTF4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             img_name = dip_data("original_DIP.tif")
             f_orig = imread(img_name)
@@ -7306,8 +7320,8 @@ class Dip:
             from skimage.color import rgb2gray
             from helpers.atmosphturb import atmosphturb
             from libDIP.lpFilterTF4e import lpFilterTF4e
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.data_path import dip_data
 
             # Parameters
             k = 0.0025
@@ -7423,9 +7437,9 @@ class Dip:
             from skimage.color import rgb2gray
             from helpers.atmosphturb import atmosphturb
             from libDIP.lpFilterTF4e import lpFilterTF4e
-            from libDIPUM.imnoise2 import imnoise2
+            from helpers.imnoise2 import imnoise2
             from helpers.deconvwnr import deconvwnr
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             k = 0.0025
@@ -7498,7 +7512,7 @@ class Dip:
             from skimage.util import img_as_float, random_noise
             from libDIP.motionBlurTF4e import motionBlurTF4e
             from libDIP.pWienerTF4e import pWienerTF4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             VarNoise = [1e-37, 1e-2, 1e-1]
@@ -7622,7 +7636,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure 5.3
 
@@ -7664,7 +7678,7 @@ class Dip:
             from skimage.color import rgb2gray
             from libDIP.motionBlurTF4e import motionBlurTF4e
             from libDIP.constrainedLsTF4e import constrainedLsTF4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             var_noise = [10 ** (-37), 10 ** (-2), 10 ** (-1)]
@@ -7746,10 +7760,10 @@ class Dip:
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
             from helpers.atmosphturb import atmosphturb
-            from libDIPUM.imnoise2 import imnoise2
+            from helpers.imnoise2 import imnoise2
             from libDIP.constrainedLsTF4e import constrainedLsTF4e
             from helpers.deconvreg1 import deconvreg1
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             k = 0.0025
@@ -7843,7 +7857,7 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.lpfilter import lpfilter
+            from helpers.lpfilter import lpfilter
             from libDIP.imRecon4e import imRecon4e
 
             H = lpfilter("ideal", 480, 480, 40)
@@ -7993,7 +8007,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from libDIP.imRecon4e import imRecon4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             # Angles32 = 5.625 * (0 : 31);
@@ -8066,7 +8080,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from helpers.radon import radon
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             single_theta = 90
@@ -8204,9 +8218,9 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.imnoise2New import imnoise2New
+            from helpers.imnoise2New import imnoise2New
             from PIL import Image
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # ------------------------------------------------------------
             # Parameters
@@ -8545,10 +8559,10 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.fanbeam import fanbeam
-            from libDIPUM.ifanbeam import ifanbeam
+            from helpers.fanbeam import fanbeam
+            from helpers.ifanbeam import ifanbeam
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             NR = 256
@@ -8635,8 +8649,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.data import shepp_logan_phantom
             from skimage.transform import resize
-            from libDIPUM.fanbeam import fanbeam
-            from libDIPUM.ifanbeam import ifanbeam
+            from helpers.fanbeam import fanbeam
+            from helpers.ifanbeam import ifanbeam
             from libDIP.intScaling4e import intScaling4e
 
             # Parameters
@@ -8712,11 +8726,11 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.cnotch import cnotch
-            from libDIPUM.imnoise3 import imnoise3
+            from helpers.cnotch import cnotch
+            from helpers.imnoise3 import imnoise3
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.dftfilt import dftfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.dftfilt import dftfilt
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("astronaut.tif")
@@ -8777,9 +8791,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -8839,9 +8853,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -8904,9 +8918,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from libDIPUM.imnoise2 import imnoise2
-            from libDIPUM.spfilt import spfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise2 import imnoise2
+            from helpers.spfilt import spfilt
+            from helpers.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -9232,8 +9246,8 @@ class Dip:
             from skimage.util import img_as_float
             from scipy.fftpack import dct
             from libDIP.tmat4e import tmat4e
-            from libDIPUM.lpfilter import lpfilter
-            from libDIPUM.data_path import dip_data
+            from helpers.lpfilter import lpfilter
+            from helpers.data_path import dip_data
 
             def dct2(a: Any):
                 """dct2."""
@@ -9539,7 +9553,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.interpolate import interp1d
-            from libDIPUM.wavedec import wavedec
+            from helpers.wavedec import wavedec
             from libDIP.basisImage4e import basisImage4e
 
             # Parameters
@@ -9607,9 +9621,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.wavefast import wavefast
-            from libDIPUM.wavedisplay import wavedisplay
-            from libDIPUM.data_path import dip_data
+            from helpers.wavefast import wavefast
+            from helpers.wavedisplay import wavedisplay
+            from helpers.data_path import dip_data
 
             # Data
             f = img_as_float(imread(dip_data("Vase.tif")))
@@ -9655,7 +9669,7 @@ class Dip:
             import matplotlib.pyplot as plt
 
             from libDIP.basisImage4e import basisImage4e
-            from libDIPUM.haarDWTbasisImage import haarDWTbasisImage
+            from helpers.haarDWTbasisImage import haarDWTbasisImage
 
             # Parameters
             N = 8
@@ -9693,11 +9707,11 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.wavefast import wavefast
-            from libDIPUM.wavecut import wavecut
-            from libDIPUM.waveback import waveback
-            from libDIPUM.wavedisplay import wavedisplay
-            from libDIPUM.data_path import dip_data
+            from helpers.wavefast import wavefast
+            from helpers.wavecut import wavecut
+            from helpers.waveback import waveback
+            from helpers.wavedisplay import wavedisplay
+            from helpers.data_path import dip_data
 
             # Data
             f = img_as_float(imread(dip_data("sinePulses.tif")))
@@ -9753,7 +9767,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from libDIPUM.wavedec import wavedec
+            from helpers.wavedec import wavedec
             from helpers.MyDisp import MyDisp
 
             # Parameters
@@ -9791,7 +9805,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from libDIPUM.wavedec import wavedec
+            from helpers.wavedec import wavedec
             from helpers.MyDisp import MyDisp
 
             # Parameters
@@ -9899,7 +9913,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from libDIPUM.wavedec import wavedec
+            from helpers.wavedec import wavedec
             from helpers.MyDisp import MyDisp
 
             # Parameters
@@ -10258,7 +10272,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             fIR = imread(dip_data("WashingtonDC-Band4-NearInfrared-512.tif"))
@@ -10319,7 +10333,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -10370,7 +10384,7 @@ class Dip:
             from skimage.util import img_as_float
 
             from libDIP.rgb2hsi4e import rgb2hsi4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -10425,7 +10439,7 @@ class Dip:
 
             from libDIP.rgb2hsi4e import rgb2hsi4e
             from libDIP.hsi2rgb4e import hsi2rgb4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -10510,7 +10524,7 @@ class Dip:
 
             from libDIP.rgb2hsi4e import rgb2hsi4e
             from libDIP.hsi2rgb4e import hsi2rgb4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -10591,7 +10605,7 @@ class Dip:
             from skimage.util import img_as_float
 
             from libDIP.rgb2hsi4e import rgb2hsi4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             RGB_u8 = imread(dip_data("jupiter-moon-closeup.tif"))
@@ -10676,7 +10690,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Data
             RGB = img_as_float(imread(dip_data("jupiter-moon-closeup.tif")))
@@ -10743,8 +10757,8 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from libDIPUM.colorgrad import colorgrad
-            from libDIPUM.data_path import dip_data
+            from helpers.colorgrad import colorgrad
+            from helpers.data_path import dip_data
 
             # %% Data
             RGB = img_as_float(imread(dip_data("lenna-RGB.tif")))
@@ -10807,9 +10821,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from libDIPUM.imnoise2 import imnoise2
+            from helpers.imnoise2 import imnoise2
             from libDIP.rgb2hsi4e import rgb2hsi4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Parameters
             Mu = 0
@@ -10897,9 +10911,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from libDIPUM.imnoise2 import imnoise2
+            from helpers.imnoise2 import imnoise2
             from libDIP.rgb2hsi4e import rgb2hsi4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Parameters
             Ps = 0.05
@@ -10962,9 +10976,9 @@ class Dip:
 
             from libDIP.im2jpeg4e import im2jpeg4e
             from libDIP.jpeg2im4e import jpeg2im4e
-            from libDIPUM.imratio import imratio
-            from libDIPUM.compare import compare
-            from libDIPUM.data_path import dip_data
+            from helpers.imratio import imratio
+            from helpers.compare import compare
+            from helpers.data_path import dip_data
 
             # %% Parameters
             Quality = 20
@@ -11021,8 +11035,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.chapter08.fig81bc import fig81bc
-            from libDIPUM.data_path import dip_data
+            from helpers.chapter08.fig81bc import fig81bc
+            from helpers.data_path import dip_data
 
             # Figure81
 
@@ -11180,10 +11194,10 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.golomb import golomb
-            from libDIPUM.mat2huff import mat2huff
-            from libDIPUM.imratio import imratio
-            from libDIPUM.data_path import dip_data
+            from helpers.golomb import golomb
+            from helpers.mat2huff import mat2huff
+            from helpers.imratio import imratio
+            from helpers.data_path import dip_data
 
             # Figure 811
 
@@ -11244,7 +11258,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             f = imread(dip_data("Fig0819(a).tif")).astype(np.uint8)
@@ -11352,7 +11366,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from libDIP.tmat4e import tmat4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def blkdct(x: Any, a: Any):
                 """blkdct."""
@@ -11453,8 +11467,8 @@ class Dip:
             from skimage.io import imread
 
             from libDIP.tmat4e import tmat4e
-            from libDIPUM.compare import compare
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.data_path import dip_data
 
             # Figure 823
 
@@ -11561,7 +11575,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from libDIP.tmat4e import tmat4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def blkdct(x: Any, a: Any):
                 """blkdct."""
@@ -11679,8 +11693,8 @@ class Dip:
             from skimage.io import imread
 
             from libDIP.tmat4e import tmat4e
-            from libDIPUM.compare import compare
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.data_path import dip_data
 
             def blkdct(x: Any, a: Any):
                 """blkdct."""
@@ -11890,8 +11904,8 @@ class Dip:
             from skimage.io import imread
 
             from libDIP.tmat4e import tmat4e
-            from libDIPUM.compare import compare
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.data_path import dip_data
 
             def compute_q(q: Any):
                 """compute_q."""
@@ -12016,11 +12030,11 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.im2jpeg import im2jpeg
-            from libDIPUM.jpeg2im import jpeg2im
-            from libDIPUM.imratio import imratio
-            from libDIPUM.compare import compare
-            from libDIPUM.data_path import dip_data
+            from helpers.im2jpeg import im2jpeg
+            from helpers.jpeg2im import jpeg2im
+            from helpers.imratio import imratio
+            from helpers.compare import compare
+            from helpers.data_path import dip_data
 
             # Parameters
             quality = [4, 8]
@@ -12117,7 +12131,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from libDIPUM.chapter08.fig81bc import fig81bc
+            from helpers.chapter08.fig81bc import fig81bc
             from libDIP.histEqual4e import histEqual4e
 
             # Figure 8.3
@@ -12155,11 +12169,11 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.compare import compare
-            from libDIPUM.lpc2mat import lpc2mat
-            from libDIPUM.mat2lpc import mat2lpc
-            from libDIPUM.ntrop import ntrop
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.lpc2mat import lpc2mat
+            from helpers.mat2lpc import mat2lpc
+            from helpers.ntrop import ntrop
+            from helpers.data_path import dip_data
 
             # Data
             f_raw = imread(dip_data("nasaframe67.tif"))
@@ -12215,8 +12229,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.ntrop import ntrop
-            from libDIPUM.data_path import dip_data
+            from helpers.ntrop import ntrop
+            from helpers.data_path import dip_data
 
             # Data
             f_raw = imread(dip_data("nasaframe78.tif"))
@@ -12279,8 +12293,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.motion import motion
-            from libDIPUM.data_path import dip_data
+            from helpers.motion import motion
+            from helpers.data_path import dip_data
 
             def _invert_if_needed(img: Any):
                 """_invert_if_needed."""
@@ -12361,8 +12375,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.motion import motion
-            from libDIPUM.data_path import dip_data
+            from helpers.motion import motion
+            from helpers.data_path import dip_data
 
             # Parameters
             MacroBlock = [16, 8, 8, 8]
@@ -12450,8 +12464,8 @@ class Dip:
             from skimage.io import imread
             from PIL import Image
 
-            from libDIPUM.compare import compare
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.data_path import dip_data
 
             # Figure84
 
@@ -12505,11 +12519,11 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.compare import compare
-            from libDIPUM.lpc2mat2d import lpc2mat2d
-            from libDIPUM.mat2lpc2d import mat2lpc2d
-            from libDIPUM.ntrop import ntrop
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.lpc2mat2d import lpc2mat2d
+            from helpers.mat2lpc2d import mat2lpc2d
+            from helpers.ntrop import ntrop
+            from helpers.data_path import dip_data
 
             # Data
             f = imread(dip_data("lena.tif"))
@@ -12576,9 +12590,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.wavefast import wavefast
-            from libDIPUM.wavedisplay import wavedisplay
-            from libDIPUM.data_path import dip_data
+            from helpers.wavefast import wavefast
+            from helpers.wavedisplay import wavedisplay
+            from helpers.data_path import dip_data
 
             # Parameters
             n_levels = 3
@@ -12627,12 +12641,12 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.compare import compare
-            from libDIPUM.waveback import waveback
-            from libDIPUM.wavecopy import wavecopy
-            from libDIPUM.wavefast import wavefast
-            from libDIPUM.wavepaste import wavepaste
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.waveback import waveback
+            from helpers.wavecopy import wavecopy
+            from helpers.wavefast import wavefast
+            from helpers.wavepaste import wavepaste
+            from helpers.data_path import dip_data
 
             # Figure 8.44 (dead-zone threshold sweep)
 
@@ -12716,11 +12730,11 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.compare import compare
-            from libDIPUM.im2jpeg2k import im2jpeg2k
-            from libDIPUM.imratio import imratio
-            from libDIPUM.jpeg2k2im import jpeg2k2im
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.im2jpeg2k import im2jpeg2k
+            from helpers.imratio import imratio
+            from helpers.jpeg2k2im import jpeg2k2im
+            from helpers.data_path import dip_data
 
             def imcrop_matlab(img: Any, rect: Any):
                 """imcrop_matlab."""
@@ -12788,9 +12802,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.im2jpeg import im2jpeg
-            from libDIPUM.jpeg2im import jpeg2im
-            from libDIPUM.data_path import dip_data
+            from helpers.im2jpeg import im2jpeg
+            from helpers.jpeg2im import jpeg2im
+            from helpers.data_path import dip_data
 
             # %% Figure848
 
@@ -12879,8 +12893,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.watermarkMKR import watermarkMKR
-            from libDIPUM.data_path import dip_data
+            from helpers.watermarkMKR import watermarkMKR
+            from helpers.data_path import dip_data
 
             print("Running Figure851 (watermark attack comparison)...")
 
@@ -12935,7 +12949,7 @@ class Dip:
                 ax.axis("off")
 
             # Save
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure851.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure851.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -12951,7 +12965,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             f = imread(dip_data("lena.tif"))
@@ -12984,11 +12998,11 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from libDIPUM.compare import compare
-            from libDIPUM.cv2tifs import cv2tifs
-            from libDIPUM.imratio import imratio
-            from libDIPUM.tifs2cv import tifs2cv
-            from libDIPUM.data_path import dip_data
+            from helpers.compare import compare
+            from helpers.cv2tifs import cv2tifs
+            from helpers.imratio import imratio
+            from helpers.tifs2cv import tifs2cv
+            from helpers.data_path import dip_data
 
             # %% FigureTifs2cv
 
@@ -13139,7 +13153,7 @@ class Dip:
                 sys.path.insert(0, str(PROJECT_ROOT))
 
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure911
 
@@ -13448,7 +13462,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from PIL import Image
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure916
 
@@ -13588,7 +13602,7 @@ class Dip:
             from PIL import Image
             import time
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure918
             # Hole filling
@@ -13787,7 +13801,7 @@ class Dip:
             import sys
             from pathlib import Path
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure920
 
@@ -14603,7 +14617,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from PIL import Image
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure931
 
@@ -14693,7 +14707,7 @@ class Dip:
             from skimage.io import imread
             import ia870 as ia
             from helpers import MKRLib
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure933
             # Hole closing without marker 9.5-28, 9.5-29
@@ -14791,7 +14805,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure934
             # Border clearing 9.5-31
@@ -14856,7 +14870,7 @@ class Dip:
             from PIL import Image
 
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure937
 
@@ -14913,7 +14927,7 @@ class Dip:
             from PIL import Image
             import ia870 as ia
             from helpers.AddSE2Image import AddSE2Image
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure939
             # Morphological opening and closing
@@ -14974,7 +14988,7 @@ class Dip:
             from helpers.AddSE2Image import AddSE2Image
             from helpers.GPsnr import GPsnr
             from helpers.matlab_hist import matlab_hist
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure940
             # Alternate Sequential Filtering
@@ -15131,7 +15145,7 @@ class Dip:
 
             import ia870 as ia
             from helpers.AddSE2Image import AddSE2Image
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure940New
             # Alternate Sequential Filtering
@@ -15266,7 +15280,7 @@ class Dip:
 
             import ia870 as ia
             from helpers.AddSE2Image import AddSE2Image
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure941
             # Morphological gradient
@@ -15337,7 +15351,7 @@ class Dip:
             from PIL import Image
             from skimage.filters import threshold_otsu
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure942
             # Rice grains statistics
@@ -15445,7 +15459,7 @@ class Dip:
             from PIL import Image
             from scipy.ndimage import convolve
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure943
             # Granulometry
@@ -15541,7 +15555,7 @@ class Dip:
             from skimage.filters import threshold_otsu
             import ia870 as ia
             from helpers.mmshow import mmshow
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure945
 
@@ -15657,7 +15671,7 @@ class Dip:
             from skimage.filters import threshold_otsu
             import ia870 as ia
             from helpers.AddSE2Image import AddSE2Image
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure946
             # Segment calculator symbols
@@ -15815,7 +15829,7 @@ class Dip:
             import matplotlib.pyplot as plt
             import PIL.Image
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure95
 
@@ -15874,7 +15888,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Figure97
 
@@ -15923,8 +15937,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from helpers.edge import edge
-            from libDIPUM.splitmerge import splitmerge
-            from libDIPUM.data_path import dip_data
+            from helpers.splitmerge import splitmerge
+            from helpers.data_path import dip_data
 
             # Data
             path_f = dip_data("constant-gray-region.tif")
@@ -16011,9 +16025,9 @@ class Dip:
             from skimage.io import imread
             from skimage.util import random_noise
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.sobel import sobel
-            from libDIPUM.lap import lap
-            from libDIPUM.data_path import dip_data
+            from helpers.sobel import sobel
+            from helpers.lap import lap
+            from helpers.data_path import dip_data
 
             # Figure 10.11
 
@@ -16171,7 +16185,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -16226,7 +16240,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -16268,7 +16282,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -16326,7 +16340,7 @@ class Dip:
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
             from libDIP.edgeKernel4e import edgeKernel4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -16372,7 +16386,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -16431,7 +16445,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from helpers.fspecial import fspecial
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Figure 10.22 (Marr-Hildreth)
             def log_zero_cross_edges(f: Any, sigma: Any, threshold: Any):
@@ -16507,7 +16521,7 @@ class Dip:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
-            from libDIPUM.logdogfilter import logdogfilter
+            from helpers.logdogfilter import logdogfilter
 
             # Figure 10.23
             # Comparison of LoG and DoG
@@ -16548,7 +16562,7 @@ class Dip:
             from skimage.util import img_as_float
             from helpers.edge import edge
             from helpers.fspecial import fspecial
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Figure 10.25
             # Canny edge detection of building
@@ -16655,7 +16669,7 @@ class Dip:
             from scipy.ndimage import convolve, uniform_filter
             from helpers.edge import edge
             from helpers.fspecial import fspecial
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1026 (Edge Detection Comparison)...")
 
@@ -16757,8 +16771,8 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.morphology import thin
-            from libDIPUM.edgelinklocal import edgelinklocal
-            from libDIPUM.data_path import dip_data
+            from helpers.edgelinklocal import edgelinklocal
+            from helpers.data_path import dip_data
 
             print("Running Figure1027 (Local Edge Linking)...")
 
@@ -16926,10 +16940,10 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.feature import canny
-            from libDIPUM.hough import hough
-            from libDIPUM.houghpeaks import houghpeaks
-            from libDIPUM.houghlines import houghlines
-            from libDIPUM.data_path import dip_data
+            from helpers.hough import hough
+            from helpers.houghpeaks import houghpeaks
+            from helpers.houghlines import houghlines
+            from helpers.data_path import dip_data
 
             print("Running Figure1031 (Hough Line Detection with custom utils)...")
 
@@ -17032,7 +17046,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float, random_noise
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1033 (Histograms of noisy images)...")
 
@@ -17098,8 +17112,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from libDIPUM.ishade import ishade
-            from libDIPUM.data_path import dip_data
+            from helpers.ishade import ishade
+            from helpers.data_path import dip_data
 
             print("Running Figure1034 (Shading with ramp)...")
 
@@ -17164,7 +17178,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1035 (Iterative Global Thresholding)...")
 
@@ -17241,8 +17255,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.otsuthresh import otsuthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.otsuthresh import otsuthresh
+            from helpers.data_path import dip_data
 
             # Figure 10.36
 
@@ -17334,8 +17348,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.ndimage import gaussian_filter
-            from libDIPUM.otsuthresh import otsuthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.otsuthresh import otsuthresh
+            from helpers.data_path import dip_data
 
             print("Running Figure1037 (Otsu on Noisy Image w/ Smoothing)...")
 
@@ -17418,7 +17432,7 @@ class Dip:
             from skimage.util import img_as_float
             from skimage.filters import threshold_otsu
             from scipy.ndimage import uniform_filter
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("Fig1041(a)(septagon_small_noisy_mean_0_stdv_10).tif")
@@ -17485,8 +17499,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.morphology import dilation, square
-            from libDIPUM.gradlapthresh import gradlapthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.gradlapthresh import gradlapthresh
+            from helpers.data_path import dip_data
 
             # Figure 10.39
             # Using edge features to determine threshold.
@@ -17540,7 +17554,7 @@ class Dip:
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("turbineblad-with-blk-dot.tif")
@@ -17605,9 +17619,9 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.gradlapthresh import gradlapthresh
-            from libDIPUM.otsuthresh import otsuthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.gradlapthresh import gradlapthresh
+            from helpers.otsuthresh import otsuthresh
+            from helpers.data_path import dip_data
 
             # Figure 10.40
             # Threshold segmentation of yeast image using edge information.
@@ -17665,8 +17679,8 @@ class Dip:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.gradlapthresh import gradlapthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.gradlapthresh import gradlapthresh
+            from helpers.data_path import dip_data
 
             # Figure 10.41
             # As in 10.40, but using the lower threshold.
@@ -17703,7 +17717,7 @@ class Dip:
             from skimage.io import imread
             from helpers.multithresh import multithresh
             from helpers.imquantize import imquantize
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             image_path = dip_data("iceberg.tif")
@@ -17759,11 +17773,11 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.localthresh import localthresh
+            from helpers.localthresh import localthresh
             from helpers.multithresh import multithresh
             from helpers.imquantize import imquantize
             from helpers.stdfilt import stdfilt
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             image_path = dip_data("yeast-cells.tif")
@@ -17823,9 +17837,9 @@ class Dip:
             from skimage.io import imread
             from skimage.filters import threshold_otsu
             from skimage import img_as_float
-            from libDIPUM.ishade import ishade
-            from libDIPUM.movingthresh import movingthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.ishade import ishade
+            from helpers.movingthresh import movingthresh
+            from helpers.data_path import dip_data
 
             # Data
             image_path = dip_data("Fig1049(original_cursive_text_WITHOUT_SHADING).tif")
@@ -17887,9 +17901,9 @@ class Dip:
             from skimage.io import imread
             from skimage.filters import threshold_otsu
             from skimage import img_as_float
-            from libDIPUM.imnoise3 import imnoise3
-            from libDIPUM.movingthresh import movingthresh
-            from libDIPUM.data_path import dip_data
+            from helpers.imnoise3 import imnoise3
+            from helpers.movingthresh import movingthresh
+            from helpers.data_path import dip_data
 
             # Data
             image_path = dip_data("Fig1049(original_cursive_text_WITHOUT_SHADING).tif")
@@ -17958,10 +17972,10 @@ class Dip:
             from skimage.io import imread
             from skimage import img_as_float, img_as_ubyte
             from skimage.measure import label, regionprops
-            from libDIPUM.otsudualthresh import otsudualthresh
+            from helpers.otsudualthresh import otsudualthresh
             from libDIP.multithresh3E import multithresh3E
-            from libDIPUM.regiongrow import regiongrow
-            from libDIPUM.data_path import dip_data
+            from helpers.regiongrow import regiongrow
+            from helpers.data_path import dip_data
 
             def imhist(img: Any):
                 """imhist."""
@@ -18088,8 +18102,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.splitmerge import splitmerge
-            from libDIPUM.data_path import dip_data
+            from helpers.splitmerge import splitmerge
+            from helpers.data_path import dip_data
 
             def predicate(region: Any):
                 """predicate."""
@@ -18151,7 +18165,7 @@ class Dip:
             from skimage.io import imread
             from skimage import img_as_float
             from helpers.kmeans import kmeans
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             image_path = dip_data("book-cover.tif")
@@ -18202,7 +18216,7 @@ class Dip:
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             f = img_as_float(imread(dip_data("Fig1007(a)(wirebond_mask).tif")))
 
@@ -18265,7 +18279,7 @@ class Dip:
             from skimage.segmentation import find_boundaries
             from scipy.ndimage import mean
             from helpers.superpixels import superpixels
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -18352,7 +18366,7 @@ class Dip:
             from skimage import img_as_float
             from scipy.ndimage import mean
             from helpers.superpixels import superpixels
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -18428,7 +18442,7 @@ class Dip:
             from skimage.segmentation import find_boundaries
             from scipy.ndimage import mean
             from helpers.superpixels import superpixels
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -18522,7 +18536,7 @@ class Dip:
             from scipy.ndimage import mean
             from helpers.superpixels import superpixels
             from helpers.kmeans import kmeans
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -18631,9 +18645,9 @@ class Dip:
             from skimage.io import imread
             from skimage.segmentation import find_boundaries, slic
 
-            from libDIPUM.kmeans import kmeans
+            from helpers.kmeans import kmeans
             from helpers.superpixels import superpixels
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -18750,9 +18764,9 @@ class Dip:
             if ROOT not in sys.path:
                 sys.path.insert(0, ROOT)
 
-            from libDIPUM.nCutSegmentation import nCutSegmentation
-            from libDIPUM.mat2gray import mat2gray
-            from libDIPUM.data_path import dip_data
+            from helpers.nCutSegmentation import nCutSegmentation
+            from helpers.mat2gray import mat2gray
+            from helpers.data_path import dip_data
 
             # Data
             image_path = dip_data("building-600by600.tif")
@@ -18832,9 +18846,9 @@ class Dip:
             from scipy.ndimage import uniform_filter
             from skimage.io import imread
             from skimage.transform import resize
-            from libDIPUM.nCutSegmentation import nCutSegmentation
-            from libDIPUM.mat2gray import mat2gray
-            from libDIPUM.data_path import dip_data
+            from helpers.nCutSegmentation import nCutSegmentation
+            from helpers.mat2gray import mat2gray
+            from helpers.data_path import dip_data
 
             def remap_two_regions(labels: Any, ref_image: Any):
                 """Map 2 labels to {0,1} with bottom-center region forced to white."""
@@ -18935,7 +18949,7 @@ class Dip:
             import matplotlib.pyplot as plt
             import ia870 as ia
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             h = 30
@@ -18991,7 +19005,7 @@ class Dip:
             import matplotlib.pyplot as plt
             import ia870 as ia
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
             # import MKRLib
 
             # Data
@@ -19140,7 +19154,7 @@ class Dip:
             from skimage.io import imread
             import ia870 as ia
             from helpers import MKRLib
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Figure1064
 
@@ -19236,8 +19250,8 @@ class Dip:
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.pixeldup import pixeldup
-            from libDIPUM.data_path import dip_data
+            from helpers.pixeldup import pixeldup
+            from helpers.data_path import dip_data
 
             # Data
             f = img_as_float(imread(dip_data("Fig1007(a)(wirebond_mask).tif")))
@@ -19325,7 +19339,7 @@ class Dip:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
-            from libDIPUM.edgemodel import edgemodel
+            from helpers.edgemodel import edgemodel
 
             # fstep = edgemodel('step', 128, 565, 0, .9, 1);
             fstep = edgemodel("step", 128, 565, 0.0, 0.9, 1)
@@ -19373,7 +19387,7 @@ class Dip:
             from helpers.qtgetblk import qtgetblk
             from helpers.qtsetblk import qtsetblk
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
             from typing import Any
 
             # Robust image reader (reuse from previous or import if refactored)
@@ -19575,7 +19589,7 @@ class Dip:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from libDIPUM.nCutSegmentation import nCutSegmentation
+            from helpers.nCutSegmentation import nCutSegmentation
 
             def test_ncut():
                 """test_ncut."""
@@ -19618,9 +19632,9 @@ class Dip:
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
+            from helpers.snake_display import snake_display
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             NIter = 400
@@ -19697,14 +19711,14 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat, savemat
-            from libDIPUM.snake_manual_input import snake_manual_input
+            from helpers.snake_manual_input import snake_manual_input
             from libDIP.snakeMap4e import snakeMap4e
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
+            from helpers.snake_display import snake_display
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             T = 0.005
@@ -19813,9 +19827,9 @@ class Dip:
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
+            from helpers.snake_display import snake_display
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             NIter = [10, 20, 40, 60, 80]
@@ -19966,7 +19980,7 @@ class Dip:
             from libDIP.levelSetFunction4e import levelSetFunction4e
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             r = 1
@@ -20030,7 +20044,7 @@ class Dip:
             from libDIP.levelSetFunction4e import levelSetFunction4e
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             x0 = [100, 100]
@@ -20126,7 +20140,7 @@ class Dip:
             from libDIP.levelSetFunction4e import levelSetFunction4e
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             x0 = 100
@@ -20183,13 +20197,13 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat, savemat
-            from libDIPUM.snake_manual_input import snake_manual_input
+            from helpers.snake_manual_input import snake_manual_input
             from libDIP.snakeMap4e import snakeMap4e
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.data_path import dip_data
+            from helpers.snake_display import snake_display
+            from helpers.data_path import dip_data
 
             # Parameters
             Alpha = 0.5
@@ -20299,7 +20313,7 @@ class Dip:
             from libDIP.levelSetFunction4e import levelSetFunction4e
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             x0 = 250
@@ -20360,7 +20374,7 @@ class Dip:
             from libDIP.levelSetFunction4e import levelSetFunction4e
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             x0 = 250
@@ -20469,7 +20483,7 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.gaussKernel4e import gaussKernel4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1122...")
 
@@ -20532,7 +20546,7 @@ class Dip:
             plt.axis("off")
 
             # Save
-            out_dir = os.path.dirname(str(script_path))
+            out_dir = os.path.join(str(_Path(__file__).resolve().parents[1]), "output")
             out1 = os.path.join(out_dir, "Figure1122.png")
             out2 = os.path.join(out_dir, "Figure1123.png")
             fig1.savefig(out1, dpi=150, bbox_inches="tight")
@@ -20557,14 +20571,14 @@ class Dip:
             from skimage.measure import find_contours
             from scipy.io import loadmat, savemat
             from scipy.ndimage import convolve
-            from libDIPUM.curve_manual_input import curve_manual_input
-            from libDIPUM.coord2mask import coord2mask
+            from helpers.curve_manual_input import curve_manual_input
+            from helpers.coord2mask import coord2mask
             from libDIP.levelSetFunction4e import levelSetFunction4e
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
-            from libDIPUM.gaussKernel4e import gaussKernel4e
-            from libDIPUM.data_path import dip_data
+            from helpers.gaussKernel4e import gaussKernel4e
+            from helpers.data_path import dip_data
 
             # Parameters
             n = 21
@@ -20645,7 +20659,7 @@ class Dip:
 
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.gaussKernel4e import gaussKernel4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             n = 21
@@ -20697,11 +20711,11 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.gaussKernel4e import gaussKernel4e
-            from libDIPUM.curve_manual_input import curve_manual_input
-            from libDIPUM.coord2mask import coord2mask
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.contourc import contourc
-            from libDIPUM.data_path import dip_data
+            from helpers.curve_manual_input import curve_manual_input
+            from helpers.coord2mask import coord2mask
+            from helpers.curve_display import curve_display
+            from helpers.contourc import contourc
+            from helpers.data_path import dip_data
 
             # Input initial phi manually.
             if os.path.exists("Figure1124.mat"):
@@ -20784,9 +20798,9 @@ class Dip:
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
             from libDIP.gaussKernel4e import gaussKernel4e
-            from libDIPUM.curve_manual_input import curve_manual_input
-            from libDIPUM.coord2mask import coord2mask
-            from libDIPUM.data_path import dip_data
+            from helpers.curve_manual_input import curve_manual_input
+            from helpers.coord2mask import coord2mask
+            from helpers.data_path import dip_data
 
             # Parameters
             n = 21
@@ -20861,7 +20875,7 @@ class Dip:
             from skimage.io import imread
             from skimage.util import img_as_float
             from libDIP.levelSetForce4e import levelSetForce4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("rose479by512.tif")
@@ -20897,9 +20911,9 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
-            from libDIPUM.contourc import contourc
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.contourc import contourc
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # Parameters
             iterations = [200, 300, 400, 600, 800]
@@ -20966,8 +20980,8 @@ class Dip:
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.data_path import dip_data
+            from helpers.snake_display import snake_display
+            from helpers.data_path import dip_data
 
             # Parameters
             Alpha = 0.5
@@ -21104,9 +21118,9 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
-            from libDIPUM.contourc import contourc
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.contourc import contourc
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # Parameters
             iterations = [500, 1000, 1500, 2000, 3500]
@@ -21180,10 +21194,10 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
-            from libDIPUM.curve_manual_input import curve_manual_input
-            from libDIPUM.coord2mask import coord2mask
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.curve_manual_input import curve_manual_input
+            from helpers.coord2mask import coord2mask
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # Parameters
             mu = 0.5
@@ -21262,10 +21276,10 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
-            from libDIPUM.curve_manual_input import curve_manual_input
-            from libDIPUM.coord2mask import coord2mask
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.curve_manual_input import curve_manual_input
+            from helpers.coord2mask import coord2mask
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("noisy-blobs.tif")
@@ -21341,9 +21355,9 @@ class Dip:
             from libDIP.levelSetForce4e import levelSetForce4e
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
-            from libDIPUM.contourc import contourc
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.contourc import contourc
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # Parameters
             mu = 0.5
@@ -21415,10 +21429,10 @@ class Dip:
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
 
-            from libDIPUM.contourc import contourc
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.data_path import dip_data
+            from helpers.contourc import contourc
+            from helpers.curve_display import curve_display
+            from helpers.snake_display import snake_display
+            from helpers.data_path import dip_data
 
             # (1) Snake part (gvf)
             mat_path = dip_data("Figure118.mat")
@@ -21536,13 +21550,13 @@ class Dip:
             from libDIP.levelSetIterate4e import levelSetIterate4e
             from libDIP.levelSetReInit4e import levelSetReInit4e
 
-            from libDIPUM.gaussKernel4e import gaussKernel4e
-            from libDIPUM.coord2mask import coord2mask
-            from libDIPUM.contourc import contourc
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.curve_manual_input import curve_manual_input
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.data_path import dip_data
+            from helpers.gaussKernel4e import gaussKernel4e
+            from helpers.coord2mask import coord2mask
+            from helpers.contourc import contourc
+            from helpers.curve_display import curve_display
+            from helpers.curve_manual_input import curve_manual_input
+            from helpers.snake_display import snake_display
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("breast-implant.tif")
@@ -21681,10 +21695,10 @@ class Dip:
             from libDIP.SnakeSegmentation import SnakeSegmentation
             from libDIP.LevelSetEdgebased import LevelSetEdgebased
             from libDIP.LevelSetRegionBased import LevelSetRegionBased
-            from libDIPUM.coord2mask import coord2mask
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.coord2mask import coord2mask
+            from helpers.snake_display import snake_display
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # %% Data
             img_path = dip_data("noisy-blobs.tif")
@@ -21814,9 +21828,9 @@ class Dip:
             from libDIP.SnakeSegmentation import SnakeSegmentation
             from libDIP.LevelSetEdgebased import LevelSetEdgebased
             from libDIP.LevelSetRegionBased import LevelSetRegionBased
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.curve_display import curve_display
-            from libDIPUM.data_path import dip_data
+            from helpers.snake_display import snake_display
+            from helpers.curve_display import curve_display
+            from helpers.data_path import dip_data
 
             # %% Parameters
             # Snake
@@ -21944,7 +21958,7 @@ class Dip:
 
             from libDIP.SnakeSegmentation import SnakeSegmentation
             from libDIP.LevelSetEdgebased import LevelSetEdgebased
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # %% Parameters
             # Snake
@@ -22052,7 +22066,7 @@ class Dip:
                 sys.path.append(edge_lib_path)
 
             from libDIP.snakeMap4e import snakeMap4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def Figure113_skimage():
                 """
@@ -22220,7 +22234,7 @@ class Dip:
             from scipy.io import loadmat
             from libDIP.snakeMap4e import snakeMap4e
             from libDIP.snakeForce4e import snakeForce4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             T = 0.001
@@ -22285,7 +22299,7 @@ class Dip:
             from scipy.io import loadmat
             from libDIP.snakeMap4e import snakeMap4e
             from libDIP.snakeForce4e import snakeForce4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Parameters
             T = 0.001
@@ -22346,8 +22360,8 @@ class Dip:
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.data_path import dip_data
+            from helpers.snake_display import snake_display
+            from helpers.data_path import dip_data
 
             # Parameters
             Alpha = 0.5
@@ -22453,8 +22467,8 @@ class Dip:
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
-            from libDIPUM.data_path import dip_data
+            from helpers.snake_display import snake_display
+            from helpers.data_path import dip_data
 
             print("Running Figure117...")
 
@@ -22542,7 +22556,7 @@ class Dip:
             plt.sca(axes[1, 1])
             snake_display(x_res[2], y_res[2], ".g")
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure117.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure117.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -22563,14 +22577,14 @@ class Dip:
             from scipy.io import loadmat, savemat
             from skimage.io import imread
 
-            from libDIPUM.snake_manual_input import snake_manual_input
+            from helpers.snake_manual_input import snake_manual_input
             from libDIP.snakeMap4e import snakeMap4e
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
+            from helpers.snake_display import snake_display
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure118...")
 
@@ -22682,9 +22696,9 @@ class Dip:
             from libDIP.snakeForce4e import snakeForce4e
             from libDIP.snakeIterate4e import snakeIterate4e
             from libDIP.snakeReparam4e import snakeReparam4e
-            from libDIPUM.snake_display import snake_display
+            from helpers.snake_display import snake_display
             from libDIP.intScaling4e import intScaling4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             img_path = dip_data("U200.tif")
@@ -22766,9 +22780,9 @@ class Dip:
             from skimage.io import imread
             from skimage.measure import find_contours
             from scipy.spatial.distance import pdist, squareform
-            from libDIPUM.diameter import diameter
-            from libDIPUM.x2majoraxis import x2majoraxis
-            from libDIPUM.data_path import dip_data
+            from helpers.diameter import diameter
+            from helpers.x2majoraxis import x2majoraxis
+            from helpers.data_path import dip_data
             import os
             import itertools
 
@@ -23113,9 +23127,9 @@ class Dip:
             from skimage.color import rgb2gray
             from helpers.N8 import N8
             from helpers.mmshow import mmshow
-            from libDIPUM.freemanChainCode import freemanChainCode
+            from helpers.freemanChainCode import freemanChainCode
             import sys
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def get_choice():
                 """get_choice."""
@@ -23373,11 +23387,11 @@ class Dip:
             import ia870
             from scipy.ndimage import uniform_filter
 
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.freemanChainCode import freemanChainCode
-            from libDIPUM.bsubsamp import bsubsamp
-            from libDIPUM.connectpoly import connectpoly
-            from libDIPUM.data_path import dip_data
+            from helpers.bwboundaries import bwboundaries
+            from helpers.freemanChainCode import freemanChainCode
+            from helpers.bsubsamp import bsubsamp
+            from helpers.connectpoly import connectpoly
+            from helpers.data_path import dip_data
 
             print("Running Figure1205...")
 
@@ -23490,7 +23504,7 @@ class Dip:
             from bound2im import bound2im
             from skimage.morphology import dilation, square
             from bwboundaries import bwboundaries
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def Figure1209():
                 """Figure1209."""
@@ -23632,11 +23646,11 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.im2minperpoly import im2minperpoly
-            from libDIPUM.connectpoly import connectpoly
-            from libDIPUM.bound2im import bound2im
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.data_path import dip_data
+            from helpers.im2minperpoly import im2minperpoly
+            from helpers.connectpoly import connectpoly
+            from helpers.bound2im import bound2im
+            from helpers.bwboundaries import bwboundaries
+            from helpers.data_path import dip_data
 
             print("Running Figure1209 (Minimum Perimeter Polygon)...")
 
@@ -23721,9 +23735,9 @@ class Dip:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.signature import signature
-            from libDIPUM.data_path import dip_data
+            from helpers.bwboundaries import bwboundaries
+            from helpers.signature import signature
+            from helpers.data_path import dip_data
 
             print("Running Figure1211 (Boundary Signatures)...")
 
@@ -23792,9 +23806,9 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.signature import signature
-            from libDIPUM.data_path import dip_data
+            from helpers.bwboundaries import bwboundaries
+            from helpers.signature import signature
+            from helpers.data_path import dip_data
 
             # Helper for robust image reading
             def read_image_robust(path: Any):
@@ -24019,8 +24033,8 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from libDIPUM.skeleton import skeleton
-            from libDIPUM.data_path import dip_data
+            from helpers.skeleton import skeleton
+            from helpers.data_path import dip_data
 
             print("Running Figure1214 (Skeleton comparisons)...")
 
@@ -24114,8 +24128,8 @@ class Dip:
         try:
             import numpy as np
 
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.freemanChainCode import freemanChainCode
+            from helpers.bwboundaries import bwboundaries
+            from helpers.freemanChainCode import freemanChainCode
 
             print("Running Figure1216 (Freeman chain code examples)...")
 
@@ -24159,8 +24173,8 @@ class Dip:
         try:
             import numpy as np
 
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.freemanChainCode import freemanChainCode
+            from helpers.bwboundaries import bwboundaries
+            from helpers.freemanChainCode import freemanChainCode
 
             print("Running Figure1217 (Freeman chain code)...")
 
@@ -24200,11 +24214,11 @@ class Dip:
             from scipy.ndimage import binary_dilation
 
             from helpers.mmshow import mmshow
-            from libDIPUM.bwboundaries import bwboundaries
-            from libDIPUM.bound2im import bound2im
-            from libDIPUM.frdescp import frdescp
-            from libDIPUM.ifrdescp import ifrdescp
-            from libDIPUM.data_path import dip_data
+            from helpers.bwboundaries import bwboundaries
+            from helpers.bound2im import bound2im
+            from helpers.frdescp import frdescp
+            from helpers.ifrdescp import ifrdescp
+            from helpers.data_path import dip_data
 
             print("Running Figure1219 (Fourier descriptors of boundary)...")
 
@@ -24307,7 +24321,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             from libDIP.binaryRegionProps4e import binaryRegionProps4e
 
@@ -24393,7 +24407,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1224 (Americas at night ratios)...")
 
@@ -24411,8 +24425,14 @@ class Dip:
             X2 = []
             Total = 0
 
+            missing_inputs = []
             for name in Names:
-                img = imread(dip_data(f"{name}.tif"))
+                filename = f"{name}.tif"
+                try:
+                    img = imread(dip_data(filename))
+                except FileNotFoundError:
+                    missing_inputs.append(filename)
+                    continue
                 if img.ndim == 3:
                     img = img[:, :, 0]
                 f.append(img)
@@ -24421,6 +24441,41 @@ class Dip:
                 X1.append(x1)
                 X2.append(x2)
                 Total += x1.size
+
+            if missing_inputs:
+                fig, ax = plt.subplots(figsize=(9, 3))
+                ax.axis("off")
+                ax.text(
+                    0.0,
+                    0.9,
+                    "Figure1224 input data missing:",
+                    transform=ax.transAxes,
+                    fontsize=11,
+                    fontweight="bold",
+                )
+                ax.text(
+                    0.0,
+                    0.7,
+                    "\n".join(missing_inputs),
+                    transform=ax.transAxes,
+                    fontsize=10,
+                    family="monospace",
+                )
+                ax.text(
+                    0.0,
+                    0.25,
+                    "Add these files to AllDataFiles or set DIP4E_DATA_DIR.",
+                    transform=ax.transAxes,
+                    fontsize=10,
+                )
+                fig.tight_layout()
+                fig.savefig("Figure1224.png")
+                print(
+                    "Saved Figure1224.png placeholder (missing inputs): "
+                    + ", ".join(missing_inputs)
+                )
+                plt.show()
+                return self._collect_new_figures(pre_fig_nums)
 
             # Ratio
             Ratio = np.zeros(len(Names), dtype=float)
@@ -24455,7 +24510,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1228 (Morphology + labeling + skeleton)...")
 
@@ -24539,7 +24594,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1229 (Histogram-based texture statistics)...")
 
@@ -24650,7 +24705,7 @@ class Dip:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1231 (Three texture strips)...")
 
@@ -24687,7 +24742,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             from helpers.graycomatrix import graycomatrix
             from helpers.graycoprops import graycoprops
@@ -24778,7 +24833,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             from helpers.graycomatrix import graycomatrix
             from helpers.graycoprops import graycoprops
@@ -24840,9 +24895,9 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
-            from libDIPUM.specxture import specxture
+            from helpers.specxture import specxture
 
             print("Running Figure1235 (Matches and spectra)...")
 
@@ -24898,8 +24953,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
-            from libDIPUM.specxture import specxture
+            from helpers.data_path import dip_data
+            from helpers.specxture import specxture
 
             print("Running Figure1236 (Radial and angular spectra)...")
 
@@ -24969,8 +25024,8 @@ class Dip:
             from skimage.io import imread
             from scipy.ndimage import rotate
 
-            from libDIPUM.invmoments import invmoments
-            from libDIPUM.data_path import dip_data
+            from helpers.invmoments import invmoments
+            from helpers.data_path import dip_data
 
             print("Running Figure1237 (Invariant moments under transformations)...")
 
@@ -25100,10 +25155,10 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
-            from libDIPUM.imstack2vectors import imstack2vectors
-            from libDIPUM.principalComponents import principalComponents
+            from helpers.imstack2vectors import imstack2vectors
+            from helpers.principalComponents import principalComponents
 
             print("Running Figure1238to42 (PCA on WashingtonDC multispectral stack)...")
 
@@ -25362,7 +25417,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from helpers.corner import corner
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -25406,7 +25461,7 @@ class Dip:
             axes[5].plot(C5[:, 0] - 1, C5[:, 1] - 1, "yo", markersize=4)
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1247.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1247.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -25424,7 +25479,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from helpers.corner import corner
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -25464,7 +25519,7 @@ class Dip:
             axes[3].plot(C3[:, 0] - 1, C3[:, 1] - 1, "yo", markersize=4)
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1248.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1248.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -25482,7 +25537,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from helpers.corner import corner
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -25526,7 +25581,7 @@ class Dip:
             axes[5].plot(C5[:, 0] - 1, C5[:, 1] - 1, "yo", markersize=4)
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1249.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1249.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -25545,7 +25600,7 @@ class Dip:
             import matplotlib.pyplot as plt
             from scipy import ndimage
             from helpers.corner import corner
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -25588,7 +25643,7 @@ class Dip:
             axes[1].plot(C[:, 0] - 1, C[:, 1] - 1, "yo", markersize=4)
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1250.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1250.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -25609,7 +25664,7 @@ class Dip:
             import imageio.v2 as iio
 
             from helpers.detectMSERFeatures import detectMSERFeatures
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -25690,7 +25745,7 @@ class Dip:
                 ax.axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1252.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1252.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Detected regions: {R.Count}")
             print(f"Saved {out_path}")
@@ -25712,7 +25767,7 @@ class Dip:
             import imageio.v2 as iio
 
             from helpers.detectMSERFeatures import detectMSERFeatures
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -25789,7 +25844,7 @@ class Dip:
             ax.axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1253.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1253.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Detected regions: {R.Count}")
             print(f"Saved {out_path}")
@@ -25811,7 +25866,7 @@ class Dip:
             import imageio.v2 as iio
 
             from helpers.detectMSERFeatures import detectMSERFeatures
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -25906,7 +25961,7 @@ class Dip:
             axs[2].axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1254.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1254.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Detected regions: {R.Count}")
             print(f"Saved {out_path}")
@@ -25928,7 +25983,7 @@ class Dip:
             import imageio.v2 as iio
 
             from helpers.detectMSERFeatures import detectMSERFeatures
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -26019,7 +26074,7 @@ class Dip:
             axs[2].axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1255.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1255.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Detected regions: {R.Count}")
             print(f"Saved {out_path}")
@@ -26038,8 +26093,8 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from libDIPUM.gaussKernel4e import gaussKernel4e
-            from libDIPUM.data_path import dip_data
+            from helpers.gaussKernel4e import gaussKernel4e
+            from helpers.data_path import dip_data
 
             print("Running Figure1257...")
 
@@ -26183,7 +26238,7 @@ class Dip:
                 )
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1257.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1257.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -26201,7 +26256,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def gaussian_kernel(size: int, sigma: float) -> np.ndarray:
                 """gaussian_kernel."""
@@ -26322,7 +26377,7 @@ class Dip:
                 ax.axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1258.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1258.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -26340,9 +26395,9 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from libDIP.boundary2image4e import boundary2image4e
-            from libDIPUM.sift import sift
+            from helpers.sift import sift
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1260New (keypoints without orientation arrows)...")
 
@@ -26374,7 +26429,7 @@ class Dip:
             axs[1].axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1260.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1260.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
 
             plt.show()
@@ -26391,9 +26446,9 @@ class Dip:
             import os
             import matplotlib.pyplot as plt
 
-            from libDIPUM.sift import sift
-            from libDIPUM.showkeys import showkeys
-            from libDIPUM.data_path import dip_data
+            from helpers.sift import sift
+            from helpers.showkeys import showkeys
+            from helpers.data_path import dip_data
 
             print("Running Figure1261 (keypoints with orientation)...")
 
@@ -26411,7 +26466,7 @@ class Dip:
             plt.title("Keypoints with orientation")
             plt.axis("off")
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1261.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1261.png")
             plt.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -26428,10 +26483,10 @@ class Dip:
             import os
             import matplotlib.pyplot as plt
 
-            from libDIPUM.sift import sift
-            from libDIPUM.showkeys import showkeys
-            from libDIPUM.match import match
-            from libDIPUM.data_path import dip_data
+            from helpers.sift import sift
+            from helpers.showkeys import showkeys
+            from helpers.match import match
+            from helpers.data_path import dip_data
 
             print("Running Figure1263 (matching of building corner)...")
 
@@ -26470,7 +26525,7 @@ class Dip:
             plt.axis("off")
 
             # Save (equivalent to MATLAB print -f1/-f2/-f3)
-            out_dir = os.path.dirname(str(script_path))
+            out_dir = os.path.join(str(_Path(__file__).resolve().parents[1]), "output")
             out1 = os.path.join(out_dir, "Figure1263.png")
             out2 = os.path.join(out_dir, "Figure1263Bis.png")
             out3 = os.path.join(out_dir, "Figure1263Ter.png")
@@ -26497,10 +26552,10 @@ class Dip:
             import imageio.v2 as iio
             from scipy import ndimage
 
-            from libDIPUM.sift import sift
-            from libDIPUM.showkeys import showkeys
-            from libDIPUM.match import match
-            from libDIPUM.data_path import dip_data
+            from helpers.sift import sift
+            from helpers.showkeys import showkeys
+            from helpers.match import match
+            from helpers.data_path import dip_data
 
             print("Running Figure1265 (matching of half-size building corner)...")
 
@@ -26545,7 +26600,7 @@ class Dip:
             plt.axis("off")
 
             # Save
-            out_dir = os.path.dirname(str(script_path))
+            out_dir = os.path.join(str(_Path(__file__).resolve().parents[1]), "output")
             out1 = os.path.join(out_dir, "Figure1265.png")
             out2 = os.path.join(out_dir, "Figure1265Bis.png")
             out3 = os.path.join(out_dir, "Figure1265Ter.png")
@@ -26570,8 +26625,8 @@ class Dip:
             import os
             import matplotlib.pyplot as plt
 
-            from libDIPUM.match import match
-            from libDIPUM.data_path import dip_data
+            from helpers.match import match
+            from helpers.data_path import dip_data
 
             print("Running Figure1266 (matching rotated and half-size corners)...")
 
@@ -26596,7 +26651,7 @@ class Dip:
             axs[1].axis("off")
 
             fig.tight_layout()
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1266.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1266.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -26618,10 +26673,10 @@ class Dip:
             # Add current directory to path
             sys.path.append(".")
 
-            from libDIPUM.cnnsetup import cnnsetup
-            from libDIPUM.cnntrain import cnntrain
-            from libDIPUM.cnntest import cnntest
-            from libDIPUM.data_path import dip_data
+            from helpers.cnnsetup import cnnsetup
+            from helpers.cnntrain import cnntrain
+            from helpers.cnntest import cnntest
+            from helpers.data_path import dip_data
 
             def load_mnist_data(path: Any = None):
                 """load_mnist_data."""
@@ -26790,7 +26845,7 @@ class Dip:
             sys.path.append(".")
 
             from lib.neuralNet4e import neuralNet4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def load_mnist_data(path: Any = None):
                 """Load and preprocess MNIST data from .mat file for NN."""
@@ -26928,9 +26983,9 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from libDIPUM.cnnsetup import cnnsetup
-            from libDIPUM.cnntrain import cnntrain
-            from libDIPUM.cnntest import cnntest
+            from helpers.cnnsetup import cnnsetup
+            from helpers.cnntrain import cnntrain
+            from helpers.cnntest import cnntest
 
             print("Running Example1316CNN...")
 
@@ -27349,7 +27404,7 @@ class Dip:
 
             from libDIP.perceptronClassifier4e import perceptronClassifier4e
             from libDIP.perceptronTraining4e import perceptronTraining4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Example138...")
 
@@ -27432,11 +27487,11 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from libDIPUM.im2minperpoly import im2minperpoly
-            from libDIPUM.randvertex import randvertex
-            from libDIPUM.polyangles import polyangles
-            from libDIPUM.strsimilarity import strsimilarity
-            from libDIPUM.data_path import dip_data
+            from helpers.im2minperpoly import im2minperpoly
+            from helpers.randvertex import randvertex
+            from helpers.polyangles import polyangles
+            from helpers.strsimilarity import strsimilarity
+            from helpers.data_path import dip_data
 
             # Parameters
             Nr = 10
@@ -27584,7 +27639,7 @@ class Dip:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.io import loadmat
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1310 (minimum distance classifier)...")
 
@@ -27692,7 +27747,7 @@ class Dip:
             plt.xlim([min_petal_length, max_petal_length])
             plt.ylim([min_petal_width, max_petal_width])
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1310.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1310.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
@@ -27867,7 +27922,7 @@ class Dip:
             from skimage.io import imread
             from skimage.feature import match_template
             import ia870 as ia
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             # Data
             path_f = dip_data("Fig1209(a)(Hurricane Andrew).tif")
@@ -27942,7 +27997,7 @@ class Dip:
             from skimage.io import imread
             from skimage.feature import ORB, match_descriptors
             import os
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             try:
                 from skimage.feature import plot_matches as _plot_matches_legacy
@@ -28231,7 +28286,7 @@ class Dip:
 
             # MATLAB axis comment is optional; keep auto for choix=2 random case.
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1320.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1320.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -28278,10 +28333,10 @@ class Dip:
             import matplotlib.pyplot as plt
             from PIL import Image
 
-            from libDIPUM.imstack2vectors import imstack2vectors
-            from libDIPUM.covmatrix import covmatrix
-            from libDIPUM.bayesgauss import bayesgauss
-            from libDIPUM.data_path import dip_data
+            from helpers.imstack2vectors import imstack2vectors
+            from helpers.covmatrix import covmatrix
+            from helpers.bayesgauss import bayesgauss
+            from helpers.data_path import dip_data
 
             print("Running Figure1321 (Bayes classification of remote data)...")
 
@@ -28434,7 +28489,7 @@ class Dip:
             plt.imshow(class3, cmap="gray")
             plt.axis("off")
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1321.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1321.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -28531,7 +28586,7 @@ class Dip:
             ax2.set_box_aspect((1, 1, 0.65))
 
             # Save
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1324.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1324.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -28822,7 +28877,7 @@ class Dip:
             ax2.plot_wireframe(Xg, Yg, f[row_idx, col_idx], color="k", linewidth=0.7)
             ax2.set_box_aspect((1, 1, 0.6))
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1325.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1325.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -28844,7 +28899,7 @@ class Dip:
 
             from libDIP.lmsePerceptronTraining4e import lmsePerceptronTraining4e
             from libDIP.perceptronClassifier4e import perceptronClassifier4e
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             print("Running Figure1326 (LMSE perceptron errors on iris data)...")
 
@@ -28932,7 +28987,7 @@ class Dip:
             ax2.set_xlim([1, 900])
             ax2.set_ylim([0, 0.3])
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1326.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1326.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -28984,7 +29039,7 @@ class Dip:
             ax3.set_ylim([0, 6])
             ax3.set_box_aspect(1)
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1329.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1329.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -29110,7 +29165,7 @@ class Dip:
             ax3.set_title("XOR Gate")
             ax3.set_box_aspect((1, 1, 1))
 
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1334.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1334.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -29602,7 +29657,7 @@ class Dip:
             plt.title("The XOR Problem")
 
             # Save
-            out_path = os.path.join(os.path.dirname(str(script_path)), "Figure1336.png")
+            out_path = os.path.join(os.path.join(str(_Path(__file__).resolve().parents[1]), "output"), "Figure1336.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -29622,7 +29677,7 @@ class Dip:
             import matplotlib.pyplot as plt
             import os
             from skimage.io import imread
-            from libDIPUM.data_path import dip_data
+            from helpers.data_path import dip_data
 
             def sigmoid(x: Any):
                 """sigmoid."""
@@ -29859,7 +29914,7 @@ class Dip:
             plt.imshow(MaskColor)
             plt.title("Masks (U=R, V=G, W=B)")
 
-            out_dir = os.path.dirname(str(script_path))
+            out_dir = os.path.join(str(_Path(__file__).resolve().parents[1]), "output")
             plt.savefig(os.path.join(out_dir, "Figure1337.png"))
 
             # Figure 2: Confusion Matrix

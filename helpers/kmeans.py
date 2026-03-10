@@ -4,76 +4,81 @@ import numpy as np
 
 def kmeans(X: Any, k: Any, max_iters: Any = 100, tol: Any = 1e-4, replicates: Any = 1):
     """
-    K-means clustering implementation (Lloyd's algorithm).
+    K-means clustering.
 
     Parameters:
-        X: Input data (N x M) or (N,)
-        k: Number of clusters
+        X: Input data (1D array or N x M matrix).
+        k: Number of clusters.
+        max_iters: Maximum iterations.
+        tol: Tolerance for convergence.
+        replicates: Number of times to repeat simple k-means with new random starts.
 
     Returns:
-        idx: Cluster indices (1-based), shape (N,)
-        C: Centroids (k x M)
+        idx: Cluster indices (1-based, matching MATLAB 1..k).
+        C: Cluster centers.
     """
     X = np.array(X)
     if X.ndim == 1:
         X = X.reshape(-1, 1)
 
     N, M = X.shape
-
-    # Simple initialization: random choice
-    # For robustness, could retry 'replicates' times.
-
     best_inertia = np.inf
     best_idx = None
     best_C = None
 
     rng = np.random.default_rng(42)
 
-    for _ in range(replicates):
-        # Choose k random points as initial centroids
-        initial_indices = rng.choice(N, k, replace=False)
-        C = X[initial_indices].astype(float)
+    for _ in range(max(1, replicates)):
+        # Initialize centers
+        # Randomly choose k unique rows if possible
+        if N >= k:
+            initial_indices = rng.choice(N, k, replace=False)
+            C = X[initial_indices].astype(float)
+        else:
+            C = X[rng.choice(N, k, replace=True)].astype(float)
 
         for i in range(max_iters):
-            # Assign points to nearest centroid
-            # Distances: (N, k). squared euclidean
-            # (x - c)^2 = x^2 + c^2 - 2xc
-            # Or use broadcasting
-
-            # shape (N, 1, M) - (1, k, M) -> (N, k, M)
+            # Distances: (N, 1, M) - (1, k, M) -> (N, k, M)
             diffs = X[:, np.newaxis, :] - C[np.newaxis, :, :]
-            dists = np.sum(diffs**2, axis=2)
+            # Sum squared diffs
+            dists = np.sum(diffs**2, axis=2)  # (N, k)
 
-            idx_0 = np.argmin(dists, axis=1)
+            # Assign to nearest center
+            idx_0 = np.argmin(dists, axis=1)  # 0..k-1
 
-            # Update centroids
             new_C = np.zeros_like(C)
+            converged = True
+
             for j in range(k):
                 mask = idx_0 == j
                 if np.any(mask):
                     new_C[j] = X[mask].mean(axis=0)
                 else:
-                    # Handle empty cluster: re-init? or keep properties?
-                    # simple strategy: keep old or random re-init
+                    # Empty cluster, re-init to random point
                     new_C[j] = X[rng.choice(N)]
+                    converged = (
+                        False  # Force another iter if we had to move a center randomly
+                    )
 
-            # Check convergence
-            shift = np.sum((new_C - C) ** 2)
-            C = new_C
-            if shift < tol:
+            if converged and np.sum((new_C - C) ** 2) < tol:
+                C = new_C
                 break
+            C = new_C
 
-        # Calculate inertia
-        # dists updated with final C? No, need to recompute
+        # Final inertia
         diffs = X[:, np.newaxis, :] - C[np.newaxis, :, :]
         dists = np.sum(diffs**2, axis=2)
         idx_0 = np.argmin(dists, axis=1)
-        min_dists = np.min(dists, axis=1)
-        inertia = np.sum(min_dists)
+        inertia = np.sum(np.min(dists, axis=1))
 
         if inertia < best_inertia:
             best_inertia = inertia
             best_idx = idx_0
             best_C = C
+
+    if best_idx is None:
+        # Fallback if something went wrong
+        best_idx = np.zeros(N, dtype=int)
+        best_C = np.zeros((k, M))
 
     return best_idx + 1, best_C
