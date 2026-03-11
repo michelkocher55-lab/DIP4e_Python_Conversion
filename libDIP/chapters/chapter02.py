@@ -4,7 +4,6 @@ from pathlib import Path as _Path
 import os as _os
 
 
-
 class Chapter02Mixin:
     def figureXXX(self, data_dir: str | None = None) -> dict[str, object]:
         """Run Chapter02 script `FigureXXX.py` with inlined code."""
@@ -18,7 +17,10 @@ class Chapter02Mixin:
             img_name = dip_data("Chronometer.tif")
             f = imread(img_name)
             original_shape = f.shape[:2]
-            g = 255 - f
+            from helpers.aMean4e import aMean4e
+
+            g = aMean4e(f, 11, 11)
+            # g = 255 - f
             _, axes = plt.subplots(1, 2, figsize=(10, 10))
             axes = axes.flatten()
 
@@ -27,11 +29,10 @@ class Chapter02Mixin:
             axes[0].axis("off")
 
             axes[1].imshow(g, cmap="gray")
-            axes[1].set_title(f"Negate ({original_shape})")
+            axes[1].set_title(f"aMean4e ({original_shape})")
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
