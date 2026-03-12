@@ -1,6 +1,6 @@
 from typing import Any
 import numpy as np
-from libDIP.tmat4e import tmat4e
+from DIP4eFigures.tmat4e import tmat4e
 from helpers.huff2mat import huff2mat
 
 

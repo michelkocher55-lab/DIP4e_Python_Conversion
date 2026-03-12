@@ -30,10 +30,19 @@ def run_dip_method(
     chapter_attr: str | None = None,
     description: str | None = None,
 ) -> None:
-    from libDIP.dip import Dip
+    from DIP4eFigures.dip import Dip
 
     input_data_dir = "AllDataFiles"
-    output_dir = PROJECT_ROOT / "output"
+    chapter_dir_name = (
+        f"Chapter{chapter_attr.removeprefix('chapter')}"
+        if chapter_attr is not None
+        else None
+    )
+    output_dir = (
+        PROJECT_ROOT / "output" / chapter_dir_name
+        if chapter_dir_name is not None
+        else PROJECT_ROOT / "output"
+    )
     output_figure_base = output_dir / output_name
     os.makedirs(output_dir, exist_ok=True)
 
@@ -41,13 +50,22 @@ def run_dip_method(
     target = getattr(dip, chapter_attr) if chapter_attr else dip
     method = getattr(target, method_name)
     method_kwargs = {"data_dir": input_data_dir}
+    previous_output_dir = os.environ.get("DIP4E_OUTPUT_DIR")
+    os.environ["DIP4E_OUTPUT_DIR"] = str(output_dir)
     if (
         description is not None
         and "description" in inspect.signature(method).parameters
     ):
         method_kwargs["description"] = description
 
-    result = method(**method_kwargs)
+    try:
+        result = method(**method_kwargs)
+    finally:
+        if previous_output_dir is None:
+            os.environ.pop("DIP4E_OUTPUT_DIR", None)
+        else:
+            os.environ["DIP4E_OUTPUT_DIR"] = previous_output_dir
+
     figures = result.get("figures", [])
     if not figures:
         return

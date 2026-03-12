@@ -1,11 +1,11 @@
 import numpy as np
 from skimage.util import img_as_float
 
-from libDIP.intScaling4e import intScaling4e
-from libDIP.snakeMap4e import snakeMap4e
-from libDIP.snakeForce4e import snakeForce4e
-from libDIP.snakeIterate4e import snakeIterate4e
-from libDIP.snakeReparam4e import snakeReparam4e
+from DIP4eFigures.intScaling4e import intScaling4e
+from DIP4eFigures.snakeMap4e import snakeMap4e
+from DIP4eFigures.snakeForce4e import snakeForce4e
+from DIP4eFigures.snakeIterate4e import snakeIterate4e
+from DIP4eFigures.snakeReparam4e import snakeReparam4e
 from helpers.coord2mask import coord2mask
 
 

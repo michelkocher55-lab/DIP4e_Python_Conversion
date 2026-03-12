@@ -5,7 +5,7 @@ import os
 # Ensure we can import modules
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from libDIP.lpFilterTF4e import lpFilterTF4e
+from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
 
 def hpFilterTF4e(filter_type, P, Q, D0, n=1):
     """

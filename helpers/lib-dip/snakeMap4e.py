@@ -1,9 +1,9 @@
 
 import numpy as np
 import math
-from libDIP.intScaling4e import intScaling4e
-from libDIP.gaussKernel4e import gaussKernel4e
-from libDIP.twodConv4e import twodConv4e
+from DIP4eFigures.intScaling4e import intScaling4e
+from DIP4eFigures.gaussKernel4e import gaussKernel4e
+from DIP4eFigures.twodConv4e import twodConv4e
 from helpers.edge import edge
 
 def snakeMap4e(f, T=None, sig=None, nsig=None, order='none'):

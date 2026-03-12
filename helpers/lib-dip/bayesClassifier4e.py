@@ -1,5 +1,5 @@
 import numpy as np
-from libDIP.mahalanobisDistance4e import mahalanobisDistance4e
+from DIP4eFigures.mahalanobisDistance4e import mahalanobisDistance4e
 
 def bayesClassifier4e(X, CA, MA, P=None):
     """

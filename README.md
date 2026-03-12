@@ -9,7 +9,7 @@ Each chapter contains a set of files to generate the corresponding figure. A `Ru
 
 All Python files can be run optionally with the `--noshow` flag to avoid showing the generated figure. This is useful when running all the chapters in one go.  The figure still will be generated and saved in the `output` directory.
 
-## The `libDIP` directory
+## The `DIP4eFigures` directory
 It contains the main class `DIP`. 
 
 This file must be reworked to be more modular (next steps...).
@@ -91,13 +91,13 @@ python3 Figure223.py
 1. Change directory to the processing/Chapter02 directory.
 2. Copy an existing file, for example `Figure223.py`, and rename it to the new figure name, for example `FigureXXX.py`.
 3. Edit the new file and adapt the parameters.
-4. Change directory to the `LibDIP/Chapters` directory and edit the `Chapter02.py` file to add the new function for the new figure (copy an existing function and rename it).
+4. Change directory to the `DIP4eFigures/Chapters` directory and edit the `Chapter02.py` file to add the new function for the new figure (copy an existing function and rename it).
 
 # Adding a new Helper / lib-dip function
 1. Change directory to the `helpers/lib-dip` directory.
 2. Copy an existing file, for example `xxx4e.py`, and rename it to the new helper name, for example `newfunction4e.py`.
 3. Update the function content
-4. Change directory to the `LibDIP/chapters` directory and edit the `chapterXX.py` file to add the new function which use the new helper.
+4. Change directory to the `DIP4eFigures/chapters` directory and edit the `chapterXX.py` file to add the new function which use the new helper.
 
 # Example of a new environment creation from scratch
 

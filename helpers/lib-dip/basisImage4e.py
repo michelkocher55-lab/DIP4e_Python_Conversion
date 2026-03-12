@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from libDIP.tmat4e import tmat4e
-from libDIP.intScaling4e import intScaling4e
+from DIP4eFigures.tmat4e import tmat4e
+from DIP4eFigures.intScaling4e import intScaling4e
 
 def basisImage4e(xform='DCT', N=4, P=2, display=True):
     """

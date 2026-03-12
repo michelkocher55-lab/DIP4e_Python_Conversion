@@ -8,7 +8,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from libDIP.dip import Dip
+from DIP4eFigures.dip import Dip
 import argparse
 import numpy as np
 
@@ -55,7 +55,7 @@ def fig81bc(part, s=256, n=None, p=None):
 def main(show: bool = True) -> None:
     """Run fig81bc.py with explicit input/output paths."""
     input_data_dir = "AllDataFiles"
-    output_dir = str(PROJECT_ROOT / "output")
+    output_dir = os.environ.get("DIP4E_OUTPUT_DIR", str(PROJECT_ROOT / "output"))
     output_figure_base = str(Path(output_dir) / "fig81bc")
     os.makedirs(output_dir, exist_ok=True)
 
