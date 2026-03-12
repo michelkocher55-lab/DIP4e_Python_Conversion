@@ -93,8 +93,12 @@ python3 Figure223.py
 3. Edit the new file and adapt the parameters.
 4. Change directory to the `LibDIP/Chapters` directory and edit the `Chapter02.py` file to add the new function for the new figure (copy an existing function and rename it).
 
+# Adding a new Helper / lib-dip function
+1. Change directory to the `helpers/lib-dip` directory.
+2. Copy an existing file, for example `xxx4e.py`, and rename it to the new helper name, for example `newfunction4e.py`.
+3. Update the function content
+4. Change directory to the `LibDIP/chapters` directory and edit the `chapterXX.py` file to add the new function which use the new helper.
 
-___
 # Example of a new environment creation from scratch
 
 Create the directory, clone the repository, create the virtual environment, install dependencies and copy the ia870 library. 
@@ -103,6 +107,7 @@ cd ~/Downloads
 mkdir tMKR
 cd tMKR
 git clone https://github.com/michelkocher55-lab/DIP4e_Python_Conversion.git
+cd DIP4e_Python_Conversion
 python3 --version
 python3 -m venv .venv
 source .venv/bin/activate
