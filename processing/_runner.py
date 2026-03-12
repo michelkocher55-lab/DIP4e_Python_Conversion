@@ -1,4 +1,5 @@
 import argparse
+import inspect
 import os
 import sys
 from pathlib import Path
@@ -27,6 +28,7 @@ def run_dip_method(
     *,
     show: bool = True,
     chapter_attr: str | None = None,
+    description: str | None = None,
 ) -> None:
     from libDIP.dip import Dip
 
@@ -37,14 +39,27 @@ def run_dip_method(
 
     dip = Dip()
     target = getattr(dip, chapter_attr) if chapter_attr else dip
-    result = getattr(target, method_name)(data_dir=input_data_dir)
+    method = getattr(target, method_name)
+    method_kwargs = {"data_dir": input_data_dir}
+    if (
+        description is not None
+        and "description" in inspect.signature(method).parameters
+    ):
+        method_kwargs["description"] = description
+
+    result = method(**method_kwargs)
     figures = result.get("figures", [])
     if not figures:
         return
 
     for idx, fig in enumerate(figures, start=1):
+        if description is not None and fig._suptitle is None:
+            fig.suptitle(description, y=0.98)
+            fig.subplots_adjust(top=0.88)
         suffix = "" if len(figures) == 1 else f"_{idx}"
-        fig.savefig(f"{output_figure_base}{suffix}.png", dpi=150, bbox_inches="tight")
+        fig.savefig(
+            f"{output_figure_base}{suffix}.png", dpi=150, bbox_inches="tight"
+        )
 
     if show:
         plt.show()

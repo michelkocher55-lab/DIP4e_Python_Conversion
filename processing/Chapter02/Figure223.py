@@ -9,7 +9,13 @@ from processing._runner import parse_args, run_dip_method
 
 
 def main(show: bool = True) -> None:
-    run_dip_method("figure223", "Figure223", show=show, chapter_attr="chapter02")
+    run_dip_method(
+        "figure223",
+        "Figure223",
+        show=show,
+        chapter_attr="chapter02",
+        description="Typical effect of reducing spatial resolution.",
+    )
 
 
 if __name__ == "__main__":
