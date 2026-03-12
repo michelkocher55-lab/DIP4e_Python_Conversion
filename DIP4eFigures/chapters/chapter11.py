@@ -80,7 +80,6 @@ class Chapter11Mixin:
             snake_display(x, y, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1110.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -193,7 +192,6 @@ class Chapter11Mixin:
             snake_display(xb, yb, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1112.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -281,7 +279,6 @@ class Chapter11Mixin:
                 snake_display(xs[idx][::2], ys[idx][::2], "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1113.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -347,7 +344,6 @@ class Chapter11Mixin:
 
             ax.grid(False)
             ax.view_init(elev=8, azim=35)
-            plt.savefig("Figure1114.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -410,7 +406,6 @@ class Chapter11Mixin:
                         ax.plot(c[:, 1], c[:, 0], "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1115.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -495,7 +490,6 @@ class Chapter11Mixin:
                     ax.plot(cont[:, 1], cont[:, 0], "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1118.png")
 
             # Display bottom row
             fig2, axes2 = plt.subplots(2, 2, figsize=(10, 8))
@@ -507,7 +501,6 @@ class Chapter11Mixin:
                     ax.plot(cont[:, 1], cont[:, 0], "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1118Bis.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -566,7 +559,6 @@ class Chapter11Mixin:
                     ax.plot(cont[:, 1], cont[:, 0], "r.")
 
             plt.tight_layout()
-            plt.savefig("Figure1119.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -655,7 +647,6 @@ class Chapter11Mixin:
             axes1[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure112.png")
 
             # Display figure 2
             fig2, ax2 = plt.subplots(1, 1, figsize=(6, 6))
@@ -663,7 +654,6 @@ class Chapter11Mixin:
             ax2.quiver(np.flipud(FTy[::r, ::r]), np.flipud(-FTx[::r, ::r]))
             ax2.set_title("Vector snake force")
             plt.tight_layout()
-            plt.savefig("Figure112Bis.png")
 
             # Display figure 3
             fig3, ax3 = plt.subplots(1, 1, figsize=(6, 6))
@@ -672,14 +662,12 @@ class Chapter11Mixin:
             ax3.set_title("Initial contour")
             ax3.axis("off")
             plt.tight_layout()
-            plt.savefig("Figure112Ter.png")
 
             # Display figure 4
             fig4, ax4 = plt.subplots(1, 1, figsize=(6, 6))
             ax4.imshow(g, cmap="gray")
             snake_display(x, y, "go")
             plt.tight_layout()
-            plt.savefig("Figure112Quart.png")
 
             plt.show()
         finally:
@@ -739,7 +727,6 @@ class Chapter11Mixin:
                     ax.plot(cont[:, 1], cont[:, 0], "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1120.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -843,7 +830,6 @@ class Chapter11Mixin:
                 ax.set_axis_off()
 
             plt.tight_layout()
-            plt.savefig("Figure1121.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1025,7 +1011,6 @@ class Chapter11Mixin:
                     ax.plot(cont[:, 1], cont[:, 0], "y.")
 
             plt.tight_layout()
-            plt.savefig("Figure1124.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1073,7 +1058,6 @@ class Chapter11Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1125.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1159,7 +1143,6 @@ class Chapter11Mixin:
                 curve_display(cc[1, :], cc[0, :], "y.", ax=ax)
 
             plt.tight_layout()
-            plt.savefig("Figure1126.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1245,7 +1228,6 @@ class Chapter11Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1127.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1276,7 +1258,6 @@ class Chapter11Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1128.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1345,7 +1326,6 @@ class Chapter11Mixin:
                 curve_display(cc[1, :], cc[0, :], "r.", ax=ax)
 
             plt.tight_layout()
-            plt.savefig("Figure1129.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1462,7 +1442,6 @@ class Chapter11Mixin:
             snake_display(x2, y2, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure113.png")
 
             fig2, axes2 = plt.subplots(2, 2, figsize=(10, 8))
             axes2[0, 0].imshow(emap3, cmap="gray")
@@ -1484,7 +1463,6 @@ class Chapter11Mixin:
             snake_display(x4, y4, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure113Bis.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1549,7 +1527,6 @@ class Chapter11Mixin:
                     curve_display(cc[1, 0::4], cc[0, 0::4], "r.", ax=ax)
 
             plt.tight_layout()
-            plt.savefig("Figure1131.png")
             plt.show()
 
             # Binary mask display
@@ -1557,7 +1534,6 @@ class Chapter11Mixin:
             plt.imshow(phi <= 0, cmap="gray")
             plt.axis("off")
             plt.tight_layout()
-            plt.savefig("Figure1131Bis.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1639,7 +1615,6 @@ class Chapter11Mixin:
                 ax2.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1132.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1721,7 +1696,6 @@ class Chapter11Mixin:
                 ax2.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1133.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1787,7 +1761,6 @@ class Chapter11Mixin:
                 curve_display(cc[1, :], cc[0, :], "g.", ax=ax)
 
             plt.tight_layout()
-            plt.savefig("Figure1134.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1906,7 +1879,6 @@ class Chapter11Mixin:
             axes[2].set_title("levelset region based")
 
             plt.tight_layout()
-            plt.savefig("Figure1135.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2060,7 +2032,6 @@ class Chapter11Mixin:
             curve_display(cLevelSetRegion[1, :], cLevelSetRegion[0, :], "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure1136.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2193,7 +2164,6 @@ class Chapter11Mixin:
             curve_display(c[1, :], c[0, :], "y.")
 
             plt.tight_layout()
-            plt.savefig("Figure1137.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2325,7 +2295,6 @@ class Chapter11Mixin:
             curve_display(c[1, :], c[0, :], "y.")
 
             plt.tight_layout()
-            plt.savefig("Figure1138.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2426,7 +2395,6 @@ class Chapter11Mixin:
             plt.title("Edge based level set")
 
             plt.tight_layout()
-            plt.savefig("Figure1139.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2580,7 +2548,6 @@ class Chapter11Mixin:
                 # ...
 
                 plt.tight_layout()
-                plt.savefig("Figure113_skimage.png")
                 print("Saved Figure113_skimage.png")
 
                 # Also save Figure113_maps.png to allow user to see the intermediate potentials
@@ -2594,7 +2561,6 @@ class Chapter11Mixin:
                 ax_m[1, 1].imshow(emap4, cmap="gray")
                 ax_m[1, 1].set_title("Energy Map: None")
                 plt.tight_layout()
-                plt.savefig("Figure113_skimage_maps.png")
                 print("Saved Figure113_skimage_maps.png")
 
                 plt.show()
@@ -2661,7 +2627,6 @@ class Chapter11Mixin:
             ax.set_aspect("equal", adjustable="box")
 
             plt.tight_layout()
-            plt.savefig("Figure114.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2720,7 +2685,6 @@ class Chapter11Mixin:
             ax.set_aspect("equal", adjustable="box")
 
             plt.tight_layout()
-            plt.savefig("Figure115.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2822,7 +2786,6 @@ class Chapter11Mixin:
             snake_display(x4, y4, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure116.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -3143,7 +3106,6 @@ class Chapter11Mixin:
             snake_display(x, y, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure119.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)

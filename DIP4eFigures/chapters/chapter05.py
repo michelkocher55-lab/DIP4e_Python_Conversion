@@ -57,7 +57,6 @@ class Chapter05Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure510.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -107,7 +106,6 @@ class Chapter05Mixin:
             axes[1].set_title("Min filter")
 
             plt.tight_layout()
-            plt.savefig("Figure511.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -182,7 +180,6 @@ class Chapter05Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure512.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -268,7 +265,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure513.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -351,7 +347,6 @@ class Chapter05Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure514.png", dpi=300, bbox_inches="tight")
             plt.close()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -414,7 +409,6 @@ class Chapter05Mixin:
             plot_mesh(ax3, Hbw, "Butterworth Notch")
 
             plt.tight_layout()
-            plt.savefig("Figure515.png")
             print("Saved Figure515.png")
             plt.show()
         finally:
@@ -499,7 +493,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure516.png")
             print("Saved Figure516.png")
 
             # Display eliminated noise in separate figure
@@ -508,7 +501,6 @@ class Chapter05Mixin:
             plt.title("Eliminated Noise")
             plt.axis("off")
             plt.tight_layout()
-            plt.savefig("Figure517.png")
             print("Saved Figure517.png")
             plt.show()
         finally:
@@ -589,7 +581,6 @@ class Chapter05Mixin:
             ax6.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure518.png")
             print("Saved Figure518.png")
 
             # Separate figure: interference
@@ -598,7 +589,6 @@ class Chapter05Mixin:
             plt.title("Interference")
             plt.axis("off")
             plt.tight_layout()
-            plt.savefig("Figure519.png")
             print("Saved Figure519.png")
 
             plt.show()
@@ -655,7 +645,6 @@ class Chapter05Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure525.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -717,7 +706,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure526.png")
             print("Saved Figure526.png")
             plt.show()
         finally:
@@ -805,7 +793,6 @@ class Chapter05Mixin:
             axes1[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure527.png")
 
             # Display 2
             fig2, axes2 = plt.subplots(2, 2, figsize=(10, 10))
@@ -820,7 +807,6 @@ class Chapter05Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure527Bis.png")
 
             # Display 3
             fig3, axes3 = plt.subplots(2, 2, figsize=(10, 10))
@@ -835,7 +821,6 @@ class Chapter05Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure527Ter.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -911,7 +896,6 @@ class Chapter05Mixin:
                 axes[i].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure528.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -999,7 +983,6 @@ class Chapter05Mixin:
             axes1[1].set_title("Blurred")
             axes1[1].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure529_init.png")
 
             fig2, axes2 = plt.subplots(3, 3, figsize=(12, 12))
 
@@ -1037,7 +1020,6 @@ class Chapter05Mixin:
             axes2[2, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure529.png")
             print("Saved Figure529_init.png and Figure529.png")
             plt.show()
         finally:
@@ -1075,7 +1057,6 @@ class Chapter05Mixin:
             plt.tight_layout()
 
             # Print to file
-            plt.savefig("Figure53.png")
             print("Saved Figure53.png")
             plt.show()
         finally:
@@ -1159,7 +1140,6 @@ class Chapter05Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure530.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1244,7 +1224,6 @@ class Chapter05Mixin:
             axes1[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure531.png")
 
             fig2, axes2 = plt.subplots(1, 3, figsize=(12, 4))
             axes2[0].imshow(np.abs(np.real(fHat)), cmap="gray")
@@ -1260,7 +1239,6 @@ class Chapter05Mixin:
             axes2[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure531Bis.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1311,7 +1289,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure532.png")
             print("Saved Figure532.png")
             plt.show()
         finally:
@@ -1406,7 +1383,6 @@ class Chapter05Mixin:
 
             # Save to file
             filename = "Figure533.png"
-            plt.savefig(filename)
             print(f"Saved figure to {filename}")
 
             plt.show()
@@ -1479,7 +1455,6 @@ class Chapter05Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure534.png")
             print("Saved Figure534.png")
             plt.show()
         finally:
@@ -1526,7 +1501,6 @@ class Chapter05Mixin:
             axes[1].grid(False)
 
             plt.tight_layout()
-            plt.savefig("Figure538.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1620,7 +1594,6 @@ class Chapter05Mixin:
             axes[1, 1].set_ylabel("theta")
 
             plt.tight_layout()
-            plt.savefig("Figure539.png")
             print("Saved Figure539.png")
             plt.show()
         finally:
@@ -1709,7 +1682,6 @@ class Chapter05Mixin:
             plt.plot(edges[:-1], Hist)
 
             plt.tight_layout()
-            plt.savefig("Figure54.png", dpi=300, bbox_inches="tight")
             plt.show()
             # plt.close()
 
@@ -1752,7 +1724,6 @@ class Chapter05Mixin:
             plt.plot(edges[:-1], Hist)
 
             plt.tight_layout()
-            plt.savefig("Figure54Bis.png", dpi=300, bbox_inches="tight")
             plt.show()
             # plt.close()
         finally:
@@ -1809,7 +1780,6 @@ class Chapter05Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure540.png")
             print("Saved Figure540.png")
             plt.show()
         finally:
@@ -1888,7 +1858,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure543.png")
             print("Saved Figure543.png")
             plt.show()
         finally:
@@ -1960,7 +1929,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure544.png")
             print("Saved Figure544.png")
             plt.show()
         finally:
@@ -2049,7 +2017,6 @@ class Chapter05Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure548.png")
             print("Saved Figure548.png")
             plt.show()
         finally:
@@ -2125,7 +2092,6 @@ class Chapter05Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure549.png")
             print("Saved Figure549.png")
             plt.show()
         finally:
@@ -2192,7 +2158,6 @@ class Chapter05Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure55.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2254,7 +2219,6 @@ class Chapter05Mixin:
             axes[1, 1].set_title("Geometric mean")
 
             plt.tight_layout()
-            plt.savefig("Figure57.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2319,7 +2283,6 @@ class Chapter05Mixin:
             axes[1, 1].set_title("Contra harmonic filter")
 
             plt.tight_layout()
-            plt.savefig("Figure58.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2384,7 +2347,6 @@ class Chapter05Mixin:
             axes[1, 1].set_title("Contra harmonic filter")
 
             plt.tight_layout()
-            plt.savefig("Figure59.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)

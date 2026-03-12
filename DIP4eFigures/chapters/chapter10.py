@@ -85,7 +85,6 @@ class Chapter10Mixin:
             axes[5].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure101.png")
             print("Saved Figure101.png")
             plt.show()
         finally:
@@ -247,7 +246,6 @@ class Chapter10Mixin:
                 plt.plot(lnp[i], "k-")
 
             plt.tight_layout()
-            plt.savefig("Figure1011.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -301,7 +299,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1016.png")
             print(f"Saved Figure1016.png using {img_path}")
             plt.show()
         finally:
@@ -343,7 +340,6 @@ class Chapter10Mixin:
             plt.axis("off")
             plt.title("Gradient Angle")
 
-            plt.savefig("Figure1017.png")
             print("Saved Figure1017.png")
             plt.show()
         finally:
@@ -401,7 +397,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1018.png")
             print("Saved Figure1018.png")
             plt.show()
         finally:
@@ -447,7 +442,6 @@ class Chapter10Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1019.png")
             print("Saved Figure1019.png")
             plt.show()
         finally:
@@ -504,7 +498,6 @@ class Chapter10Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1020.png")
             print("Saved Figure1020.png")
             plt.show()
         finally:
@@ -587,7 +580,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1022.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -621,7 +613,6 @@ class Chapter10Mixin:
             axes[1].autoscale(enable=True, axis="both", tight=True)
 
             plt.tight_layout()
-            plt.savefig("Figure1023.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -728,7 +719,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1025.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -833,7 +823,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1026.png")
             print("Saved Figure1026.png")
             plt.show()
         finally:
@@ -916,7 +905,6 @@ class Chapter10Mixin:
             axes[5].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1027.png")
             print("Saved Figure1027.png")
             plt.show()
         finally:
@@ -1001,7 +989,6 @@ class Chapter10Mixin:
             axes[1].set_ylabel("Rho (pixels)")
 
             plt.tight_layout()
-            plt.savefig("Figure1030.png")
             print("Saved Figure1030.png")
             plt.show()
         finally:
@@ -1109,7 +1096,6 @@ class Chapter10Mixin:
                 axes[3].plot(p2[1], p2[0], "x", linewidth=2, color="red")
 
             plt.tight_layout()
-            plt.savefig("Figure1031.png")
             print("Saved Figure1031.png")
             plt.show()
         finally:
@@ -1175,7 +1161,6 @@ class Chapter10Mixin:
             axes[5].set_xlim([0, 1])
 
             plt.tight_layout()
-            plt.savefig("Figure1033.png")
             print("Saved Figure1033.png")
             plt.show()
         finally:
@@ -1241,7 +1226,6 @@ class Chapter10Mixin:
             axes[5].set_xlim([0, 1])
 
             plt.tight_layout()
-            plt.savefig("Figure1034.png")
             print("Saved Figure1034.png")
             plt.show()
         finally:
@@ -1318,7 +1302,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1035.png")
             print("Saved Figure1035.png")
             plt.show()
         finally:
@@ -1410,7 +1393,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1036.png", dpi=300, bbox_inches="tight")
             print("Saved Figure1036.png")
             plt.show()
         finally:
@@ -1493,7 +1475,6 @@ class Chapter10Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1037.png")
             print("Saved Figure1037.png")
             plt.show()
         finally:
@@ -1561,7 +1542,6 @@ class Chapter10Mixin:
             axes[5].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1038.png")
             print("Saved Figure1038.png")
             plt.show()
         finally:
@@ -1615,7 +1595,6 @@ class Chapter10Mixin:
             axes[5].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1039.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1682,7 +1661,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure104.png")
             print("Saved Figure104.png")
             plt.show()
         finally:
@@ -1744,7 +1722,6 @@ class Chapter10Mixin:
             axes[5].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1040.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1779,7 +1756,6 @@ class Chapter10Mixin:
 
             # Save to file
             plt.tight_layout()
-            plt.savefig("Figure1041.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1836,7 +1812,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1042.png")
             print("Saved Figure1042.png")
             plt.show()
         finally:
@@ -1899,7 +1874,6 @@ class Chapter10Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1043.png")
             print("Saved Figure1043.png")
             plt.show()
         finally:
@@ -1962,7 +1936,6 @@ class Chapter10Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1044.png")
             print("Saved Figure1044.png")
             plt.show()
         finally:
@@ -2032,7 +2005,6 @@ class Chapter10Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1045.png")
             print("Saved Figure1045.png")
             plt.show()
         finally:
@@ -2164,7 +2136,6 @@ class Chapter10Mixin:
             axes[2, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1046.png")
             print("Saved Figure1046.png")
             plt.show()
         finally:
@@ -2226,7 +2197,6 @@ class Chapter10Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1048.png")
             print("Saved Figure1048.png")
             plt.show()
         finally:
@@ -2276,7 +2246,6 @@ class Chapter10Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1049.png")
             print("Saved Figure1049.png")
             plt.show()
         finally:
@@ -2338,7 +2307,6 @@ class Chapter10Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure105.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2425,7 +2393,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1050.png")
             print("Saved Figure1050.png")
             plt.show()
         finally:
@@ -2500,7 +2467,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1051.png")
             print("Saved Figure1051.png")
             plt.show()
         finally:
@@ -2593,7 +2559,6 @@ class Chapter10Mixin:
                 axes[1, i].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1052.png")
             print("Saved Figure1052.png")
             plt.show()
         finally:
@@ -2703,7 +2668,6 @@ class Chapter10Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1053.png")
             print("Saved Figure1053.png")
             plt.show()
         finally:
@@ -2817,7 +2781,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1054.png")
             print("Saved Figure1054.png")
             plt.show()
         finally:
@@ -2906,7 +2869,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1058.png")
             print("Saved Figure1058.png")
             plt.show()
         finally:
@@ -3012,7 +2974,6 @@ class Chapter10Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout(pad=0.5)
-            plt.savefig("Figure1059.png", dpi=150)
             print("Saved Figure1059.png")
             plt.show()
         finally:
@@ -3066,7 +3027,6 @@ class Chapter10Mixin:
             ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1062.png")
             print("Saved Figure1062.png")
             plt.show()
         finally:
@@ -3281,7 +3241,6 @@ class Chapter10Mixin:
             axes[1, 1].imshow((MKRLib.mmshow(e, f, d)), cmap="gray")
             axes[1, 1].axis("off")
             fig.tight_layout()
-            plt.savefig("Figure1064.png")
 
             (fig, axes) = plt.subplots(nrows=2, ncols=2)
             axes[0, 0].set_title("h1")
@@ -3298,21 +3257,18 @@ class Chapter10Mixin:
             axes[1, 1].imshow(g, cmap="gray")
             axes[1, 1].axis("off")
             fig.tight_layout()
-            plt.savefig("Figure1064Bis.png")
 
             (fig, axes) = plt.subplots(nrows=1, ncols=1)
             axes.set_title("i")
             axes.imshow(MKRLib.mmlblshow(i))
             axes.axis("off")
             fig.tight_layout()
-            plt.savefig("Figure1064Ter.png")
 
             (fig, axes) = plt.subplots(nrows=1, ncols=1)
             axes.set_title("a,d,k")
             axes.imshow(MKRLib.mmshow(a, d > 0, k > 0), cmap="gray")
             axes.axis("off")
             fig.tight_layout()
-            plt.savefig("Figure1064Quart.png")
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
@@ -3405,7 +3361,6 @@ class Chapter10Mixin:
             axes[5].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure107.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -3444,7 +3399,6 @@ class Chapter10Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure108.png")
             print("Saved Figure108.png")
             plt.show()
         finally:
@@ -3653,7 +3607,6 @@ class Chapter10Mixin:
                 axes[1, 1].axis("off")
 
                 plt.tight_layout()
-                plt.savefig("TQTDecomp.png")
                 print("Saved TQTDecomp.png")
                 plt.show()
         finally:
@@ -3691,7 +3644,6 @@ class Chapter10Mixin:
                 plt.title("Ncut Result (32x32)")
                 plt.colorbar()
 
-                plt.savefig("test_ncut_result.png")
                 # print(f"Saved result to {output_file}")
                 plt.show()
         finally:

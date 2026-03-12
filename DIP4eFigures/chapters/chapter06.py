@@ -76,7 +76,6 @@ class Chapter06Mixin:
             plt.axis("off")
 
             # Print to file
-            plt.savefig("Figure610.png")
             print("Saved Figure610.png")
             plt.show()
         finally:
@@ -133,7 +132,6 @@ class Chapter06Mixin:
                 ax.set_xlim(t[0], t[-1])
 
             plt.tight_layout()
-            plt.savefig("Figure612.png")
             print("Saved Figure612.png")
             plt.show()
         finally:
@@ -204,7 +202,6 @@ class Chapter06Mixin:
             plt.axis("off")
 
             # Print to file
-            plt.savefig("Figure613.png")
             print("Saved Figure613.png")
             plt.show()
         finally:
@@ -258,7 +255,6 @@ class Chapter06Mixin:
                 ax.set_xlim(t[0], t[-1])
 
             plt.tight_layout()
-            plt.savefig("Figure614.png")
             print("Saved Figure614.png")
             plt.show()
         finally:
@@ -372,7 +368,6 @@ class Chapter06Mixin:
             axes[2, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure615.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -451,7 +446,6 @@ class Chapter06Mixin:
             plt.axis("off")
 
             # Print to file
-            plt.savefig("Figure616.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -570,7 +564,6 @@ class Chapter06Mixin:
             )
             plt.axis("off")
 
-            plt.savefig("Figure617.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -638,7 +631,6 @@ class Chapter06Mixin:
             )
             plt.axis("off")
 
-            plt.savefig("Figure618.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -667,25 +659,21 @@ class Chapter06Mixin:
             plt.figure()
             plt.imshow(f, cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure630.png")
 
             plt.figure()
             w = wavedisplay(c, s)
             plt.imshow(w, cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure630Bis.png")
 
             plt.figure()
             w2 = wavedisplay(c2, s2)
             plt.imshow(w2, cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure630Ter.png")
 
             plt.figure()
             Temp = wavedisplay(c8, s8, 4)
             plt.imshow(Temp, cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure630Quart.png")
 
             plt.show()
         finally:
@@ -723,7 +711,6 @@ class Chapter06Mixin:
             plt.axis("off")
 
             # Print to file
-            plt.savefig("Figure631.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -784,7 +771,6 @@ class Chapter06Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure632.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -822,7 +808,6 @@ class Chapter06Mixin:
             Error_RBIO31 = MyDisp(RBIO31, NR, NC, position, "DFT real")
 
             # Print to file
-            plt.savefig("Figure63BIOR31.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -855,7 +840,6 @@ class Chapter06Mixin:
             Error = MyDisp(DB4, NR, NC, position, "DFT real")
 
             # Print to file
-            plt.savefig("Figure63DB4.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -892,7 +876,6 @@ class Chapter06Mixin:
             Error = MyDisp(DCT, NR, NC, position, "DCT")
 
             # Print to file
-            plt.savefig("Figure63DCT.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -930,7 +913,6 @@ class Chapter06Mixin:
             Error_ImagDFT = MyDisp(np.imag(DFT), NR, NC, position, "DFT real")
 
             # Print to file
-            plt.savefig("Figure63DFT.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -963,7 +945,6 @@ class Chapter06Mixin:
             Error = MyDisp(HAAR, NR, NC, position, "Haar")
 
             # Print to file
-            plt.savefig("Figure63HAAR.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1047,7 +1028,6 @@ class Chapter06Mixin:
             Error = MyDisp(SLANT, N, NC, position, "Slant")
 
             # Print to file
-            plt.savefig("Figure63SLT.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1074,7 +1054,6 @@ class Chapter06Mixin:
             Error = MyDisp(I, NR, NC, position, "Canonical Basis")
 
             # Print to file
-            plt.savefig("Figure63STD.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1122,7 +1101,6 @@ class Chapter06Mixin:
             Error = MyDisp(WHT, NR, NC, position, "Walsh Hadamard")
 
             # Print to file
-            plt.savefig("Figure63WHT.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1152,7 +1130,6 @@ class Chapter06Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure67.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1216,7 +1193,6 @@ class Chapter06Mixin:
             plt.axis("off")
 
             # Print to file
-            plt.savefig("Figure68.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1288,7 +1264,6 @@ class Chapter06Mixin:
             plt.subplots_adjust(
                 left=0.06, right=0.98, top=0.96, bottom=0.06, wspace=0.18, hspace=0.35
             )
-            plt.savefig("Figure69.png")
             print("Saved Figure69.png")
             plt.show()
         finally:

@@ -7,7 +7,9 @@ from typing import Any
 class Chapter08Mixin:
     def figure81(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure81.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -51,7 +53,9 @@ class Chapter08Mixin:
 
     def figure810(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure810.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -66,7 +70,8 @@ class Chapter08Mixin:
                 if w > 5:
                     return 1.0
                 return 0.5 * (
-                    1.0 + (np.sign(w - mu) * (1.0 - np.exp(-abs(w - mu) / beta)))
+                    1.0
+                    + (np.sign(w - mu) * (1.0 - np.exp(-abs(w - mu) / beta)))
                 )
 
             def one_sided_geometric(select: Any):
@@ -103,7 +108,9 @@ class Chapter08Mixin:
                 psum = 0.0
 
                 for i in range(11):
-                    y[i] = cdf(xval[i] + 0.5, mu, beta) - cdf(xval[i] - 0.5, mu, beta)
+                    y[i] = cdf(xval[i] + 0.5, mu, beta) - cdf(
+                        xval[i] - 0.5, mu, beta
+                    )
                     psum = psum + y[i]
 
                 return xval, y, psum
@@ -130,7 +137,15 @@ class Chapter08Mixin:
             fig, axes = plt.subplots(1, 3, figsize=(14, 4))
 
             axes[0].plot(
-                xval, x[:, 0], "k-s", xval, x[:, 1], "k--o", xval, x[:, 2], "k:d"
+                xval,
+                x[:, 0],
+                "k-s",
+                xval,
+                x[:, 1],
+                "k--o",
+                xval,
+                x[:, 2],
+                "k:d",
             )
             axes[0].set_xlim(0, 9)
             axes[0].set_ylim(0, 1)
@@ -167,7 +182,9 @@ class Chapter08Mixin:
 
     def figure811(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure811.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -229,7 +246,9 @@ class Chapter08Mixin:
 
     def figure819(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure819.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             # Figure819.py
 
@@ -245,8 +264,12 @@ class Chapter08Mixin:
             g = np.bitwise_xor(f, np.right_shift(f, 1))
 
             # Get all bit planes (bit 0 to bit 7)
-            planef = [np.bitwise_and(np.right_shift(f, k), 1) for k in range(8)]
-            planeg = [np.bitwise_and(np.right_shift(g, k), 1) for k in range(8)]
+            planef = [
+                np.bitwise_and(np.right_shift(f, k), 1) for k in range(8)
+            ]
+            planeg = [
+                np.bitwise_and(np.right_shift(g, k), 1) for k in range(8)
+            ]
 
             # Figure 1
             fig1 = plt.figure(1, figsize=(10, 5))
@@ -337,7 +360,9 @@ class Chapter08Mixin:
 
     def figure822(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure822.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -358,7 +383,9 @@ class Chapter08Mixin:
                 y.ravel()[idx[:k]] = x.ravel()[idx[:k]]
                 return y
 
-            def blockproc_8x8(f: Any, func: Any, pad_partial_blocks: Any = True):
+            def blockproc_8x8(
+                f: Any, func: Any, pad_partial_blocks: Any = True
+            ):
                 """blockproc_8x8."""
                 m, n = f.shape
                 if pad_partial_blocks:
@@ -373,16 +400,22 @@ class Chapter08Mixin:
 
                 for r in range(0, mp, 8):
                     for c in range(0, np_, 8):
-                        out[r : r + 8, c : c + 8] = func(fp[r : r + 8, c : c + 8])
+                        out[r : r + 8, c : c + 8] = func(
+                            fp[r : r + 8, c : c + 8]
+                        )
 
                 return out
 
             def process(f: Any, t: Any):
                 """process."""
-                y = blockproc_8x8(f, lambda b: blkdct(b, t), pad_partial_blocks=True)
+                y = blockproc_8x8(
+                    f, lambda b: blkdct(b, t), pad_partial_blocks=True
+                )
                 y = blockproc_8x8(y, blkzero, pad_partial_blocks=True)
                 y = blockproc_8x8(
-                    y, lambda b: blkdct(b, t.conj().T), pad_partial_blocks=True
+                    y,
+                    lambda b: blkdct(b, t.conj().T),
+                    pad_partial_blocks=True,
                 )
                 return np.real(y)
 
@@ -437,7 +470,9 @@ class Chapter08Mixin:
 
     def figure823(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure823.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -490,11 +525,15 @@ class Chapter08Mixin:
                 y = blockproc_square(f, block_size, lambda b: blkdct(b, t))
 
                 # Zero coefficients based on magnitude.
-                y = blockproc_square(y, block_size, lambda b: blkzero(b, keep_frac))
+                y = blockproc_square(
+                    y, block_size, lambda b: blkzero(b, keep_frac)
+                )
 
                 # Compute inverse transform.
                 y = np.real(
-                    blockproc_square(y, block_size, lambda b: blkdct(b, np.conj(t.T)))
+                    blockproc_square(
+                        y, block_size, lambda b: blkdct(b, np.conj(t.T))
+                    )
                 )
 
                 # Compute RMS error.
@@ -534,7 +573,9 @@ class Chapter08Mixin:
             ax.legend()
             ax.set_xlabel("Block size")
             ax.set_ylabel("RMS error")
-            ax.set_title(f"Only {KeepFrac * 100:g} % of the coefficients are kept")
+            ax.set_title(
+                f"Only {KeepFrac * 100:g} % of the coefficients are kept"
+            )
             ax.autoscale(enable=True, axis="both", tight=True)
 
             plt.tight_layout()
@@ -546,7 +587,9 @@ class Chapter08Mixin:
 
     def figure824(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure824.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -570,7 +613,10 @@ class Chapter08Mixin:
                 return y
 
             def blockproc_square(
-                f: Any, block_size: Any, func: Any, pad_partial_blocks: Any = True
+                f: Any,
+                block_size: Any,
+                func: Any,
+                pad_partial_blocks: Any = True,
             ):
                 """blockproc_square."""
                 m, n = f.shape
@@ -600,7 +646,10 @@ class Chapter08Mixin:
             def process(f: Any, t: Any, block_size: Any, keep_frac: Any):
                 """process."""
                 y = blockproc_square(
-                    f, block_size, lambda b: blkdct(b, t), pad_partial_blocks=True
+                    f,
+                    block_size,
+                    lambda b: blkdct(b, t),
+                    pad_partial_blocks=True,
                 )
                 y = blockproc_square(
                     y,
@@ -663,7 +712,9 @@ class Chapter08Mixin:
 
     def figure825(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure825.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -694,7 +745,10 @@ class Chapter08Mixin:
                 return y
 
             def blockproc_square(
-                f: Any, block_size: Any, func: Any, pad_partial_blocks: Any = True
+                f: Any,
+                block_size: Any,
+                func: Any,
+                pad_partial_blocks: Any = True,
             ):
                 """blockproc_square."""
                 m, n = f.shape
@@ -721,11 +775,16 @@ class Chapter08Mixin:
 
                 return out
 
-            def compute_zonal_mask(f: Any, t: Any, block_size: Any, keep_frac: Any):
+            def compute_zonal_mask(
+                f: Any, t: Any, block_size: Any, keep_frac: Any
+            ):
                 """compute_zonal_mask."""
                 # Forward transform block-by-block.
                 y = blockproc_square(
-                    f, block_size, lambda b: blkdct(b, t), pad_partial_blocks=True
+                    f,
+                    block_size,
+                    lambda b: blkdct(b, t),
+                    pad_partial_blocks=True,
                 )
 
                 # Build 3D stack explicitly to avoid reshape-order mismatch with MATLAB.
@@ -742,7 +801,9 @@ class Chapter08Mixin:
                 nb_c = yp.shape[1] // block_size
                 num_blocks = nb_r * nb_c
 
-                p = np.zeros((block_size, block_size, num_blocks), dtype=float)
+                p = np.zeros(
+                    (block_size, block_size, num_blocks), dtype=float
+                )
                 kblk = 0
                 for br in range(nb_r):
                     for bc in range(nb_c):
@@ -766,7 +827,10 @@ class Chapter08Mixin:
             def zonal_coding(f: Any, t: Any, block_size: Any, mask: Any):
                 """zonal_coding."""
                 y = blockproc_square(
-                    f, block_size, lambda b: blkdct(b, t), pad_partial_blocks=True
+                    f,
+                    block_size,
+                    lambda b: blkdct(b, t),
+                    pad_partial_blocks=True,
                 )
                 y = blockproc_square(
                     y,
@@ -782,10 +846,15 @@ class Chapter08Mixin:
                 )
                 return np.real(y)
 
-            def magnitude_coding(f: Any, t: Any, block_size: Any, keep_frac: Any):
+            def magnitude_coding(
+                f: Any, t: Any, block_size: Any, keep_frac: Any
+            ):
                 """magnitude_coding."""
                 y = blockproc_square(
-                    f, block_size, lambda b: blkdct(b, t), pad_partial_blocks=True
+                    f,
+                    block_size,
+                    lambda b: blkdct(b, t),
+                    pad_partial_blocks=True,
                 )
                 y = blockproc_square(
                     y,
@@ -874,7 +943,9 @@ class Chapter08Mixin:
 
     def figure828(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure828.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -916,7 +987,10 @@ class Chapter08Mixin:
                 return np.round(x / qmatrix)
 
             def blockproc_square(
-                f: Any, block_size: Any, func: Any, pad_partial_blocks: Any = True
+                f: Any,
+                block_size: Any,
+                func: Any,
+                pad_partial_blocks: Any = True,
             ):
                 """blockproc_square."""
                 m, n = f.shape
@@ -946,7 +1020,10 @@ class Chapter08Mixin:
             def process(f: Any, t: Any, block_size: Any, qmatrix: Any):
                 """process."""
                 y = blockproc_square(
-                    f, block_size, lambda b: blkdct(b, t), pad_partial_blocks=True
+                    f,
+                    block_size,
+                    lambda b: blkdct(b, t),
+                    pad_partial_blocks=True,
                 )
                 y = blockproc_square(
                     y,
@@ -1001,7 +1078,9 @@ class Chapter08Mixin:
 
     def figure829(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure829.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -1063,7 +1142,9 @@ class Chapter08Mixin:
 
             plt.subplot(2, 3, 2)
             # Matches MATLAB script: uses ErrorMin(2), ErrorMax(2) for first error display.
-            plt.imshow(e[0], cmap="gray", vmin=error_min[1], vmax=error_max[1])
+            plt.imshow(
+                e[0], cmap="gray", vmin=error_min[1], vmax=error_max[1]
+            )
             plt.axis("off")
 
             plt.subplot(2, 3, 3)
@@ -1083,7 +1164,9 @@ class Chapter08Mixin:
             plt.axis("off")
 
             plt.subplot(2, 3, 5)
-            plt.imshow(e[1], cmap="gray", vmin=error_min[1], vmax=error_max[1])
+            plt.imshow(
+                e[1], cmap="gray", vmin=error_min[1], vmax=error_max[1]
+            )
             plt.axis("off")
 
             plt.subplot(2, 3, 6)
@@ -1104,7 +1187,9 @@ class Chapter08Mixin:
 
     def figure83(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure83.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1141,7 +1226,9 @@ class Chapter08Mixin:
 
     def figure831(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure831.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1201,7 +1288,9 @@ class Chapter08Mixin:
 
     def figure832(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure832.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1225,7 +1314,9 @@ class Chapter08Mixin:
                 f = (np.max(f_raw) - f_raw).astype(float)
 
             if np.issubdtype(f_next_raw.dtype, np.integer):
-                f_next = (np.iinfo(f_next_raw.dtype).max - f_next_raw).astype(float)
+                f_next = (np.iinfo(f_next_raw.dtype).max - f_next_raw).astype(
+                    float
+                )
             else:
                 f_next = (np.max(f_next_raw) - f_next_raw).astype(float)
 
@@ -1253,7 +1344,9 @@ class Chapter08Mixin:
             plt.subplot(2, 2, 4)
             hd, _ = np.histogram(delta.ravel(), bins=256)
             plt.bar(np.arange(hd.size), hd)
-            sigma = np.std(delta, ddof=1)  # MATLAB std2 equivalent normalization (N-1)
+            sigma = np.std(
+                delta, ddof=1
+            )  # MATLAB std2 equivalent normalization (N-1)
             plt.title(rf"H = {ntrop(delta.ravel()):g}, $\sigma$ = {sigma:g}")
 
             plt.tight_layout()
@@ -1265,7 +1358,9 @@ class Chapter08Mixin:
 
     def figure834(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure834.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -1338,8 +1433,6 @@ class Chapter08Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure834.png")
-            print("Saved Figure834.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1347,7 +1440,9 @@ class Chapter08Mixin:
 
     def figure835(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure835.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -1383,9 +1478,15 @@ class Chapter08Mixin:
 
             # Motion computation
             # [e, a, dx, dy] = motion(i, j, MacroBlock(1), Delta(1, :), SubPixel(1));
-            e1, a1, dx1, dy1 = motion(i, j, MacroBlock[1], Delta[1, :], SubPixel[1])
-            e2, a2, dx2, dy2 = motion(i, j, MacroBlock[2], Delta[2, :], SubPixel[2])
-            e3, a3, dx3, dy3 = motion(i, j, MacroBlock[3], Delta[3, :], SubPixel[3])
+            e1, a1, dx1, dy1 = motion(
+                i, j, MacroBlock[1], Delta[1, :], SubPixel[1]
+            )
+            e2, a2, dx2, dy2 = motion(
+                i, j, MacroBlock[2], Delta[2, :], SubPixel[2]
+            )
+            e3, a3, dx3, dy3 = motion(
+                i, j, MacroBlock[3], Delta[3, :], SubPixel[3]
+            )
 
             # Difference (mat2gray(double(i)-double(j)))
             d = i.astype(float) - j.astype(float)
@@ -1425,8 +1526,6 @@ class Chapter08Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure835.png")
-            print("Saved Figure835.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1434,7 +1533,9 @@ class Chapter08Mixin:
 
     def figure84(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure84.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import os
             import numpy as np
@@ -1450,9 +1551,18 @@ class Chapter08Mixin:
             # Parameters
             Quality = [74, 10, 14]
             Name = [
-                _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", "output"), "Figure84a.jpg"),
-                _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", "output"), "Figure84b.jpg"),
-                _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", "output"), "Figure84c.jpg"),
+                _os.path.join(
+                    _os.environ.get("DIP4E_OUTPUT_DIR", "output"),
+                    "Figure84a.jpg",
+                ),
+                _os.path.join(
+                    _os.environ.get("DIP4E_OUTPUT_DIR", "output"),
+                    "Figure84b.jpg",
+                ),
+                _os.path.join(
+                    _os.environ.get("DIP4E_OUTPUT_DIR", "output"),
+                    "Figure84c.jpg",
+                ),
             ]
 
             # Data
@@ -1491,7 +1601,9 @@ class Chapter08Mixin:
 
     def figure840(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure840.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1563,7 +1675,9 @@ class Chapter08Mixin:
 
     def figure843(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure843.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
@@ -1590,22 +1704,18 @@ class Chapter08Mixin:
             plt.figure(1)
             plt.imshow(wavedisplay(c1, s1), cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure843.png", dpi=150, bbox_inches="tight")
 
             plt.figure(2)
             plt.imshow(wavedisplay(c2, s2), cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure843Bis.png", dpi=150, bbox_inches="tight")
 
             plt.figure(3)
             plt.imshow(wavedisplay(c3, s3), cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure843Ter.png", dpi=150, bbox_inches="tight")
 
             plt.figure(4)
             plt.imshow(wavedisplay(c4, s4), cmap="gray")
             plt.axis("off")
-            plt.savefig("Figure843Quart.png", dpi=150, bbox_inches="tight")
 
             plt.show()
         finally:
@@ -1614,7 +1724,9 @@ class Chapter08Mixin:
 
     def figure844(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure844.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1630,7 +1742,9 @@ class Chapter08Mixin:
 
             # Parameters
             n_level = 3  # 3-scale biorthogonal wavelet
-            thresholds = np.arange(0, 19)  # dead-zone threshold (width) from 0 to 18
+            thresholds = np.arange(
+                0, 19
+            )  # dead-zone threshold (width) from 0 to 18
 
             # Data
             f = imread(dip_data("lena.tif"))
@@ -1684,7 +1798,9 @@ class Chapter08Mixin:
             ax1.tick_params(axis="y")
 
             ax2 = ax1.twinx()
-            ax2.plot(thresholds, truncated_pct, "k--o", linewidth=1.2, markersize=3)
+            ax2.plot(
+                thresholds, truncated_pct, "k--o", linewidth=1.2, markersize=3
+            )
             ax2.set_ylabel("Truncated detail coefficients (%)")
             ax2.tick_params(axis="y")
             ax2.set_ylim(0, 100)
@@ -1701,7 +1817,9 @@ class Chapter08Mixin:
 
     def figure846(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure846.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -1751,11 +1869,15 @@ class Chapter08Mixin:
             for i in range(len(mu_b)):
                 plt.subplot(4, 3, 1 + i * 3)
                 plt.imshow(f_hat[i], cmap="gray")
-                plt.title(f"RMSE = {rmse[i]:.2g} Comp. = {compression_ratio[i]:.2g}")
+                plt.title(
+                    f"RMSE = {rmse[i]:.2g} Comp. = {compression_ratio[i]:.2g}"
+                )
                 plt.axis("off")
 
                 plt.subplot(4, 3, 2 + i * 3)
-                plt.imshow(f.astype(float) - f_hat[i].astype(float), cmap="gray")
+                plt.imshow(
+                    f.astype(float) - f_hat[i].astype(float), cmap="gray"
+                )
                 plt.title("error")
                 plt.axis("off")
 
@@ -1774,7 +1896,9 @@ class Chapter08Mixin:
 
     def figure848(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure848.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1869,7 +1993,9 @@ class Chapter08Mixin:
         data_dir: str | None = None,
     ) -> dict[str, Any]:
         """Run Chapter08 script `Figure850.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -1938,7 +2064,9 @@ class Chapter08Mixin:
 
     def figure851(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure851.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             """Figure 8.51 - Watermark attacks and correlation display."""
 
@@ -2002,7 +2130,13 @@ class Chapter08Mixin:
                 ax.axis("off")
 
             # Save
-            out_path = _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", str(_Path(__file__).resolve().parents[2] / "output")), "Figure851.png")
+            out_path = _os.path.join(
+                _os.environ.get(
+                    "DIP4E_OUTPUT_DIR",
+                    str(_Path(__file__).resolve().parents[2] / "output"),
+                ),
+                "Figure851.png",
+            )
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
@@ -2013,7 +2147,9 @@ class Chapter08Mixin:
 
     def figure89(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `Figure89.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             import numpy as np
             import matplotlib.pyplot as plt
@@ -2036,7 +2172,6 @@ class Chapter08Mixin:
             axes[1].set_anchor("C")
 
             fig.subplots_adjust(wspace=0.3)
-            plt.savefig("Figure89.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2044,7 +2179,9 @@ class Chapter08Mixin:
 
     def figuretifs2cv(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `FigureTifs2cv.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
@@ -2074,7 +2211,10 @@ class Chapter08Mixin:
                 if arr.ndim == 2:
                     return [arr]
                 if arr.ndim == 3:
-                    if arr.shape[-1] in (3, 4) and arr.shape[0] != arr.shape[1]:
+                    if (
+                        arr.shape[-1] in (3, 4)
+                        and arr.shape[0] != arr.shape[1]
+                    ):
                         raise ValueError(
                             "Expected a grayscale TIFF sequence, got color data."
                         )
@@ -2098,7 +2238,9 @@ class Chapter08Mixin:
             for i in range(len(original)):
                 rmse.append(
                     compare(
-                        original[i].astype(float), reconstructed[i].astype(float), 0
+                        original[i].astype(float),
+                        reconstructed[i].astype(float),
+                        0,
                     )
                 )
 
@@ -2125,7 +2267,9 @@ class Chapter08Mixin:
                 plt.axis("off")
 
                 plt.subplot(show_n, 3, 3 + 3 * i)
-                err = original[i].astype(float) - reconstructed[i].astype(float)
+                err = original[i].astype(float) - reconstructed[i].astype(
+                    float
+                )
                 plt.imshow(err, cmap="gray")
                 plt.title(f"Error frame {i + 1}")
                 plt.axis("off")
@@ -2139,20 +2283,28 @@ class Chapter08Mixin:
 
     def fig81bc(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter08 script `fig81bc.py` with inlined code."""
-        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
         try:
             from typing import Any
             import numpy as np
 
-            def fig81bc(part: Any, s: Any = 256, n: Any = None, p: Any = None):
+            def fig81bc(
+                part: Any, s: Any = 256, n: Any = None, p: Any = None
+            ):
                 """
                 Figure 8.1(b,c) generator.
                 (b) s x s image with s gray-level lines (uniform distribution)
                 (c) s x s image with random gray levels n at p points on medium gray field
                 """
                 if n is None:
-                    n = np.array([125, 126, 127, 129, 130, 131], dtype=np.uint8)
-                    p = np.array([1935, 5123, 9997, 7652, 4755, 1877], dtype=int)
+                    n = np.array(
+                        [125, 126, 127, 129, 130, 131], dtype=np.uint8
+                    )
+                    p = np.array(
+                        [1935, 5123, 9997, 7652, 4755, 1877], dtype=int
+                    )
                     jend = 6
                 else:
                     n = np.asarray(n, dtype=np.uint8)

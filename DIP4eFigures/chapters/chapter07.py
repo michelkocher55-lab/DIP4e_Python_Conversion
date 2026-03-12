@@ -60,7 +60,6 @@ class Chapter07Mixin:
             plt.title("Infra red -> Green")
 
             plt.tight_layout()
-            plt.savefig("Figure725.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -108,7 +107,6 @@ class Chapter07Mixin:
             plt.title("B")
 
             plt.tight_layout()
-            plt.savefig("Figure736.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -161,7 +159,6 @@ class Chapter07Mixin:
             plt.title("Intensity")
 
             plt.tight_layout()
-            plt.savefig("Figure737.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -246,7 +243,6 @@ class Chapter07Mixin:
             plt.title("Difference between the 2")
 
             plt.tight_layout()
-            plt.savefig("Figure738.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -329,7 +325,6 @@ class Chapter07Mixin:
             plt.title("Difference between the 2")
 
             plt.tight_layout()
-            plt.savefig("Figure739.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -416,7 +411,6 @@ class Chapter07Mixin:
             plt.title("Segmentation")
 
             plt.tight_layout()
-            plt.savefig("Figure740.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -482,7 +476,6 @@ class Chapter07Mixin:
             plt.title("Segmentation")
 
             plt.tight_layout()
-            plt.savefig("Figure742.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -546,7 +539,6 @@ class Chapter07Mixin:
             plt.title("Difference")
 
             plt.tight_layout()
-            plt.savefig("Figure744.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -700,7 +692,6 @@ class Chapter07Mixin:
             plt.title("Intensity")
 
             plt.tight_layout()
-            plt.savefig("Figure748.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -761,7 +752,6 @@ class Chapter07Mixin:
             plt.title(f"CR = {CR_R:.3g}, {CR_G:.3g}, {CR_B:.3g}")
 
             plt.tight_layout()
-            plt.savefig("Figure749.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)

@@ -139,7 +139,6 @@ class Chapter12Mixin:
                 ax2.set_title(f"X, Maj(r), Min(g), Rect(b), D={S.Diameter:.2f}")
 
                 plt.tight_layout()
-                plt.savefig("Equation12_4.png")
                 plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -335,7 +334,6 @@ class Chapter12Mixin:
                     plt.grid(True)
 
                     plt.tight_layout()
-                    plt.savefig(f"Example1114_Choix{Choix}.png")
                     plt.show()
 
             if True:
@@ -591,7 +589,6 @@ class Chapter12Mixin:
                 elif Choix == 2:
                     filename = "Figure1202.png"
 
-                plt.savefig(filename)
                 print(f"Saved plot to {filename}")
                 plt.show()
 
@@ -718,7 +715,6 @@ class Chapter12Mixin:
             ax[5].set_title("B1C")
 
             plt.tight_layout()
-            plt.savefig("Figure1205.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -867,7 +863,6 @@ class Chapter12Mixin:
                         ax[idx].axis("off")
 
                 plt.tight_layout()
-                plt.savefig("Figure1209.png")
                 plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -957,7 +952,6 @@ class Chapter12Mixin:
                     ax[idx].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1209.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1023,7 +1017,6 @@ class Chapter12Mixin:
 
             plt.tight_layout()
 
-            plt.savefig("Figure1211.png")
             print("Saved Figure1211.png")
             plt.show()
         finally:
@@ -1215,7 +1208,6 @@ class Chapter12Mixin:
 
                 plt.tight_layout()
                 out_name = f"Figure1211Bis_{title_str.replace(' ', '')}.png"
-                plt.savefig(out_name)
                 print(f"Saved {out_name}")
                 plt.show()
         finally:
@@ -1251,7 +1243,6 @@ class Chapter12Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1213.png")
             print("Saved Figure1213.png")
             plt.show()
         finally:
@@ -3701,7 +3692,6 @@ class Chapter12Mixin:
             plt.axis("off")
 
             out_path = _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", str(_Path(__file__).resolve().parents[2] / "output")), "Figure1261.png")
-            plt.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
             plt.show()
         finally:

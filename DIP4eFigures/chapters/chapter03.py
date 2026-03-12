@@ -66,7 +66,6 @@ class Chapter03Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure310.png")
             print("Saved Figure310.png")
             plt.show()
         finally:
@@ -144,7 +143,6 @@ class Chapter03Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure314.png")
             print("Saved Figure314.png")
             plt.show()
         finally:
@@ -208,7 +206,6 @@ class Chapter03Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure315.png")
             print("Saved Figure315.png")
             plt.show()
         finally:
@@ -276,7 +273,6 @@ class Chapter03Mixin:
                 ax_hist.set_box_aspect(1)
 
             plt.tight_layout()
-            plt.savefig("Figure316.png")
             print("Saved Figure316.png")
             plt.show()
         finally:
@@ -354,7 +350,6 @@ class Chapter03Mixin:
                 ax3.set_box_aspect(1)
 
             plt.tight_layout()
-            plt.savefig("Figure320.png")
             print("Saved Figure320.png")
             plt.show()
         finally:
@@ -595,7 +590,6 @@ class Chapter03Mixin:
             axes[3].set_xlim([0, 255])
 
             plt.tight_layout()
-            plt.savefig("Figure328.png")
             print("Saved Figure328.png")
             plt.show()
         finally:
@@ -669,7 +663,6 @@ class Chapter03Mixin:
             axes[2].set_xlim([0, 255])
 
             plt.tight_layout()
-            plt.savefig("Figure329.png")
             print("Saved Figure329.png")
             plt.show()
         finally:
@@ -753,7 +746,6 @@ class Chapter03Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure330.png")
             print("Saved Figure330.png")
             plt.show()
         finally:
@@ -884,7 +876,6 @@ class Chapter03Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure331.png")
             print("Saved Figure331.png")
             plt.show()
         finally:
@@ -967,7 +958,6 @@ class Chapter03Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure332.png")
             print("Saved Figure332.png")
             plt.show()
         finally:
@@ -1015,7 +1005,6 @@ class Chapter03Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure333.png")
             print("Saved Figure333.png")
             plt.show()
         finally:
@@ -1070,7 +1059,6 @@ class Chapter03Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure339.png")
             print("Saved Figure339.png")
             plt.show()
         finally:
@@ -1135,7 +1123,6 @@ class Chapter03Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure342.png")
             print("Saved Figure342.png")
             plt.show()
         finally:
@@ -1214,7 +1201,6 @@ class Chapter03Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure343.png")
             print("Saved Figure343.png")
             plt.show()
         finally:
@@ -1273,7 +1259,6 @@ class Chapter03Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure344.png")
             print("Saved Figure344.png")
             plt.show()
         finally:
@@ -1347,7 +1332,6 @@ class Chapter03Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure345.png")
             print("Saved Figure345.png")
             plt.show()
         finally:
@@ -1408,7 +1392,6 @@ class Chapter03Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure346.png")
             print("Saved Figure346.png")
             plt.show()
         finally:
@@ -1466,7 +1449,6 @@ class Chapter03Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure347.png")
             print("Saved Figure347.png")
             plt.show()
         finally:
@@ -1597,7 +1579,6 @@ class Chapter03Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure348.png")
             print("Saved Figure348.png")
             plt.show()
         finally:
@@ -1743,7 +1724,6 @@ class Chapter03Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure348.png")
             print("Saved Figure348.png")
             plt.show()
         finally:
@@ -1796,7 +1776,6 @@ class Chapter03Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure349.png")
             print("Saved Figure349.png")
             plt.show()
         finally:
@@ -1932,7 +1911,6 @@ class Chapter03Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure355.png")
             print("Saved Figure355.png")
             plt.show()
         finally:
@@ -1975,7 +1953,6 @@ class Chapter03Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure357.png")
             print("Saved Figure357.png")
             plt.show()
         finally:
@@ -2000,7 +1977,6 @@ class Chapter03Mixin:
             plt.tight_layout()
 
             # Print to file
-            plt.savefig("Figure359.png")
             print("Saved Figure359.png")
             plt.show()
         finally:
@@ -2049,7 +2025,6 @@ class Chapter03Mixin:
             ax2.set_axis_off()
 
             plt.tight_layout()
-            plt.savefig("Figure360.png")
             print("Saved Figure360.png")
             plt.show()
         finally:
@@ -2107,7 +2082,6 @@ class Chapter03Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure361.png")
             print("Saved Figure361.png")
             plt.show()
         finally:
@@ -2205,7 +2179,6 @@ class Chapter03Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure362.png")
             print("Saved Figure362.png")
             plt.show()
         finally:
@@ -2303,7 +2276,6 @@ class Chapter03Mixin:
             axes1[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure363.png")
             print("Saved Figure363.png")
 
             # Figure 2
@@ -2326,7 +2298,6 @@ class Chapter03Mixin:
             axes2[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure363Bis.png")
             print("Saved Figure363Bis.png")
 
             plt.show()
@@ -2397,7 +2368,6 @@ class Chapter03Mixin:
                 # ax.axis('tight') # MATLAB axis tight
 
             plt.tight_layout()
-            plt.savefig("Figure366.png")
             print("Saved Figure366.png")
             plt.show()
         finally:
@@ -2459,7 +2429,6 @@ class Chapter03Mixin:
             plt.ylabel('Membership')
 
             plt.tight_layout()
-            plt.savefig('Figure371.png', dpi=150)
             plt.show()
 
         finally:
@@ -2503,7 +2472,6 @@ class Chapter03Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure37.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2570,7 +2538,6 @@ class Chapter03Mixin:
             axes1[2].set_title("Fuzzy Logic Enhancement")
             axes1[2].axis("off")
 
-            plt.savefig("Figure374.png")
 
             # Setup Plot 2 (Histograms and MFs)
             fig2, axes2 = plt.subplots(2, 2, figsize=(12, 10))
@@ -2616,7 +2583,6 @@ class Chapter03Mixin:
             axes2[1, 1].set_xlim([0, 255])
 
             plt.tight_layout()
-            plt.savefig("Figure374Bis.png")
             print("Saved Figure374.png and Figure374Bis.png")
             plt.show()
         finally:

@@ -101,7 +101,6 @@ class Chapter13Mixin:
             plt.ylabel("Mean Squared Error")
             plt.title("Batch-wise mean squared error during training")
             plt.grid(True)
-            plt.savefig("Example1315CNN_MSE.png")
 
             # Class-wise Accuracy (Test)
             truth_labels = np.argmax(test_y, axis=0)
@@ -130,7 +129,6 @@ class Chapter13Mixin:
             for i, acc in enumerate(accuracy):
                 plt.text(x[i], h1[i] + 50, f"{acc:.2f}", ha="center", fontsize=8)
 
-            plt.savefig("Example1315CNN_Accuracy.png")
 
             # Visualize Kernels (Layer 1)
             layer1 = cnn["layers"][1]
@@ -146,7 +144,6 @@ class Chapter13Mixin:
                     plt.axis("off")
                     plt.title(f"K{k + 1}")
                 plt.suptitle("Layer 1 Kernels")
-                plt.savefig("Example1315CNN_Kernels_L1.png")
 
             # Visualize Kernels (Layer 2): 6 input maps x 12 output maps
             layer2 = cnn["layers"][3]
@@ -305,7 +302,6 @@ class Chapter13Mixin:
                     plt.imshow(imgs[i], cmap="gray")
                     plt.axis("off")
                 plt.tight_layout()
-                plt.savefig("Example1315NN_Montage.png")
 
                 # MSE Plot
                 plt.figure("MSE")
@@ -313,7 +309,6 @@ class Chapter13Mixin:
                 plt.xlabel("Epoch")
                 plt.title("MSE")
                 plt.grid(True)
-                plt.savefig("Example1315NN_MSE.png")
 
                 print("Example1315NN Completed. Figures saved.")
                 plt.show()
@@ -443,7 +438,6 @@ class Chapter13Mixin:
                 plt.axis("off")
                 plt.title(f"Train / Class {i // 3 + 1}")
             plt.tight_layout()
-            plt.savefig("Example1316CNN_Training_Images.png")
 
             plt.figure("Testing Images", figsize=(6, 6))
             for i in range(9):
@@ -452,7 +446,6 @@ class Chapter13Mixin:
                 plt.axis("off")
                 plt.title(f"Test {i + 1}")
             plt.tight_layout()
-            plt.savefig("Example1316CNN_Testing_Images.png")
 
             plt.figure("MSE")
             plt.plot(cnn["rL"], linewidth=2)
@@ -460,7 +453,6 @@ class Chapter13Mixin:
             plt.ylabel("Mean Squared Error")
             plt.title("Training MSE")
             plt.grid(True)
-            plt.savefig("Example1316CNN_MSE.png")
 
             plt.figure("Class Accuracy")
             x = np.arange(num_classes) + 1
@@ -476,7 +468,6 @@ class Chapter13Mixin:
             for i, acc in enumerate(accuracy):
                 plt.text(x[i], h1[i] + 0.1, f"{acc:.2f}", ha="center")
 
-            plt.savefig("Example1316CNN_Accuracy.png")
 
             # Visualize Kernels
             # Layer 1 is 'c'
@@ -495,7 +486,6 @@ class Chapter13Mixin:
                         plt.axis("off")
                         idx += 1
                 plt.suptitle(f"Kernels: {num_input} in -> {num_output} out")
-                plt.savefig("Example1316CNN_Kernels.png")
 
             # Feedforward Example
             # Plot maps for Sample 1
@@ -531,7 +521,6 @@ class Chapter13Mixin:
             plt.title("Output Probs")
 
             plt.tight_layout()
-            plt.savefig("Example1316CNN_FeedForward.png")
 
             print("Example1316CNN Completed. Figures saved.")
             plt.show()
@@ -620,7 +609,6 @@ class Chapter13Mixin:
                     plt.axis("off")
                     plt.title(f"Train {i + 1}")
                 plt.tight_layout()
-                plt.savefig("Example1316NN_TrainImages.png")
 
                 # Display Testing Images
                 plt.figure("Testing Images", figsize=(6, 6))
@@ -630,7 +618,6 @@ class Chapter13Mixin:
                     plt.axis("off")
                     plt.title(f"Test {i + 1}")
                 plt.tight_layout()
-                plt.savefig("Example1316NN_TestImages.png")
 
                 # Prepare for Neural Net
                 # Reshape to (N_features, N_samples)
@@ -692,7 +679,6 @@ class Chapter13Mixin:
                 plt.bar(x + width / 2, preds, width, label="Output")
                 plt.title("Target vs Output (Training)")
                 plt.legend()
-                plt.savefig("Example1316NN_TrainingResults.png")
 
                 # Classify Test Set
                 print("Classifying Test Set...")
@@ -817,7 +803,6 @@ class Chapter13Mixin:
             plt.plot(xs, ys, "-k", linewidth=2, label="Boundary")
             plt.legend()
 
-            plt.savefig("Example138.png")
             print("Example138 Completed. Figure saved.")
             plt.show()
         finally:
@@ -967,7 +952,6 @@ class Chapter13Mixin:
             plt.axis("equal")
 
             plt.tight_layout()
-            plt.savefig("Figure1308.png")
             print("Figure saved to Figure1308.png")
             plt.show()
         finally:
@@ -1213,7 +1197,6 @@ class Chapter13Mixin:
                 plt.ylim([np.min(SignatureNoise_Last), np.max(SignatureNoise_Last)])
 
             plt.tight_layout()
-            plt.savefig("Figure1311.png")
 
             # Figure 2: Distance stems (Last Run)
             plt.figure(figsize=(12, 8))
@@ -1225,7 +1208,6 @@ class Chapter13Mixin:
                 plt.grid(True)
 
             plt.tight_layout()
-            plt.savefig("Figure1311Bis.png")
 
             # Figure 3: Distance Matrix (Gray) (Last Run)
             plt.figure()
@@ -1234,7 +1216,6 @@ class Chapter13Mixin:
             plt.title("Distance Matrix (Last Run)")
             plt.xlabel("Noisy Sample Index")
             plt.ylabel("Prototype Index")
-            plt.savefig("Figure1311Ter.png")
 
             # Figure 4: Accumulated Confusion Matrix (Gray Tones!)
             plt.figure()
@@ -1248,7 +1229,6 @@ class Chapter13Mixin:
             plt.xticks(np.arange(NSymbols), SymbolList)
             plt.yticks(np.arange(NSymbols), SymbolList)
 
-            plt.savefig("Figure1311Quater.png")
 
             print(f"Mean Error Rate ({Nr} runs): {ErrorRate:.1f}%")
             print("Confusion Matrix saved to Figure1311Quater.png")
@@ -1328,7 +1308,6 @@ class Chapter13Mixin:
             plt.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure1313.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1445,7 +1424,6 @@ class Chapter13Mixin:
                 plt.axis("off")
 
                 plt.tight_layout()
-                plt.savefig("Figure1315SURF.png")
 
                 # 2. Matches
                 plt.figure(figsize=(14, 6))
@@ -1465,7 +1443,6 @@ class Chapter13Mixin:
                 )
                 plt.title(f"Candidate point matches ({len(matches12)} total)")
                 plt.axis("off")
-                plt.savefig("Figure1315SURFBis.png")
 
                 plt.show()
         finally:
@@ -2055,7 +2032,6 @@ class Chapter13Mixin:
                 plt.legend()
 
                 plt.tight_layout()
-                plt.savefig("Figure1324LMSE.png")
                 plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2176,7 +2152,6 @@ class Chapter13Mixin:
                 plt.legend()
 
                 plt.tight_layout()
-                plt.savefig("Figure1324Perceptron.png")
                 plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2733,7 +2708,6 @@ class Chapter13Mixin:
                 plt.grid(True)
 
                 plt.tight_layout()
-                plt.savefig("Figure1335.png")
                 plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2880,7 +2854,6 @@ class Chapter13Mixin:
                 plt.axvline(x=best_epoch, color="g", linestyle=":", label="_nolegend_")
 
                 plt.legend()
-                plt.savefig("Figure1335UsingNNToolbox.png")
 
                 # Display 2: Stems
                 fig = plt.figure(figsize=(10, 8))
@@ -2957,7 +2930,6 @@ class Chapter13Mixin:
                 plt.title("output")
 
                 plt.tight_layout()
-                plt.savefig("Figure1335UsingNNToolboxBis.png")
                 plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -3263,7 +3235,6 @@ class Chapter13Mixin:
             plt.title("Masks (U=R, V=G, W=B)")
 
             out_dir = _os.environ.get("DIP4E_OUTPUT_DIR", str(_Path(__file__).resolve().parents[2] / "output"))
-            plt.savefig(os.path.join(out_dir, "Figure1337.png"))
 
             # Figure 2: Confusion Matrix
             plt.figure(figsize=(6, 6))
@@ -3288,14 +3259,12 @@ class Chapter13Mixin:
             plt.ylabel("True Class")
             plt.xlabel("Predicted Class")
             plt.tight_layout()
-            plt.savefig(os.path.join(out_dir, "Figure1337Bis.png"))
 
             # MSE
             plt.figure(figsize=(6, 6))
             plt.semilogy(costs)
             plt.xlabel("Iteration")
             plt.title("Train MSE")
-            plt.savefig(os.path.join(out_dir, "Figure1339.png"))
 
             plt.show()
         finally:

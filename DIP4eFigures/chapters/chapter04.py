@@ -36,7 +36,6 @@ class Chapter04Mixin:
             ax[1].set_box_aspect(1)
 
             plt.tight_layout()
-            plt.savefig('Figure42.png', dpi=150)
             plt.show()
             plt.tight_layout()
         finally:
@@ -73,7 +72,6 @@ class Chapter04Mixin:
             plt.gca().set_box_aspect(1)
 
             plt.tight_layout()
-            plt.savefig('Figure44.png', dpi=150)
             plt.show()
 
         finally:
@@ -106,7 +104,6 @@ class Chapter04Mixin:
             ax.plot_wireframe(X, Y, Z, color='k', linewidth=0.6)
             ax.set_axis_off()
             plt.tight_layout()
-            plt.savefig('Figure414.png', dpi=150)
             plt.show()
 
         finally:
@@ -172,7 +169,6 @@ class Chapter04Mixin:
             axes[3].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure418.png")
             print("Saved Figure418.png and component TIFs.")
             plt.show()
         finally:
@@ -263,7 +259,6 @@ class Chapter04Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure419.png")
             print("Saved Figure419.png")
             plt.show()
         finally:
@@ -326,7 +321,6 @@ class Chapter04Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure423.png")
             print("Saved Figure423.png")
             plt.show()
         finally:
@@ -411,7 +405,6 @@ class Chapter04Mixin:
             axes1[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure424.png")
 
             # Display figure 2
             fig2, axes2 = plt.subplots(2, 2, figsize=(10, 10))
@@ -432,7 +425,6 @@ class Chapter04Mixin:
             axes2[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure424Bis.png")
 
             # Display figure 3
             fig3, axes3 = plt.subplots(1, 3, figsize=(12, 4))
@@ -446,7 +438,6 @@ class Chapter04Mixin:
             axes3[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure425.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -515,7 +506,6 @@ class Chapter04Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure426.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -573,7 +563,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure428.png")
             print("Saved Figure428.png")
             plt.show()
         finally:
@@ -657,7 +646,6 @@ class Chapter04Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure429.png")
             print("Saved Figure429.png")
             plt.show()
         finally:
@@ -767,7 +755,6 @@ class Chapter04Mixin:
             ax6.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure430.png")
             print("Saved Figure430.png")
             plt.show()
         finally:
@@ -822,7 +809,6 @@ class Chapter04Mixin:
             plt.xlim(0, len(Hpad) - 1)
 
             plt.tight_layout()
-            plt.savefig("Figure433.png")
             print("Saved Figure433.png")
             plt.show()
         finally:
@@ -884,7 +870,6 @@ class Chapter04Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure434.png")
             print("Saved Figure434.png")
             plt.show()
         finally:
@@ -996,7 +981,6 @@ class Chapter04Mixin:
             axes1[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure435_1.png")
 
             fig2, axes2 = plt.subplots(2, 2, figsize=(10, 10))
 
@@ -1017,7 +1001,6 @@ class Chapter04Mixin:
             axes2[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure435_2.png")
 
             print("Saved Figure435_1.png and Figure435_2.png")
             plt.show()
@@ -1056,7 +1039,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure437.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1145,7 +1127,6 @@ class Chapter04Mixin:
             ax4.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure438.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1175,7 +1156,6 @@ class Chapter04Mixin:
             ax.set_axis_off()
 
             plt.tight_layout()
-            plt.savefig("Figure439.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1243,7 +1223,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure440.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1290,7 +1269,6 @@ class Chapter04Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure441.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1330,7 +1308,6 @@ class Chapter04Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure442.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1385,7 +1362,6 @@ class Chapter04Mixin:
             ax3.legend([str(d0) for d0 in D0])
 
             plt.tight_layout()
-            plt.savefig("Figure443.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1432,7 +1408,6 @@ class Chapter04Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure444.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1484,7 +1459,6 @@ class Chapter04Mixin:
             ax3.legend([str(d0) for d0 in D0])
 
             plt.tight_layout()
-            plt.savefig("Figure445.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1531,7 +1505,6 @@ class Chapter04Mixin:
                 ax.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure446.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1576,7 +1549,6 @@ class Chapter04Mixin:
                 axp.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure447.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1618,7 +1590,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure448.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1680,7 +1651,6 @@ class Chapter04Mixin:
             axes[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure449.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1725,7 +1695,6 @@ class Chapter04Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure450.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1801,7 +1770,6 @@ class Chapter04Mixin:
             ax9.plot(BHPF[299, 300:])
 
             plt.tight_layout()
-            plt.savefig("Figure451.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1853,7 +1821,6 @@ class Chapter04Mixin:
                 axp.axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure452.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1921,7 +1888,6 @@ class Chapter04Mixin:
             axes1[1, 2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure453.png")
 
             # Display figure 2
             fig2, axes2 = plt.subplots(1, 3, figsize=(12, 4))
@@ -1935,7 +1901,6 @@ class Chapter04Mixin:
             axes2[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure454.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -1981,7 +1946,6 @@ class Chapter04Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure455.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2029,7 +1993,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure456.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2088,7 +2051,6 @@ class Chapter04Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure457.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2143,7 +2105,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure460.png", dpi=300, bbox_inches="tight")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2311,7 +2272,6 @@ class Chapter04Mixin:
             axes[2].axvline(C0, color="black")
 
             plt.tight_layout()
-            plt.savefig("Figure461.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2366,7 +2326,6 @@ class Chapter04Mixin:
             ax3.set_box_aspect((1, 1, 1))
 
             plt.tight_layout()
-            plt.savefig("Figure462.png")
 
             # Display figure 2 (images)
             fig2, axes = plt.subplots(1, 3, figsize=(12, 4))
@@ -2391,7 +2350,6 @@ class Chapter04Mixin:
             axes[2].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure463.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2445,7 +2403,6 @@ class Chapter04Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure464.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2496,7 +2453,6 @@ class Chapter04Mixin:
             axes[1, 1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure465.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
@@ -2540,7 +2496,6 @@ class Chapter04Mixin:
             axes[1].axis("off")
 
             plt.tight_layout()
-            plt.savefig("Figure466.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)

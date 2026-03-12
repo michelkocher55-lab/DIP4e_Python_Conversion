@@ -164,7 +164,6 @@ class Chapter02Mixin:
             axes1[3].set_title("5 bits")
             axes1[3].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure224.png")
             print("Saved Figure224.png")
 
             fig2, axes2 = plt.subplots(2, 2, figsize=(10, 10))
@@ -182,7 +181,6 @@ class Chapter02Mixin:
             axes2[3].set_title("1 bit")
             axes2[3].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure224Bis.png")
             print("Saved Figure224Bis.png")
             plt.show()
         finally:
@@ -246,7 +244,6 @@ class Chapter02Mixin:
             axes[2].set_title("Bicubic")
             axes[2].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure227.png")
             print("Saved Figure227.png")
             plt.show()
         finally:
@@ -304,7 +301,6 @@ class Chapter02Mixin:
             axes[5].set_title("Average of 1000 Images")
             axes[5].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure229.png")
             print("Saved Figure229.png")
             plt.show()
         finally:
@@ -361,7 +357,6 @@ class Chapter02Mixin:
             axes[2].set_title("Dilated Diff (300 dpi)")
             axes[2].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure231.png")
             print("Saved Figure231.png")
             plt.show()
         finally:
@@ -409,7 +404,6 @@ class Chapter02Mixin:
             axes[3].set_title("Enhanced (Stretch)")
             axes[3].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure232.png")
             print("Saved Figure232.png")
             plt.show()
         finally:
@@ -448,7 +442,6 @@ class Chapter02Mixin:
             axes[2].set_title("Product (g = f * h)")
             axes[2].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure234.png")
             print("Saved Figure234.png")
             plt.show()
         finally:
@@ -486,7 +479,6 @@ class Chapter02Mixin:
             )
             axes[2].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure236.png")
             print("Saved Figure236.png")
             plt.show()
         finally:
@@ -515,7 +507,6 @@ class Chapter02Mixin:
             axes[1].set_title("Complement (Negative)")
             axes[1].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure238.png")
             print("Saved Figure238.png")
             plt.show()
         finally:
@@ -546,7 +537,6 @@ class Chapter02Mixin:
             axes[1].set_title("Smoothed Image (41x41 Average)")
             axes[1].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure239.png")
             print("Saved Figure239.png")
             plt.show()
         finally:
@@ -587,7 +577,6 @@ class Chapter02Mixin:
             axes[1, 1].set_title("Bicubic")
             axes[1, 1].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure240.png")
             print("Saved Figure240.png")
             plt.show()
         finally:
@@ -669,7 +658,6 @@ class Chapter02Mixin:
             axes[1, 1].set_title("Difference |f - g|")
             axes[1, 1].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure242.png")
             print("Saved Figure242.png")
             plt.show()
         finally:
@@ -721,7 +709,6 @@ class Chapter02Mixin:
             axes[3].set_title("Restored Image")
             axes[3].axis("off")
             plt.tight_layout()
-            plt.savefig("Figure245.png")
             print("Saved Figure245.png")
             plt.show()
         finally:
@@ -769,7 +756,6 @@ class Chapter02Mixin:
             axes[3].set_aspect("equal", adjustable="box")
             axes[3].set_title("Covariance: [12 -6; -6 5]")
             plt.tight_layout()
-            plt.savefig("Figure257.png")
             print("Saved Figure257.png")
             plt.show()
         finally:
