@@ -4,7 +4,7 @@ import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from helpers.huff2mat import huff2mat
-from libDIP.tmat4e import tmat4e
+from DIP4eFigures.tmat4e import tmat4e
 
 def jpeg2im4e(c):
     """

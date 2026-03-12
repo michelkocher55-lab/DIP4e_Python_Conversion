@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from libDIP.patternShuffle4e import patternShuffle4e
+from DIP4eFigures.patternShuffle4e import patternShuffle4e
 
 
 def moreTrainingPatterns4e(X, R, nt):

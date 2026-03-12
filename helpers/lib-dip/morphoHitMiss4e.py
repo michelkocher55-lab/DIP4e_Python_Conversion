@@ -1,5 +1,5 @@
 import numpy as np
-from libDIP.morphoMatch4e import morphoMatch4e
+from DIP4eFigures.morphoMatch4e import morphoMatch4e
 
 def morphoHitMiss4e(I, B, padval=0, mode='same'):
     """

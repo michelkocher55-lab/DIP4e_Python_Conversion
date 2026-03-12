@@ -6,8 +6,8 @@ try:
     from intScaling4e import intScaling4e
     from imPad4e import imPad4e
 except ImportError:
-    from libDIP.intScaling4e import intScaling4e
-    from libDIP.imPad4e import imPad4e
+    from DIP4eFigures.intScaling4e import intScaling4e
+    from DIP4eFigures.imPad4e import imPad4e
 
 
 def twodConv4e(f: Any, w: Any, param: Any = "s"):

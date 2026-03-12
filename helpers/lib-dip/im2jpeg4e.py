@@ -6,7 +6,7 @@ from scipy.fftpack import dct
 # Ensure imports
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 from helpers.mat2huff import mat2huff
-from libDIP.tmat4e import tmat4e
+from DIP4eFigures.tmat4e import tmat4e
 
 def im2jpeg4e(f, quality=1, bits=8):
     """

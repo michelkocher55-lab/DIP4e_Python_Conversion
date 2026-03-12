@@ -1,10 +1,10 @@
 import numpy as np
 from skimage.measure import find_contours
 
-from libDIP.levelSetFunction4e import levelSetFunction4e
-from libDIP.levelSetForce4e import levelSetForce4e
-from libDIP.levelSetIterate4e import levelSetIterate4e
-from libDIP.levelSetReInit4e import levelSetReInit4e
+from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
+from DIP4eFigures.levelSetForce4e import levelSetForce4e
+from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
+from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
 
 
 def _zero_level_contours_all(phi):

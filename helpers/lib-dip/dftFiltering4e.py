@@ -1,7 +1,7 @@
 import numpy as np
-from libDIP.intScaling4e import intScaling4e
-from libDIP.imPad4e import imPad4e
-from libDIP.minusOne4e import minusOne4e
+from DIP4eFigures.intScaling4e import intScaling4e
+from DIP4eFigures.imPad4e import imPad4e
+from DIP4eFigures.minusOne4e import minusOne4e
 
 def dftFiltering4e(f, H, padmode='replicate', scaling='no'):
     """

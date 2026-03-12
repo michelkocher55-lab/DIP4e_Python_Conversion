@@ -1,7 +1,7 @@
 import numpy as np
-from libDIP.intScaling4e import intScaling4e
-from libDIP.covmatrix4e import covmatrix4e
-from libDIP.boundaryTracer4e import boundaryTracer4e
+from DIP4eFigures.intScaling4e import intScaling4e
+from DIP4eFigures.covmatrix4e import covmatrix4e
+from DIP4eFigures.boundaryTracer4e import boundaryTracer4e
 
 def binaryRegionProps4e(I):
     """

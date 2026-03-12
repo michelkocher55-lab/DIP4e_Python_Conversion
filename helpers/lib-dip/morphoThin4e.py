@@ -1,6 +1,6 @@
 import numpy as np
 import warnings
-from libDIP.morphoHitMiss4e import morphoHitMiss4e
+from DIP4eFigures.morphoHitMiss4e import morphoHitMiss4e
 
 def morphoThin4e(I, B=None, numiter=None):
     """

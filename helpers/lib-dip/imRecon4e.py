@@ -2,8 +2,8 @@
 import numpy as np
 from skimage.transform import rotate
 from skimage.util import img_as_float
-from libDIP.imPad4e import imPad4e
-from libDIP.intScaling4e import intScaling4e
+from DIP4eFigures.imPad4e import imPad4e
+from DIP4eFigures.intScaling4e import intScaling4e
 
 def imRecon4e(f, theta):
     """

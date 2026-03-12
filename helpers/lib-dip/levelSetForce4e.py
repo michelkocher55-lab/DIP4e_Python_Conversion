@@ -1,6 +1,6 @@
 import numpy as np
-from libDIP.levelSetHeavimp4e import levelSetHeavimp4e
-from libDIP.levelSetCurvature4e import levelSetCurvature4e
+from DIP4eFigures.levelSetHeavimp4e import levelSetHeavimp4e
+from DIP4eFigures.levelSetCurvature4e import levelSetCurvature4e
 
 def levelSetForce4e(type_str, paramcell, normcell=['Fu', 'Cu']):
     """
