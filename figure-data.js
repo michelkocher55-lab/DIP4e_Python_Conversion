@@ -20,7 +20,7 @@ window.chapterData = [
         "label": "Figure 224",
         "title": "Figure224",
         "description": "Effect on plane resolution.",
-        "src": "output/Chapter02/Figure224.png",
+        "src": "output/Chapter02/Figure224_1.png",
         "script": "processing/Chapter02/Figure224.py",
         "hasImage": true
       },
@@ -1901,7 +1901,7 @@ window.chapterData = [
         "label": "Figure 945",
         "title": "Figure945",
         "description": "Generated from processing/Chapter09/Figure945.py.",
-        "src": "output/Chapter09/Figure945Enonce.png",
+        "src": "output/Chapter09/Figure945_1.png",
         "script": "processing/Chapter09/Figure945.py",
         "hasImage": true
       },
@@ -2315,7 +2315,7 @@ window.chapterData = [
         "label": "Figure 1064",
         "title": "Figure1064",
         "description": "Generated from processing/Chapter10/Figure1064.py.",
-        "src": "output/Chapter10/Figure1064_1.png",
+        "src": "output/Chapter10/Figure1064.png",
         "script": "processing/Chapter10/Figure1064.py",
         "hasImage": true
       },
