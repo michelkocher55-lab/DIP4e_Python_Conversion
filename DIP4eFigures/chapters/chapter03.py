@@ -2404,6 +2404,68 @@ class Chapter03Mixin:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
 
+    def figure371(self, data_dir: str | None = None) -> dict[str, Any]:
+        """Run Chapter03 script `Figure371.py` with inlined code."""
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        try:
+            import numpy as np
+            import matplotlib.pyplot as plt
+
+            from helpers.fuzzymf3e import fuzzymf3e
+            from helpers.fuzzyeval3e import fuzzyeval3e
+            from helpers.fuzzyimp3e import fuzzyimp3e
+            from helpers.fuzzyad3e import fuzzyad3e
+
+            ugreen, _ = fuzzymf3e('triang', 200, 0, 1, [0.2, 0.2, 0.2])
+            uyellow, _ = fuzzymf3e('triang', 200, 0, 1, [0.5, 0.25, 0.25])
+            ured, _ = fuzzymf3e('triang', 200, 0, 1, [0.78, 0.22, 0.22])
+
+            uverd, _ = fuzzymf3e('trapez', 101, 0, 100, [0, 10, 0, 20])
+            uhalf, _ = fuzzymf3e('trapez', 101, 0, 100, [38, 52, 19, 18])
+            umat, _ = fuzzymf3e('trapez', 101, 0, 100, [80, 100, 25, 0])
+
+            inmf = np.vstack([ugreen, uyellow, ured])
+            outmf = np.vstack([uverd, uhalf, umat])
+            R = np.array([[1], [2], [3]], dtype=int)
+
+            z = 0.705
+            rule_strength, _ = fuzzyeval3e(R, inmf, [z], 1)
+            q = fuzzyimp3e(rule_strength, outmf)
+            defuzz = fuzzyad3e(q)
+            print(f'defuzz = {defuzz}')
+
+            m = np.maximum(np.maximum(q[0, :], q[1, :]), q[2, :])
+
+            plt.figure(figsize=(8, 10))
+            plt.subplot(3, 1, 1)
+            plt.plot(ugreen, 'g')
+            plt.title('green : g, yellow : y, red : r')
+            plt.xlabel('Color (wavelength)')
+            plt.ylabel('Membership')
+            plt.plot(uyellow, 'y')
+            plt.plot(ured, 'r')
+
+            plt.subplot(3, 1, 2)
+            plt.plot(q[0, :], 'r')
+            plt.title('Q1 : r, Q2 : g, Q3 : b')
+            plt.xlabel('Maturity')
+            plt.ylabel('Membership')
+            plt.plot(q[1, :], 'g')
+            plt.plot(q[2, :], 'b')
+
+            plt.subplot(3, 1, 3)
+            plt.plot(m)
+            plt.xlabel('Maturity')
+            plt.ylabel('Membership')
+
+            plt.tight_layout()
+            plt.savefig('Figure371.png', dpi=150)
+            plt.show()
+
+        finally:
+            self._restore_script_context(_ctx, data_dir=data_dir)
+        return self._collect_new_figures(pre_fig_nums)
+
     def figure37(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter03 script `Figure37.py` with inlined code."""
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
