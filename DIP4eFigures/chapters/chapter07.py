@@ -12,7 +12,7 @@ class Chapter07Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             fIR = imread(dip_data("WashingtonDC-Band4-NearInfrared-512.tif"))
@@ -73,7 +73,7 @@ class Chapter07Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -123,8 +123,8 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.rgb2hsi4e import rgb2hsi4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.rgb2hsi4e import rgb2hsi4e
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -177,9 +177,9 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.rgb2hsi4e import rgb2hsi4e
-            from DIP4eFigures.hsi2rgb4e import hsi2rgb4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.rgb2hsi4e import rgb2hsi4e
+            from helpers.libdip.hsi2rgb4e import hsi2rgb4e
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -262,9 +262,9 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.rgb2hsi4e import rgb2hsi4e
-            from DIP4eFigures.hsi2rgb4e import hsi2rgb4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.rgb2hsi4e import rgb2hsi4e
+            from helpers.libdip.hsi2rgb4e import hsi2rgb4e
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             img_path = dip_data("lenna-RGB.tif")
@@ -344,8 +344,8 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.rgb2hsi4e import rgb2hsi4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.rgb2hsi4e import rgb2hsi4e
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             RGB_u8 = imread(dip_data("jupiter-moon-closeup.tif"))
@@ -430,7 +430,7 @@ class Chapter07Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             RGB = img_as_float(imread(dip_data("jupiter-moon-closeup.tif")))
@@ -497,8 +497,8 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from helpers.colorgrad import colorgrad
-            from helpers.data_path import dip_data
+            from helpers.libdipum.colorgrad import colorgrad
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             RGB = img_as_float(imread(dip_data("lenna-RGB.tif")))
@@ -561,9 +561,9 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from helpers.imnoise2 import imnoise2
-            from DIP4eFigures.rgb2hsi4e import rgb2hsi4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdip.rgb2hsi4e import rgb2hsi4e
+            from helpers.libdipum.data_path import dip_data
 
             # %% Parameters
             Mu = 0
@@ -651,9 +651,9 @@ class Chapter07Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from helpers.imnoise2 import imnoise2
-            from DIP4eFigures.rgb2hsi4e import rgb2hsi4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdip.rgb2hsi4e import rgb2hsi4e
+            from helpers.libdipum.data_path import dip_data
 
             # %% Parameters
             Ps = 0.05
@@ -714,11 +714,11 @@ class Chapter07Mixin:
             from skimage.io import imread
             import numpy as np
 
-            from DIP4eFigures.im2jpeg4e import im2jpeg4e
-            from DIP4eFigures.jpeg2im4e import jpeg2im4e
-            from helpers.imratio import imratio
-            from helpers.compare import compare
-            from helpers.data_path import dip_data
+            from helpers.libdip.im2jpeg4e import im2jpeg4e
+            from helpers.libdip.jpeg2im4e import jpeg2im4e
+            from helpers.libdipum.imratio import imratio
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.data_path import dip_data
 
             # %% Parameters
             Quality = 20

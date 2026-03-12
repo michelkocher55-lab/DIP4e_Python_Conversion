@@ -14,9 +14,9 @@ class Chapter12Mixin:
             from skimage.io import imread
             from skimage.measure import find_contours
             from scipy.spatial.distance import pdist, squareform
-            from helpers.diameter import diameter
-            from helpers.x2majoraxis import x2majoraxis
-            from helpers.data_path import dip_data
+            from helpers.libdipum.diameter import diameter
+            from helpers.libdipum.x2majoraxis import x2majoraxis
+            from helpers.libdipum.data_path import dip_data
             import os
             import itertools
 
@@ -153,7 +153,7 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             import sys
-            from lib.principalComponents4e import principalComponents4e
+            from helpers.libdip.principalComponents4e import principalComponents4e
 
             def get_choice():
                 """get_choice."""
@@ -359,11 +359,11 @@ class Chapter12Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.color import rgb2gray
-            from helpers.N8 import N8
-            from helpers.mmshow import mmshow
-            from helpers.freemanChainCode import freemanChainCode
+            from helpers.libgeneral.N8 import N8
+            from helpers.libgeneral.mmshow import mmshow
+            from helpers.libdipum.freemanChainCode import freemanChainCode
             import sys
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             def get_choice():
                 """get_choice."""
@@ -621,11 +621,11 @@ class Chapter12Mixin:
             import ia870
             from scipy.ndimage import uniform_filter
 
-            from helpers.bwboundaries import bwboundaries
-            from helpers.freemanChainCode import freemanChainCode
-            from helpers.bsubsamp import bsubsamp
-            from helpers.connectpoly import connectpoly
-            from helpers.data_path import dip_data
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.freemanChainCode import freemanChainCode
+            from helpers.libdipum.bsubsamp import bsubsamp
+            from helpers.libdipum.connectpoly import connectpoly
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1205...")
 
@@ -738,7 +738,7 @@ class Chapter12Mixin:
             from bound2im import bound2im
             from skimage.morphology import dilation, square
             from bwboundaries import bwboundaries
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             def Figure1209():
                 """Figure1209."""
@@ -880,11 +880,11 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.im2minperpoly import im2minperpoly
-            from helpers.connectpoly import connectpoly
-            from helpers.bound2im import bound2im
-            from helpers.bwboundaries import bwboundaries
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.im2minperpoly import im2minperpoly
+            from helpers.libdipum.connectpoly import connectpoly
+            from helpers.libdipum.bound2im import bound2im
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1209 (Minimum Perimeter Polygon)...")
 
@@ -969,9 +969,9 @@ class Chapter12Mixin:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.bwboundaries import bwboundaries
-            from helpers.signature import signature
-            from helpers.data_path import dip_data
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.signature import signature
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1211 (Boundary Signatures)...")
 
@@ -1040,9 +1040,9 @@ class Chapter12Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers.bwboundaries import bwboundaries
-            from helpers.signature import signature
-            from helpers.data_path import dip_data
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.signature import signature
+            from helpers.libdipum.data_path import dip_data
 
             # Helper for robust image reading
             def read_image_robust(path: Any):
@@ -1267,8 +1267,8 @@ class Chapter12Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers.skeleton import skeleton
-            from helpers.data_path import dip_data
+            from helpers.libdipum.skeleton import skeleton
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1214 (Skeleton comparisons)...")
 
@@ -1362,8 +1362,8 @@ class Chapter12Mixin:
         try:
             import numpy as np
 
-            from helpers.bwboundaries import bwboundaries
-            from helpers.freemanChainCode import freemanChainCode
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.freemanChainCode import freemanChainCode
 
             print("Running Figure1216 (Freeman chain code examples)...")
 
@@ -1407,8 +1407,8 @@ class Chapter12Mixin:
         try:
             import numpy as np
 
-            from helpers.bwboundaries import bwboundaries
-            from helpers.freemanChainCode import freemanChainCode
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.freemanChainCode import freemanChainCode
 
             print("Running Figure1217 (Freeman chain code)...")
 
@@ -1447,12 +1447,12 @@ class Chapter12Mixin:
             from skimage.io import imread
             from scipy.ndimage import binary_dilation
 
-            from helpers.mmshow import mmshow
-            from helpers.bwboundaries import bwboundaries
-            from helpers.bound2im import bound2im
-            from helpers.frdescp import frdescp
-            from helpers.ifrdescp import ifrdescp
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.mmshow import mmshow
+            from helpers.libdipum.bwboundaries import bwboundaries
+            from helpers.libdipum.bound2im import bound2im
+            from helpers.libdipum.frdescp import frdescp
+            from helpers.libdipum.ifrdescp import ifrdescp
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1219 (Fourier descriptors of boundary)...")
 
@@ -1555,9 +1555,9 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
-            from DIP4eFigures.binaryRegionProps4e import binaryRegionProps4e
+            from helpers.libdip.binaryRegionProps4e import binaryRegionProps4e
 
             print("Running Figure1222 (Shape descriptors)...")
 
@@ -1641,7 +1641,7 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1224 (Americas at night ratios)...")
 
@@ -1744,7 +1744,7 @@ class Chapter12Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1228 (Morphology + labeling + skeleton)...")
 
@@ -1828,7 +1828,7 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1229 (Histogram-based texture statistics)...")
 
@@ -1939,7 +1939,7 @@ class Chapter12Mixin:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1231 (Three texture strips)...")
 
@@ -1976,10 +1976,10 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
-            from helpers.graycomatrix import graycomatrix
-            from helpers.graycoprops import graycoprops
+            from helpers.libgeneral.graycomatrix import graycomatrix
+            from helpers.libgeneral.graycoprops import graycoprops
 
             print("Running Figure1232 (GLCM texture analysis)...")
 
@@ -2067,10 +2067,10 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
-            from helpers.graycomatrix import graycomatrix
-            from helpers.graycoprops import graycoprops
+            from helpers.libgeneral.graycomatrix import graycomatrix
+            from helpers.libgeneral.graycoprops import graycoprops
 
             print("Running Figure1233 (Correlation vs horizontal offset)...")
 
@@ -2129,9 +2129,9 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
-            from helpers.specxture import specxture
+            from helpers.libdipum.specxture import specxture
 
             print("Running Figure1235 (Matches and spectra)...")
 
@@ -2187,8 +2187,8 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
-            from helpers.specxture import specxture
+            from helpers.libdipum.data_path import dip_data
+            from helpers.libdipum.specxture import specxture
 
             print("Running Figure1236 (Radial and angular spectra)...")
 
@@ -2258,8 +2258,8 @@ class Chapter12Mixin:
             from skimage.io import imread
             from scipy.ndimage import rotate
 
-            from helpers.invmoments import invmoments
-            from helpers.data_path import dip_data
+            from helpers.libdipum.invmoments import invmoments
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1237 (Invariant moments under transformations)...")
 
@@ -2389,10 +2389,10 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
-            from helpers.imstack2vectors import imstack2vectors
-            from helpers.principalComponents import principalComponents
+            from helpers.libdipum.imstack2vectors import imstack2vectors
+            from helpers.libdipum.principalComponents import principalComponents
 
             print("Running Figure1238to42 (PCA on WashingtonDC multispectral stack)...")
 
@@ -2650,8 +2650,8 @@ class Chapter12Mixin:
             import os
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.corner import corner
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.corner import corner
+            from helpers.libdipum.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -2712,8 +2712,8 @@ class Chapter12Mixin:
             import os
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.corner import corner
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.corner import corner
+            from helpers.libdipum.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -2770,8 +2770,8 @@ class Chapter12Mixin:
             import os
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.corner import corner
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.corner import corner
+            from helpers.libdipum.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -2833,8 +2833,8 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from helpers.corner import corner
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.corner import corner
+            from helpers.libdipum.data_path import dip_data
 
             def im2double(arr: np.ndarray) -> np.ndarray:
                 """im2double."""
@@ -2897,8 +2897,8 @@ class Chapter12Mixin:
             from scipy import ndimage
             import imageio.v2 as iio
 
-            from helpers.detectMSERFeatures import detectMSERFeatures
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.detectMSERFeatures import detectMSERFeatures
+            from helpers.libdipum.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -3000,8 +3000,8 @@ class Chapter12Mixin:
             from scipy import ndimage
             import imageio.v2 as iio
 
-            from helpers.detectMSERFeatures import detectMSERFeatures
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.detectMSERFeatures import detectMSERFeatures
+            from helpers.libdipum.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -3099,8 +3099,8 @@ class Chapter12Mixin:
             from scipy import ndimage
             import imageio.v2 as iio
 
-            from helpers.detectMSERFeatures import detectMSERFeatures
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.detectMSERFeatures import detectMSERFeatures
+            from helpers.libdipum.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -3216,8 +3216,8 @@ class Chapter12Mixin:
             from scipy import ndimage
             import imageio.v2 as iio
 
-            from helpers.detectMSERFeatures import detectMSERFeatures
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.detectMSERFeatures import detectMSERFeatures
+            from helpers.libdipum.data_path import dip_data
 
             def _to_gray(a: np.ndarray) -> np.ndarray:
                 """_to_gray."""
@@ -3327,8 +3327,8 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from helpers.gaussKernel4e import gaussKernel4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1257...")
 
@@ -3490,7 +3490,7 @@ class Chapter12Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             def gaussian_kernel(size: int, sigma: float) -> np.ndarray:
                 """gaussian_kernel."""
@@ -3628,10 +3628,10 @@ class Chapter12Mixin:
             import os
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.boundary2image4e import boundary2image4e
-            from helpers.sift import sift
+            from helpers.libdip.boundary2image4e import boundary2image4e
+            from helpers.libdipum.sift import sift
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1260New (keypoints without orientation arrows)...")
 
@@ -3680,9 +3680,9 @@ class Chapter12Mixin:
             import os
             import matplotlib.pyplot as plt
 
-            from helpers.sift import sift
-            from helpers.showkeys import showkeys
-            from helpers.data_path import dip_data
+            from helpers.libdipum.sift import sift
+            from helpers.libdipum.showkeys import showkeys
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1261 (keypoints with orientation)...")
 
@@ -3717,10 +3717,10 @@ class Chapter12Mixin:
             import os
             import matplotlib.pyplot as plt
 
-            from helpers.sift import sift
-            from helpers.showkeys import showkeys
-            from helpers.match import match
-            from helpers.data_path import dip_data
+            from helpers.libdipum.sift import sift
+            from helpers.libdipum.showkeys import showkeys
+            from helpers.libdipum.match import match
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1263 (matching of building corner)...")
 
@@ -3786,10 +3786,10 @@ class Chapter12Mixin:
             import imageio.v2 as iio
             from scipy import ndimage
 
-            from helpers.sift import sift
-            from helpers.showkeys import showkeys
-            from helpers.match import match
-            from helpers.data_path import dip_data
+            from helpers.libdipum.sift import sift
+            from helpers.libdipum.showkeys import showkeys
+            from helpers.libdipum.match import match
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1265 (matching of half-size building corner)...")
 
@@ -3859,8 +3859,8 @@ class Chapter12Mixin:
             import os
             import matplotlib.pyplot as plt
 
-            from helpers.match import match
-            from helpers.data_path import dip_data
+            from helpers.libdipum.match import match
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1266 (matching rotated and half-size corners)...")
 

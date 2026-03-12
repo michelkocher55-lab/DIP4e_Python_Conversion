@@ -162,9 +162,7 @@ class DipBase:
         self._patch_ia870_product_compat()
         self._patch_ia870_ianeg_overflow_warning()
         project_root = str(_Path(__file__).resolve().parents[2])
-        libdipum_dir = str(_Path(__file__).resolve().parents[2] / "libDIPUM")
         had_project_root = project_root in _sys.path
-        had_libdipum_dir = libdipum_dir in _sys.path
 
         old_cwd = _os.getcwd()
         old_data_dir = _os.environ.get("DIP4E_DATA_DIR")
@@ -181,8 +179,6 @@ class DipBase:
             _os.environ["DIP4E_DATA_DIR"] = data_dir
         if not had_project_root:
             _sys.path.insert(0, project_root)
-        if not had_libdipum_dir:
-            _sys.path.insert(0, libdipum_dir)
         _os.makedirs(output_dir, exist_ok=True)
 
         def _redirect_save_path(fname: Any) -> Any:
@@ -275,9 +271,7 @@ class DipBase:
             "old_scipy_loadmat": old_scipy_loadmat,
             "old_scipy_savemat": old_scipy_savemat,
             "project_root": project_root,
-            "libdipum_dir": libdipum_dir,
             "had_project_root": had_project_root,
-            "had_libdipum_dir": had_libdipum_dir,
         }
         script_path = _Path(project_root) / "processing" / "Chapter02" / "_context.py"
         return state, pre_fig_nums, script_path
@@ -302,8 +296,6 @@ class DipBase:
             else:
                 _os.environ["DIP4E_DATA_DIR"] = state["old_data_dir"]
 
-        if not state["had_libdipum_dir"] and state["libdipum_dir"] in _sys.path:
-            _sys.path.remove(state["libdipum_dir"])
         if not state["had_project_root"] and state["project_root"] in _sys.path:
             _sys.path.remove(state["project_root"])
 

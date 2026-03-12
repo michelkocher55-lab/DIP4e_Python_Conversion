@@ -18,10 +18,10 @@ class Chapter13Mixin:
             # Add current directory to path
             sys.path.append(".")
 
-            from helpers.cnnsetup import cnnsetup
-            from helpers.cnntrain import cnntrain
-            from helpers.cnntest import cnntest
-            from helpers.data_path import dip_data
+            from helpers.libdipum.cnnsetup import cnnsetup
+            from helpers.libdipum.cnntrain import cnntrain
+            from helpers.libdipum.cnntest import cnntest
+            from helpers.libdipum.data_path import dip_data
 
             def load_mnist_data(path: Any = None):
                 """load_mnist_data."""
@@ -189,8 +189,8 @@ class Chapter13Mixin:
             # Add current directory to path
             sys.path.append(".")
 
-            from lib.neuralNet4e import neuralNet4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.neuralNet4e import neuralNet4e
+            from helpers.libdipum.data_path import dip_data
 
             def load_mnist_data(path: Any = None):
                 """Load and preprocess MNIST data from .mat file for NN."""
@@ -328,9 +328,9 @@ class Chapter13Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy import ndimage
-            from helpers.cnnsetup import cnnsetup
-            from helpers.cnntrain import cnntrain
-            from helpers.cnntest import cnntest
+            from helpers.libdipum.cnnsetup import cnnsetup
+            from helpers.libdipum.cnntrain import cnntrain
+            from helpers.libdipum.cnntest import cnntest
 
             print("Running Example1316CNN...")
 
@@ -550,7 +550,7 @@ class Chapter13Mixin:
             # Add current directory to path
             sys.path.append(".")
 
-            from lib.neuralNet4e import neuralNet4e
+            from helpers.libdip.neuralNet4e import neuralNet4e
             from scipy import ndimage
 
             def main():
@@ -747,9 +747,9 @@ class Chapter13Mixin:
             # Add current directory to path
             sys.path.append(".")
 
-            from DIP4eFigures.perceptronClassifier4e import perceptronClassifier4e
-            from DIP4eFigures.perceptronTraining4e import perceptronTraining4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.perceptronClassifier4e import perceptronClassifier4e
+            from helpers.libdip.perceptronTraining4e import perceptronTraining4e
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Example138...")
 
@@ -832,11 +832,11 @@ class Chapter13Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.im2minperpoly import im2minperpoly
-            from helpers.randvertex import randvertex
-            from helpers.polyangles import polyangles
-            from helpers.strsimilarity import strsimilarity
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.im2minperpoly import im2minperpoly
+            from helpers.libdipum.randvertex import randvertex
+            from helpers.libdipum.polyangles import polyangles
+            from helpers.libdipum.strsimilarity import strsimilarity
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             Nr = 10
@@ -984,7 +984,7 @@ class Chapter13Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.io import loadmat
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1310 (minimum distance classifier)...")
 
@@ -1267,7 +1267,7 @@ class Chapter13Mixin:
             from skimage.io import imread
             from skimage.feature import match_template
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             path_f = dip_data("Fig1209(a)(Hurricane Andrew).tif")
@@ -1342,7 +1342,7 @@ class Chapter13Mixin:
             from skimage.io import imread
             from skimage.feature import ORB, match_descriptors
             import os
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             try:
                 from skimage.feature import plot_matches as _plot_matches_legacy
@@ -1678,10 +1678,10 @@ class Chapter13Mixin:
             import matplotlib.pyplot as plt
             from PIL import Image
 
-            from helpers.imstack2vectors import imstack2vectors
-            from helpers.covmatrix import covmatrix
-            from helpers.bayesgauss import bayesgauss
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imstack2vectors import imstack2vectors
+            from helpers.libdipum.covmatrix import covmatrix
+            from helpers.libdipum.bayesgauss import bayesgauss
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1321 (Bayes classification of remote data)...")
 
@@ -1852,7 +1852,7 @@ class Chapter13Mixin:
             import os
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.perceptronTraining4e import perceptronTraining4e
+            from helpers.libdip.perceptronTraining4e import perceptronTraining4e
 
             print("Running Figure1324 (perceptron example)...")
 
@@ -2242,9 +2242,9 @@ class Chapter13Mixin:
             import matplotlib.pyplot as plt
             from scipy.io import loadmat
 
-            from DIP4eFigures.lmsePerceptronTraining4e import lmsePerceptronTraining4e
-            from DIP4eFigures.perceptronClassifier4e import perceptronClassifier4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.lmsePerceptronTraining4e import lmsePerceptronTraining4e
+            from helpers.libdip.perceptronClassifier4e import perceptronClassifier4e
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1326 (LMSE perceptron errors on iris data)...")
 
@@ -2402,9 +2402,9 @@ class Chapter13Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from DIP4eFigures.neuralNet4e import neuralNet4e
-            from DIP4eFigures.moreTrainingPatterns4e import moreTrainingPatterns4e
-            from DIP4eFigures.patternShuffle4e import patternShuffle4e
+            from helpers.libdip.neuralNet4e import neuralNet4e
+            from helpers.libdip.moreTrainingPatterns4e import moreTrainingPatterns4e
+            from helpers.libdip.patternShuffle4e import patternShuffle4e
 
             print("Running Figure1334 (XOR with neuralNet4e)...")
 
@@ -2973,7 +2973,7 @@ class Chapter13Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from DIP4eFigures.neuralNet4e import neuralNet4e
+            from helpers.libdip.neuralNet4e import neuralNet4e
 
             print("Running Figure1336 (XOR MSE plot)...")
 
@@ -3025,7 +3025,7 @@ class Chapter13Mixin:
             import matplotlib.pyplot as plt
             import os
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             def sigmoid(x: Any):
                 """sigmoid."""

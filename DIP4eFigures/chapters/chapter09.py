@@ -21,7 +21,7 @@ class Chapter09Mixin:
                 sys.path.insert(0, str(PROJECT_ROOT))
 
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure911
 
@@ -92,7 +92,7 @@ class Chapter09Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             import ia870 as ia
-            from helpers.mmshow import mmshow
+            from helpers.libgeneral.mmshow import mmshow
 
             # %% Figure912
 
@@ -182,7 +182,7 @@ class Chapter09Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             import ia870 as ia
-            from helpers.mmshow import mmshow
+            from helpers.libgeneral.mmshow import mmshow
 
             # %% Figure914
 
@@ -330,7 +330,7 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             from PIL import Image
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure916
 
@@ -470,7 +470,7 @@ class Chapter09Mixin:
             from PIL import Image
             import time
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure918
             # Hole filling
@@ -669,7 +669,7 @@ class Chapter09Mixin:
             import sys
             from pathlib import Path
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure920
 
@@ -765,7 +765,7 @@ class Chapter09Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             import ia870 as ia
-            from helpers.mmshow import mmshow
+            from helpers.libgeneral.mmshow import mmshow
 
             # %% Figure921
 
@@ -930,7 +930,7 @@ class Chapter09Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             import ia870 as ia
-            from helpers.mmshow import mmshow
+            from helpers.libgeneral.mmshow import mmshow
 
             # %% Figure922
             # ibid 921 but with spatial limitation
@@ -1300,7 +1300,7 @@ class Chapter09Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             import ia870 as ia
-            from helpers.mmshow import mmshow
+            from helpers.libgeneral.mmshow import mmshow
 
             # %% Figure927
             # Pruning
@@ -1432,7 +1432,7 @@ class Chapter09Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.mmshow import mmshow
+            from helpers.libgeneral.mmshow import mmshow
             import ia870 as ia
 
             # %% Figure93
@@ -1485,7 +1485,7 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             from PIL import Image
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure931
 
@@ -1574,8 +1574,8 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers import MKRLib
-            from helpers.data_path import dip_data
+            from helpers.libgeneral import MKRLib
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure933
             # Hole closing without marker 9.5-28, 9.5-29
@@ -1673,7 +1673,7 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure934
             # Border clearing 9.5-31
@@ -1738,7 +1738,7 @@ class Chapter09Mixin:
             from PIL import Image
 
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure937
 
@@ -1794,8 +1794,8 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             from PIL import Image
             import ia870 as ia
-            from helpers.AddSE2Image import AddSE2Image
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.AddSE2Image import AddSE2Image
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure939
             # Morphological opening and closing
@@ -1853,10 +1853,10 @@ class Chapter09Mixin:
             from PIL import Image
 
             import ia870 as ia
-            from helpers.AddSE2Image import AddSE2Image
-            from helpers.GPsnr import GPsnr
-            from helpers.matlab_hist import matlab_hist
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.AddSE2Image import AddSE2Image
+            from helpers.libgeneral.GPsnr import GPsnr
+            from helpers.libgeneral.matlab_hist import matlab_hist
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure940
             # Alternate Sequential Filtering
@@ -2012,8 +2012,8 @@ class Chapter09Mixin:
                 sys.path.insert(0, str(PROJECT_ROOT))
 
             import ia870 as ia
-            from helpers.AddSE2Image import AddSE2Image
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.AddSE2Image import AddSE2Image
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure940New
             # Alternate Sequential Filtering
@@ -2147,8 +2147,8 @@ class Chapter09Mixin:
                 sys.path.insert(0, str(PROJECT_ROOT))
 
             import ia870 as ia
-            from helpers.AddSE2Image import AddSE2Image
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.AddSE2Image import AddSE2Image
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure941
             # Morphological gradient
@@ -2219,7 +2219,7 @@ class Chapter09Mixin:
             from PIL import Image
             from skimage.filters import threshold_otsu
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure942
             # Rice grains statistics
@@ -2327,7 +2327,7 @@ class Chapter09Mixin:
             from PIL import Image
             from scipy.ndimage import convolve
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure943
             # Granulometry
@@ -2422,8 +2422,8 @@ class Chapter09Mixin:
             from PIL import Image
             from skimage.filters import threshold_otsu
             import ia870 as ia
-            from helpers.mmshow import mmshow
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.mmshow import mmshow
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure945
 
@@ -2538,8 +2538,8 @@ class Chapter09Mixin:
             from PIL import Image
             from skimage.filters import threshold_otsu
             import ia870 as ia
-            from helpers.AddSE2Image import AddSE2Image
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.AddSE2Image import AddSE2Image
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure946
             # Segment calculator symbols
@@ -2697,7 +2697,7 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             import PIL.Image
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure95
 
@@ -2756,7 +2756,7 @@ class Chapter09Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure97
 

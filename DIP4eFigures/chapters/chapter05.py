@@ -13,9 +13,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -71,9 +71,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -121,9 +121,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             kernel_size = 5
@@ -199,9 +199,9 @@ class Chapter05Mixin:
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
             from scipy.ndimage import uniform_filter
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             def adaptive_noise_reduction_filter(f: Any, w: Any, noise_var: Any):
                 """
@@ -280,10 +280,10 @@ class Chapter05Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.adpmedian import adpmedian
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.adpmedian import adpmedian
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             KernelSize = 5
@@ -364,7 +364,7 @@ class Chapter05Mixin:
             from typing import Any
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.cnotch import cnotch
+            from helpers.libdipum.cnotch import cnotch
 
             def plot_mesh(ax: Any, H: Any, title: Any):
                 """plot_mesh."""
@@ -429,10 +429,10 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.cnotch import cnotch
-            from helpers.imnoise3 import imnoise3
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.cnotch import cnotch
+            from helpers.libdipum.imnoise3 import imnoise3
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_name = dip_data("astronaut.tif")
@@ -523,9 +523,9 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.recnotch import recnotch
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.recnotch import recnotch
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_name = dip_data("satellite_original.tif")
@@ -614,9 +614,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.atmosphturb import atmosphturb
-            from helpers.data_path import dip_data
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libgeneral.atmosphturb import atmosphturb
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             k_vals = [0.0025, 0.001, 0.00025]
@@ -669,8 +669,8 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.motionBlurTF4e import motionBlurTF4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.motionBlurTF4e import motionBlurTF4e
+            from helpers.libdipum.data_path import dip_data
 
             img_name = dip_data("original_DIP.tif")
             f_orig = imread(img_name)
@@ -733,10 +733,10 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.atmosphturb import atmosphturb
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
-            from helpers.imnoise2 import imnoise2
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.atmosphturb import atmosphturb
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             k = 0.0025
@@ -850,11 +850,11 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.atmosphturb import atmosphturb
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
-            from helpers.imnoise2 import imnoise2
-            from helpers.deconvwnr import deconvwnr
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.atmosphturb import atmosphturb
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libgeneral.deconvwnr import deconvwnr
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             k = 0.0025
@@ -925,9 +925,9 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float, random_noise
-            from DIP4eFigures.motionBlurTF4e import motionBlurTF4e
-            from DIP4eFigures.pWienerTF4e import pWienerTF4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.motionBlurTF4e import motionBlurTF4e
+            from helpers.libdip.pWienerTF4e import pWienerTF4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             VarNoise = [1e-37, 1e-2, 1e-1]
@@ -1051,7 +1051,7 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure 5.3
 
@@ -1091,9 +1091,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from DIP4eFigures.motionBlurTF4e import motionBlurTF4e
-            from DIP4eFigures.constrainedLsTF4e import constrainedLsTF4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.motionBlurTF4e import motionBlurTF4e
+            from helpers.libdip.constrainedLsTF4e import constrainedLsTF4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             var_noise = [10 ** (-37), 10 ** (-2), 10 ** (-1)]
@@ -1174,11 +1174,11 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.atmosphturb import atmosphturb
-            from helpers.imnoise2 import imnoise2
-            from DIP4eFigures.constrainedLsTF4e import constrainedLsTF4e
-            from helpers.deconvreg1 import deconvreg1
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.atmosphturb import atmosphturb
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdip.constrainedLsTF4e import constrainedLsTF4e
+            from helpers.libgeneral.deconvreg1 import deconvreg1
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             k = 0.0025
@@ -1272,8 +1272,8 @@ class Chapter05Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.imRecon4e import imRecon4e
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.imRecon4e import imRecon4e
 
             H = lpfilter("ideal", 480, 480, 40)
             f = np.fft.fftshift(H)
@@ -1324,7 +1324,7 @@ class Chapter05Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.imRecon4e import imRecon4e
+            from helpers.libdip.imRecon4e import imRecon4e
 
             # Parameters
             NR = 256
@@ -1421,8 +1421,8 @@ class Chapter05Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.imRecon4e import imRecon4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.imRecon4e import imRecon4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             # Angles32 = 5.625 * (0 : 31);
@@ -1494,8 +1494,8 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.radon import radon
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.radon import radon
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             single_theta = 90
@@ -1633,9 +1633,9 @@ class Chapter05Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.imnoise2New import imnoise2New
+            from helpers.libdipum.imnoise2New import imnoise2New
             from PIL import Image
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # ------------------------------------------------------------
             # Parameters
@@ -1767,7 +1767,7 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.data import shepp_logan_phantom
             from skimage.transform import resize
-            from DIP4eFigures.imRecon4e import imRecon4e
+            from helpers.libdip.imRecon4e import imRecon4e
 
             # Parameters
             NR = 256
@@ -1974,10 +1974,10 @@ class Chapter05Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.fanbeam import fanbeam
-            from helpers.ifanbeam import ifanbeam
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.fanbeam import fanbeam
+            from helpers.libdipum.ifanbeam import ifanbeam
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             NR = 256
@@ -2064,9 +2064,9 @@ class Chapter05Mixin:
             import matplotlib.pyplot as plt
             from skimage.data import shepp_logan_phantom
             from skimage.transform import resize
-            from helpers.fanbeam import fanbeam
-            from helpers.ifanbeam import ifanbeam
-            from DIP4eFigures.intScaling4e import intScaling4e
+            from helpers.libdipum.fanbeam import fanbeam
+            from helpers.libdipum.ifanbeam import ifanbeam
+            from helpers.libdip.intScaling4e import intScaling4e
 
             # Parameters
             # f = phantom(600);
@@ -2141,11 +2141,11 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.cnotch import cnotch
-            from helpers.imnoise3 import imnoise3
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.dftfilt import dftfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.cnotch import cnotch
+            from helpers.libdipum.imnoise3 import imnoise3
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.dftfilt import dftfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("astronaut.tif")
@@ -2206,9 +2206,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -2268,9 +2268,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             kernel_size = 3
@@ -2333,9 +2333,9 @@ class Chapter05Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.color import rgb2gray
-            from helpers.imnoise2 import imnoise2
-            from helpers.spfilt import spfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.spfilt import spfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             kernel_size = 3

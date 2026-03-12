@@ -14,7 +14,7 @@ class Chapter08Mixin:
             from skimage.io import imread
 
             from processing.Chapter08.fig81bc import fig81bc
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Figure81
 
@@ -172,10 +172,10 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.golomb import golomb
-            from helpers.mat2huff import mat2huff
-            from helpers.imratio import imratio
-            from helpers.data_path import dip_data
+            from helpers.libdipum.golomb import golomb
+            from helpers.libdipum.mat2huff import mat2huff
+            from helpers.libdipum.imratio import imratio
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 811
 
@@ -236,7 +236,7 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = imread(dip_data("Fig0819(a).tif")).astype(np.uint8)
@@ -343,8 +343,8 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.tmat4e import tmat4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.tmat4e import tmat4e
+            from helpers.libdipum.data_path import dip_data
 
             def blkdct(x: Any, a: Any):
                 """blkdct."""
@@ -444,9 +444,9 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from DIP4eFigures.tmat4e import tmat4e
-            from helpers.compare import compare
-            from helpers.data_path import dip_data
+            from helpers.libdip.tmat4e import tmat4e
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 823
 
@@ -552,8 +552,8 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.tmat4e import tmat4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.tmat4e import tmat4e
+            from helpers.libdipum.data_path import dip_data
 
             def blkdct(x: Any, a: Any):
                 """blkdct."""
@@ -670,9 +670,9 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from DIP4eFigures.tmat4e import tmat4e
-            from helpers.compare import compare
-            from helpers.data_path import dip_data
+            from helpers.libdip.tmat4e import tmat4e
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.data_path import dip_data
 
             def blkdct(x: Any, a: Any):
                 """blkdct."""
@@ -881,9 +881,9 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from DIP4eFigures.tmat4e import tmat4e
-            from helpers.compare import compare
-            from helpers.data_path import dip_data
+            from helpers.libdip.tmat4e import tmat4e
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.data_path import dip_data
 
             def compute_q(q: Any):
                 """compute_q."""
@@ -1008,11 +1008,11 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.im2jpeg import im2jpeg
-            from helpers.jpeg2im import jpeg2im
-            from helpers.imratio import imratio
-            from helpers.compare import compare
-            from helpers.data_path import dip_data
+            from helpers.libdipum.im2jpeg import im2jpeg
+            from helpers.libdipum.jpeg2im import jpeg2im
+            from helpers.libdipum.imratio import imratio
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             quality = [4, 8]
@@ -1110,7 +1110,7 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
 
             from processing.Chapter08.fig81bc import fig81bc
-            from DIP4eFigures.histEqual4e import histEqual4e
+            from helpers.libdip.histEqual4e import histEqual4e
 
             # Figure 8.3
 
@@ -1147,11 +1147,11 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.compare import compare
-            from helpers.lpc2mat import lpc2mat
-            from helpers.mat2lpc import mat2lpc
-            from helpers.ntrop import ntrop
-            from helpers.data_path import dip_data
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.lpc2mat import lpc2mat
+            from helpers.libdipum.mat2lpc import mat2lpc
+            from helpers.libdipum.ntrop import ntrop
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f_raw = imread(dip_data("nasaframe67.tif"))
@@ -1207,8 +1207,8 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.ntrop import ntrop
-            from helpers.data_path import dip_data
+            from helpers.libdipum.ntrop import ntrop
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f_raw = imread(dip_data("nasaframe78.tif"))
@@ -1271,8 +1271,8 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.motion import motion
-            from helpers.data_path import dip_data
+            from helpers.libdipum.motion import motion
+            from helpers.libdipum.data_path import dip_data
 
             def _invert_if_needed(img: Any):
                 """_invert_if_needed."""
@@ -1353,8 +1353,8 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.motion import motion
-            from helpers.data_path import dip_data
+            from helpers.libdipum.motion import motion
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             MacroBlock = [16, 8, 8, 8]
@@ -1442,8 +1442,8 @@ class Chapter08Mixin:
             from skimage.io import imread
             from PIL import Image
 
-            from helpers.compare import compare
-            from helpers.data_path import dip_data
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.data_path import dip_data
 
             # Figure84
 
@@ -1497,11 +1497,11 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.compare import compare
-            from helpers.lpc2mat2d import lpc2mat2d
-            from helpers.mat2lpc2d import mat2lpc2d
-            from helpers.ntrop import ntrop
-            from helpers.data_path import dip_data
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.lpc2mat2d import lpc2mat2d
+            from helpers.libdipum.mat2lpc2d import mat2lpc2d
+            from helpers.libdipum.ntrop import ntrop
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = imread(dip_data("lena.tif"))
@@ -1568,9 +1568,9 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.wavefast import wavefast
-            from helpers.wavedisplay import wavedisplay
-            from helpers.data_path import dip_data
+            from helpers.libdipum.wavefast import wavefast
+            from helpers.libdipum.wavedisplay import wavedisplay
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             n_levels = 3
@@ -1619,12 +1619,12 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.compare import compare
-            from helpers.waveback import waveback
-            from helpers.wavecopy import wavecopy
-            from helpers.wavefast import wavefast
-            from helpers.wavepaste import wavepaste
-            from helpers.data_path import dip_data
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.waveback import waveback
+            from helpers.libdipum.wavecopy import wavecopy
+            from helpers.libdipum.wavefast import wavefast
+            from helpers.libdipum.wavepaste import wavepaste
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 8.44 (dead-zone threshold sweep)
 
@@ -1708,11 +1708,11 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.compare import compare
-            from helpers.im2jpeg2k import im2jpeg2k
-            from helpers.imratio import imratio
-            from helpers.jpeg2k2im import jpeg2k2im
-            from helpers.data_path import dip_data
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.im2jpeg2k import im2jpeg2k
+            from helpers.libdipum.imratio import imratio
+            from helpers.libdipum.jpeg2k2im import jpeg2k2im
+            from helpers.libdipum.data_path import dip_data
 
             def imcrop_matlab(img: Any, rect: Any):
                 """imcrop_matlab."""
@@ -1780,9 +1780,9 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.im2jpeg import im2jpeg
-            from helpers.jpeg2im import jpeg2im
-            from helpers.data_path import dip_data
+            from helpers.libdipum.im2jpeg import im2jpeg
+            from helpers.libdipum.jpeg2im import jpeg2im
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure848
 
@@ -1875,8 +1875,8 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.data_path import dip_data
-            from DIP4eFigures.watermark4e import watermark4e
+            from helpers.libdipum.data_path import dip_data
+            from helpers.libdip.watermark4e import watermark4e
 
             np.random.seed(seed)
 
@@ -1946,8 +1946,8 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.watermarkMKR import watermarkMKR
-            from helpers.data_path import dip_data
+            from helpers.libdipum.watermarkMKR import watermarkMKR
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure851 (watermark attack comparison)...")
 
@@ -2018,7 +2018,7 @@ class Chapter08Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = imread(dip_data("lena.tif"))
@@ -2051,11 +2051,11 @@ class Chapter08Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from helpers.compare import compare
-            from helpers.cv2tifs import cv2tifs
-            from helpers.imratio import imratio
-            from helpers.tifs2cv import tifs2cv
-            from helpers.data_path import dip_data
+            from helpers.libdipum.compare import compare
+            from helpers.libdipum.cv2tifs import cv2tifs
+            from helpers.libdipum.imratio import imratio
+            from helpers.libdipum.tifs2cv import tifs2cv
+            from helpers.libdipum.data_path import dip_data
 
             # %% FigureTifs2cv
 
