@@ -5,14 +5,17 @@ import sys
 
 
 def main(noshow: bool = False) -> int:
-    """Run all Figure*.py scripts in this chapter."""
+    """Run all Figure*.py and Example*.py scripts in this chapter."""
     chapter_dir = Path(__file__).resolve().parent
     scripts = sorted(
-        p for p in chapter_dir.glob("Figure*.py") if p.name != Path(__file__).name
+        p
+        for pattern in ("Figure*.py", "Example*.py")
+        for p in chapter_dir.glob(pattern)
+        if p.name != Path(__file__).name
     )
 
     if not scripts:
-        print(f"No Figure scripts found in {chapter_dir.name}.")
+        print(f"No Figure or Example scripts found in {chapter_dir.name}.")
         return 0
 
     failed = 0

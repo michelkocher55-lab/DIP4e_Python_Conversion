@@ -33,6 +33,7 @@ button {
   display: grid;
   grid-template-columns: minmax(320px, 420px) 1fr;
   min-height: 100vh;
+  height: 100vh;
 }
 
 .sidebar {
@@ -42,6 +43,8 @@ button {
   border-right: 1px solid var(--border);
   background: rgba(255, 248, 240, 0.75);
   backdrop-filter: blur(18px);
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .sidebar-header,
@@ -199,6 +202,8 @@ button {
 .viewer {
   padding: 1.5rem;
   display: grid;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .viewer-card {
@@ -236,7 +241,8 @@ button {
   margin: 0;
   min-height: 0;
   display: grid;
-  place-items: center;
+  justify-items: center;
+  align-items: start;
   overflow: hidden;
   border-radius: 24px;
   border: 1px solid var(--border);
@@ -253,8 +259,8 @@ button {
 }
 
 #figure-image {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 78%;
+  max-height: 78%;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -270,11 +276,17 @@ button {
 @media (max-width: 900px) {
   .page-shell {
     grid-template-columns: 1fr;
+    height: auto;
   }
 
   .sidebar {
     border-right: 0;
     border-bottom: 1px solid var(--border);
+    overflow-y: visible;
+  }
+
+  .viewer {
+    overflow-y: visible;
   }
 
   .viewer-card {

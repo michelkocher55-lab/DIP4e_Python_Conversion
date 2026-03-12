@@ -2658,7 +2658,7 @@ window.chapterData = [
     "id": "chapter12",
     "label": "Chapter 12",
     "title": "Object Recognition",
-    "count": 37,
+    "count": 38,
     "availableCount": 34,
     "figures": [
       {
@@ -2723,6 +2723,15 @@ window.chapterData = [
         "src": "output/Chapter12/Figure1214.png",
         "script": "processing/Chapter12/Figure1214.py",
         "hasImage": true
+      },
+      {
+        "id": "example1214",
+        "label": "Example 1214",
+        "title": "Example1214",
+        "description": "Generated from processing/Chapter12/Example1214.py.",
+        "src": null,
+        "script": "processing/Chapter12/Example1214.py",
+        "hasImage": false
       },
       {
         "id": "figure1216",
@@ -3000,8 +3009,8 @@ window.chapterData = [
     "id": "chapter13",
     "label": "Chapter 13",
     "title": "Neural Networks and Deep Learning",
-    "count": 18,
-    "availableCount": 13,
+    "count": 23,
+    "availableCount": 16,
     "figures": [
       {
         "id": "figure1308",
@@ -3010,6 +3019,15 @@ window.chapterData = [
         "description": "Generated from processing/Chapter13/Figure1308.py.",
         "src": "output/Chapter13/Figure1308.png",
         "script": "processing/Chapter13/Figure1308.py",
+        "hasImage": true
+      },
+      {
+        "id": "example138",
+        "label": "Example 138",
+        "title": "Example138",
+        "description": "Generated from processing/Chapter13/Example138.py.",
+        "src": "output/Chapter13/Example138.png",
+        "script": "processing/Chapter13/Example138.py",
         "hasImage": true
       },
       {
@@ -3046,6 +3064,42 @@ window.chapterData = [
         "description": "Generated from processing/Chapter13/Figure1315SURF.py.",
         "src": null,
         "script": "processing/Chapter13/Figure1315SURF.py",
+        "hasImage": false
+      },
+      {
+        "id": "example1315cnn",
+        "label": "Example 1315CNN",
+        "title": "Example1315CNN",
+        "description": "Generated from processing/Chapter13/Example1315CNN.py.",
+        "src": "output/Chapter13/Example1315CNN_1.png",
+        "script": "processing/Chapter13/Example1315CNN.py",
+        "hasImage": true
+      },
+      {
+        "id": "example1315nn",
+        "label": "Example 1315NN",
+        "title": "Example1315NN",
+        "description": "Generated from processing/Chapter13/Example1315NN.py.",
+        "src": null,
+        "script": "processing/Chapter13/Example1315NN.py",
+        "hasImage": false
+      },
+      {
+        "id": "example1316cnn",
+        "label": "Example 1316CNN",
+        "title": "Example1316CNN",
+        "description": "Generated from processing/Chapter13/Example1316CNN.py.",
+        "src": "output/Chapter13/Example1316CNN_1.png",
+        "script": "processing/Chapter13/Example1316CNN.py",
+        "hasImage": true
+      },
+      {
+        "id": "example1316nn",
+        "label": "Example 1316NN",
+        "title": "Example1316NN",
+        "description": "Generated from processing/Chapter13/Example1316NN.py.",
+        "src": null,
+        "script": "processing/Chapter13/Example1316NN.py",
         "hasImage": false
       },
       {
@@ -3112,21 +3166,21 @@ window.chapterData = [
         "hasImage": true
       },
       {
-        "id": "figure1329",
-        "label": "Figure 1329",
-        "title": "Figure1329",
-        "description": "Generated from processing/Chapter13/Figure1329.py.",
-        "src": "output/Chapter13/Figure1329.png",
-        "script": "processing/Chapter13/Figure1329.py",
-        "hasImage": true
-      },
-      {
         "id": "figure1334",
         "label": "Figure 1334",
         "title": "Figure1334",
         "description": "Generated from processing/Chapter13/Figure1334.py.",
         "src": "output/Chapter13/Figure1334.png",
         "script": "processing/Chapter13/Figure1334.py",
+        "hasImage": true
+      },
+      {
+        "id": "figure1330",
+        "label": "Figure 1330",
+        "title": "Figure1330",
+        "description": "Generated from processing/Chapter13/Figure1330.py.",
+        "src": "output/Chapter13/Figure1330.png",
+        "script": "processing/Chapter13/Figure1330.py",
         "hasImage": true
       },
       {
