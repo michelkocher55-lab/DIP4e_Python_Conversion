@@ -1,0 +1,287 @@
+:root {
+  --bg: #f3efe7;
+  --panel: rgba(255, 252, 247, 0.9);
+  --panel-strong: #fffaf2;
+  --border: rgba(84, 61, 40, 0.16);
+  --text: #24180f;
+  --muted: #6e5a48;
+  --accent: #9f4f2a;
+  --accent-soft: rgba(159, 79, 42, 0.12);
+  --shadow: 0 24px 60px rgba(36, 24, 15, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(208, 151, 96, 0.26), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(91, 132, 124, 0.16), transparent 24%),
+    var(--bg);
+}
+
+button {
+  font: inherit;
+}
+
+.page-shell {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  background: rgba(255, 248, 240, 0.75);
+  backdrop-filter: blur(18px);
+}
+
+.sidebar-header,
+.panel,
+.viewer-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-header {
+  padding: 1.4rem;
+}
+
+.eyebrow {
+  margin: 0 0 0.3rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sidebar-header h1,
+.panel-heading h2,
+.viewer-meta h2 {
+  margin: 0;
+}
+
+.sidebar-copy,
+.panel-caption,
+.figure-description,
+.figure-item-description,
+.chapter-title {
+  color: var(--muted);
+}
+
+.panel {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.panel-heading {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.panel-caption {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.chapter-list,
+.figure-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.chapter-item,
+.figure-item {
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--panel-strong);
+  cursor: pointer;
+  transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+}
+
+.chapter-item:hover,
+.figure-item:hover,
+.chapter-item:focus-visible,
+.figure-item:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(159, 79, 42, 0.4);
+  outline: none;
+}
+
+.chapter-item.is-active,
+.figure-item.is-active {
+  border-color: var(--accent);
+  background: linear-gradient(180deg, rgba(159, 79, 42, 0.13), rgba(255, 250, 242, 0.95));
+}
+
+.chapter-item {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.95rem 1rem;
+}
+
+.chapter-row,
+.figure-item-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.chapter-label,
+.figure-item-label,
+.figure-tag {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.chapter-title {
+  font-size: 0.96rem;
+}
+
+.chapter-count,
+.figure-status {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.chapter-count {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.figure-item {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+}
+
+.figure-item-title {
+  font-weight: 600;
+}
+
+.figure-status.is-ready {
+  color: #1e5d47;
+  background: rgba(30, 93, 71, 0.12);
+}
+
+.figure-status.is-missing {
+  color: #885819;
+  background: rgba(136, 88, 25, 0.14);
+}
+
+.figure-item-description {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.viewer {
+  padding: 1.5rem;
+  display: grid;
+}
+
+.viewer-card {
+  min-height: calc(100vh - 3rem);
+  padding: 1.5rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.25rem;
+}
+
+.viewer-meta {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.figure-tag {
+  margin: 0;
+  color: var(--accent);
+}
+
+.figure-description {
+  margin: 0;
+  max-width: 70ch;
+}
+
+.figure-script {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-family: ui-monospace, "SFMono-Regular", "SF Mono", Consolas, monospace;
+  word-break: break-all;
+}
+
+.figure-stage {
+  margin: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(247, 239, 226, 0.9)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(159, 79, 42, 0.025),
+      rgba(159, 79, 42, 0.025) 12px,
+      transparent 12px,
+      transparent 24px
+    );
+  padding: 1.25rem;
+}
+
+#figure-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 20px 45px rgba(36, 24, 15, 0.16);
+}
+
+.figure-placeholder {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .page-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .viewer-card {
+    min-height: auto;
+  }
+
+  .figure-stage {
+    min-height: 50vh;
+  }
+}

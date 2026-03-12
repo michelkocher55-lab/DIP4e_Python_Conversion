@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Figure Viewer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="figure-data.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <p class="eyebrow">DIP4E</p>
+        <h1>Figure Viewer</h1>
+        <p class="sidebar-copy">Browse chapters on the left and display the corresponding figure on the right.</p>
+      </div>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Chapters</h2>
+        </div>
+        <div id="chapter-list" class="chapter-list" aria-label="Chapter list"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Figures</h2>
+          <p id="chapter-caption" class="panel-caption"></p>
+        </div>
+        <div id="figure-list" class="figure-list" aria-live="polite"></div>
+      </section>
+    </aside>
+
+    <main class="viewer">
+      <div class="viewer-card">
+        <div class="viewer-meta">
+          <p id="figure-tag" class="figure-tag"></p>
+          <h2 id="figure-title">Select a figure</h2>
+          <p id="figure-description" class="figure-description">Choose a figure from the left panel to preview it here.</p>
+          <p id="figure-script" class="figure-script"></p>
+        </div>
+        <figure class="figure-stage">
+          <img id="figure-image" alt="" hidden>
+          <div id="figure-placeholder" class="figure-placeholder">No figure selected</div>
+        </figure>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const chapterData = window.chapterData || [];
+
+    const chapterList = document.getElementById("chapter-list");
+    const figureList = document.getElementById("figure-list");
+    const chapterCaption = document.getElementById("chapter-caption");
+    const figureTag = document.getElementById("figure-tag");
+    const figureTitle = document.getElementById("figure-title");
+    const figureDescription = document.getElementById("figure-description");
+    const figureScript = document.getElementById("figure-script");
+    const figureImage = document.getElementById("figure-image");
+    const figurePlaceholder = document.getElementById("figure-placeholder");
+
+    let activeChapterId = chapterData[0]?.id;
+    let activeFigureId = chapterData[0]?.figures[0]?.id;
+
+    function getActiveChapter() {
+      return chapterData.find((chapter) => chapter.id === activeChapterId);
+    }
+
+    function getActiveFigure() {
+      const chapter = getActiveChapter();
+      return chapter.figures.find((figure) => figure.id === activeFigureId);
+    }
+
+    function renderChapters() {
+      chapterList.innerHTML = "";
+
+      chapterData.forEach((chapter) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "chapter-item";
+        if (chapter.id === activeChapterId) {
+          button.classList.add("is-active");
+        }
+
+        button.innerHTML = `
+          <span class="chapter-row">
+            <span class="chapter-label">${chapter.label}</span>
+            <span class="chapter-count">${chapter.availableCount}/${chapter.count}</span>
+          </span>
+          <span class="chapter-title">${chapter.title}</span>
+        `;
+
+        button.addEventListener("click", () => {
+          activeChapterId = chapter.id;
+          activeFigureId = chapter.figures[0].id;
+          render();
+        });
+
+        chapterList.appendChild(button);
+      });
+    }
+
+    function renderFigures() {
+      const chapter = getActiveChapter();
+      chapterCaption.textContent = chapter.title;
+      figureList.innerHTML = "";
+
+      chapter.figures.forEach((figure) => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = "figure-item";
+        if (figure.id === activeFigureId) {
+          button.classList.add("is-active");
+        }
+
+        button.innerHTML = `
+          <span class="figure-item-head">
+            <span class="figure-item-label">${figure.label}</span>
+            <span class="figure-status ${figure.hasImage ? "is-ready" : "is-missing"}">
+              ${figure.hasImage ? "image ready" : "no image"}
+            </span>
+          </span>
+          <span class="figure-item-title">${figure.title}</span>
+          <span class="figure-item-description">${figure.description}</span>
+        `;
+
+        button.addEventListener("click", () => {
+          activeFigureId = figure.id;
+          renderViewer();
+          renderFigures();
+        });
+
+        figureList.appendChild(button);
+      });
+    }
+
+    function renderViewer() {
+      const chapter = getActiveChapter();
+      const figure = getActiveFigure();
+
+      figureTag.textContent = `${chapter.label} • ${figure.label}`;
+      figureTitle.textContent = figure.title;
+      figureDescription.textContent = figure.description;
+      figureScript.textContent = figure.script;
+
+      if (figure.src) {
+        figureImage.src = figure.src;
+        figureImage.alt = `${figure.label} from ${chapter.title}`;
+        figureImage.hidden = false;
+        figurePlaceholder.hidden = true;
+      } else {
+        figureImage.removeAttribute("src");
+        figureImage.alt = "";
+        figureImage.hidden = true;
+        figurePlaceholder.textContent = `No generated image found for ${figure.title}`;
+        figurePlaceholder.hidden = false;
+      }
+    }
+
+    function render() {
+      if (!chapterData.length) {
+        chapterCaption.textContent = "No chapter data found";
+        figureTitle.textContent = "No figures available";
+        figureDescription.textContent = "The generated figure catalog could not be loaded.";
+        figureScript.textContent = "";
+        figureImage.hidden = true;
+        figurePlaceholder.hidden = false;
+        return;
+      }
+
+      renderChapters();
+      renderFigures();
+      renderViewer();
+    }
+
+    render();
+  </script>
+</body>
+</html>
