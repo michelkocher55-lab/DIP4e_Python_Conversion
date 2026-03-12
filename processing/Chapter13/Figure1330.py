@@ -9,7 +9,7 @@ from processing._runner import parse_args, run_dip_method
 
 
 def main(show: bool = True) -> None:
-    run_dip_method("figure1329", "Figure1329", show=show, chapter_attr="chapter13")
+    run_dip_method("figure1330", "Figure1330", show=show, chapter_attr="chapter13")
 
 
 if __name__ == "__main__":

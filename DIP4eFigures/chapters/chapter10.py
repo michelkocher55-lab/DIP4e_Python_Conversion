@@ -3281,7 +3281,7 @@ class Chapter10Mixin:
             axes[1, 1].imshow((MKRLib.mmshow(e, f, d)), cmap="gray")
             axes[1, 1].axis("off")
             fig.tight_layout()
-            plt.savefig("Tiadcornea.png")
+            plt.savefig("Figure1064.png")
 
             (fig, axes) = plt.subplots(nrows=2, ncols=2)
             axes[0, 0].set_title("h1")
@@ -3298,21 +3298,21 @@ class Chapter10Mixin:
             axes[1, 1].imshow(g, cmap="gray")
             axes[1, 1].axis("off")
             fig.tight_layout()
-            plt.savefig("TiadcorneaBis.png")
+            plt.savefig("Figure1064Bis.png")
 
             (fig, axes) = plt.subplots(nrows=1, ncols=1)
             axes.set_title("i")
             axes.imshow(MKRLib.mmlblshow(i))
             axes.axis("off")
             fig.tight_layout()
-            plt.savefig("TiadcorneaTer.png")
+            plt.savefig("Figure1064Ter.png")
 
             (fig, axes) = plt.subplots(nrows=1, ncols=1)
             axes.set_title("a,d,k")
             axes.imshow(MKRLib.mmshow(a, d > 0, k > 0), cmap="gray")
             axes.axis("off")
             fig.tight_layout()
-            plt.savefig("TiadcorneaQuart.png")
+            plt.savefig("Figure1064Quart.png")
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)

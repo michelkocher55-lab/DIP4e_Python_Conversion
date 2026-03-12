@@ -3143,7 +3143,7 @@ class Chapter11Mixin:
             snake_display(x, y, "g.")
 
             plt.tight_layout()
-            plt.savefig("Figure118.png")
+            plt.savefig("Figure119.png")
             plt.show()
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)

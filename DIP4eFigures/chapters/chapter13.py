@@ -2341,11 +2341,11 @@ class Chapter13Mixin:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
 
-    def figure1329(self, data_dir: str | None = None) -> dict[str, Any]:
-        """Run Chapter13 script `Figure1329.py` with inlined code."""
+    def figure1330(self, data_dir: str | None = None) -> dict[str, Any]:
+        """Run Chapter13 script `Figure1330.py` with inlined code."""
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
-            """Figure 13.29 - Three activation functions."""
+            """Figure 13.30 - Three activation functions."""
 
             import os
             import numpy as np
@@ -2384,7 +2384,7 @@ class Chapter13Mixin:
             ax3.set_ylim([0, 6])
             ax3.set_box_aspect(1)
 
-            out_path = _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", str(_Path(__file__).resolve().parents[2] / "output")), "Figure1329.png")
+            out_path = _os.path.join(_os.environ.get("DIP4E_OUTPUT_DIR", str(_Path(__file__).resolve().parents[2] / "output")), "Figure1330.png")
             fig.savefig(out_path, dpi=150, bbox_inches="tight")
             print(f"Saved {out_path}")
 
