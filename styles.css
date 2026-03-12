@@ -31,7 +31,7 @@ button {
 
 .page-shell {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) 1fr;
+  grid-template-columns: minmax(240px, 300px) minmax(320px, 420px) 1fr;
   min-height: 100vh;
   height: 100vh;
 }
@@ -45,6 +45,10 @@ button {
   backdrop-filter: blur(18px);
   min-height: 0;
   overflow-y: auto;
+}
+
+.sidebar-figures {
+  background: rgba(252, 247, 240, 0.82);
 }
 
 .sidebar-header,
@@ -103,6 +107,14 @@ button {
 .figure-list {
   display: grid;
   gap: 0.75rem;
+}
+
+.chapter-list {
+  align-content: start;
+}
+
+.figure-list {
+  align-content: start;
 }
 
 .chapter-item,
