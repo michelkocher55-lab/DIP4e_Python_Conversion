@@ -17,9 +17,9 @@ class Chapter02Mixin:
             img_name = dip_data("Chronometer.tif")
             f = imread(img_name)
             original_shape = f.shape[:2]
-            from helpers.aMean4e import aMean4e
+            from helpers.xxx4e import xxx4e
 
-            g = aMean4e(f, 11, 11)
+            g = xxx4e(f, 11, 11)
             # g = 255 - f
             _, axes = plt.subplots(1, 2, figsize=(10, 10))
             axes = axes.flatten()
