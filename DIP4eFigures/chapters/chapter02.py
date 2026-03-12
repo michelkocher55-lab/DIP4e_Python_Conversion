@@ -17,7 +17,7 @@ class Chapter02Mixin:
             img_name = dip_data("Chronometer.tif")
             f = imread(img_name)
             original_shape = f.shape[:2]
-            from helpers.xxx4e import xxx4e
+            from helpers.libdip.xxx4e import xxx4e
 
             g = xxx4e(f, 11, 11)
             # g = 255 - f
@@ -135,8 +135,8 @@ class Chapter02Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_ubyte
-            from helpers.im2bitplanes import im2bitplanes
-            from helpers.bitplanes2im import bitplanes2im
+            from helpers.libdipum.im2bitplanes import im2bitplanes
+            from helpers.libdipum.bitplanes2im import bitplanes2im
 
             img_name = dip_data("drip-bottle.tif")
             f256 = imread(img_name)
@@ -199,7 +199,7 @@ class Chapter02Mixin:
             from skimage.io import imread
             from skimage.transform import resize
 
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             img_name = dip_data("Chronometer.tif")
             f = imread(img_name)
@@ -262,11 +262,11 @@ class Chapter02Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.averaging4noisereduction import (
+            from helpers.libdipum.averaging4noisereduction import (
                 averaging4noisereduction,
             )
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             img_path = dip_data("sombrero-galaxy-original.tif")
             forig = img_as_float(imread(img_path))
@@ -321,7 +321,7 @@ class Chapter02Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             forig = imread(
                 dip_data("chronometer-2136x2140-2pt3-inch-930-dpi.tif")
@@ -378,11 +378,11 @@ class Chapter02Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.intensityTransformations import (
+            from helpers.libdipum.intensityTransformations import (
                 intensityTransformations,
             )
-            from helpers.mat2gray import mat2gray
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.mat2gray import mat2gray
+            from helpers.libdipum.data_path import dip_data
 
             mask = img_as_float(
                 imread(dip_data("angiography-mask-image.tif"))
@@ -687,10 +687,10 @@ class Chapter02Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.fft import fft2, fftshift
-            from helpers.imnoise3 import imnoise3
-            from helpers.cnotch import cnotch
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.dftfilt import dftfilt
+            from helpers.libdipum.imnoise3 import imnoise3
+            from helpers.libdipum.cnotch import cnotch
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.dftfilt import dftfilt
 
             f = img_as_float(imread(dip_data("astronaut.tif")))
             M, N = f.shape

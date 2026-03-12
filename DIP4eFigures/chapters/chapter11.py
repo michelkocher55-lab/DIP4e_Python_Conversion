@@ -12,13 +12,13 @@ class Chapter11Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             NIter = 400
@@ -95,14 +95,14 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat, savemat
-            from helpers.snake_manual_input import snake_manual_input
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.snake_manual_input import snake_manual_input
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             T = 0.005
@@ -207,13 +207,13 @@ class Chapter11Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             NIter = [10, 20, 40, 60, 80]
@@ -361,10 +361,10 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.measure import find_contours
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             r = 1
@@ -425,10 +425,10 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.measure import find_contours
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             x0 = [100, 100]
@@ -521,10 +521,10 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.measure import find_contours
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             x0 = 100
@@ -581,13 +581,13 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat, savemat
-            from helpers.snake_manual_input import snake_manual_input
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from helpers.data_path import dip_data
+            from helpers.libdipum.snake_manual_input import snake_manual_input
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             Alpha = 0.5
@@ -694,10 +694,10 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.measure import find_contours
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             x0 = 250
@@ -755,10 +755,10 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.measure import find_contours
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             x0 = 250
@@ -863,11 +863,11 @@ class Chapter11Mixin:
             from skimage.measure import find_contours
             from scipy.ndimage import convolve
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.gaussKernel4e import gaussKernel4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1122...")
 
@@ -955,14 +955,14 @@ class Chapter11Mixin:
             from skimage.measure import find_contours
             from scipy.io import loadmat, savemat
             from scipy.ndimage import convolve
-            from helpers.curve_manual_input import curve_manual_input
-            from helpers.coord2mask import coord2mask
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from helpers.gaussKernel4e import gaussKernel4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.curve_manual_input import curve_manual_input
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             n = 21
@@ -1041,9 +1041,9 @@ class Chapter11Mixin:
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
 
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.gaussKernel4e import gaussKernel4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             n = 21
@@ -1091,15 +1091,15 @@ class Chapter11Mixin:
             from scipy.ndimage import convolve
             import scipy.io as sio
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.gaussKernel4e import gaussKernel4e
-            from helpers.curve_manual_input import curve_manual_input
-            from helpers.coord2mask import coord2mask
-            from helpers.curve_display import curve_display
-            from helpers.contourc import contourc
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.curve_manual_input import curve_manual_input
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.contourc import contourc
+            from helpers.libdipum.data_path import dip_data
 
             # Input initial phi manually.
             if os.path.exists("Figure1124.mat"):
@@ -1177,14 +1177,14 @@ class Chapter11Mixin:
             from scipy.ndimage import convolve
             import scipy.io as sio
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from DIP4eFigures.gaussKernel4e import gaussKernel4e
-            from helpers.curve_manual_input import curve_manual_input
-            from helpers.coord2mask import coord2mask
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.curve_manual_input import curve_manual_input
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             n = 21
@@ -1258,8 +1258,8 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("rose479by512.tif")
@@ -1291,13 +1291,13 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from helpers.contourc import contourc
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdipum.contourc import contourc
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             iterations = [200, 300, 400, 600, 800]
@@ -1360,12 +1360,12 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             Alpha = 0.5
@@ -1498,13 +1498,13 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from helpers.contourc import contourc
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdipum.contourc import contourc
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             iterations = [500, 1000, 1500, 2000, 3500]
@@ -1574,14 +1574,14 @@ class Chapter11Mixin:
             from skimage.measure import find_contours
             import scipy.io as sio
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from helpers.curve_manual_input import curve_manual_input
-            from helpers.coord2mask import coord2mask
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdipum.curve_manual_input import curve_manual_input
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             mu = 0.5
@@ -1656,14 +1656,14 @@ class Chapter11Mixin:
             from skimage.measure import find_contours
             import scipy.io as sio
 
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from helpers.curve_manual_input import curve_manual_input
-            from helpers.coord2mask import coord2mask
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdipum.curve_manual_input import curve_manual_input
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("noisy-blobs.tif")
@@ -1736,12 +1736,12 @@ class Chapter11Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
-            from helpers.contourc import contourc
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdipum.contourc import contourc
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             mu = 0.5
@@ -1803,20 +1803,20 @@ class Chapter11Mixin:
             from skimage.util import img_as_float
             import scipy.io as sio
 
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
 
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
 
-            from helpers.contourc import contourc
-            from helpers.curve_display import curve_display
-            from helpers.snake_display import snake_display
-            from helpers.data_path import dip_data
+            from helpers.libdipum.contourc import contourc
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.data_path import dip_data
 
             # (1) Snake part (gvf)
             mat_path = dip_data("Figure118.mat")
@@ -1924,23 +1924,23 @@ class Chapter11Mixin:
             from skimage.util import img_as_float
             import scipy.io as sio
 
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from DIP4eFigures.levelSetFunction4e import levelSetFunction4e
-            from DIP4eFigures.levelSetForce4e import levelSetForce4e
-            from DIP4eFigures.levelSetIterate4e import levelSetIterate4e
-            from DIP4eFigures.levelSetReInit4e import levelSetReInit4e
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdip.levelSetFunction4e import levelSetFunction4e
+            from helpers.libdip.levelSetForce4e import levelSetForce4e
+            from helpers.libdip.levelSetIterate4e import levelSetIterate4e
+            from helpers.libdip.levelSetReInit4e import levelSetReInit4e
 
-            from helpers.gaussKernel4e import gaussKernel4e
-            from helpers.coord2mask import coord2mask
-            from helpers.contourc import contourc
-            from helpers.curve_display import curve_display
-            from helpers.curve_manual_input import curve_manual_input
-            from helpers.snake_display import snake_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.gaussKernel4e import gaussKernel4e
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdipum.contourc import contourc
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.curve_manual_input import curve_manual_input
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("breast-implant.tif")
@@ -2076,13 +2076,13 @@ class Chapter11Mixin:
             from skimage.util import img_as_float
             import scipy.io as sio
 
-            from DIP4eFigures.SnakeSegmentation import SnakeSegmentation
-            from DIP4eFigures.LevelSetEdgebased import LevelSetEdgebased
-            from DIP4eFigures.LevelSetRegionBased import LevelSetRegionBased
-            from helpers.coord2mask import coord2mask
-            from helpers.snake_display import snake_display
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdipum.SnakeSegmentation import SnakeSegmentation
+            from helpers.libdipum.LevelSetEdgebased import LevelSetEdgebased
+            from helpers.libdipum.LevelSetRegionBased import LevelSetRegionBased
+            from helpers.libdipum.coord2mask import coord2mask
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # %% Data
             img_path = dip_data("noisy-blobs.tif")
@@ -2209,12 +2209,12 @@ class Chapter11Mixin:
             from skimage.util import img_as_float
             import scipy.io as sio
 
-            from DIP4eFigures.SnakeSegmentation import SnakeSegmentation
-            from DIP4eFigures.LevelSetEdgebased import LevelSetEdgebased
-            from DIP4eFigures.LevelSetRegionBased import LevelSetRegionBased
-            from helpers.snake_display import snake_display
-            from helpers.curve_display import curve_display
-            from helpers.data_path import dip_data
+            from helpers.libdipum.SnakeSegmentation import SnakeSegmentation
+            from helpers.libdipum.LevelSetEdgebased import LevelSetEdgebased
+            from helpers.libdipum.LevelSetRegionBased import LevelSetRegionBased
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.curve_display import curve_display
+            from helpers.libdipum.data_path import dip_data
 
             # %% Parameters
             # Snake
@@ -2340,9 +2340,9 @@ class Chapter11Mixin:
             from skimage.util import img_as_float
             import scipy.io as sio
 
-            from DIP4eFigures.SnakeSegmentation import SnakeSegmentation
-            from DIP4eFigures.LevelSetEdgebased import LevelSetEdgebased
-            from helpers.data_path import dip_data
+            from helpers.libdipum.SnakeSegmentation import SnakeSegmentation
+            from helpers.libdipum.LevelSetEdgebased import LevelSetEdgebased
+            from helpers.libdipum.data_path import dip_data
 
             # %% Parameters
             # Snake
@@ -2442,15 +2442,9 @@ class Chapter11Mixin:
             import scipy.io
             from skimage.segmentation import active_contour
             import os
-            import sys
-            from pathlib import Path
 
-            edge_lib_path = str(Path(str(script_path)).resolve().parents[1])
-            if edge_lib_path not in sys.path:
-                sys.path.append(edge_lib_path)
-
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdipum.data_path import dip_data
 
             def Figure113_skimage():
                 """
@@ -2616,9 +2610,9 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             T = 0.001
@@ -2681,9 +2675,9 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             T = 0.001
@@ -2740,12 +2734,12 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.io import loadmat
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             Alpha = 0.5
@@ -2847,12 +2841,12 @@ class Chapter11Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
 
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure117...")
 
@@ -2961,14 +2955,14 @@ class Chapter11Mixin:
             from scipy.io import loadmat, savemat
             from skimage.io import imread
 
-            from helpers.snake_manual_input import snake_manual_input
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.snake_manual_input import snake_manual_input
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure118...")
 
@@ -3076,13 +3070,13 @@ class Chapter11Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.snakeMap4e import snakeMap4e
-            from DIP4eFigures.snakeForce4e import snakeForce4e
-            from DIP4eFigures.snakeIterate4e import snakeIterate4e
-            from DIP4eFigures.snakeReparam4e import snakeReparam4e
-            from helpers.snake_display import snake_display
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.snakeMap4e import snakeMap4e
+            from helpers.libdip.snakeForce4e import snakeForce4e
+            from helpers.libdip.snakeIterate4e import snakeIterate4e
+            from helpers.libdip.snakeReparam4e import snakeReparam4e
+            from helpers.libdipum.snake_display import snake_display
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("U200.tif")
@@ -3154,4 +3148,3 @@ class Chapter11Mixin:
         finally:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
-

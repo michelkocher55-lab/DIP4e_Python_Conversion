@@ -5,13 +5,121 @@ from typing import Any
 
 
 class Chapter04Mixin:
+    def figure42(self, data_dir: str | None = None) -> dict[str, object]:
+        """Run Chapter02 script `Figure42.py` with inlined code."""
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
+        try:
+            import matplotlib.pyplot as plt
+            from skimage.io import imread
+            import numpy as np
+
+            # %% Figure 4.2
+            M = 2048
+            m = np.arange(1, 1025)
+            m = m[2::8]
+            Cn2048 = (m ** 2) / (4 * np.log2(M))
+            Cs2048 = m / (2 * np.log2(M))
+
+            fig, ax = plt.subplots(1, 2, figsize=(9, 4.5))
+            ax[0].plot(Cn2048)
+            ax[0].set_xlabel('m')
+            ax[0].set_title('C_n[m]')
+            ax[0].axis('tight')
+            ax[0].set_box_aspect(1)
+
+            ax[1].plot(Cs2048)
+            ax[1].set_xlabel('m')
+            ax[1].set_title('C_s[m]')
+            ax[1].axis('tight')
+            ax[1].set_box_aspect(1)
+
+            plt.tight_layout()
+            plt.savefig('Figure42.png', dpi=150)
+            plt.show()
+            plt.tight_layout()
+        finally:
+            self._restore_script_context(_ctx, data_dir=data_dir)
+        return self._collect_new_figures(pre_fig_nums)
+
+    def figure44(self, data_dir: str | None = None) -> dict[str, object]:
+        """Run Chapter02 script `Figure44.py` with inlined code."""
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
+        try:
+            import numpy as np
+            import matplotlib.pyplot as plt
+
+            def mysinc(L, H, k, inc):
+                x = np.arange(L, H + inc / 2.0, inc)
+                s = np.sin(np.pi * k * x) / (np.pi * k * x + np.finfo(float).eps)
+                j = np.where(x == 0)[0]
+                s[j] = 1.0
+                return s
+
+            s = mysinc(-9.5, 9.5, 1.0, 0.0001)
+
+            plt.figure(figsize=(9, 4.5))
+            plt.subplot(1, 2, 1)
+            plt.plot(s)
+            plt.axis('tight')
+            plt.gca().set_box_aspect(1)
+
+            plt.subplot(1, 2, 2)
+            plt.plot(np.abs(s))
+            plt.axis('tight')
+            plt.gca().set_box_aspect(1)
+
+            plt.tight_layout()
+            plt.savefig('Figure44.png', dpi=150)
+            plt.show()
+
+        finally:
+            self._restore_script_context(_ctx, data_dir=data_dir)
+        return self._collect_new_figures(pre_fig_nums)
+
+    def figure414(self, data_dir: str | None = None) -> dict[str, object]:
+        """Run Chapter02 script `Figure414.py` with inlined code."""
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(
+            data_dir=data_dir
+        )
+        try:
+            import numpy as np
+            import matplotlib.pyplot as plt
+
+            def example4pt5(A, S, T, M, N):
+                f = np.zeros((M, N), dtype=float)
+                f[:S, :T] = A
+                F = np.fft.fft2(f)
+                F = np.fft.fftshift(F)
+                Spec = np.abs(F) + np.finfo(float).eps
+                return f, Spec
+
+            f, Spec = example4pt5(1, 6, 8, 1024, 1024)
+
+            fig = plt.figure(figsize=(8, 6))
+            ax = fig.add_subplot(111, projection='3d')
+            Z = Spec[9::20, 9::20]
+            Y, X = np.meshgrid(np.arange(Z.shape[1]), np.arange(Z.shape[0]))
+            ax.plot_wireframe(X, Y, Z, color='k', linewidth=0.6)
+            ax.set_axis_off()
+            plt.tight_layout()
+            plt.savefig('Figure414.png', dpi=150)
+            plt.show()
+
+        finally:
+            self._restore_script_context(_ctx, data_dir=data_dir)
+        return self._collect_new_figures(pre_fig_nums)
+
     def figure418(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter04 script `Figure418.py` with inlined code."""
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.checkerimage import checkerimage
+            from helpers.libdipum.checkerimage import checkerimage
 
             print("Running Figure418 (Aliasing with Checkerboard)...")
 
@@ -81,7 +189,7 @@ class Chapter04Mixin:
             from skimage.util import img_as_float
             from skimage.transform import resize
             from scipy.ndimage import correlate
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure419 (Aliasing and Lowpass Filtering)...")
 
@@ -168,7 +276,7 @@ class Chapter04Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.intScaling4e import intScaling4e
+            from helpers.libdip.intScaling4e import intScaling4e
 
             print("Running Figure423 (Spectra of Centered Rectangle)...")
 
@@ -353,7 +461,7 @@ class Chapter04Mixin:
             from skimage.io import imread
             from skimage.transform import resize
             from skimage.util import img_as_float
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("boy.tif")
@@ -421,7 +529,7 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure428 (Blown IC and Spectrum)...")
 
@@ -479,9 +587,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_path = dip_data("blown_ic.tif")
@@ -565,10 +673,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
-            from DIP4eFigures.hpFilterTF4e import hpFilterTF4e
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdip.hpFilterTF4e import hpFilterTF4e
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             def mesh_plot(ax: Any, H: Any):
                 """mesh_plot."""
@@ -729,7 +837,7 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure434 (Phase Manipulation)...")
 
@@ -792,10 +900,10 @@ class Chapter04Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
 
-            from helpers.lpfilter import lpfilter
-            from helpers.dftfilt import dftfilt
-            from helpers.paddedsize import paddedsize
-            from helpers.data_path import dip_data
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdipum.dftfilt import dftfilt
+            from helpers.libdipum.paddedsize import paddedsize
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure435 (Gaussian Lowpass Filtering Steps)...")
 
@@ -924,7 +1032,7 @@ class Chapter04Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-600by600.tif")
@@ -965,10 +1073,10 @@ class Chapter04Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from helpers.paddedsize import paddedsize
-            from helpers.dftfilt import dftfilt
-            from helpers.freqz2_equal import freqz2_equal
-            from helpers.data_path import dip_data
+            from helpers.libdipum.paddedsize import paddedsize
+            from helpers.libdipum.dftfilt import dftfilt
+            from helpers.libgeneral.freqz2_equal import freqz2_equal
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-600by600.tif")
@@ -1050,7 +1158,7 @@ class Chapter04Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
 
             # Generate transfer function
             meshILPF = lpFilterTF4e("ideal", 40, 40, 6)
@@ -1081,9 +1189,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("characterTestPattern688.tif")
@@ -1148,9 +1256,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.lpFilterTF4e import lpFilterTF4e
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.lpFilterTF4e import lpFilterTF4e
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             D0 = [10, 30, 60, 160, 460]
@@ -1194,7 +1302,7 @@ class Chapter04Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.lpfilter import lpfilter
+            from helpers.libdipum.lpfilter import lpfilter
 
             # Transfer function
             H = lpfilter("ideal", 1000, 1000, 30)
@@ -1235,7 +1343,7 @@ class Chapter04Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from helpers.lpfilter import lpfilter
+            from helpers.libdipum.lpfilter import lpfilter
 
             # Parameters
             D0 = [10, 20, 40, 60]
@@ -1291,9 +1399,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             D0 = [10, 30, 60, 160, 460]
@@ -1337,7 +1445,7 @@ class Chapter04Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from helpers.lpfilter import lpfilter
+            from helpers.libdipum.lpfilter import lpfilter
 
             # Parameters
             D0 = [10, 20, 40, 60]
@@ -1390,9 +1498,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             D0 = [10, 30, 60, 160, 460]
@@ -1435,8 +1543,8 @@ class Chapter04Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.intScaling4e import intScaling4e
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.intScaling4e import intScaling4e
 
             # Parameters
             D0 = 5
@@ -1482,10 +1590,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("text_gaps_of_1_and_2_pixels.tif")
@@ -1524,9 +1632,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("woman512x512.tif")
@@ -1586,9 +1694,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("satellite_original.tif")
@@ -1630,7 +1738,7 @@ class Chapter04Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from helpers.hpfilter import hpfilter
+            from helpers.libdipum.hpfilter import hpfilter
 
             # IDEAL HIGHPASS
             meshIHPF = np.fft.fftshift(hpfilter("ideal", 40, 40, 6))
@@ -1705,8 +1813,8 @@ class Chapter04Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.lpfilter import lpfilter
-            from DIP4eFigures.intScaling4e import intScaling4e
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdip.intScaling4e import intScaling4e
 
             # Parameters
             M = 1000
@@ -1759,10 +1867,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.hpfilter import hpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.hpfilter import hpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("characterTestPattern688.tif")
@@ -1841,9 +1949,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.hpfilter import hpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.hpfilter import hpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("thumb-print.tif")
@@ -1887,9 +1995,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.dftuv import dftuv
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.dftuv import dftuv
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("blurry-moon.tif")
@@ -1936,10 +2044,10 @@ class Chapter04Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.exposure import equalize_hist
-            from helpers.hpfilter import hpfilter
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.hpfilter import hpfilter
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("chestXray.tif")
@@ -1995,10 +2103,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.homomorphictf import homomorphictf
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdipum.homomorphictf import homomorphictf
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             GammaH = 3
@@ -2049,10 +2157,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.paddedsize import paddedsize
-            from helpers.dftuv import dftuv
-            from helpers.lpfilter import lpfilter
-            from helpers.data_path import dip_data
+            from helpers.libdipum.paddedsize import paddedsize
+            from helpers.libdipum.dftuv import dftuv
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             GammaH = 1.2
@@ -2217,7 +2325,7 @@ class Chapter04Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
-            from helpers.bandfilter import bandfilter
+            from helpers.libdipum.bandfilter import bandfilter
 
             # Parameters
             r = 12
@@ -2297,10 +2405,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.cnotch import cnotch
-            from helpers.dftfilt import dftfilt
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.cnotch import cnotch
+            from helpers.libdipum.dftfilt import dftfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("car-moire-pattern.tif")
@@ -2351,10 +2459,10 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.recnotch import recnotch
-            from DIP4eFigures.dftFiltering4e import dftFiltering4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.recnotch import recnotch
+            from helpers.libdip.dftFiltering4e import dftFiltering4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("Saturnringe.tif")
@@ -2402,9 +2510,9 @@ class Chapter04Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.recnotch import recnotch
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.recnotch import recnotch
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("cassini-interference.tif")

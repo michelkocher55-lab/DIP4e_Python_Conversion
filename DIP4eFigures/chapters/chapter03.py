@@ -13,8 +13,8 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage import filters
             from skimage.io import imread
-            from helpers.intensityTransformations import intensityTransformations
-            from helpers.data_path import dip_data
+            from helpers.libdipum.intensityTransformations import intensityTransformations
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_name = dip_data("pollen-lowcontrast.tif")
@@ -79,7 +79,7 @@ class Chapter03Mixin:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading (Exact path)
             img_name = dip_data("trophozoite.tif")
@@ -157,10 +157,10 @@ class Chapter03Mixin:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.ReconstructionUsingBitPlanes import (
+            from helpers.libgeneral.ReconstructionUsingBitPlanes import (
                 ReconstructionUsingBitPlanes,
             )
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_name = dip_data("trophozoite.tif")
@@ -222,7 +222,7 @@ class Chapter03Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Filenames key map
             # MATLAB:
@@ -290,7 +290,7 @@ class Chapter03Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
             from skimage import exposure
 
             # Filenames key map matches Figure316
@@ -368,7 +368,7 @@ class Chapter03Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from PIL import Image
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Figure 3.24
             # Image of hidden horse and its histogram
@@ -408,7 +408,7 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from PIL import Image
             from skimage.exposure import equalize_hist
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # %% Fig. 3.25
             # Histogram equalization of hidden horse image
@@ -462,8 +462,8 @@ class Chapter03Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from PIL import Image
-            from helpers.twomodegauss import twomodegauss
-            from helpers.data_path import dip_data
+            from helpers.libdipum.twomodegauss import twomodegauss
+            from helpers.libdipum.data_path import dip_data
 
             # %% Fig 3.26
             # Histogram specification of hidden horse image
@@ -531,10 +531,10 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.exposure import equalize_hist, histogram
-            from helpers.spechist import spechist
-            from helpers.fun2hist import fun2hist
-            from helpers.trapezmf import trapezmf
-            from helpers.data_path import dip_data
+            from helpers.libdipum.spechist import spechist
+            from helpers.libdipum.fun2hist import fun2hist
+            from helpers.libdipum.trapezmf import trapezmf
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_path = dip_data("hidden-horse.tif")
@@ -610,10 +610,10 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.exposure import histogram
-            from helpers.exacthist import exacthist
-            from helpers.fun2hist import fun2hist
-            from helpers.trapezmf import trapezmf
-            from helpers.data_path import dip_data
+            from helpers.libdipum.exacthist import exacthist
+            from helpers.libdipum.fun2hist import fun2hist
+            from helpers.libdipum.trapezmf import trapezmf
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_path = dip_data("hidden-horse.tif")
@@ -685,9 +685,9 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_ubyte
-            from helpers.exacthist import exacthist
-            from helpers.fun2hist import fun2hist
-            from helpers.data_path import dip_data
+            from helpers.libdipum.exacthist import exacthist
+            from helpers.libdipum.fun2hist import fun2hist
+            from helpers.libdipum.data_path import dip_data
 
             def imhist(img: Any):
                 """Compute histogram for uint8 image with 256 bins [0, 255]."""
@@ -770,10 +770,10 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_ubyte
 
-            from helpers.exacthist import exacthist
-            from helpers.fun2hist import fun2hist
-            from helpers.sigmamf import sigmamf  # Assuming this exists based on ls
-            from helpers.data_path import dip_data
+            from helpers.libdipum.exacthist import exacthist
+            from helpers.libdipum.fun2hist import fun2hist
+            from helpers.libdipum.sigmamf import sigmamf  # Assuming this exists based on ls
+            from helpers.libdipum.data_path import dip_data
 
             def imhist(img: Any, bins: Any = 256):
                 """imhist."""
@@ -899,7 +899,7 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage import exposure
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_name = dip_data("hidden-symbols.tif")
@@ -981,8 +981,8 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.locstats import locstats
-            from helpers.data_path import dip_data
+            from helpers.libdipum.locstats import locstats
+            from helpers.libdipum.data_path import dip_data
 
             # Data Loading
 
@@ -1030,7 +1030,7 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import uniform_filter
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_path = dip_data("characterTestPattern688.tif")
@@ -1086,8 +1086,8 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from helpers.gaussiankernel import gaussiankernel
-            from helpers.data_path import dip_data
+            from helpers.libdipum.gaussiankernel import gaussiankernel
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_name = dip_data("testpattern1024.tif")
@@ -1151,8 +1151,8 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from helpers.gaussiankernel import gaussiankernel
-            from helpers.data_path import dip_data
+            from helpers.libdipum.gaussiankernel import gaussiankernel
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_name = dip_data("testpattern1024.tif")
@@ -1228,7 +1228,7 @@ class Chapter03Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.ndimage import correlate, uniform_filter
-            from helpers.gaussiankernel import gaussiankernel
+            from helpers.libdipum.gaussiankernel import gaussiankernel
 
             # Data: Synthetic image
             f = np.zeros((1024, 1024), dtype=np.uint8)
@@ -1289,8 +1289,8 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from helpers.gaussiankernel import gaussiankernel
-            from helpers.data_path import dip_data
+            from helpers.libdipum.gaussiankernel import gaussiankernel
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_name = dip_data("testpattern1024.tif")
@@ -1364,7 +1364,7 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate1d
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_name = dip_data("testpattern4096.tif")
@@ -1424,7 +1424,7 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate1d
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Image loading
             img_path = dip_data("hickson-compact-group.tif")
@@ -1484,7 +1484,7 @@ class Chapter03Mixin:
             from skimage.util import img_as_float
             from skimage.filters import threshold_otsu
             from scipy.signal import fftconvolve
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             def fspecial(type_filter: Any, *args: Any):
                 """
@@ -1646,7 +1646,7 @@ class Chapter03Mixin:
                     )
 
             from scipy.ndimage import correlate1d
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             def imfilter(img: Any, kernel: Any, mode: Any = "constant"):
                 """
@@ -1760,9 +1760,9 @@ class Chapter03Mixin:
             from scipy.ndimage import correlate
             from scipy.signal import medfilt2d
 
-            from helpers.imnoise2 import imnoise2
-            from helpers.gaussiankernel import gaussiankernel
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise2 import imnoise2
+            from helpers.libdipum.gaussiankernel import gaussiankernel
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = imread(dip_data("circuitboard.tif"))
@@ -1812,8 +1812,8 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = imread(dip_data("blurry-moon.tif"))
@@ -1876,9 +1876,9 @@ class Chapter03Mixin:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.unsharp import unsharp
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.unsharp import unsharp
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             k = [1, 2, 3]
@@ -1947,7 +1947,7 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.ndimage import correlate
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Sobel kernels
             wh = np.array([[1, 2, 1], [0, 0, 0], [-1, -2, -1]], dtype=float)
@@ -1987,7 +1987,7 @@ class Chapter03Mixin:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
-            from helpers.zoneplate import zoneplate
+            from helpers.libdipum.zoneplate import zoneplate
 
             # Data
             f = zoneplate(8.2, 0.0275, 0)
@@ -2022,8 +2022,8 @@ class Chapter03Mixin:
             if ROOT not in sys.path:
                 sys.path.append(ROOT)
 
-            from helpers.fir1 import fir1
-            from helpers.ftrans2 import ftrans2
+            from helpers.libgeneral.fir1 import fir1
+            from helpers.libgeneral.ftrans2 import ftrans2
 
             # Lowpass filtering
             lp, _ = fir1(128, 0.1)
@@ -2071,9 +2071,9 @@ class Chapter03Mixin:
             if ROOT not in sys.path:
                 sys.path.append(ROOT)
 
-            from helpers.zoneplate import zoneplate
-            from helpers.fir1 import fir1
-            from helpers.ftrans2 import ftrans2
+            from helpers.libdipum.zoneplate import zoneplate
+            from helpers.libgeneral.fir1 import fir1
+            from helpers.libgeneral.ftrans2 import ftrans2
 
             # Data
             f = zoneplate(8.2, 0.0275, 0)  # ~597 x 597
@@ -2129,10 +2129,10 @@ class Chapter03Mixin:
             if ROOT not in sys.path:
                 sys.path.append(ROOT)
 
-            from helpers.zoneplate import zoneplate
-            from helpers.fir1 import fir1
-            from helpers.ftrans2 import ftrans2
-            from DIP4eFigures.intScaling4e import intScaling4e
+            from helpers.libdipum.zoneplate import zoneplate
+            from helpers.libgeneral.fir1 import fir1
+            from helpers.libgeneral.ftrans2 import ftrans2
+            from helpers.libdip.intScaling4e import intScaling4e
 
             # Data
             f = zoneplate(8.2, 0.0275, 0)  # ~597 x 597
@@ -2221,7 +2221,7 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import correlate
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure363 (Skeleton Bone Scan Enhancement)...")
 
@@ -2340,12 +2340,12 @@ class Chapter03Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.triangmf import triangmf
-            from helpers.trapezmf import trapezmf
-            from helpers.sigmamf import sigmamf
-            from helpers.smf import smf
-            from helpers.bellmf import bellmf
-            from helpers.truncgaussmf import truncgaussmf
+            from helpers.libdipum.triangmf import triangmf
+            from helpers.libdipum.trapezmf import trapezmf
+            from helpers.libdipum.sigmamf import sigmamf
+            from helpers.libdipum.smf import smf
+            from helpers.libdipum.bellmf import bellmf
+            from helpers.libdipum.truncgaussmf import truncgaussmf
 
             print("Running Figure366 (Fuzzy Membership Functions)...")
 
@@ -2404,14 +2404,76 @@ class Chapter03Mixin:
             self._restore_script_context(_ctx, data_dir=data_dir)
         return self._collect_new_figures(pre_fig_nums)
 
+    def figure371(self, data_dir: str | None = None) -> dict[str, Any]:
+        """Run Chapter03 script `Figure371.py` with inlined code."""
+        _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
+        try:
+            import numpy as np
+            import matplotlib.pyplot as plt
+
+            from helpers.libdip.fuzzymf3e import fuzzymf3e
+            from helpers.libdip.fuzzyeval3e import fuzzyeval3e
+            from helpers.libdip.fuzzyimp3e import fuzzyimp3e
+            from helpers.libdip.fuzzyad3e import fuzzyad3e
+
+            ugreen, _ = fuzzymf3e('triang', 200, 0, 1, [0.2, 0.2, 0.2])
+            uyellow, _ = fuzzymf3e('triang', 200, 0, 1, [0.5, 0.25, 0.25])
+            ured, _ = fuzzymf3e('triang', 200, 0, 1, [0.78, 0.22, 0.22])
+
+            uverd, _ = fuzzymf3e('trapez', 101, 0, 100, [0, 10, 0, 20])
+            uhalf, _ = fuzzymf3e('trapez', 101, 0, 100, [38, 52, 19, 18])
+            umat, _ = fuzzymf3e('trapez', 101, 0, 100, [80, 100, 25, 0])
+
+            inmf = np.vstack([ugreen, uyellow, ured])
+            outmf = np.vstack([uverd, uhalf, umat])
+            R = np.array([[1], [2], [3]], dtype=int)
+
+            z = 0.705
+            rule_strength, _ = fuzzyeval3e(R, inmf, [z], 1)
+            q = fuzzyimp3e(rule_strength, outmf)
+            defuzz = fuzzyad3e(q)
+            print(f'defuzz = {defuzz}')
+
+            m = np.maximum(np.maximum(q[0, :], q[1, :]), q[2, :])
+
+            plt.figure(figsize=(8, 10))
+            plt.subplot(3, 1, 1)
+            plt.plot(ugreen, 'g')
+            plt.title('green : g, yellow : y, red : r')
+            plt.xlabel('Color (wavelength)')
+            plt.ylabel('Membership')
+            plt.plot(uyellow, 'y')
+            plt.plot(ured, 'r')
+
+            plt.subplot(3, 1, 2)
+            plt.plot(q[0, :], 'r')
+            plt.title('Q1 : r, Q2 : g, Q3 : b')
+            plt.xlabel('Maturity')
+            plt.ylabel('Membership')
+            plt.plot(q[1, :], 'g')
+            plt.plot(q[2, :], 'b')
+
+            plt.subplot(3, 1, 3)
+            plt.plot(m)
+            plt.xlabel('Maturity')
+            plt.ylabel('Membership')
+
+            plt.tight_layout()
+            plt.savefig('Figure371.png', dpi=150)
+            plt.show()
+
+        finally:
+            self._restore_script_context(_ctx, data_dir=data_dir)
+        return self._collect_new_figures(pre_fig_nums)
+
     def figure37(self, data_dir: str | None = None) -> dict[str, Any]:
         """Run Chapter03 script `Figure37.py` with inlined code."""
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.intensityTransformations import intensityTransformations
-            from helpers.data_path import dip_data
+            from helpers.libdipum.intensityTransformations import intensityTransformations
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("retina.tif")
@@ -2455,9 +2517,9 @@ class Chapter03Mixin:
             import matplotlib.pyplot as plt
             from skimage import exposure
             from skimage.io import imread
-            from helpers.sigmamf import sigmamf
-            from helpers.triangmf import triangmf
-            from helpers.data_path import dip_data
+            from helpers.libdipum.sigmamf import sigmamf
+            from helpers.libdipum.triangmf import triangmf
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure374 (Fuzzy Contrast Enhancement)...")
 
@@ -2571,12 +2633,12 @@ class Chapter03Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from helpers.bellmf import bellmf
-            from helpers.onemf import onemf
-            from helpers.triangmf import triangmf
-            from helpers.fuzzysysfcn import fuzzysysfcn
-            from helpers.approxfcn import approxfcn
-            from helpers.data_path import dip_data
+            from helpers.libdipum.bellmf import bellmf
+            from helpers.libdipum.onemf import onemf
+            from helpers.libdipum.triangmf import triangmf
+            from helpers.libdipum.fuzzysysfcn import fuzzysysfcn
+            from helpers.libdipum.approxfcn import approxfcn
+            from helpers.libdipum.data_path import dip_data
 
             # MATLAB-like tofloat/revertClass behavior for this script
             f_in = imread(dip_data("headCT.tif"))

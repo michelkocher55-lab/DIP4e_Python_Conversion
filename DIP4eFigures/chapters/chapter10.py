@@ -13,9 +13,9 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.edge import edge
-            from helpers.splitmerge import splitmerge
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.edge import edge
+            from helpers.libdipum.splitmerge import splitmerge
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             path_f = dip_data("constant-gray-region.tif")
@@ -101,10 +101,10 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import random_noise
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.sobel import sobel
-            from helpers.lap import lap
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.sobel import sobel
+            from helpers.libdipum.lap import lap
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.11
 
@@ -262,7 +262,7 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -317,7 +317,7 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -359,7 +359,7 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -416,8 +416,8 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
-            from DIP4eFigures.edgeKernel4e import edgeKernel4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.edgeKernel4e import edgeKernel4e
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -463,7 +463,7 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("building-cropped-834by1114.tif")
@@ -521,8 +521,8 @@ class Chapter10Mixin:
             from scipy.ndimage import convolve as ndi_convolve
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.fspecial import fspecial
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.fspecial import fspecial
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.22 (Marr-Hildreth)
             def log_zero_cross_edges(f: Any, sigma: Any, threshold: Any):
@@ -598,7 +598,7 @@ class Chapter10Mixin:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
-            from helpers.logdogfilter import logdogfilter
+            from helpers.libdipum.logdogfilter import logdogfilter
 
             # Figure 10.23
             # Comparison of LoG and DoG
@@ -637,9 +637,9 @@ class Chapter10Mixin:
             from scipy.ndimage import convolve as ndi_convolve
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.edge import edge
-            from helpers.fspecial import fspecial
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.edge import edge
+            from helpers.libgeneral.fspecial import fspecial
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.25
             # Canny edge detection of building
@@ -744,9 +744,9 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve, uniform_filter
-            from helpers.edge import edge
-            from helpers.fspecial import fspecial
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.edge import edge
+            from helpers.libgeneral.fspecial import fspecial
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1026 (Edge Detection Comparison)...")
 
@@ -848,8 +848,8 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.morphology import thin
-            from helpers.edgelinklocal import edgelinklocal
-            from helpers.data_path import dip_data
+            from helpers.libdipum.edgelinklocal import edgelinklocal
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1027 (Local Edge Linking)...")
 
@@ -1017,10 +1017,10 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from skimage.feature import canny
-            from helpers.hough import hough
-            from helpers.houghpeaks import houghpeaks
-            from helpers.houghlines import houghlines
-            from helpers.data_path import dip_data
+            from helpers.libdipum.hough import hough
+            from helpers.libdipum.houghpeaks import houghpeaks
+            from helpers.libdipum.houghlines import houghlines
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1031 (Hough Line Detection with custom utils)...")
 
@@ -1123,7 +1123,7 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float, random_noise
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1033 (Histograms of noisy images)...")
 
@@ -1189,8 +1189,8 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.ishade import ishade
-            from helpers.data_path import dip_data
+            from helpers.libdipum.ishade import ishade
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1034 (Shading with ramp)...")
 
@@ -1255,7 +1255,7 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1035 (Iterative Global Thresholding)...")
 
@@ -1332,8 +1332,8 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.otsuthresh import otsuthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.otsuthresh import otsuthresh
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.36
 
@@ -1425,8 +1425,8 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from scipy.ndimage import gaussian_filter
-            from helpers.otsuthresh import otsuthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.otsuthresh import otsuthresh
+            from helpers.libdipum.data_path import dip_data
 
             print("Running Figure1037 (Otsu on Noisy Image w/ Smoothing)...")
 
@@ -1509,7 +1509,7 @@ class Chapter10Mixin:
             from skimage.util import img_as_float
             from skimage.filters import threshold_otsu
             from scipy.ndimage import uniform_filter
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("Fig1041(a)(septagon_small_noisy_mean_0_stdv_10).tif")
@@ -1576,8 +1576,8 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.morphology import dilation, square
-            from helpers.gradlapthresh import gradlapthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.gradlapthresh import gradlapthresh
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.39
             # Using edge features to determine threshold.
@@ -1631,7 +1631,7 @@ class Chapter10Mixin:
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             img_path = dip_data("turbineblad-with-blk-dot.tif")
@@ -1696,9 +1696,9 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.gradlapthresh import gradlapthresh
-            from helpers.otsuthresh import otsuthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.gradlapthresh import gradlapthresh
+            from helpers.libdipum.otsuthresh import otsuthresh
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.40
             # Threshold segmentation of yeast image using edge information.
@@ -1756,8 +1756,8 @@ class Chapter10Mixin:
         try:
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.gradlapthresh import gradlapthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.gradlapthresh import gradlapthresh
+            from helpers.libdipum.data_path import dip_data
 
             # Figure 10.41
             # As in 10.40, but using the lower threshold.
@@ -1792,9 +1792,9 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.multithresh import multithresh
-            from helpers.imquantize import imquantize
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.multithresh import multithresh
+            from helpers.libgeneral.imquantize import imquantize
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             image_path = dip_data("iceberg.tif")
@@ -1850,11 +1850,11 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.localthresh import localthresh
-            from helpers.multithresh import multithresh
-            from helpers.imquantize import imquantize
-            from helpers.stdfilt import stdfilt
-            from helpers.data_path import dip_data
+            from helpers.libdipum.localthresh import localthresh
+            from helpers.libgeneral.multithresh import multithresh
+            from helpers.libgeneral.imquantize import imquantize
+            from helpers.libgeneral.stdfilt import stdfilt
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             image_path = dip_data("yeast-cells.tif")
@@ -1914,9 +1914,9 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.filters import threshold_otsu
             from skimage import img_as_float
-            from helpers.ishade import ishade
-            from helpers.movingthresh import movingthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.ishade import ishade
+            from helpers.libdipum.movingthresh import movingthresh
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             image_path = dip_data("Fig1049(original_cursive_text_WITHOUT_SHADING).tif")
@@ -1978,9 +1978,9 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.filters import threshold_otsu
             from skimage import img_as_float
-            from helpers.imnoise3 import imnoise3
-            from helpers.movingthresh import movingthresh
-            from helpers.data_path import dip_data
+            from helpers.libdipum.imnoise3 import imnoise3
+            from helpers.libdipum.movingthresh import movingthresh
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             image_path = dip_data("Fig1049(original_cursive_text_WITHOUT_SHADING).tif")
@@ -2049,10 +2049,10 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage import img_as_float, img_as_ubyte
             from skimage.measure import label, regionprops
-            from helpers.otsudualthresh import otsudualthresh
-            from DIP4eFigures.multithresh3E import multithresh3E
-            from helpers.regiongrow import regiongrow
-            from helpers.data_path import dip_data
+            from helpers.libdipum.otsudualthresh import otsudualthresh
+            from helpers.libdipum.multithresh3E import multithresh3E
+            from helpers.libdipum.regiongrow import regiongrow
+            from helpers.libdipum.data_path import dip_data
 
             def imhist(img: Any):
                 """imhist."""
@@ -2179,8 +2179,8 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.splitmerge import splitmerge
-            from helpers.data_path import dip_data
+            from helpers.libdipum.splitmerge import splitmerge
+            from helpers.libdipum.data_path import dip_data
 
             def predicate(region: Any):
                 """predicate."""
@@ -2241,8 +2241,8 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage import img_as_float
-            from helpers.kmeans import kmeans
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.kmeans import kmeans
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             image_path = dip_data("book-cover.tif")
@@ -2292,8 +2292,8 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.data_path import dip_data
 
             f = img_as_float(imread(dip_data("Fig1007(a)(wirebond_mask).tif")))
 
@@ -2355,8 +2355,8 @@ class Chapter10Mixin:
             from skimage import img_as_float
             from skimage.segmentation import find_boundaries
             from scipy.ndimage import mean
-            from helpers.superpixels import superpixels
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.superpixels import superpixels
+            from helpers.libdipum.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -2442,8 +2442,8 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage import img_as_float
             from scipy.ndimage import mean
-            from helpers.superpixels import superpixels
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.superpixels import superpixels
+            from helpers.libdipum.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -2518,8 +2518,8 @@ class Chapter10Mixin:
             from skimage import img_as_float
             from skimage.segmentation import find_boundaries
             from scipy.ndimage import mean
-            from helpers.superpixels import superpixels
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.superpixels import superpixels
+            from helpers.libdipum.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -2611,9 +2611,9 @@ class Chapter10Mixin:
             from skimage import img_as_float
             from skimage.segmentation import find_boundaries
             from scipy.ndimage import mean
-            from helpers.superpixels import superpixels
-            from helpers.kmeans import kmeans
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.superpixels import superpixels
+            from helpers.libgeneral.kmeans import kmeans
+            from helpers.libdipum.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -2722,9 +2722,9 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.segmentation import find_boundaries, slic
 
-            from helpers.kmeans import kmeans
-            from helpers.superpixels import superpixels
-            from helpers.data_path import dip_data
+            from helpers.libgeneral.kmeans import kmeans
+            from helpers.libgeneral.superpixels import superpixels
+            from helpers.libdipum.data_path import dip_data
 
             def mat2gray(img: Any):
                 """mat2gray."""
@@ -2841,9 +2841,9 @@ class Chapter10Mixin:
             if ROOT not in sys.path:
                 sys.path.insert(0, ROOT)
 
-            from helpers.nCutSegmentation import nCutSegmentation
-            from helpers.mat2gray import mat2gray
-            from helpers.data_path import dip_data
+            from helpers.libdipum.nCutSegmentation import nCutSegmentation
+            from helpers.libgeneral.mat2gray import mat2gray
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             image_path = dip_data("building-600by600.tif")
@@ -2923,9 +2923,9 @@ class Chapter10Mixin:
             from scipy.ndimage import uniform_filter
             from skimage.io import imread
             from skimage.transform import resize
-            from helpers.nCutSegmentation import nCutSegmentation
-            from helpers.mat2gray import mat2gray
-            from helpers.data_path import dip_data
+            from helpers.libdipum.nCutSegmentation import nCutSegmentation
+            from helpers.libgeneral.mat2gray import mat2gray
+            from helpers.libdipum.data_path import dip_data
 
             def remap_two_regions(labels: Any, ref_image: Any):
                 """Map 2 labels to {0,1} with bottom-center region forced to white."""
@@ -3026,7 +3026,7 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             import ia870 as ia
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
 
             # Parameters
             h = 30
@@ -3082,7 +3082,7 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             import ia870 as ia
             from skimage.io import imread
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
             # import MKRLib
 
             # Data
@@ -3230,8 +3230,8 @@ class Chapter10Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             import ia870 as ia
-            from helpers import MKRLib
-            from helpers.data_path import dip_data
+            from helpers.libgeneral import MKRLib
+            from helpers.libdipum.data_path import dip_data
 
             # Figure1064
 
@@ -3326,9 +3326,9 @@ class Chapter10Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.ndimage import convolve
-            from DIP4eFigures.intScaling4e import intScaling4e
-            from helpers.pixeldup import pixeldup
-            from helpers.data_path import dip_data
+            from helpers.libdip.intScaling4e import intScaling4e
+            from helpers.libdipum.pixeldup import pixeldup
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = img_as_float(imread(dip_data("Fig1007(a)(wirebond_mask).tif")))
@@ -3416,7 +3416,7 @@ class Chapter10Mixin:
         _ctx, pre_fig_nums, script_path = self._prepare_script_context(data_dir=data_dir)
         try:
             import matplotlib.pyplot as plt
-            from helpers.edgemodel import edgemodel
+            from helpers.libdipum.edgemodel import edgemodel
 
             # fstep = edgemodel('step', 128, 565, 0, .9, 1);
             fstep = edgemodel("step", 128, 565, 0.0, 0.9, 1)
@@ -3460,11 +3460,11 @@ class Chapter10Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from skimage.io import imread
-            from helpers.qtdecomp import qtdecomp
-            from helpers.qtgetblk import qtgetblk
-            from helpers.qtsetblk import qtsetblk
+            from helpers.libgeneral.qtdecomp import qtdecomp
+            from helpers.libgeneral.qtgetblk import qtgetblk
+            from helpers.libgeneral.qtsetblk import qtsetblk
             import ia870 as ia
-            from helpers.data_path import dip_data
+            from helpers.libdipum.data_path import dip_data
             from typing import Any
 
             # Robust image reader (reuse from previous or import if refactored)
@@ -3666,7 +3666,7 @@ class Chapter10Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from helpers.nCutSegmentation import nCutSegmentation
+            from helpers.libdipum.nCutSegmentation import nCutSegmentation
 
             def test_ncut():
                 """test_ncut."""

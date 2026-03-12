@@ -12,8 +12,8 @@ class Chapter06Mixin:
             from typing import Any
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.basisImage4e import basisImage4e
-            from DIP4eFigures.tmat4e import tmat4e
+            from helpers.libdip.basisImage4e import basisImage4e
+            from helpers.libdip.tmat4e import tmat4e
 
             def MyDisp(
                 Te: Any, Matrix: Any, N: Any, plots: Any, position: Any, Title: Any
@@ -89,7 +89,7 @@ class Chapter06Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.tmat4e import tmat4e
+            from helpers.libdip.tmat4e import tmat4e
 
             # %% Figure612
 
@@ -147,8 +147,8 @@ class Chapter06Mixin:
             from typing import Any
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.basisImage4e import basisImage4e
-            from DIP4eFigures.tmat4e import tmat4e
+            from helpers.libdip.basisImage4e import basisImage4e
+            from helpers.libdip.tmat4e import tmat4e
 
             def MyDisp(Matrix: Any, N: Any, plots: Any, position: Any, Title: Any):
                 """MyDisp."""
@@ -217,7 +217,7 @@ class Chapter06Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.tmat4e import tmat4e
+            from helpers.libdip.tmat4e import tmat4e
 
             # %% Figure614
 
@@ -275,9 +275,9 @@ class Chapter06Mixin:
             from skimage.io import imread
             from skimage.util import img_as_float
             from scipy.fftpack import dct
-            from DIP4eFigures.tmat4e import tmat4e
-            from helpers.lpfilter import lpfilter
-            from helpers.data_path import dip_data
+            from helpers.libdip.tmat4e import tmat4e
+            from helpers.libdipum.lpfilter import lpfilter
+            from helpers.libdipum.data_path import dip_data
 
             def dct2(a: Any):
                 """dct2."""
@@ -387,7 +387,7 @@ class Chapter06Mixin:
             from scipy.linalg import hadamard
             from scipy.interpolate import interp1d
 
-            from DIP4eFigures.basisImage4e import basisImage4e
+            from helpers.libdip.basisImage4e import basisImage4e
 
             # Parameters
             N = 8
@@ -464,7 +464,7 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.interpolate import interp1d
-            from DIP4eFigures.basisImage4e import basisImage4e
+            from helpers.libdip.basisImage4e import basisImage4e
 
             # Parameters
             N = 8
@@ -583,8 +583,8 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
             from scipy.interpolate import interp1d
-            from helpers.wavedec import wavedec
-            from DIP4eFigures.basisImage4e import basisImage4e
+            from helpers.libdipum.wavedec import wavedec
+            from helpers.libdip.basisImage4e import basisImage4e
 
             # Parameters
             N = 8
@@ -651,9 +651,9 @@ class Chapter06Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.wavefast import wavefast
-            from helpers.wavedisplay import wavedisplay
-            from helpers.data_path import dip_data
+            from helpers.libdipum.wavefast import wavefast
+            from helpers.libdipum.wavedisplay import wavedisplay
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = img_as_float(imread(dip_data("Vase.tif")))
@@ -698,8 +698,8 @@ class Chapter06Mixin:
         try:
             import matplotlib.pyplot as plt
 
-            from DIP4eFigures.basisImage4e import basisImage4e
-            from helpers.haarDWTbasisImage import haarDWTbasisImage
+            from helpers.libdip.basisImage4e import basisImage4e
+            from helpers.libdipum.haarDWTbasisImage import haarDWTbasisImage
 
             # Parameters
             N = 8
@@ -737,11 +737,11 @@ class Chapter06Mixin:
             import matplotlib.pyplot as plt
             from skimage.io import imread
             from skimage.util import img_as_float
-            from helpers.wavefast import wavefast
-            from helpers.wavecut import wavecut
-            from helpers.waveback import waveback
-            from helpers.wavedisplay import wavedisplay
-            from helpers.data_path import dip_data
+            from helpers.libdipum.wavefast import wavefast
+            from helpers.libdipum.wavecut import wavecut
+            from helpers.libdipum.waveback import waveback
+            from helpers.libdipum.wavedisplay import wavedisplay
+            from helpers.libdipum.data_path import dip_data
 
             # Data
             f = img_as_float(imread(dip_data("sinePulses.tif")))
@@ -797,8 +797,8 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.wavedec import wavedec
-            from helpers.MyDisp import MyDisp
+            from helpers.libdipum.wavedec import wavedec
+            from helpers.libgeneral.MyDisp import MyDisp
 
             # Parameters
             NR = 16
@@ -835,8 +835,8 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.wavedec import wavedec
-            from helpers.MyDisp import MyDisp
+            from helpers.libdipum.wavedec import wavedec
+            from helpers.libgeneral.MyDisp import MyDisp
 
             # Parameters
             NR = 16
@@ -869,7 +869,7 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.MyDisp import MyDisp
+            from helpers.libgeneral.MyDisp import MyDisp
 
             def dctmtx(N: Any):
                 """dctmtx."""
@@ -906,7 +906,7 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.MyDisp import MyDisp
+            from helpers.libgeneral.MyDisp import MyDisp
 
             def dftmtx(N: Any):
                 """dftmtx."""
@@ -943,8 +943,8 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.wavedec import wavedec
-            from helpers.MyDisp import MyDisp
+            from helpers.libdipum.wavedec import wavedec
+            from helpers.libgeneral.MyDisp import MyDisp
 
             # Parameters
             NR = 16
@@ -976,7 +976,7 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.MyDisp import MyDisp
+            from helpers.libgeneral.MyDisp import MyDisp
 
             # Parameters
             N = 16
@@ -1060,7 +1060,7 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from helpers.MyDisp import MyDisp
+            from helpers.libgeneral.MyDisp import MyDisp
 
             # Parameters
             NR = 16
@@ -1088,7 +1088,7 @@ class Chapter06Mixin:
             import matplotlib.pyplot as plt
             from scipy.linalg import hadamard
 
-            from helpers.MyDisp import MyDisp
+            from helpers.libgeneral.MyDisp import MyDisp
 
             # Parameters
             NR = 16
@@ -1134,7 +1134,7 @@ class Chapter06Mixin:
         try:
             import matplotlib.pyplot as plt
 
-            from DIP4eFigures.basisImage4e import basisImage4e
+            from helpers.libdip.basisImage4e import basisImage4e
 
             # Process
             S_COMPOSITEr, S_DISPLAYr = basisImage4e("DFTr", 8, 1)
@@ -1166,8 +1166,8 @@ class Chapter06Mixin:
             import numpy as np
             import matplotlib.pyplot as plt
 
-            from DIP4eFigures.basisImage4e import basisImage4e
-            from DIP4eFigures.tmat4e import tmat4e
+            from helpers.libdip.basisImage4e import basisImage4e
+            from helpers.libdip.tmat4e import tmat4e
 
             def MyDisp(Matrix: Any, N: Any, plots: Any, position: Any, Title: Any):
                 """MyDisp."""
@@ -1228,7 +1228,7 @@ class Chapter06Mixin:
         try:
             import numpy as np
             import matplotlib.pyplot as plt
-            from DIP4eFigures.tmat4e import tmat4e
+            from helpers.libdip.tmat4e import tmat4e
 
             # %% Figure69
 
