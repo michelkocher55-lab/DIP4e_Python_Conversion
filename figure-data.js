@@ -11,7 +11,7 @@ window.chapterData = [
         "label": "Figure 223",
         "title": "Figure223",
         "description": "Typical effect of reducing spatial resolution.",
-        "src": "output/Figure223.png",
+        "src": "output/Chapter02/Figure223.png",
         "script": "processing/Chapter02/Figure223.py",
         "hasImage": true
       },
@@ -20,7 +20,7 @@ window.chapterData = [
         "label": "Figure 224",
         "title": "Figure224",
         "description": "Effect on plane resolution.",
-        "src": "output/Figure224.png",
+        "src": "output/Chapter02/Figure224.png",
         "script": "processing/Chapter02/Figure224.py",
         "hasImage": true
       },
@@ -29,7 +29,7 @@ window.chapterData = [
         "label": "Figure 227",
         "title": "Figure227",
         "description": "Generated from processing/Chapter02/Figure227.py.",
-        "src": "output/Figure227.png",
+        "src": "output/Chapter02/Figure227.png",
         "script": "processing/Chapter02/Figure227.py",
         "hasImage": true
       },
@@ -38,7 +38,7 @@ window.chapterData = [
         "label": "Figure 229",
         "title": "Figure229",
         "description": "Generated from processing/Chapter02/Figure229.py.",
-        "src": "output/Figure229.png",
+        "src": "output/Chapter02/Figure229.png",
         "script": "processing/Chapter02/Figure229.py",
         "hasImage": true
       },
@@ -47,7 +47,7 @@ window.chapterData = [
         "label": "Figure 231",
         "title": "Figure231",
         "description": "Generated from processing/Chapter02/Figure231.py.",
-        "src": "output/Figure231.png",
+        "src": "output/Chapter02/Figure231.png",
         "script": "processing/Chapter02/Figure231.py",
         "hasImage": true
       },
@@ -56,7 +56,7 @@ window.chapterData = [
         "label": "Figure 232",
         "title": "Figure232",
         "description": "Generated from processing/Chapter02/Figure232.py.",
-        "src": "output/Figure232.png",
+        "src": "output/Chapter02/Figure232.png",
         "script": "processing/Chapter02/Figure232.py",
         "hasImage": true
       },
@@ -65,7 +65,7 @@ window.chapterData = [
         "label": "Figure 234",
         "title": "Figure234",
         "description": "Generated from processing/Chapter02/Figure234.py.",
-        "src": "output/Figure234.png",
+        "src": "output/Chapter02/Figure234.png",
         "script": "processing/Chapter02/Figure234.py",
         "hasImage": true
       },
@@ -74,7 +74,7 @@ window.chapterData = [
         "label": "Figure 236",
         "title": "Figure236",
         "description": "Generated from processing/Chapter02/Figure236.py.",
-        "src": "output/Figure236.png",
+        "src": "output/Chapter02/Figure236.png",
         "script": "processing/Chapter02/Figure236.py",
         "hasImage": true
       },
@@ -83,7 +83,7 @@ window.chapterData = [
         "label": "Figure 238",
         "title": "Figure238",
         "description": "Generated from processing/Chapter02/Figure238.py.",
-        "src": "output/Figure238.png",
+        "src": "output/Chapter02/Figure238.png",
         "script": "processing/Chapter02/Figure238.py",
         "hasImage": true
       },
@@ -92,7 +92,7 @@ window.chapterData = [
         "label": "Figure 239",
         "title": "Figure239",
         "description": "Generated from processing/Chapter02/Figure239.py.",
-        "src": "output/Figure239.png",
+        "src": "output/Chapter02/Figure239.png",
         "script": "processing/Chapter02/Figure239.py",
         "hasImage": true
       },
@@ -101,7 +101,7 @@ window.chapterData = [
         "label": "Figure 240",
         "title": "Figure240",
         "description": "Generated from processing/Chapter02/Figure240.py.",
-        "src": "output/Figure240.png",
+        "src": "output/Chapter02/Figure240.png",
         "script": "processing/Chapter02/Figure240.py",
         "hasImage": true
       },
@@ -110,7 +110,7 @@ window.chapterData = [
         "label": "Figure 242",
         "title": "Figure242",
         "description": "Generated from processing/Chapter02/Figure242.py.",
-        "src": "output/Figure242.png",
+        "src": "output/Chapter02/Figure242.png",
         "script": "processing/Chapter02/Figure242.py",
         "hasImage": true
       },
@@ -119,7 +119,7 @@ window.chapterData = [
         "label": "Figure 245",
         "title": "Figure245",
         "description": "Generated from processing/Chapter02/Figure245.py.",
-        "src": "output/Figure245.png",
+        "src": "output/Chapter02/Figure245.png",
         "script": "processing/Chapter02/Figure245.py",
         "hasImage": true
       },
@@ -128,7 +128,7 @@ window.chapterData = [
         "label": "Figure 257",
         "title": "Figure257",
         "description": "Generated from processing/Chapter02/Figure257.py.",
-        "src": "output/Figure257.png",
+        "src": "output/Chapter02/Figure257.png",
         "script": "processing/Chapter02/Figure257.py",
         "hasImage": true
       },
@@ -137,7 +137,7 @@ window.chapterData = [
         "label": "Figure XXX",
         "title": "FigureXXX",
         "description": "Generated from processing/Chapter02/FigureXXX.py.",
-        "src": "output/FigureXXX.png",
+        "src": "output/Chapter02/FigureXXX.png",
         "script": "processing/Chapter02/FigureXXX.py",
         "hasImage": true
       }
@@ -155,7 +155,7 @@ window.chapterData = [
         "label": "Figure 310",
         "title": "Figure310",
         "description": "Generated from processing/Chapter03/Figure310.py.",
-        "src": "output/Figure310.png",
+        "src": "output/Chapter03/Figure310.png",
         "script": "processing/Chapter03/Figure310.py",
         "hasImage": true
       },
@@ -164,7 +164,7 @@ window.chapterData = [
         "label": "Figure 314",
         "title": "Figure314",
         "description": "Generated from processing/Chapter03/Figure314.py.",
-        "src": "output/Figure314.png",
+        "src": "output/Chapter03/Figure314.png",
         "script": "processing/Chapter03/Figure314.py",
         "hasImage": true
       },
@@ -173,7 +173,7 @@ window.chapterData = [
         "label": "Figure 315",
         "title": "Figure315",
         "description": "Generated from processing/Chapter03/Figure315.py.",
-        "src": "output/Figure315.png",
+        "src": "output/Chapter03/Figure315.png",
         "script": "processing/Chapter03/Figure315.py",
         "hasImage": true
       },
@@ -182,7 +182,7 @@ window.chapterData = [
         "label": "Figure 316",
         "title": "Figure316",
         "description": "Generated from processing/Chapter03/Figure316.py.",
-        "src": "output/Figure316.png",
+        "src": "output/Chapter03/Figure316.png",
         "script": "processing/Chapter03/Figure316.py",
         "hasImage": true
       },
@@ -191,7 +191,7 @@ window.chapterData = [
         "label": "Figure 320",
         "title": "Figure320",
         "description": "Generated from processing/Chapter03/Figure320.py.",
-        "src": "output/Figure320.png",
+        "src": "output/Chapter03/Figure320.png",
         "script": "processing/Chapter03/Figure320.py",
         "hasImage": true
       },
@@ -200,7 +200,7 @@ window.chapterData = [
         "label": "Figure 324",
         "title": "Figure324",
         "description": "Generated from processing/Chapter03/Figure324.py.",
-        "src": "output/Figure324.png",
+        "src": "output/Chapter03/Figure324.png",
         "script": "processing/Chapter03/Figure324.py",
         "hasImage": true
       },
@@ -209,7 +209,7 @@ window.chapterData = [
         "label": "Figure 325",
         "title": "Figure325",
         "description": "Generated from processing/Chapter03/Figure325.py.",
-        "src": "output/Figure325.png",
+        "src": "output/Chapter03/Figure325.png",
         "script": "processing/Chapter03/Figure325.py",
         "hasImage": true
       },
@@ -218,7 +218,7 @@ window.chapterData = [
         "label": "Figure 326",
         "title": "Figure326",
         "description": "Generated from processing/Chapter03/Figure326.py.",
-        "src": "output/Figure326.png",
+        "src": "output/Chapter03/Figure326.png",
         "script": "processing/Chapter03/Figure326.py",
         "hasImage": true
       },
@@ -227,7 +227,7 @@ window.chapterData = [
         "label": "Figure 328",
         "title": "Figure328",
         "description": "Generated from processing/Chapter03/Figure328.py.",
-        "src": "output/Figure328.png",
+        "src": "output/Chapter03/Figure328.png",
         "script": "processing/Chapter03/Figure328.py",
         "hasImage": true
       },
@@ -236,7 +236,7 @@ window.chapterData = [
         "label": "Figure 329",
         "title": "Figure329",
         "description": "Generated from processing/Chapter03/Figure329.py.",
-        "src": "output/Figure329.png",
+        "src": "output/Chapter03/Figure329.png",
         "script": "processing/Chapter03/Figure329.py",
         "hasImage": true
       },
@@ -245,7 +245,7 @@ window.chapterData = [
         "label": "Figure 330",
         "title": "Figure330",
         "description": "Generated from processing/Chapter03/Figure330.py.",
-        "src": "output/Figure330.png",
+        "src": "output/Chapter03/Figure330.png",
         "script": "processing/Chapter03/Figure330.py",
         "hasImage": true
       },
@@ -254,7 +254,7 @@ window.chapterData = [
         "label": "Figure 331",
         "title": "Figure331",
         "description": "Generated from processing/Chapter03/Figure331.py.",
-        "src": "output/Figure331.png",
+        "src": "output/Chapter03/Figure331.png",
         "script": "processing/Chapter03/Figure331.py",
         "hasImage": true
       },
@@ -263,7 +263,7 @@ window.chapterData = [
         "label": "Figure 332",
         "title": "Figure332",
         "description": "Generated from processing/Chapter03/Figure332.py.",
-        "src": "output/Figure332.png",
+        "src": "output/Chapter03/Figure332.png",
         "script": "processing/Chapter03/Figure332.py",
         "hasImage": true
       },
@@ -272,7 +272,7 @@ window.chapterData = [
         "label": "Figure 333",
         "title": "Figure333",
         "description": "Generated from processing/Chapter03/Figure333.py.",
-        "src": "output/Figure333.png",
+        "src": "output/Chapter03/Figure333.png",
         "script": "processing/Chapter03/Figure333.py",
         "hasImage": true
       },
@@ -281,7 +281,7 @@ window.chapterData = [
         "label": "Figure 339",
         "title": "Figure339",
         "description": "Generated from processing/Chapter03/Figure339.py.",
-        "src": "output/Figure339.png",
+        "src": "output/Chapter03/Figure339.png",
         "script": "processing/Chapter03/Figure339.py",
         "hasImage": true
       },
@@ -290,7 +290,7 @@ window.chapterData = [
         "label": "Figure 342",
         "title": "Figure342",
         "description": "Generated from processing/Chapter03/Figure342.py.",
-        "src": "output/Figure342.png",
+        "src": "output/Chapter03/Figure342.png",
         "script": "processing/Chapter03/Figure342.py",
         "hasImage": true
       },
@@ -299,7 +299,7 @@ window.chapterData = [
         "label": "Figure 343",
         "title": "Figure343",
         "description": "Generated from processing/Chapter03/Figure343.py.",
-        "src": "output/Figure343.png",
+        "src": "output/Chapter03/Figure343.png",
         "script": "processing/Chapter03/Figure343.py",
         "hasImage": true
       },
@@ -308,7 +308,7 @@ window.chapterData = [
         "label": "Figure 344",
         "title": "Figure344",
         "description": "Generated from processing/Chapter03/Figure344.py.",
-        "src": "output/Figure344.png",
+        "src": "output/Chapter03/Figure344.png",
         "script": "processing/Chapter03/Figure344.py",
         "hasImage": true
       },
@@ -317,7 +317,7 @@ window.chapterData = [
         "label": "Figure 345",
         "title": "Figure345",
         "description": "Generated from processing/Chapter03/Figure345.py.",
-        "src": "output/Figure345.png",
+        "src": "output/Chapter03/Figure345.png",
         "script": "processing/Chapter03/Figure345.py",
         "hasImage": true
       },
@@ -326,7 +326,7 @@ window.chapterData = [
         "label": "Figure 346",
         "title": "Figure346",
         "description": "Generated from processing/Chapter03/Figure346.py.",
-        "src": "output/Figure346.png",
+        "src": "output/Chapter03/Figure346.png",
         "script": "processing/Chapter03/Figure346.py",
         "hasImage": true
       },
@@ -335,7 +335,7 @@ window.chapterData = [
         "label": "Figure 347",
         "title": "Figure347",
         "description": "Generated from processing/Chapter03/Figure347.py.",
-        "src": "output/Figure347.png",
+        "src": "output/Chapter03/Figure347.png",
         "script": "processing/Chapter03/Figure347.py",
         "hasImage": true
       },
@@ -344,7 +344,7 @@ window.chapterData = [
         "label": "Figure 348Fourier",
         "title": "Figure348Fourier",
         "description": "Generated from processing/Chapter03/Figure348Fourier.py.",
-        "src": "output/Figure348Fourier.png",
+        "src": "output/Chapter03/Figure348Fourier.png",
         "script": "processing/Chapter03/Figure348Fourier.py",
         "hasImage": true
       },
@@ -353,7 +353,7 @@ window.chapterData = [
         "label": "Figure 348Separable",
         "title": "Figure348Separable",
         "description": "Generated from processing/Chapter03/Figure348Separable.py.",
-        "src": "output/Figure348Separable.png",
+        "src": "output/Chapter03/Figure348Separable.png",
         "script": "processing/Chapter03/Figure348Separable.py",
         "hasImage": true
       },
@@ -362,7 +362,7 @@ window.chapterData = [
         "label": "Figure 349",
         "title": "Figure349",
         "description": "Generated from processing/Chapter03/Figure349.py.",
-        "src": "output/Figure349.png",
+        "src": "output/Chapter03/Figure349.png",
         "script": "processing/Chapter03/Figure349.py",
         "hasImage": true
       },
@@ -371,7 +371,7 @@ window.chapterData = [
         "label": "Figure 352",
         "title": "Figure352",
         "description": "Generated from processing/Chapter03/Figure352.py.",
-        "src": "output/Figure352.png",
+        "src": "output/Chapter03/Figure352.png",
         "script": "processing/Chapter03/Figure352.py",
         "hasImage": true
       },
@@ -380,7 +380,7 @@ window.chapterData = [
         "label": "Figure 355",
         "title": "Figure355",
         "description": "Generated from processing/Chapter03/Figure355.py.",
-        "src": "output/Figure355.png",
+        "src": "output/Chapter03/Figure355.png",
         "script": "processing/Chapter03/Figure355.py",
         "hasImage": true
       },
@@ -389,7 +389,7 @@ window.chapterData = [
         "label": "Figure 357",
         "title": "Figure357",
         "description": "Generated from processing/Chapter03/Figure357.py.",
-        "src": "output/Figure357.png",
+        "src": "output/Chapter03/Figure357.png",
         "script": "processing/Chapter03/Figure357.py",
         "hasImage": true
       },
@@ -398,7 +398,7 @@ window.chapterData = [
         "label": "Figure 359",
         "title": "Figure359",
         "description": "Generated from processing/Chapter03/Figure359.py.",
-        "src": "output/Figure359.png",
+        "src": "output/Chapter03/Figure359.png",
         "script": "processing/Chapter03/Figure359.py",
         "hasImage": true
       },
@@ -407,7 +407,7 @@ window.chapterData = [
         "label": "Figure 360",
         "title": "Figure360",
         "description": "Generated from processing/Chapter03/Figure360.py.",
-        "src": "output/Figure360.png",
+        "src": "output/Chapter03/Figure360.png",
         "script": "processing/Chapter03/Figure360.py",
         "hasImage": true
       },
@@ -416,7 +416,7 @@ window.chapterData = [
         "label": "Figure 361",
         "title": "Figure361",
         "description": "Generated from processing/Chapter03/Figure361.py.",
-        "src": "output/Figure361.png",
+        "src": "output/Chapter03/Figure361.png",
         "script": "processing/Chapter03/Figure361.py",
         "hasImage": true
       },
@@ -425,7 +425,7 @@ window.chapterData = [
         "label": "Figure 362",
         "title": "Figure362",
         "description": "Generated from processing/Chapter03/Figure362.py.",
-        "src": "output/Figure362.png",
+        "src": "output/Chapter03/Figure362.png",
         "script": "processing/Chapter03/Figure362.py",
         "hasImage": true
       },
@@ -434,7 +434,7 @@ window.chapterData = [
         "label": "Figure 363",
         "title": "Figure363",
         "description": "Generated from processing/Chapter03/Figure363.py.",
-        "src": "output/Figure363.png",
+        "src": "output/Chapter03/Figure363.png",
         "script": "processing/Chapter03/Figure363.py",
         "hasImage": true
       },
@@ -443,7 +443,7 @@ window.chapterData = [
         "label": "Figure 366",
         "title": "Figure366",
         "description": "Generated from processing/Chapter03/Figure366.py.",
-        "src": "output/Figure366.png",
+        "src": "output/Chapter03/Figure366.png",
         "script": "processing/Chapter03/Figure366.py",
         "hasImage": true
       },
@@ -452,7 +452,7 @@ window.chapterData = [
         "label": "Figure 37",
         "title": "Figure37",
         "description": "Generated from processing/Chapter03/Figure37.py.",
-        "src": "output/Figure37.png",
+        "src": "output/Chapter03/Figure37.png",
         "script": "processing/Chapter03/Figure37.py",
         "hasImage": true
       },
@@ -461,7 +461,7 @@ window.chapterData = [
         "label": "Figure 374",
         "title": "Figure374",
         "description": "Generated from processing/Chapter03/Figure374.py.",
-        "src": "output/Figure374.png",
+        "src": "output/Chapter03/Figure374.png",
         "script": "processing/Chapter03/Figure374.py",
         "hasImage": true
       },
@@ -470,7 +470,7 @@ window.chapterData = [
         "label": "Figure 379",
         "title": "Figure379",
         "description": "Generated from processing/Chapter03/Figure379.py.",
-        "src": "output/Figure379.png",
+        "src": "output/Chapter03/Figure379.png",
         "script": "processing/Chapter03/Figure379.py",
         "hasImage": true
       }
@@ -488,7 +488,7 @@ window.chapterData = [
         "label": "Figure 418",
         "title": "Figure418",
         "description": "Generated from processing/Chapter04/Figure418.py.",
-        "src": "output/Figure418.png",
+        "src": "output/Chapter04/Figure418.png",
         "script": "processing/Chapter04/Figure418.py",
         "hasImage": true
       },
@@ -497,7 +497,7 @@ window.chapterData = [
         "label": "Figure 419",
         "title": "Figure419",
         "description": "Generated from processing/Chapter04/Figure419.py.",
-        "src": "output/Figure419.png",
+        "src": "output/Chapter04/Figure419.png",
         "script": "processing/Chapter04/Figure419.py",
         "hasImage": true
       },
@@ -506,7 +506,7 @@ window.chapterData = [
         "label": "Figure 423",
         "title": "Figure423",
         "description": "Generated from processing/Chapter04/Figure423.py.",
-        "src": "output/Figure423.png",
+        "src": "output/Chapter04/Figure423.png",
         "script": "processing/Chapter04/Figure423.py",
         "hasImage": true
       },
@@ -515,7 +515,7 @@ window.chapterData = [
         "label": "Figure 424_425",
         "title": "Figure424_425",
         "description": "Generated from processing/Chapter04/Figure424_425.py.",
-        "src": "output/Figure424_425_1.png",
+        "src": "output/Chapter04/Figure424_425_1.png",
         "script": "processing/Chapter04/Figure424_425.py",
         "hasImage": true
       },
@@ -524,7 +524,7 @@ window.chapterData = [
         "label": "Figure 426",
         "title": "Figure426",
         "description": "Generated from processing/Chapter04/Figure426.py.",
-        "src": "output/Figure426.png",
+        "src": "output/Chapter04/Figure426.png",
         "script": "processing/Chapter04/Figure426.py",
         "hasImage": true
       },
@@ -533,7 +533,7 @@ window.chapterData = [
         "label": "Figure 428",
         "title": "Figure428",
         "description": "Generated from processing/Chapter04/Figure428.py.",
-        "src": "output/Figure428.png",
+        "src": "output/Chapter04/Figure428.png",
         "script": "processing/Chapter04/Figure428.py",
         "hasImage": true
       },
@@ -542,7 +542,7 @@ window.chapterData = [
         "label": "Figure 429",
         "title": "Figure429",
         "description": "Generated from processing/Chapter04/Figure429.py.",
-        "src": "output/Figure429.png",
+        "src": "output/Chapter04/Figure429.png",
         "script": "processing/Chapter04/Figure429.py",
         "hasImage": true
       },
@@ -551,7 +551,7 @@ window.chapterData = [
         "label": "Figure 430",
         "title": "Figure430",
         "description": "Generated from processing/Chapter04/Figure430.py.",
-        "src": "output/Figure430.png",
+        "src": "output/Chapter04/Figure430.png",
         "script": "processing/Chapter04/Figure430.py",
         "hasImage": true
       },
@@ -560,7 +560,7 @@ window.chapterData = [
         "label": "Figure 433",
         "title": "Figure433",
         "description": "Generated from processing/Chapter04/Figure433.py.",
-        "src": "output/Figure433.png",
+        "src": "output/Chapter04/Figure433.png",
         "script": "processing/Chapter04/Figure433.py",
         "hasImage": true
       },
@@ -569,7 +569,7 @@ window.chapterData = [
         "label": "Figure 434",
         "title": "Figure434",
         "description": "Generated from processing/Chapter04/Figure434.py.",
-        "src": "output/Figure434.png",
+        "src": "output/Chapter04/Figure434.png",
         "script": "processing/Chapter04/Figure434.py",
         "hasImage": true
       },
@@ -578,7 +578,7 @@ window.chapterData = [
         "label": "Figure 435",
         "title": "Figure435",
         "description": "Generated from processing/Chapter04/Figure435.py.",
-        "src": "output/Figure435_1.png",
+        "src": "output/Chapter04/Figure435_1.png",
         "script": "processing/Chapter04/Figure435.py",
         "hasImage": true
       },
@@ -587,7 +587,7 @@ window.chapterData = [
         "label": "Figure 437",
         "title": "Figure437",
         "description": "Generated from processing/Chapter04/Figure437.py.",
-        "src": "output/Figure437.png",
+        "src": "output/Chapter04/Figure437.png",
         "script": "processing/Chapter04/Figure437.py",
         "hasImage": true
       },
@@ -596,7 +596,7 @@ window.chapterData = [
         "label": "Figure 438",
         "title": "Figure438",
         "description": "Generated from processing/Chapter04/Figure438.py.",
-        "src": "output/Figure438.png",
+        "src": "output/Chapter04/Figure438.png",
         "script": "processing/Chapter04/Figure438.py",
         "hasImage": true
       },
@@ -605,7 +605,7 @@ window.chapterData = [
         "label": "Figure 439",
         "title": "Figure439",
         "description": "Generated from processing/Chapter04/Figure439.py.",
-        "src": "output/Figure439.png",
+        "src": "output/Chapter04/Figure439.png",
         "script": "processing/Chapter04/Figure439.py",
         "hasImage": true
       },
@@ -614,7 +614,7 @@ window.chapterData = [
         "label": "Figure 440",
         "title": "Figure440",
         "description": "Generated from processing/Chapter04/Figure440.py.",
-        "src": "output/Figure440.png",
+        "src": "output/Chapter04/Figure440.png",
         "script": "processing/Chapter04/Figure440.py",
         "hasImage": true
       },
@@ -623,7 +623,7 @@ window.chapterData = [
         "label": "Figure 441",
         "title": "Figure441",
         "description": "Generated from processing/Chapter04/Figure441.py.",
-        "src": "output/Figure441.png",
+        "src": "output/Chapter04/Figure441.png",
         "script": "processing/Chapter04/Figure441.py",
         "hasImage": true
       },
@@ -632,7 +632,7 @@ window.chapterData = [
         "label": "Figure 442",
         "title": "Figure442",
         "description": "Generated from processing/Chapter04/Figure442.py.",
-        "src": "output/Figure442.png",
+        "src": "output/Chapter04/Figure442.png",
         "script": "processing/Chapter04/Figure442.py",
         "hasImage": true
       },
@@ -641,7 +641,7 @@ window.chapterData = [
         "label": "Figure 443",
         "title": "Figure443",
         "description": "Generated from processing/Chapter04/Figure443.py.",
-        "src": "output/Figure443.png",
+        "src": "output/Chapter04/Figure443.png",
         "script": "processing/Chapter04/Figure443.py",
         "hasImage": true
       },
@@ -650,7 +650,7 @@ window.chapterData = [
         "label": "Figure 444",
         "title": "Figure444",
         "description": "Generated from processing/Chapter04/Figure444.py.",
-        "src": "output/Figure444.png",
+        "src": "output/Chapter04/Figure444.png",
         "script": "processing/Chapter04/Figure444.py",
         "hasImage": true
       },
@@ -659,7 +659,7 @@ window.chapterData = [
         "label": "Figure 445",
         "title": "Figure445",
         "description": "Generated from processing/Chapter04/Figure445.py.",
-        "src": "output/Figure445.png",
+        "src": "output/Chapter04/Figure445.png",
         "script": "processing/Chapter04/Figure445.py",
         "hasImage": true
       },
@@ -668,7 +668,7 @@ window.chapterData = [
         "label": "Figure 446",
         "title": "Figure446",
         "description": "Generated from processing/Chapter04/Figure446.py.",
-        "src": "output/Figure446.png",
+        "src": "output/Chapter04/Figure446.png",
         "script": "processing/Chapter04/Figure446.py",
         "hasImage": true
       },
@@ -677,7 +677,7 @@ window.chapterData = [
         "label": "Figure 447",
         "title": "Figure447",
         "description": "Generated from processing/Chapter04/Figure447.py.",
-        "src": "output/Figure447.png",
+        "src": "output/Chapter04/Figure447.png",
         "script": "processing/Chapter04/Figure447.py",
         "hasImage": true
       },
@@ -686,7 +686,7 @@ window.chapterData = [
         "label": "Figure 448",
         "title": "Figure448",
         "description": "Generated from processing/Chapter04/Figure448.py.",
-        "src": "output/Figure448.png",
+        "src": "output/Chapter04/Figure448.png",
         "script": "processing/Chapter04/Figure448.py",
         "hasImage": true
       },
@@ -695,7 +695,7 @@ window.chapterData = [
         "label": "Figure 449",
         "title": "Figure449",
         "description": "Generated from processing/Chapter04/Figure449.py.",
-        "src": "output/Figure449.png",
+        "src": "output/Chapter04/Figure449.png",
         "script": "processing/Chapter04/Figure449.py",
         "hasImage": true
       },
@@ -704,7 +704,7 @@ window.chapterData = [
         "label": "Figure 450",
         "title": "Figure450",
         "description": "Generated from processing/Chapter04/Figure450.py.",
-        "src": "output/Figure450.png",
+        "src": "output/Chapter04/Figure450.png",
         "script": "processing/Chapter04/Figure450.py",
         "hasImage": true
       },
@@ -713,7 +713,7 @@ window.chapterData = [
         "label": "Figure 451",
         "title": "Figure451",
         "description": "Generated from processing/Chapter04/Figure451.py.",
-        "src": "output/Figure451.png",
+        "src": "output/Chapter04/Figure451.png",
         "script": "processing/Chapter04/Figure451.py",
         "hasImage": true
       },
@@ -722,7 +722,7 @@ window.chapterData = [
         "label": "Figure 452",
         "title": "Figure452",
         "description": "Generated from processing/Chapter04/Figure452.py.",
-        "src": "output/Figure452.png",
+        "src": "output/Chapter04/Figure452.png",
         "script": "processing/Chapter04/Figure452.py",
         "hasImage": true
       },
@@ -731,7 +731,7 @@ window.chapterData = [
         "label": "Figure 453",
         "title": "Figure453",
         "description": "Generated from processing/Chapter04/Figure453.py.",
-        "src": "output/Figure453.png",
+        "src": "output/Chapter04/Figure453.png",
         "script": "processing/Chapter04/Figure453.py",
         "hasImage": true
       },
@@ -740,7 +740,7 @@ window.chapterData = [
         "label": "Figure 455",
         "title": "Figure455",
         "description": "Generated from processing/Chapter04/Figure455.py.",
-        "src": "output/Figure455.png",
+        "src": "output/Chapter04/Figure455.png",
         "script": "processing/Chapter04/Figure455.py",
         "hasImage": true
       },
@@ -749,7 +749,7 @@ window.chapterData = [
         "label": "Figure 456",
         "title": "Figure456",
         "description": "Generated from processing/Chapter04/Figure456.py.",
-        "src": "output/Figure456.png",
+        "src": "output/Chapter04/Figure456.png",
         "script": "processing/Chapter04/Figure456.py",
         "hasImage": true
       },
@@ -758,7 +758,7 @@ window.chapterData = [
         "label": "Figure 457",
         "title": "Figure457",
         "description": "Generated from processing/Chapter04/Figure457.py.",
-        "src": "output/Figure457.png",
+        "src": "output/Chapter04/Figure457.png",
         "script": "processing/Chapter04/Figure457.py",
         "hasImage": true
       },
@@ -767,7 +767,7 @@ window.chapterData = [
         "label": "Figure 460",
         "title": "Figure460",
         "description": "Generated from processing/Chapter04/Figure460.py.",
-        "src": "output/Figure460.png",
+        "src": "output/Chapter04/Figure460.png",
         "script": "processing/Chapter04/Figure460.py",
         "hasImage": true
       },
@@ -776,7 +776,7 @@ window.chapterData = [
         "label": "Figure 460Tunnel",
         "title": "Figure460Tunnel",
         "description": "Generated from processing/Chapter04/Figure460Tunnel.py.",
-        "src": "output/Figure460Tunnel_1.png",
+        "src": "output/Chapter04/Figure460Tunnel_1.png",
         "script": "processing/Chapter04/Figure460Tunnel.py",
         "hasImage": true
       },
@@ -785,7 +785,7 @@ window.chapterData = [
         "label": "Figure 461",
         "title": "Figure461",
         "description": "Generated from processing/Chapter04/Figure461.py.",
-        "src": "output/Figure461.png",
+        "src": "output/Chapter04/Figure461.png",
         "script": "processing/Chapter04/Figure461.py",
         "hasImage": true
       },
@@ -794,7 +794,7 @@ window.chapterData = [
         "label": "Figure 462",
         "title": "Figure462",
         "description": "Generated from processing/Chapter04/Figure462.py.",
-        "src": "output/Figure462.png",
+        "src": "output/Chapter04/Figure462.png",
         "script": "processing/Chapter04/Figure462.py",
         "hasImage": true
       },
@@ -803,7 +803,7 @@ window.chapterData = [
         "label": "Figure 464",
         "title": "Figure464",
         "description": "Generated from processing/Chapter04/Figure464.py.",
-        "src": "output/Figure464.png",
+        "src": "output/Chapter04/Figure464.png",
         "script": "processing/Chapter04/Figure464.py",
         "hasImage": true
       },
@@ -812,7 +812,7 @@ window.chapterData = [
         "label": "Figure 465",
         "title": "Figure465",
         "description": "Generated from processing/Chapter04/Figure465.py.",
-        "src": "output/Figure465.png",
+        "src": "output/Chapter04/Figure465.png",
         "script": "processing/Chapter04/Figure465.py",
         "hasImage": true
       },
@@ -821,7 +821,7 @@ window.chapterData = [
         "label": "Figure 466",
         "title": "Figure466",
         "description": "Generated from processing/Chapter04/Figure466.py.",
-        "src": "output/Figure466.png",
+        "src": "output/Chapter04/Figure466.png",
         "script": "processing/Chapter04/Figure466.py",
         "hasImage": true
       }
@@ -839,7 +839,7 @@ window.chapterData = [
         "label": "Figure 510",
         "title": "Figure510",
         "description": "Generated from processing/Chapter05/Figure510.py.",
-        "src": "output/Figure510.png",
+        "src": "output/Chapter05/Figure510.png",
         "script": "processing/Chapter05/Figure510.py",
         "hasImage": true
       },
@@ -848,7 +848,7 @@ window.chapterData = [
         "label": "Figure 511",
         "title": "Figure511",
         "description": "Generated from processing/Chapter05/Figure511.py.",
-        "src": "output/Figure511.png",
+        "src": "output/Chapter05/Figure511.png",
         "script": "processing/Chapter05/Figure511.py",
         "hasImage": true
       },
@@ -857,7 +857,7 @@ window.chapterData = [
         "label": "Figure 512",
         "title": "Figure512",
         "description": "Generated from processing/Chapter05/Figure512.py.",
-        "src": "output/Figure512.png",
+        "src": "output/Chapter05/Figure512.png",
         "script": "processing/Chapter05/Figure512.py",
         "hasImage": true
       },
@@ -866,7 +866,7 @@ window.chapterData = [
         "label": "Figure 513",
         "title": "Figure513",
         "description": "Generated from processing/Chapter05/Figure513.py.",
-        "src": "output/Figure513.png",
+        "src": "output/Chapter05/Figure513.png",
         "script": "processing/Chapter05/Figure513.py",
         "hasImage": true
       },
@@ -875,7 +875,7 @@ window.chapterData = [
         "label": "Figure 514",
         "title": "Figure514",
         "description": "Generated from processing/Chapter05/Figure514.py.",
-        "src": "output/Figure514.png",
+        "src": "output/Chapter05/Figure514.png",
         "script": "processing/Chapter05/Figure514.py",
         "hasImage": true
       },
@@ -884,7 +884,7 @@ window.chapterData = [
         "label": "Figure 515",
         "title": "Figure515",
         "description": "Generated from processing/Chapter05/Figure515.py.",
-        "src": "output/Figure515.png",
+        "src": "output/Chapter05/Figure515.png",
         "script": "processing/Chapter05/Figure515.py",
         "hasImage": true
       },
@@ -893,7 +893,7 @@ window.chapterData = [
         "label": "Figure 516",
         "title": "Figure516",
         "description": "Generated from processing/Chapter05/Figure516.py.",
-        "src": "output/Figure516.png",
+        "src": "output/Chapter05/Figure516.png",
         "script": "processing/Chapter05/Figure516.py",
         "hasImage": true
       },
@@ -902,7 +902,7 @@ window.chapterData = [
         "label": "Figure 518",
         "title": "Figure518",
         "description": "Generated from processing/Chapter05/Figure518.py.",
-        "src": "output/Figure518.png",
+        "src": "output/Chapter05/Figure518.png",
         "script": "processing/Chapter05/Figure518.py",
         "hasImage": true
       },
@@ -911,7 +911,7 @@ window.chapterData = [
         "label": "Figure 525",
         "title": "Figure525",
         "description": "Generated from processing/Chapter05/Figure525.py.",
-        "src": "output/Figure525.png",
+        "src": "output/Chapter05/Figure525.png",
         "script": "processing/Chapter05/Figure525.py",
         "hasImage": true
       },
@@ -920,7 +920,7 @@ window.chapterData = [
         "label": "Figure 526",
         "title": "Figure526",
         "description": "Generated from processing/Chapter05/Figure526.py.",
-        "src": "output/Figure526.png",
+        "src": "output/Chapter05/Figure526.png",
         "script": "processing/Chapter05/Figure526.py",
         "hasImage": true
       },
@@ -929,7 +929,7 @@ window.chapterData = [
         "label": "Figure 527",
         "title": "Figure527",
         "description": "Generated from processing/Chapter05/Figure527.py.",
-        "src": "output/Figure527.png",
+        "src": "output/Chapter05/Figure527.png",
         "script": "processing/Chapter05/Figure527.py",
         "hasImage": true
       },
@@ -938,7 +938,7 @@ window.chapterData = [
         "label": "Figure 528",
         "title": "Figure528",
         "description": "Generated from processing/Chapter05/Figure528.py.",
-        "src": "output/Figure528.png",
+        "src": "output/Chapter05/Figure528.png",
         "script": "processing/Chapter05/Figure528.py",
         "hasImage": true
       },
@@ -947,7 +947,7 @@ window.chapterData = [
         "label": "Figure 529",
         "title": "Figure529",
         "description": "Generated from processing/Chapter05/Figure529.py.",
-        "src": "output/Figure529.png",
+        "src": "output/Chapter05/Figure529.png",
         "script": "processing/Chapter05/Figure529.py",
         "hasImage": true
       },
@@ -956,7 +956,7 @@ window.chapterData = [
         "label": "Figure 53",
         "title": "Figure53",
         "description": "Generated from processing/Chapter05/Figure53.py.",
-        "src": "output/Figure53.png",
+        "src": "output/Chapter05/Figure53.png",
         "script": "processing/Chapter05/Figure53.py",
         "hasImage": true
       },
@@ -965,7 +965,7 @@ window.chapterData = [
         "label": "Figure 530",
         "title": "Figure530",
         "description": "Generated from processing/Chapter05/Figure530.py.",
-        "src": "output/Figure530.png",
+        "src": "output/Chapter05/Figure530.png",
         "script": "processing/Chapter05/Figure530.py",
         "hasImage": true
       },
@@ -974,7 +974,7 @@ window.chapterData = [
         "label": "Figure 531",
         "title": "Figure531",
         "description": "Generated from processing/Chapter05/Figure531.py.",
-        "src": "output/Figure531.png",
+        "src": "output/Chapter05/Figure531.png",
         "script": "processing/Chapter05/Figure531.py",
         "hasImage": true
       },
@@ -983,7 +983,7 @@ window.chapterData = [
         "label": "Figure 532",
         "title": "Figure532",
         "description": "Generated from processing/Chapter05/Figure532.py.",
-        "src": "output/Figure532.png",
+        "src": "output/Chapter05/Figure532.png",
         "script": "processing/Chapter05/Figure532.py",
         "hasImage": true
       },
@@ -992,7 +992,7 @@ window.chapterData = [
         "label": "Figure 533",
         "title": "Figure533",
         "description": "Generated from processing/Chapter05/Figure533.py.",
-        "src": "output/Figure533.png",
+        "src": "output/Chapter05/Figure533.png",
         "script": "processing/Chapter05/Figure533.py",
         "hasImage": true
       },
@@ -1001,7 +1001,7 @@ window.chapterData = [
         "label": "Figure 534",
         "title": "Figure534",
         "description": "Generated from processing/Chapter05/Figure534.py.",
-        "src": "output/Figure534.png",
+        "src": "output/Chapter05/Figure534.png",
         "script": "processing/Chapter05/Figure534.py",
         "hasImage": true
       },
@@ -1010,7 +1010,7 @@ window.chapterData = [
         "label": "Figure 538",
         "title": "Figure538",
         "description": "Generated from processing/Chapter05/Figure538.py.",
-        "src": "output/Figure538.png",
+        "src": "output/Chapter05/Figure538.png",
         "script": "processing/Chapter05/Figure538.py",
         "hasImage": true
       },
@@ -1019,7 +1019,7 @@ window.chapterData = [
         "label": "Figure 539",
         "title": "Figure539",
         "description": "Generated from processing/Chapter05/Figure539.py.",
-        "src": "output/Figure539.png",
+        "src": "output/Chapter05/Figure539.png",
         "script": "processing/Chapter05/Figure539.py",
         "hasImage": true
       },
@@ -1028,7 +1028,7 @@ window.chapterData = [
         "label": "Figure 54",
         "title": "Figure54",
         "description": "Generated from processing/Chapter05/Figure54.py.",
-        "src": "output/Figure54.png",
+        "src": "output/Chapter05/Figure54.png",
         "script": "processing/Chapter05/Figure54.py",
         "hasImage": true
       },
@@ -1037,7 +1037,7 @@ window.chapterData = [
         "label": "Figure 540",
         "title": "Figure540",
         "description": "Generated from processing/Chapter05/Figure540.py.",
-        "src": "output/Figure540.png",
+        "src": "output/Chapter05/Figure540.png",
         "script": "processing/Chapter05/Figure540.py",
         "hasImage": true
       },
@@ -1046,7 +1046,7 @@ window.chapterData = [
         "label": "Figure 543",
         "title": "Figure543",
         "description": "Generated from processing/Chapter05/Figure543.py.",
-        "src": "output/Figure543.png",
+        "src": "output/Chapter05/Figure543.png",
         "script": "processing/Chapter05/Figure543.py",
         "hasImage": true
       },
@@ -1055,7 +1055,7 @@ window.chapterData = [
         "label": "Figure 544",
         "title": "Figure544",
         "description": "Generated from processing/Chapter05/Figure544.py.",
-        "src": "output/Figure544.png",
+        "src": "output/Chapter05/Figure544.png",
         "script": "processing/Chapter05/Figure544.py",
         "hasImage": true
       },
@@ -1064,7 +1064,7 @@ window.chapterData = [
         "label": "Figure 548",
         "title": "Figure548",
         "description": "Generated from processing/Chapter05/Figure548.py.",
-        "src": "output/Figure548.png",
+        "src": "output/Chapter05/Figure548.png",
         "script": "processing/Chapter05/Figure548.py",
         "hasImage": true
       },
@@ -1073,7 +1073,7 @@ window.chapterData = [
         "label": "Figure 549",
         "title": "Figure549",
         "description": "Generated from processing/Chapter05/Figure549.py.",
-        "src": "output/Figure549.png",
+        "src": "output/Chapter05/Figure549.png",
         "script": "processing/Chapter05/Figure549.py",
         "hasImage": true
       },
@@ -1082,7 +1082,7 @@ window.chapterData = [
         "label": "Figure 55",
         "title": "Figure55",
         "description": "Generated from processing/Chapter05/Figure55.py.",
-        "src": "output/Figure55.png",
+        "src": "output/Chapter05/Figure55.png",
         "script": "processing/Chapter05/Figure55.py",
         "hasImage": true
       },
@@ -1091,7 +1091,7 @@ window.chapterData = [
         "label": "Figure 57",
         "title": "Figure57",
         "description": "Generated from processing/Chapter05/Figure57.py.",
-        "src": "output/Figure57.png",
+        "src": "output/Chapter05/Figure57.png",
         "script": "processing/Chapter05/Figure57.py",
         "hasImage": true
       },
@@ -1100,7 +1100,7 @@ window.chapterData = [
         "label": "Figure 58",
         "title": "Figure58",
         "description": "Generated from processing/Chapter05/Figure58.py.",
-        "src": "output/Figure58.png",
+        "src": "output/Chapter05/Figure58.png",
         "script": "processing/Chapter05/Figure58.py",
         "hasImage": true
       },
@@ -1109,7 +1109,7 @@ window.chapterData = [
         "label": "Figure 59",
         "title": "Figure59",
         "description": "Generated from processing/Chapter05/Figure59.py.",
-        "src": "output/Figure59.png",
+        "src": "output/Chapter05/Figure59.png",
         "script": "processing/Chapter05/Figure59.py",
         "hasImage": true
       }
@@ -1127,7 +1127,7 @@ window.chapterData = [
         "label": "Figure 610",
         "title": "Figure610",
         "description": "Generated from processing/Chapter06/Figure610.py.",
-        "src": "output/Figure610.png",
+        "src": "output/Chapter06/Figure610.png",
         "script": "processing/Chapter06/Figure610.py",
         "hasImage": true
       },
@@ -1136,7 +1136,7 @@ window.chapterData = [
         "label": "Figure 612",
         "title": "Figure612",
         "description": "Generated from processing/Chapter06/Figure612.py.",
-        "src": "output/Figure612.png",
+        "src": "output/Chapter06/Figure612.png",
         "script": "processing/Chapter06/Figure612.py",
         "hasImage": true
       },
@@ -1145,7 +1145,7 @@ window.chapterData = [
         "label": "Figure 613",
         "title": "Figure613",
         "description": "Generated from processing/Chapter06/Figure613.py.",
-        "src": "output/Figure613.png",
+        "src": "output/Chapter06/Figure613.png",
         "script": "processing/Chapter06/Figure613.py",
         "hasImage": true
       },
@@ -1154,7 +1154,7 @@ window.chapterData = [
         "label": "Figure 614",
         "title": "Figure614",
         "description": "Generated from processing/Chapter06/Figure614.py.",
-        "src": "output/Figure614.png",
+        "src": "output/Chapter06/Figure614.png",
         "script": "processing/Chapter06/Figure614.py",
         "hasImage": true
       },
@@ -1163,7 +1163,7 @@ window.chapterData = [
         "label": "Figure 615",
         "title": "Figure615",
         "description": "Generated from processing/Chapter06/Figure615.py.",
-        "src": "output/Figure615.png",
+        "src": "output/Chapter06/Figure615.png",
         "script": "processing/Chapter06/Figure615.py",
         "hasImage": true
       },
@@ -1172,7 +1172,7 @@ window.chapterData = [
         "label": "Figure 616",
         "title": "Figure616",
         "description": "Generated from processing/Chapter06/Figure616.py.",
-        "src": "output/Figure616.png",
+        "src": "output/Chapter06/Figure616.png",
         "script": "processing/Chapter06/Figure616.py",
         "hasImage": true
       },
@@ -1181,7 +1181,7 @@ window.chapterData = [
         "label": "Figure 617",
         "title": "Figure617",
         "description": "Generated from processing/Chapter06/Figure617.py.",
-        "src": "output/Figure617.png",
+        "src": "output/Chapter06/Figure617.png",
         "script": "processing/Chapter06/Figure617.py",
         "hasImage": true
       },
@@ -1190,7 +1190,7 @@ window.chapterData = [
         "label": "Figure 618",
         "title": "Figure618",
         "description": "Generated from processing/Chapter06/Figure618.py.",
-        "src": "output/Figure618.png",
+        "src": "output/Chapter06/Figure618.png",
         "script": "processing/Chapter06/Figure618.py",
         "hasImage": true
       },
@@ -1199,7 +1199,7 @@ window.chapterData = [
         "label": "Figure 630",
         "title": "Figure630",
         "description": "Generated from processing/Chapter06/Figure630.py.",
-        "src": "output/Figure630.png",
+        "src": "output/Chapter06/Figure630.png",
         "script": "processing/Chapter06/Figure630.py",
         "hasImage": true
       },
@@ -1208,7 +1208,7 @@ window.chapterData = [
         "label": "Figure 631",
         "title": "Figure631",
         "description": "Generated from processing/Chapter06/Figure631.py.",
-        "src": "output/Figure631.png",
+        "src": "output/Chapter06/Figure631.png",
         "script": "processing/Chapter06/Figure631.py",
         "hasImage": true
       },
@@ -1217,7 +1217,7 @@ window.chapterData = [
         "label": "Figure 632",
         "title": "Figure632",
         "description": "Generated from processing/Chapter06/Figure632.py.",
-        "src": "output/Figure632.png",
+        "src": "output/Chapter06/Figure632.png",
         "script": "processing/Chapter06/Figure632.py",
         "hasImage": true
       },
@@ -1226,7 +1226,7 @@ window.chapterData = [
         "label": "Figure 63BIOR31",
         "title": "Figure63BIOR31",
         "description": "Generated from processing/Chapter06/Figure63BIOR31.py.",
-        "src": "output/Figure63BIOR31.png",
+        "src": "output/Chapter06/Figure63BIOR31.png",
         "script": "processing/Chapter06/Figure63BIOR31.py",
         "hasImage": true
       },
@@ -1235,7 +1235,7 @@ window.chapterData = [
         "label": "Figure 63DB4",
         "title": "Figure63DB4",
         "description": "Generated from processing/Chapter06/Figure63DB4.py.",
-        "src": "output/Figure63DB4.png",
+        "src": "output/Chapter06/Figure63DB4.png",
         "script": "processing/Chapter06/Figure63DB4.py",
         "hasImage": true
       },
@@ -1244,7 +1244,7 @@ window.chapterData = [
         "label": "Figure 63DCT",
         "title": "Figure63DCT",
         "description": "Generated from processing/Chapter06/Figure63DCT.py.",
-        "src": "output/Figure63DCT.png",
+        "src": "output/Chapter06/Figure63DCT.png",
         "script": "processing/Chapter06/Figure63DCT.py",
         "hasImage": true
       },
@@ -1253,7 +1253,7 @@ window.chapterData = [
         "label": "Figure 63DFT",
         "title": "Figure63DFT",
         "description": "Generated from processing/Chapter06/Figure63DFT.py.",
-        "src": "output/Figure63DFT.png",
+        "src": "output/Chapter06/Figure63DFT.png",
         "script": "processing/Chapter06/Figure63DFT.py",
         "hasImage": true
       },
@@ -1262,7 +1262,7 @@ window.chapterData = [
         "label": "Figure 63HAAR",
         "title": "Figure63HAAR",
         "description": "Generated from processing/Chapter06/Figure63HAAR.py.",
-        "src": "output/Figure63HAAR.png",
+        "src": "output/Chapter06/Figure63HAAR.png",
         "script": "processing/Chapter06/Figure63HAAR.py",
         "hasImage": true
       },
@@ -1271,7 +1271,7 @@ window.chapterData = [
         "label": "Figure 63SLT",
         "title": "Figure63SLT",
         "description": "Generated from processing/Chapter06/Figure63SLT.py.",
-        "src": "output/Figure63SLT.png",
+        "src": "output/Chapter06/Figure63SLT.png",
         "script": "processing/Chapter06/Figure63SLT.py",
         "hasImage": true
       },
@@ -1280,7 +1280,7 @@ window.chapterData = [
         "label": "Figure 63STD",
         "title": "Figure63STD",
         "description": "Generated from processing/Chapter06/Figure63STD.py.",
-        "src": "output/Figure63STD.png",
+        "src": "output/Chapter06/Figure63STD.png",
         "script": "processing/Chapter06/Figure63STD.py",
         "hasImage": true
       },
@@ -1289,7 +1289,7 @@ window.chapterData = [
         "label": "Figure 63WHT",
         "title": "Figure63WHT",
         "description": "Generated from processing/Chapter06/Figure63WHT.py.",
-        "src": "output/Figure63WHT.png",
+        "src": "output/Chapter06/Figure63WHT.png",
         "script": "processing/Chapter06/Figure63WHT.py",
         "hasImage": true
       },
@@ -1298,7 +1298,7 @@ window.chapterData = [
         "label": "Figure 67",
         "title": "Figure67",
         "description": "Generated from processing/Chapter06/Figure67.py.",
-        "src": "output/Figure67.png",
+        "src": "output/Chapter06/Figure67.png",
         "script": "processing/Chapter06/Figure67.py",
         "hasImage": true
       },
@@ -1307,7 +1307,7 @@ window.chapterData = [
         "label": "Figure 68",
         "title": "Figure68",
         "description": "Generated from processing/Chapter06/Figure68.py.",
-        "src": "output/Figure68.png",
+        "src": "output/Chapter06/Figure68.png",
         "script": "processing/Chapter06/Figure68.py",
         "hasImage": true
       },
@@ -1316,7 +1316,7 @@ window.chapterData = [
         "label": "Figure 69",
         "title": "Figure69",
         "description": "Generated from processing/Chapter06/Figure69.py.",
-        "src": "output/Figure69.png",
+        "src": "output/Chapter06/Figure69.png",
         "script": "processing/Chapter06/Figure69.py",
         "hasImage": true
       }
@@ -1334,7 +1334,7 @@ window.chapterData = [
         "label": "Figure 725",
         "title": "Figure725",
         "description": "Generated from processing/Chapter07/Figure725.py.",
-        "src": "output/Figure725.png",
+        "src": "output/Chapter07/Figure725.png",
         "script": "processing/Chapter07/Figure725.py",
         "hasImage": true
       },
@@ -1343,7 +1343,7 @@ window.chapterData = [
         "label": "Figure 736",
         "title": "Figure736",
         "description": "Generated from processing/Chapter07/Figure736.py.",
-        "src": "output/Figure736.png",
+        "src": "output/Chapter07/Figure736.png",
         "script": "processing/Chapter07/Figure736.py",
         "hasImage": true
       },
@@ -1352,7 +1352,7 @@ window.chapterData = [
         "label": "Figure 737",
         "title": "Figure737",
         "description": "Generated from processing/Chapter07/Figure737.py.",
-        "src": "output/Figure737.png",
+        "src": "output/Chapter07/Figure737.png",
         "script": "processing/Chapter07/Figure737.py",
         "hasImage": true
       },
@@ -1361,7 +1361,7 @@ window.chapterData = [
         "label": "Figure 738",
         "title": "Figure738",
         "description": "Generated from processing/Chapter07/Figure738.py.",
-        "src": "output/Figure738.png",
+        "src": "output/Chapter07/Figure738.png",
         "script": "processing/Chapter07/Figure738.py",
         "hasImage": true
       },
@@ -1370,7 +1370,7 @@ window.chapterData = [
         "label": "Figure 739",
         "title": "Figure739",
         "description": "Generated from processing/Chapter07/Figure739.py.",
-        "src": "output/Figure739.png",
+        "src": "output/Chapter07/Figure739.png",
         "script": "processing/Chapter07/Figure739.py",
         "hasImage": true
       },
@@ -1379,7 +1379,7 @@ window.chapterData = [
         "label": "Figure 740",
         "title": "Figure740",
         "description": "Generated from processing/Chapter07/Figure740.py.",
-        "src": "output/Figure740.png",
+        "src": "output/Chapter07/Figure740.png",
         "script": "processing/Chapter07/Figure740.py",
         "hasImage": true
       },
@@ -1388,7 +1388,7 @@ window.chapterData = [
         "label": "Figure 742",
         "title": "Figure742",
         "description": "Generated from processing/Chapter07/Figure742.py.",
-        "src": "output/Figure742.png",
+        "src": "output/Chapter07/Figure742.png",
         "script": "processing/Chapter07/Figure742.py",
         "hasImage": true
       },
@@ -1397,7 +1397,7 @@ window.chapterData = [
         "label": "Figure 744",
         "title": "Figure744",
         "description": "Generated from processing/Chapter07/Figure744.py.",
-        "src": "output/Figure744.png",
+        "src": "output/Chapter07/Figure744.png",
         "script": "processing/Chapter07/Figure744.py",
         "hasImage": true
       },
@@ -1406,7 +1406,7 @@ window.chapterData = [
         "label": "Figure 746",
         "title": "Figure746",
         "description": "Generated from processing/Chapter07/Figure746.py.",
-        "src": "output/Figure746.png",
+        "src": "output/Chapter07/Figure746.png",
         "script": "processing/Chapter07/Figure746.py",
         "hasImage": true
       },
@@ -1415,7 +1415,7 @@ window.chapterData = [
         "label": "Figure 748",
         "title": "Figure748",
         "description": "Generated from processing/Chapter07/Figure748.py.",
-        "src": "output/Figure748.png",
+        "src": "output/Chapter07/Figure748.png",
         "script": "processing/Chapter07/Figure748.py",
         "hasImage": true
       },
@@ -1424,7 +1424,7 @@ window.chapterData = [
         "label": "Figure 749",
         "title": "Figure749",
         "description": "Generated from processing/Chapter07/Figure749.py.",
-        "src": "output/Figure749.png",
+        "src": "output/Chapter07/Figure749.png",
         "script": "processing/Chapter07/Figure749.py",
         "hasImage": true
       }
@@ -1442,7 +1442,7 @@ window.chapterData = [
         "label": "Figure 81",
         "title": "Figure81",
         "description": "Generated from processing/Chapter08/Figure81.py.",
-        "src": "output/Figure81.png",
+        "src": "output/Chapter08/Figure81.png",
         "script": "processing/Chapter08/Figure81.py",
         "hasImage": true
       },
@@ -1451,7 +1451,7 @@ window.chapterData = [
         "label": "Figure 810",
         "title": "Figure810",
         "description": "Generated from processing/Chapter08/Figure810.py.",
-        "src": "output/Figure810.png",
+        "src": "output/Chapter08/Figure810.png",
         "script": "processing/Chapter08/Figure810.py",
         "hasImage": true
       },
@@ -1460,7 +1460,7 @@ window.chapterData = [
         "label": "Figure 811",
         "title": "Figure811",
         "description": "Generated from processing/Chapter08/Figure811.py.",
-        "src": "output/Figure811.png",
+        "src": "output/Chapter08/Figure811.png",
         "script": "processing/Chapter08/Figure811.py",
         "hasImage": true
       },
@@ -1469,7 +1469,7 @@ window.chapterData = [
         "label": "Figure 819",
         "title": "Figure819",
         "description": "Generated from processing/Chapter08/Figure819.py.",
-        "src": "output/Figure819.png",
+        "src": "output/Chapter08/Figure819.png",
         "script": "processing/Chapter08/Figure819.py",
         "hasImage": true
       },
@@ -1478,7 +1478,7 @@ window.chapterData = [
         "label": "Figure 822",
         "title": "Figure822",
         "description": "Generated from processing/Chapter08/Figure822.py.",
-        "src": "output/Figure822.png",
+        "src": "output/Chapter08/Figure822.png",
         "script": "processing/Chapter08/Figure822.py",
         "hasImage": true
       },
@@ -1487,7 +1487,7 @@ window.chapterData = [
         "label": "Figure 823",
         "title": "Figure823",
         "description": "Generated from processing/Chapter08/Figure823.py.",
-        "src": "output/Figure823.png",
+        "src": "output/Chapter08/Figure823.png",
         "script": "processing/Chapter08/Figure823.py",
         "hasImage": true
       },
@@ -1496,7 +1496,7 @@ window.chapterData = [
         "label": "Figure 824",
         "title": "Figure824",
         "description": "Generated from processing/Chapter08/Figure824.py.",
-        "src": "output/Figure824.png",
+        "src": "output/Chapter08/Figure824.png",
         "script": "processing/Chapter08/Figure824.py",
         "hasImage": true
       },
@@ -1505,7 +1505,7 @@ window.chapterData = [
         "label": "Figure 825",
         "title": "Figure825",
         "description": "Generated from processing/Chapter08/Figure825.py.",
-        "src": "output/Figure825.png",
+        "src": "output/Chapter08/Figure825.png",
         "script": "processing/Chapter08/Figure825.py",
         "hasImage": true
       },
@@ -1514,7 +1514,7 @@ window.chapterData = [
         "label": "Figure 828",
         "title": "Figure828",
         "description": "Generated from processing/Chapter08/Figure828.py.",
-        "src": "output/Figure828.png",
+        "src": "output/Chapter08/Figure828.png",
         "script": "processing/Chapter08/Figure828.py",
         "hasImage": true
       },
@@ -1523,7 +1523,7 @@ window.chapterData = [
         "label": "Figure 829",
         "title": "Figure829",
         "description": "Generated from processing/Chapter08/Figure829.py.",
-        "src": "output/Figure829.png",
+        "src": "output/Chapter08/Figure829.png",
         "script": "processing/Chapter08/Figure829.py",
         "hasImage": true
       },
@@ -1532,7 +1532,7 @@ window.chapterData = [
         "label": "Figure 83",
         "title": "Figure83",
         "description": "Generated from processing/Chapter08/Figure83.py.",
-        "src": "output/Figure83.png",
+        "src": "output/Chapter08/Figure83.png",
         "script": "processing/Chapter08/Figure83.py",
         "hasImage": true
       },
@@ -1541,7 +1541,7 @@ window.chapterData = [
         "label": "Figure 831",
         "title": "Figure831",
         "description": "Generated from processing/Chapter08/Figure831.py.",
-        "src": "output/Figure831.png",
+        "src": "output/Chapter08/Figure831.png",
         "script": "processing/Chapter08/Figure831.py",
         "hasImage": true
       },
@@ -1550,7 +1550,7 @@ window.chapterData = [
         "label": "Figure 832",
         "title": "Figure832",
         "description": "Generated from processing/Chapter08/Figure832.py.",
-        "src": "output/Figure832.png",
+        "src": "output/Chapter08/Figure832.png",
         "script": "processing/Chapter08/Figure832.py",
         "hasImage": true
       },
@@ -1559,7 +1559,7 @@ window.chapterData = [
         "label": "Figure 834",
         "title": "Figure834",
         "description": "Generated from processing/Chapter08/Figure834.py.",
-        "src": "output/Figure834.png",
+        "src": "output/Chapter08/Figure834.png",
         "script": "processing/Chapter08/Figure834.py",
         "hasImage": true
       },
@@ -1568,7 +1568,7 @@ window.chapterData = [
         "label": "Figure 835",
         "title": "Figure835",
         "description": "Generated from processing/Chapter08/Figure835.py.",
-        "src": "output/Figure835.png",
+        "src": "output/Chapter08/Figure835.png",
         "script": "processing/Chapter08/Figure835.py",
         "hasImage": true
       },
@@ -1577,7 +1577,7 @@ window.chapterData = [
         "label": "Figure 84",
         "title": "Figure84",
         "description": "Generated from processing/Chapter08/Figure84.py.",
-        "src": "output/Figure84.png",
+        "src": "output/Chapter08/Figure84.png",
         "script": "processing/Chapter08/Figure84.py",
         "hasImage": true
       },
@@ -1586,7 +1586,7 @@ window.chapterData = [
         "label": "Figure 840",
         "title": "Figure840",
         "description": "Generated from processing/Chapter08/Figure840.py.",
-        "src": "output/Figure840.png",
+        "src": "output/Chapter08/Figure840.png",
         "script": "processing/Chapter08/Figure840.py",
         "hasImage": true
       },
@@ -1595,7 +1595,7 @@ window.chapterData = [
         "label": "Figure 843",
         "title": "Figure843",
         "description": "Generated from processing/Chapter08/Figure843.py.",
-        "src": "output/Figure843.png",
+        "src": "output/Chapter08/Figure843.png",
         "script": "processing/Chapter08/Figure843.py",
         "hasImage": true
       },
@@ -1604,7 +1604,7 @@ window.chapterData = [
         "label": "Figure 844",
         "title": "Figure844",
         "description": "Generated from processing/Chapter08/Figure844.py.",
-        "src": "output/Figure844.png",
+        "src": "output/Chapter08/Figure844.png",
         "script": "processing/Chapter08/Figure844.py",
         "hasImage": true
       },
@@ -1613,7 +1613,7 @@ window.chapterData = [
         "label": "Figure 846",
         "title": "Figure846",
         "description": "Generated from processing/Chapter08/Figure846.py.",
-        "src": "output/Figure846.png",
+        "src": "output/Chapter08/Figure846.png",
         "script": "processing/Chapter08/Figure846.py",
         "hasImage": true
       },
@@ -1622,7 +1622,7 @@ window.chapterData = [
         "label": "Figure 848",
         "title": "Figure848",
         "description": "Generated from processing/Chapter08/Figure848.py.",
-        "src": "output/Figure848.png",
+        "src": "output/Chapter08/Figure848.png",
         "script": "processing/Chapter08/Figure848.py",
         "hasImage": true
       },
@@ -1631,7 +1631,7 @@ window.chapterData = [
         "label": "Figure 850",
         "title": "Figure850",
         "description": "Generated from processing/Chapter08/Figure850.py.",
-        "src": "output/Figure850.png",
+        "src": "output/Chapter08/Figure850.png",
         "script": "processing/Chapter08/Figure850.py",
         "hasImage": true
       },
@@ -1640,7 +1640,7 @@ window.chapterData = [
         "label": "Figure 851",
         "title": "Figure851",
         "description": "Generated from processing/Chapter08/Figure851.py.",
-        "src": "output/Figure851.png",
+        "src": "output/Chapter08/Figure851.png",
         "script": "processing/Chapter08/Figure851.py",
         "hasImage": true
       },
@@ -1649,7 +1649,7 @@ window.chapterData = [
         "label": "Figure 89",
         "title": "Figure89",
         "description": "Generated from processing/Chapter08/Figure89.py.",
-        "src": "output/Figure89.png",
+        "src": "output/Chapter08/Figure89.png",
         "script": "processing/Chapter08/Figure89.py",
         "hasImage": true
       },
@@ -1658,7 +1658,7 @@ window.chapterData = [
         "label": "Figure Tifs2cv",
         "title": "FigureTifs2cv",
         "description": "Generated from processing/Chapter08/FigureTifs2cv.py.",
-        "src": "output/FigureTifs2cv.png",
+        "src": "output/Chapter08/FigureTifs2cv.png",
         "script": "processing/Chapter08/FigureTifs2cv.py",
         "hasImage": true
       }
@@ -1676,7 +1676,7 @@ window.chapterData = [
         "label": "Figure 911",
         "title": "Figure911",
         "description": "Generated from processing/Chapter09/Figure911.py.",
-        "src": "output/Figure911.png",
+        "src": "output/Chapter09/Figure911.png",
         "script": "processing/Chapter09/Figure911.py",
         "hasImage": true
       },
@@ -1685,7 +1685,7 @@ window.chapterData = [
         "label": "Figure 912",
         "title": "Figure912",
         "description": "Generated from processing/Chapter09/Figure912.py.",
-        "src": "output/Figure912.png",
+        "src": "output/Chapter09/Figure912.png",
         "script": "processing/Chapter09/Figure912.py",
         "hasImage": true
       },
@@ -1694,7 +1694,7 @@ window.chapterData = [
         "label": "Figure 914",
         "title": "Figure914",
         "description": "Generated from processing/Chapter09/Figure914.py.",
-        "src": "output/Figure914.png",
+        "src": "output/Chapter09/Figure914.png",
         "script": "processing/Chapter09/Figure914.py",
         "hasImage": true
       },
@@ -1703,7 +1703,7 @@ window.chapterData = [
         "label": "Figure 915",
         "title": "Figure915",
         "description": "Generated from processing/Chapter09/Figure915.py.",
-        "src": "output/Figure915.png",
+        "src": "output/Chapter09/Figure915.png",
         "script": "processing/Chapter09/Figure915.py",
         "hasImage": true
       },
@@ -1712,7 +1712,7 @@ window.chapterData = [
         "label": "Figure 916",
         "title": "Figure916",
         "description": "Generated from processing/Chapter09/Figure916.py.",
-        "src": "output/Figure916.png",
+        "src": "output/Chapter09/Figure916.png",
         "script": "processing/Chapter09/Figure916.py",
         "hasImage": true
       },
@@ -1721,7 +1721,7 @@ window.chapterData = [
         "label": "Figure 917",
         "title": "Figure917",
         "description": "Generated from processing/Chapter09/Figure917.py.",
-        "src": "output/Figure917.png",
+        "src": "output/Chapter09/Figure917.png",
         "script": "processing/Chapter09/Figure917.py",
         "hasImage": true
       },
@@ -1730,7 +1730,7 @@ window.chapterData = [
         "label": "Figure 918",
         "title": "Figure918",
         "description": "Generated from processing/Chapter09/Figure918.py.",
-        "src": "output/Figure918.png",
+        "src": "output/Chapter09/Figure918.png",
         "script": "processing/Chapter09/Figure918.py",
         "hasImage": true
       },
@@ -1739,7 +1739,7 @@ window.chapterData = [
         "label": "Figure 919",
         "title": "Figure919",
         "description": "Generated from processing/Chapter09/Figure919.py.",
-        "src": "output/Figure919.png",
+        "src": "output/Chapter09/Figure919.png",
         "script": "processing/Chapter09/Figure919.py",
         "hasImage": true
       },
@@ -1748,7 +1748,7 @@ window.chapterData = [
         "label": "Figure 920",
         "title": "Figure920",
         "description": "Generated from processing/Chapter09/Figure920.py.",
-        "src": "output/Figure920.png",
+        "src": "output/Chapter09/Figure920.png",
         "script": "processing/Chapter09/Figure920.py",
         "hasImage": true
       },
@@ -1757,7 +1757,7 @@ window.chapterData = [
         "label": "Figure 921",
         "title": "Figure921",
         "description": "Generated from processing/Chapter09/Figure921.py.",
-        "src": "output/Figure921_1.png",
+        "src": "output/Chapter09/Figure921_1.png",
         "script": "processing/Chapter09/Figure921.py",
         "hasImage": true
       },
@@ -1766,7 +1766,7 @@ window.chapterData = [
         "label": "Figure 922",
         "title": "Figure922",
         "description": "Generated from processing/Chapter09/Figure922.py.",
-        "src": "output/Figure922.png",
+        "src": "output/Chapter09/Figure922.png",
         "script": "processing/Chapter09/Figure922.py",
         "hasImage": true
       },
@@ -1775,7 +1775,7 @@ window.chapterData = [
         "label": "Figure 923",
         "title": "Figure923",
         "description": "Generated from processing/Chapter09/Figure923.py.",
-        "src": "output/Figure923.png",
+        "src": "output/Chapter09/Figure923.png",
         "script": "processing/Chapter09/Figure923.py",
         "hasImage": true
       },
@@ -1784,7 +1784,7 @@ window.chapterData = [
         "label": "Figure 926",
         "title": "Figure926",
         "description": "Generated from processing/Chapter09/Figure926.py.",
-        "src": "output/Figure926.png",
+        "src": "output/Chapter09/Figure926.png",
         "script": "processing/Chapter09/Figure926.py",
         "hasImage": true
       },
@@ -1793,7 +1793,7 @@ window.chapterData = [
         "label": "Figure 927",
         "title": "Figure927",
         "description": "Generated from processing/Chapter09/Figure927.py.",
-        "src": "output/Figure927.png",
+        "src": "output/Chapter09/Figure927.png",
         "script": "processing/Chapter09/Figure927.py",
         "hasImage": true
       },
@@ -1802,7 +1802,7 @@ window.chapterData = [
         "label": "Figure 93",
         "title": "Figure93",
         "description": "Generated from processing/Chapter09/Figure93.py.",
-        "src": "output/Figure93.png",
+        "src": "output/Chapter09/Figure93.png",
         "script": "processing/Chapter09/Figure93.py",
         "hasImage": true
       },
@@ -1811,7 +1811,7 @@ window.chapterData = [
         "label": "Figure 931",
         "title": "Figure931",
         "description": "Generated from processing/Chapter09/Figure931.py.",
-        "src": "output/Figure931.png",
+        "src": "output/Chapter09/Figure931.png",
         "script": "processing/Chapter09/Figure931.py",
         "hasImage": true
       },
@@ -1820,7 +1820,7 @@ window.chapterData = [
         "label": "Figure 933",
         "title": "Figure933",
         "description": "Generated from processing/Chapter09/Figure933.py.",
-        "src": "output/Figure933.png",
+        "src": "output/Chapter09/Figure933.png",
         "script": "processing/Chapter09/Figure933.py",
         "hasImage": true
       },
@@ -1829,7 +1829,7 @@ window.chapterData = [
         "label": "Figure 934",
         "title": "Figure934",
         "description": "Generated from processing/Chapter09/Figure934.py.",
-        "src": "output/Figure934.png",
+        "src": "output/Chapter09/Figure934.png",
         "script": "processing/Chapter09/Figure934.py",
         "hasImage": true
       },
@@ -1838,7 +1838,7 @@ window.chapterData = [
         "label": "Figure 937",
         "title": "Figure937",
         "description": "Generated from processing/Chapter09/Figure937.py.",
-        "src": "output/Figure937.png",
+        "src": "output/Chapter09/Figure937.png",
         "script": "processing/Chapter09/Figure937.py",
         "hasImage": true
       },
@@ -1847,7 +1847,7 @@ window.chapterData = [
         "label": "Figure 939",
         "title": "Figure939",
         "description": "Generated from processing/Chapter09/Figure939.py.",
-        "src": "output/Figure939.png",
+        "src": "output/Chapter09/Figure939.png",
         "script": "processing/Chapter09/Figure939.py",
         "hasImage": true
       },
@@ -1856,7 +1856,7 @@ window.chapterData = [
         "label": "Figure 940",
         "title": "Figure940",
         "description": "Generated from processing/Chapter09/Figure940.py.",
-        "src": "output/Figure940.png",
+        "src": "output/Chapter09/Figure940.png",
         "script": "processing/Chapter09/Figure940.py",
         "hasImage": true
       },
@@ -1865,7 +1865,7 @@ window.chapterData = [
         "label": "Figure 940New",
         "title": "Figure940New",
         "description": "Generated from processing/Chapter09/Figure940New.py.",
-        "src": "output/Figure940New.png",
+        "src": "output/Chapter09/Figure940New.png",
         "script": "processing/Chapter09/Figure940New.py",
         "hasImage": true
       },
@@ -1874,7 +1874,7 @@ window.chapterData = [
         "label": "Figure 941",
         "title": "Figure941",
         "description": "Generated from processing/Chapter09/Figure941.py.",
-        "src": "output/Figure941.png",
+        "src": "output/Chapter09/Figure941.png",
         "script": "processing/Chapter09/Figure941.py",
         "hasImage": true
       },
@@ -1883,7 +1883,7 @@ window.chapterData = [
         "label": "Figure 942",
         "title": "Figure942",
         "description": "Generated from processing/Chapter09/Figure942.py.",
-        "src": "output/Figure942.png",
+        "src": "output/Chapter09/Figure942.png",
         "script": "processing/Chapter09/Figure942.py",
         "hasImage": true
       },
@@ -1892,7 +1892,7 @@ window.chapterData = [
         "label": "Figure 943",
         "title": "Figure943",
         "description": "Generated from processing/Chapter09/Figure943.py.",
-        "src": "output/Figure943.png",
+        "src": "output/Chapter09/Figure943.png",
         "script": "processing/Chapter09/Figure943.py",
         "hasImage": true
       },
@@ -1901,7 +1901,7 @@ window.chapterData = [
         "label": "Figure 945",
         "title": "Figure945",
         "description": "Generated from processing/Chapter09/Figure945.py.",
-        "src": "output/Figure945Enonce.png",
+        "src": "output/Chapter09/Figure945Enonce.png",
         "script": "processing/Chapter09/Figure945.py",
         "hasImage": true
       },
@@ -1910,7 +1910,7 @@ window.chapterData = [
         "label": "Figure 946",
         "title": "Figure946",
         "description": "Generated from processing/Chapter09/Figure946.py.",
-        "src": "output/Figure946.png",
+        "src": "output/Chapter09/Figure946.png",
         "script": "processing/Chapter09/Figure946.py",
         "hasImage": true
       },
@@ -1919,7 +1919,7 @@ window.chapterData = [
         "label": "Figure 95",
         "title": "Figure95",
         "description": "Generated from processing/Chapter09/Figure95.py.",
-        "src": "output/Figure95.png",
+        "src": "output/Chapter09/Figure95.png",
         "script": "processing/Chapter09/Figure95.py",
         "hasImage": true
       },
@@ -1928,7 +1928,7 @@ window.chapterData = [
         "label": "Figure 97",
         "title": "Figure97",
         "description": "Generated from processing/Chapter09/Figure97.py.",
-        "src": "output/Figure97.png",
+        "src": "output/Chapter09/Figure97.png",
         "script": "processing/Chapter09/Figure97.py",
         "hasImage": true
       }
@@ -1946,7 +1946,7 @@ window.chapterData = [
         "label": "Figure 101",
         "title": "Figure101",
         "description": "Generated from processing/Chapter10/Figure101.py.",
-        "src": "output/Figure101.png",
+        "src": "output/Chapter10/Figure101.png",
         "script": "processing/Chapter10/Figure101.py",
         "hasImage": true
       },
@@ -1955,7 +1955,7 @@ window.chapterData = [
         "label": "Figure 1011",
         "title": "Figure1011",
         "description": "Generated from processing/Chapter10/Figure1011.py.",
-        "src": "output/Figure1011.png",
+        "src": "output/Chapter10/Figure1011.png",
         "script": "processing/Chapter10/Figure1011.py",
         "hasImage": true
       },
@@ -1964,7 +1964,7 @@ window.chapterData = [
         "label": "Figure 1016",
         "title": "Figure1016",
         "description": "Generated from processing/Chapter10/Figure1016.py.",
-        "src": "output/Figure1016.png",
+        "src": "output/Chapter10/Figure1016.png",
         "script": "processing/Chapter10/Figure1016.py",
         "hasImage": true
       },
@@ -1973,7 +1973,7 @@ window.chapterData = [
         "label": "Figure 1017",
         "title": "Figure1017",
         "description": "Generated from processing/Chapter10/Figure1017.py.",
-        "src": "output/Figure1017.png",
+        "src": "output/Chapter10/Figure1017.png",
         "script": "processing/Chapter10/Figure1017.py",
         "hasImage": true
       },
@@ -1982,7 +1982,7 @@ window.chapterData = [
         "label": "Figure 1018",
         "title": "Figure1018",
         "description": "Generated from processing/Chapter10/Figure1018.py.",
-        "src": "output/Figure1018.png",
+        "src": "output/Chapter10/Figure1018.png",
         "script": "processing/Chapter10/Figure1018.py",
         "hasImage": true
       },
@@ -1991,7 +1991,7 @@ window.chapterData = [
         "label": "Figure 1019",
         "title": "Figure1019",
         "description": "Generated from processing/Chapter10/Figure1019.py.",
-        "src": "output/Figure1019.png",
+        "src": "output/Chapter10/Figure1019.png",
         "script": "processing/Chapter10/Figure1019.py",
         "hasImage": true
       },
@@ -2000,7 +2000,7 @@ window.chapterData = [
         "label": "Figure 1020",
         "title": "Figure1020",
         "description": "Generated from processing/Chapter10/Figure1020.py.",
-        "src": "output/Figure1020.png",
+        "src": "output/Chapter10/Figure1020.png",
         "script": "processing/Chapter10/Figure1020.py",
         "hasImage": true
       },
@@ -2009,7 +2009,7 @@ window.chapterData = [
         "label": "Figure 1022",
         "title": "Figure1022",
         "description": "Generated from processing/Chapter10/Figure1022.py.",
-        "src": "output/Figure1022.png",
+        "src": "output/Chapter10/Figure1022.png",
         "script": "processing/Chapter10/Figure1022.py",
         "hasImage": true
       },
@@ -2018,7 +2018,7 @@ window.chapterData = [
         "label": "Figure 1023",
         "title": "Figure1023",
         "description": "Generated from processing/Chapter10/Figure1023.py.",
-        "src": "output/Figure1023.png",
+        "src": "output/Chapter10/Figure1023.png",
         "script": "processing/Chapter10/Figure1023.py",
         "hasImage": true
       },
@@ -2027,7 +2027,7 @@ window.chapterData = [
         "label": "Figure 1025",
         "title": "Figure1025",
         "description": "Generated from processing/Chapter10/Figure1025.py.",
-        "src": "output/Figure1025.png",
+        "src": "output/Chapter10/Figure1025.png",
         "script": "processing/Chapter10/Figure1025.py",
         "hasImage": true
       },
@@ -2036,7 +2036,7 @@ window.chapterData = [
         "label": "Figure 1026",
         "title": "Figure1026",
         "description": "Generated from processing/Chapter10/Figure1026.py.",
-        "src": "output/Figure1026.png",
+        "src": "output/Chapter10/Figure1026.png",
         "script": "processing/Chapter10/Figure1026.py",
         "hasImage": true
       },
@@ -2045,7 +2045,7 @@ window.chapterData = [
         "label": "Figure 1027",
         "title": "Figure1027",
         "description": "Generated from processing/Chapter10/Figure1027.py.",
-        "src": "output/Figure1027.png",
+        "src": "output/Chapter10/Figure1027.png",
         "script": "processing/Chapter10/Figure1027.py",
         "hasImage": true
       },
@@ -2054,7 +2054,7 @@ window.chapterData = [
         "label": "Figure 1030",
         "title": "Figure1030",
         "description": "Generated from processing/Chapter10/Figure1030.py.",
-        "src": "output/Figure1030.png",
+        "src": "output/Chapter10/Figure1030.png",
         "script": "processing/Chapter10/Figure1030.py",
         "hasImage": true
       },
@@ -2063,7 +2063,7 @@ window.chapterData = [
         "label": "Figure 1031",
         "title": "Figure1031",
         "description": "Generated from processing/Chapter10/Figure1031.py.",
-        "src": "output/Figure1031.png",
+        "src": "output/Chapter10/Figure1031.png",
         "script": "processing/Chapter10/Figure1031.py",
         "hasImage": true
       },
@@ -2072,7 +2072,7 @@ window.chapterData = [
         "label": "Figure 1033",
         "title": "Figure1033",
         "description": "Generated from processing/Chapter10/Figure1033.py.",
-        "src": "output/Figure1033.png",
+        "src": "output/Chapter10/Figure1033.png",
         "script": "processing/Chapter10/Figure1033.py",
         "hasImage": true
       },
@@ -2081,7 +2081,7 @@ window.chapterData = [
         "label": "Figure 1034",
         "title": "Figure1034",
         "description": "Generated from processing/Chapter10/Figure1034.py.",
-        "src": "output/Figure1034.png",
+        "src": "output/Chapter10/Figure1034.png",
         "script": "processing/Chapter10/Figure1034.py",
         "hasImage": true
       },
@@ -2090,7 +2090,7 @@ window.chapterData = [
         "label": "Figure 1035",
         "title": "Figure1035",
         "description": "Generated from processing/Chapter10/Figure1035.py.",
-        "src": "output/Figure1035.png",
+        "src": "output/Chapter10/Figure1035.png",
         "script": "processing/Chapter10/Figure1035.py",
         "hasImage": true
       },
@@ -2099,7 +2099,7 @@ window.chapterData = [
         "label": "Figure 1036",
         "title": "Figure1036",
         "description": "Generated from processing/Chapter10/Figure1036.py.",
-        "src": "output/Figure1036.png",
+        "src": "output/Chapter10/Figure1036.png",
         "script": "processing/Chapter10/Figure1036.py",
         "hasImage": true
       },
@@ -2108,7 +2108,7 @@ window.chapterData = [
         "label": "Figure 1037",
         "title": "Figure1037",
         "description": "Generated from processing/Chapter10/Figure1037.py.",
-        "src": "output/Figure1037.png",
+        "src": "output/Chapter10/Figure1037.png",
         "script": "processing/Chapter10/Figure1037.py",
         "hasImage": true
       },
@@ -2117,7 +2117,7 @@ window.chapterData = [
         "label": "Figure 1038",
         "title": "Figure1038",
         "description": "Generated from processing/Chapter10/Figure1038.py.",
-        "src": "output/Figure1038.png",
+        "src": "output/Chapter10/Figure1038.png",
         "script": "processing/Chapter10/Figure1038.py",
         "hasImage": true
       },
@@ -2126,7 +2126,7 @@ window.chapterData = [
         "label": "Figure 1039",
         "title": "Figure1039",
         "description": "Generated from processing/Chapter10/Figure1039.py.",
-        "src": "output/Figure1039.png",
+        "src": "output/Chapter10/Figure1039.png",
         "script": "processing/Chapter10/Figure1039.py",
         "hasImage": true
       },
@@ -2135,7 +2135,7 @@ window.chapterData = [
         "label": "Figure 104",
         "title": "Figure104",
         "description": "Generated from processing/Chapter10/Figure104.py.",
-        "src": "output/Figure104.png",
+        "src": "output/Chapter10/Figure104.png",
         "script": "processing/Chapter10/Figure104.py",
         "hasImage": true
       },
@@ -2144,7 +2144,7 @@ window.chapterData = [
         "label": "Figure 1040",
         "title": "Figure1040",
         "description": "Generated from processing/Chapter10/Figure1040.py.",
-        "src": "output/Figure1040.png",
+        "src": "output/Chapter10/Figure1040.png",
         "script": "processing/Chapter10/Figure1040.py",
         "hasImage": true
       },
@@ -2153,7 +2153,7 @@ window.chapterData = [
         "label": "Figure 1041",
         "title": "Figure1041",
         "description": "Generated from processing/Chapter10/Figure1041.py.",
-        "src": "output/Figure1041.png",
+        "src": "output/Chapter10/Figure1041.png",
         "script": "processing/Chapter10/Figure1041.py",
         "hasImage": true
       },
@@ -2162,7 +2162,7 @@ window.chapterData = [
         "label": "Figure 1042",
         "title": "Figure1042",
         "description": "Generated from processing/Chapter10/Figure1042.py.",
-        "src": "output/Figure1042.png",
+        "src": "output/Chapter10/Figure1042.png",
         "script": "processing/Chapter10/Figure1042.py",
         "hasImage": true
       },
@@ -2171,7 +2171,7 @@ window.chapterData = [
         "label": "Figure 1043",
         "title": "Figure1043",
         "description": "Generated from processing/Chapter10/Figure1043.py.",
-        "src": "output/Figure1043.png",
+        "src": "output/Chapter10/Figure1043.png",
         "script": "processing/Chapter10/Figure1043.py",
         "hasImage": true
       },
@@ -2180,7 +2180,7 @@ window.chapterData = [
         "label": "Figure 1044",
         "title": "Figure1044",
         "description": "Generated from processing/Chapter10/Figure1044.py.",
-        "src": "output/Figure1044.png",
+        "src": "output/Chapter10/Figure1044.png",
         "script": "processing/Chapter10/Figure1044.py",
         "hasImage": true
       },
@@ -2189,7 +2189,7 @@ window.chapterData = [
         "label": "Figure 1045",
         "title": "Figure1045",
         "description": "Generated from processing/Chapter10/Figure1045.py.",
-        "src": "output/Figure1045.png",
+        "src": "output/Chapter10/Figure1045.png",
         "script": "processing/Chapter10/Figure1045.py",
         "hasImage": true
       },
@@ -2198,7 +2198,7 @@ window.chapterData = [
         "label": "Figure 1046",
         "title": "Figure1046",
         "description": "Generated from processing/Chapter10/Figure1046.py.",
-        "src": "output/Figure1046.png",
+        "src": "output/Chapter10/Figure1046.png",
         "script": "processing/Chapter10/Figure1046.py",
         "hasImage": true
       },
@@ -2207,7 +2207,7 @@ window.chapterData = [
         "label": "Figure 1048",
         "title": "Figure1048",
         "description": "Generated from processing/Chapter10/Figure1048.py.",
-        "src": "output/Figure1048.png",
+        "src": "output/Chapter10/Figure1048.png",
         "script": "processing/Chapter10/Figure1048.py",
         "hasImage": true
       },
@@ -2216,7 +2216,7 @@ window.chapterData = [
         "label": "Figure 1049",
         "title": "Figure1049",
         "description": "Generated from processing/Chapter10/Figure1049.py.",
-        "src": "output/Figure1049.png",
+        "src": "output/Chapter10/Figure1049.png",
         "script": "processing/Chapter10/Figure1049.py",
         "hasImage": true
       },
@@ -2225,7 +2225,7 @@ window.chapterData = [
         "label": "Figure 105",
         "title": "Figure105",
         "description": "Generated from processing/Chapter10/Figure105.py.",
-        "src": "output/Figure105.png",
+        "src": "output/Chapter10/Figure105.png",
         "script": "processing/Chapter10/Figure105.py",
         "hasImage": true
       },
@@ -2234,7 +2234,7 @@ window.chapterData = [
         "label": "Figure 1050",
         "title": "Figure1050",
         "description": "Generated from processing/Chapter10/Figure1050.py.",
-        "src": "output/Figure1050.png",
+        "src": "output/Chapter10/Figure1050.png",
         "script": "processing/Chapter10/Figure1050.py",
         "hasImage": true
       },
@@ -2243,7 +2243,7 @@ window.chapterData = [
         "label": "Figure 1051",
         "title": "Figure1051",
         "description": "Generated from processing/Chapter10/Figure1051.py.",
-        "src": "output/Figure1051.png",
+        "src": "output/Chapter10/Figure1051.png",
         "script": "processing/Chapter10/Figure1051.py",
         "hasImage": true
       },
@@ -2252,7 +2252,7 @@ window.chapterData = [
         "label": "Figure 1052",
         "title": "Figure1052",
         "description": "Generated from processing/Chapter10/Figure1052.py.",
-        "src": "output/Figure1052.png",
+        "src": "output/Chapter10/Figure1052.png",
         "script": "processing/Chapter10/Figure1052.py",
         "hasImage": true
       },
@@ -2261,7 +2261,7 @@ window.chapterData = [
         "label": "Figure 1053",
         "title": "Figure1053",
         "description": "Generated from processing/Chapter10/Figure1053.py.",
-        "src": "output/Figure1053.png",
+        "src": "output/Chapter10/Figure1053.png",
         "script": "processing/Chapter10/Figure1053.py",
         "hasImage": true
       },
@@ -2270,7 +2270,7 @@ window.chapterData = [
         "label": "Figure 1054",
         "title": "Figure1054",
         "description": "Generated from processing/Chapter10/Figure1054.py.",
-        "src": "output/Figure1054.png",
+        "src": "output/Chapter10/Figure1054.png",
         "script": "processing/Chapter10/Figure1054.py",
         "hasImage": true
       },
@@ -2279,7 +2279,7 @@ window.chapterData = [
         "label": "Figure 1058",
         "title": "Figure1058",
         "description": "Generated from processing/Chapter10/Figure1058.py.",
-        "src": "output/Figure1058.png",
+        "src": "output/Chapter10/Figure1058.png",
         "script": "processing/Chapter10/Figure1058.py",
         "hasImage": true
       },
@@ -2288,7 +2288,7 @@ window.chapterData = [
         "label": "Figure 1059",
         "title": "Figure1059",
         "description": "Generated from processing/Chapter10/Figure1059.py.",
-        "src": "output/Figure1059.png",
+        "src": "output/Chapter10/Figure1059.png",
         "script": "processing/Chapter10/Figure1059.py",
         "hasImage": true
       },
@@ -2297,7 +2297,7 @@ window.chapterData = [
         "label": "Figure 1062",
         "title": "Figure1062",
         "description": "Generated from processing/Chapter10/Figure1062.py.",
-        "src": "output/Figure1062.png",
+        "src": "output/Chapter10/Figure1062.png",
         "script": "processing/Chapter10/Figure1062.py",
         "hasImage": true
       },
@@ -2306,7 +2306,7 @@ window.chapterData = [
         "label": "Figure 1063",
         "title": "Figure1063",
         "description": "Generated from processing/Chapter10/Figure1063.py.",
-        "src": "output/Figure1063.png",
+        "src": "output/Chapter10/Figure1063.png",
         "script": "processing/Chapter10/Figure1063.py",
         "hasImage": true
       },
@@ -2315,7 +2315,7 @@ window.chapterData = [
         "label": "Figure 1064",
         "title": "Figure1064",
         "description": "Generated from processing/Chapter10/Figure1064.py.",
-        "src": "output/Figure1064_1.png",
+        "src": "output/Chapter10/Figure1064_1.png",
         "script": "processing/Chapter10/Figure1064.py",
         "hasImage": true
       },
@@ -2324,7 +2324,7 @@ window.chapterData = [
         "label": "Figure 107",
         "title": "Figure107",
         "description": "Generated from processing/Chapter10/Figure107.py.",
-        "src": "output/Figure107.png",
+        "src": "output/Chapter10/Figure107.png",
         "script": "processing/Chapter10/Figure107.py",
         "hasImage": true
       },
@@ -2333,7 +2333,7 @@ window.chapterData = [
         "label": "Figure 108",
         "title": "Figure108",
         "description": "Generated from processing/Chapter10/Figure108.py.",
-        "src": "output/Figure108.png",
+        "src": "output/Chapter10/Figure108.png",
         "script": "processing/Chapter10/Figure108.py",
         "hasImage": true
       }
@@ -2351,7 +2351,7 @@ window.chapterData = [
         "label": "Figure 1110",
         "title": "Figure1110",
         "description": "Generated from processing/Chapter11/Figure1110.py.",
-        "src": "output/Figure1110.png",
+        "src": "output/Chapter11/Figure1110.png",
         "script": "processing/Chapter11/Figure1110.py",
         "hasImage": true
       },
@@ -2360,7 +2360,7 @@ window.chapterData = [
         "label": "Figure 1112",
         "title": "Figure1112",
         "description": "Generated from processing/Chapter11/Figure1112.py.",
-        "src": "output/Figure1112.png",
+        "src": "output/Chapter11/Figure1112.png",
         "script": "processing/Chapter11/Figure1112.py",
         "hasImage": true
       },
@@ -2369,7 +2369,7 @@ window.chapterData = [
         "label": "Figure 1113",
         "title": "Figure1113",
         "description": "Generated from processing/Chapter11/Figure1113.py.",
-        "src": "output/Figure1113.png",
+        "src": "output/Chapter11/Figure1113.png",
         "script": "processing/Chapter11/Figure1113.py",
         "hasImage": true
       },
@@ -2378,7 +2378,7 @@ window.chapterData = [
         "label": "Figure 1114",
         "title": "Figure1114",
         "description": "Generated from processing/Chapter11/Figure1114.py.",
-        "src": "output/Figure1114.png",
+        "src": "output/Chapter11/Figure1114.png",
         "script": "processing/Chapter11/Figure1114.py",
         "hasImage": true
       },
@@ -2387,7 +2387,7 @@ window.chapterData = [
         "label": "Figure 1115",
         "title": "Figure1115",
         "description": "Generated from processing/Chapter11/Figure1115.py.",
-        "src": "output/Figure1115.png",
+        "src": "output/Chapter11/Figure1115.png",
         "script": "processing/Chapter11/Figure1115.py",
         "hasImage": true
       },
@@ -2396,7 +2396,7 @@ window.chapterData = [
         "label": "Figure 1118",
         "title": "Figure1118",
         "description": "Generated from processing/Chapter11/Figure1118.py.",
-        "src": "output/Figure1118.png",
+        "src": "output/Chapter11/Figure1118.png",
         "script": "processing/Chapter11/Figure1118.py",
         "hasImage": true
       },
@@ -2405,7 +2405,7 @@ window.chapterData = [
         "label": "Figure 1119",
         "title": "Figure1119",
         "description": "Generated from processing/Chapter11/Figure1119.py.",
-        "src": "output/Figure1119.png",
+        "src": "output/Chapter11/Figure1119.png",
         "script": "processing/Chapter11/Figure1119.py",
         "hasImage": true
       },
@@ -2414,7 +2414,7 @@ window.chapterData = [
         "label": "Figure 112",
         "title": "Figure112",
         "description": "Generated from processing/Chapter11/Figure112.py.",
-        "src": "output/Figure112.png",
+        "src": "output/Chapter11/Figure112.png",
         "script": "processing/Chapter11/Figure112.py",
         "hasImage": true
       },
@@ -2423,7 +2423,7 @@ window.chapterData = [
         "label": "Figure 1120",
         "title": "Figure1120",
         "description": "Generated from processing/Chapter11/Figure1120.py.",
-        "src": "output/Figure1120.png",
+        "src": "output/Chapter11/Figure1120.png",
         "script": "processing/Chapter11/Figure1120.py",
         "hasImage": true
       },
@@ -2432,7 +2432,7 @@ window.chapterData = [
         "label": "Figure 1121",
         "title": "Figure1121",
         "description": "Generated from processing/Chapter11/Figure1121.py.",
-        "src": "output/Figure1121.png",
+        "src": "output/Chapter11/Figure1121.png",
         "script": "processing/Chapter11/Figure1121.py",
         "hasImage": true
       },
@@ -2441,7 +2441,7 @@ window.chapterData = [
         "label": "Figure 1122",
         "title": "Figure1122",
         "description": "Generated from processing/Chapter11/Figure1122.py.",
-        "src": "output/Figure1122.png",
+        "src": "output/Chapter11/Figure1122.png",
         "script": "processing/Chapter11/Figure1122.py",
         "hasImage": true
       },
@@ -2450,7 +2450,7 @@ window.chapterData = [
         "label": "Figure 1124",
         "title": "Figure1124",
         "description": "Generated from processing/Chapter11/Figure1124.py.",
-        "src": "output/Figure1124.png",
+        "src": "output/Chapter11/Figure1124.png",
         "script": "processing/Chapter11/Figure1124.py",
         "hasImage": true
       },
@@ -2459,7 +2459,7 @@ window.chapterData = [
         "label": "Figure 1125",
         "title": "Figure1125",
         "description": "Generated from processing/Chapter11/Figure1125.py.",
-        "src": "output/Figure1125.png",
+        "src": "output/Chapter11/Figure1125.png",
         "script": "processing/Chapter11/Figure1125.py",
         "hasImage": true
       },
@@ -2468,7 +2468,7 @@ window.chapterData = [
         "label": "Figure 1126",
         "title": "Figure1126",
         "description": "Generated from processing/Chapter11/Figure1126.py.",
-        "src": "output/Figure1126.png",
+        "src": "output/Chapter11/Figure1126.png",
         "script": "processing/Chapter11/Figure1126.py",
         "hasImage": true
       },
@@ -2477,7 +2477,7 @@ window.chapterData = [
         "label": "Figure 1127",
         "title": "Figure1127",
         "description": "Generated from processing/Chapter11/Figure1127.py.",
-        "src": "output/Figure1127.png",
+        "src": "output/Chapter11/Figure1127.png",
         "script": "processing/Chapter11/Figure1127.py",
         "hasImage": true
       },
@@ -2486,7 +2486,7 @@ window.chapterData = [
         "label": "Figure 1128",
         "title": "Figure1128",
         "description": "Generated from processing/Chapter11/Figure1128.py.",
-        "src": "output/Figure1128.png",
+        "src": "output/Chapter11/Figure1128.png",
         "script": "processing/Chapter11/Figure1128.py",
         "hasImage": true
       },
@@ -2495,7 +2495,7 @@ window.chapterData = [
         "label": "Figure 1129",
         "title": "Figure1129",
         "description": "Generated from processing/Chapter11/Figure1129.py.",
-        "src": "output/Figure1129.png",
+        "src": "output/Chapter11/Figure1129.png",
         "script": "processing/Chapter11/Figure1129.py",
         "hasImage": true
       },
@@ -2504,7 +2504,7 @@ window.chapterData = [
         "label": "Figure 113",
         "title": "Figure113",
         "description": "Generated from processing/Chapter11/Figure113.py.",
-        "src": "output/Figure113.png",
+        "src": "output/Chapter11/Figure113.png",
         "script": "processing/Chapter11/Figure113.py",
         "hasImage": true
       },
@@ -2513,7 +2513,7 @@ window.chapterData = [
         "label": "Figure 1131",
         "title": "Figure1131",
         "description": "Generated from processing/Chapter11/Figure1131.py.",
-        "src": "output/Figure1131.png",
+        "src": "output/Chapter11/Figure1131.png",
         "script": "processing/Chapter11/Figure1131.py",
         "hasImage": true
       },
@@ -2522,7 +2522,7 @@ window.chapterData = [
         "label": "Figure 1132",
         "title": "Figure1132",
         "description": "Generated from processing/Chapter11/Figure1132.py.",
-        "src": "output/Figure1132.png",
+        "src": "output/Chapter11/Figure1132.png",
         "script": "processing/Chapter11/Figure1132.py",
         "hasImage": true
       },
@@ -2531,7 +2531,7 @@ window.chapterData = [
         "label": "Figure 1133",
         "title": "Figure1133",
         "description": "Generated from processing/Chapter11/Figure1133.py.",
-        "src": "output/Figure1133.png",
+        "src": "output/Chapter11/Figure1133.png",
         "script": "processing/Chapter11/Figure1133.py",
         "hasImage": true
       },
@@ -2540,7 +2540,7 @@ window.chapterData = [
         "label": "Figure 1134",
         "title": "Figure1134",
         "description": "Generated from processing/Chapter11/Figure1134.py.",
-        "src": "output/Figure1134.png",
+        "src": "output/Chapter11/Figure1134.png",
         "script": "processing/Chapter11/Figure1134.py",
         "hasImage": true
       },
@@ -2549,7 +2549,7 @@ window.chapterData = [
         "label": "Figure 1135",
         "title": "Figure1135",
         "description": "Generated from processing/Chapter11/Figure1135.py.",
-        "src": "output/Figure1135.png",
+        "src": "output/Chapter11/Figure1135.png",
         "script": "processing/Chapter11/Figure1135.py",
         "hasImage": true
       },
@@ -2558,7 +2558,7 @@ window.chapterData = [
         "label": "Figure 1136",
         "title": "Figure1136",
         "description": "Generated from processing/Chapter11/Figure1136.py.",
-        "src": "output/Figure1136.png",
+        "src": "output/Chapter11/Figure1136.png",
         "script": "processing/Chapter11/Figure1136.py",
         "hasImage": true
       },
@@ -2567,7 +2567,7 @@ window.chapterData = [
         "label": "Figure 1137",
         "title": "Figure1137",
         "description": "Generated from processing/Chapter11/Figure1137.py.",
-        "src": "output/Figure1137.png",
+        "src": "output/Chapter11/Figure1137.png",
         "script": "processing/Chapter11/Figure1137.py",
         "hasImage": true
       },
@@ -2576,7 +2576,7 @@ window.chapterData = [
         "label": "Figure 1138",
         "title": "Figure1138",
         "description": "Generated from processing/Chapter11/Figure1138.py.",
-        "src": "output/Figure1138.png",
+        "src": "output/Chapter11/Figure1138.png",
         "script": "processing/Chapter11/Figure1138.py",
         "hasImage": true
       },
@@ -2585,7 +2585,7 @@ window.chapterData = [
         "label": "Figure 1139",
         "title": "Figure1139",
         "description": "Generated from processing/Chapter11/Figure1139.py.",
-        "src": "output/Figure1139.png",
+        "src": "output/Chapter11/Figure1139.png",
         "script": "processing/Chapter11/Figure1139.py",
         "hasImage": true
       },
@@ -2603,7 +2603,7 @@ window.chapterData = [
         "label": "Figure 114",
         "title": "Figure114",
         "description": "Generated from processing/Chapter11/Figure114.py.",
-        "src": "output/Figure114.png",
+        "src": "output/Chapter11/Figure114.png",
         "script": "processing/Chapter11/Figure114.py",
         "hasImage": true
       },
@@ -2612,7 +2612,7 @@ window.chapterData = [
         "label": "Figure 115",
         "title": "Figure115",
         "description": "Generated from processing/Chapter11/Figure115.py.",
-        "src": "output/Figure115.png",
+        "src": "output/Chapter11/Figure115.png",
         "script": "processing/Chapter11/Figure115.py",
         "hasImage": true
       },
@@ -2621,7 +2621,7 @@ window.chapterData = [
         "label": "Figure 116",
         "title": "Figure116",
         "description": "Generated from processing/Chapter11/Figure116.py.",
-        "src": "output/Figure116.png",
+        "src": "output/Chapter11/Figure116.png",
         "script": "processing/Chapter11/Figure116.py",
         "hasImage": true
       },
@@ -2630,7 +2630,7 @@ window.chapterData = [
         "label": "Figure 117",
         "title": "Figure117",
         "description": "Generated from processing/Chapter11/Figure117.py.",
-        "src": "output/Figure117.png",
+        "src": "output/Chapter11/Figure117.png",
         "script": "processing/Chapter11/Figure117.py",
         "hasImage": true
       },
@@ -2639,7 +2639,7 @@ window.chapterData = [
         "label": "Figure 118",
         "title": "Figure118",
         "description": "Generated from processing/Chapter11/Figure118.py.",
-        "src": "output/Figure118.png",
+        "src": "output/Chapter11/Figure118.png",
         "script": "processing/Chapter11/Figure118.py",
         "hasImage": true
       },
@@ -2648,7 +2648,7 @@ window.chapterData = [
         "label": "Figure 119",
         "title": "Figure119",
         "description": "Generated from processing/Chapter11/Figure119.py.",
-        "src": "output/Figure119.png",
+        "src": "output/Chapter11/Figure119.png",
         "script": "processing/Chapter11/Figure119.py",
         "hasImage": true
       }
@@ -2666,7 +2666,7 @@ window.chapterData = [
         "label": "Figure 1201",
         "title": "Figure1201",
         "description": "Generated from processing/Chapter12/Figure1201.py.",
-        "src": "output/Figure1201.png",
+        "src": "output/Chapter12/Figure1201.png",
         "script": "processing/Chapter12/Figure1201.py",
         "hasImage": true
       },
@@ -2675,7 +2675,7 @@ window.chapterData = [
         "label": "Figure 1205",
         "title": "Figure1205",
         "description": "Generated from processing/Chapter12/Figure1205.py.",
-        "src": "output/Figure1205.png",
+        "src": "output/Chapter12/Figure1205.png",
         "script": "processing/Chapter12/Figure1205.py",
         "hasImage": true
       },
@@ -2684,7 +2684,7 @@ window.chapterData = [
         "label": "Figure 1209",
         "title": "Figure1209",
         "description": "Generated from processing/Chapter12/Figure1209.py.",
-        "src": "output/Figure1209.png",
+        "src": "output/Chapter12/Figure1209.png",
         "script": "processing/Chapter12/Figure1209.py",
         "hasImage": true
       },
@@ -2693,7 +2693,7 @@ window.chapterData = [
         "label": "Figure 1211",
         "title": "Figure1211",
         "description": "Generated from processing/Chapter12/Figure1211.py.",
-        "src": "output/Figure1211.png",
+        "src": "output/Chapter12/Figure1211.png",
         "script": "processing/Chapter12/Figure1211.py",
         "hasImage": true
       },
@@ -2711,7 +2711,7 @@ window.chapterData = [
         "label": "Figure 1213",
         "title": "Figure1213",
         "description": "Generated from processing/Chapter12/Figure1213.py.",
-        "src": "output/Figure1213.png",
+        "src": "output/Chapter12/Figure1213.png",
         "script": "processing/Chapter12/Figure1213.py",
         "hasImage": true
       },
@@ -2720,7 +2720,7 @@ window.chapterData = [
         "label": "Figure 1214",
         "title": "Figure1214",
         "description": "Generated from processing/Chapter12/Figure1214.py.",
-        "src": "output/Figure1214.png",
+        "src": "output/Chapter12/Figure1214.png",
         "script": "processing/Chapter12/Figure1214.py",
         "hasImage": true
       },
@@ -2747,7 +2747,7 @@ window.chapterData = [
         "label": "Figure 1219",
         "title": "Figure1219",
         "description": "Generated from processing/Chapter12/Figure1219.py.",
-        "src": "output/Figure1219.png",
+        "src": "output/Chapter12/Figure1219.png",
         "script": "processing/Chapter12/Figure1219.py",
         "hasImage": true
       },
@@ -2756,7 +2756,7 @@ window.chapterData = [
         "label": "Figure 1222",
         "title": "Figure1222",
         "description": "Generated from processing/Chapter12/Figure1222.py.",
-        "src": "output/Figure1222.png",
+        "src": "output/Chapter12/Figure1222.png",
         "script": "processing/Chapter12/Figure1222.py",
         "hasImage": true
       },
@@ -2765,7 +2765,7 @@ window.chapterData = [
         "label": "Figure 1224",
         "title": "Figure1224",
         "description": "Generated from processing/Chapter12/Figure1224.py.",
-        "src": "output/Figure1224.png",
+        "src": "output/Chapter12/Figure1224.png",
         "script": "processing/Chapter12/Figure1224.py",
         "hasImage": true
       },
@@ -2774,7 +2774,7 @@ window.chapterData = [
         "label": "Figure 1228",
         "title": "Figure1228",
         "description": "Generated from processing/Chapter12/Figure1228.py.",
-        "src": "output/Figure1228.png",
+        "src": "output/Chapter12/Figure1228.png",
         "script": "processing/Chapter12/Figure1228.py",
         "hasImage": true
       },
@@ -2783,7 +2783,7 @@ window.chapterData = [
         "label": "Figure 1229",
         "title": "Figure1229",
         "description": "Generated from processing/Chapter12/Figure1229.py.",
-        "src": "output/Figure1229.png",
+        "src": "output/Chapter12/Figure1229.png",
         "script": "processing/Chapter12/Figure1229.py",
         "hasImage": true
       },
@@ -2792,7 +2792,7 @@ window.chapterData = [
         "label": "Figure 1231",
         "title": "Figure1231",
         "description": "Generated from processing/Chapter12/Figure1231.py.",
-        "src": "output/Figure1231.png",
+        "src": "output/Chapter12/Figure1231.png",
         "script": "processing/Chapter12/Figure1231.py",
         "hasImage": true
       },
@@ -2801,7 +2801,7 @@ window.chapterData = [
         "label": "Figure 1232",
         "title": "Figure1232",
         "description": "Generated from processing/Chapter12/Figure1232.py.",
-        "src": "output/Figure1232.png",
+        "src": "output/Chapter12/Figure1232.png",
         "script": "processing/Chapter12/Figure1232.py",
         "hasImage": true
       },
@@ -2810,7 +2810,7 @@ window.chapterData = [
         "label": "Figure 1233",
         "title": "Figure1233",
         "description": "Generated from processing/Chapter12/Figure1233.py.",
-        "src": "output/Figure1233.png",
+        "src": "output/Chapter12/Figure1233.png",
         "script": "processing/Chapter12/Figure1233.py",
         "hasImage": true
       },
@@ -2819,7 +2819,7 @@ window.chapterData = [
         "label": "Figure 1235",
         "title": "Figure1235",
         "description": "Generated from processing/Chapter12/Figure1235.py.",
-        "src": "output/Figure1235.png",
+        "src": "output/Chapter12/Figure1235.png",
         "script": "processing/Chapter12/Figure1235.py",
         "hasImage": true
       },
@@ -2828,7 +2828,7 @@ window.chapterData = [
         "label": "Figure 1236",
         "title": "Figure1236",
         "description": "Generated from processing/Chapter12/Figure1236.py.",
-        "src": "output/Figure1236.png",
+        "src": "output/Chapter12/Figure1236.png",
         "script": "processing/Chapter12/Figure1236.py",
         "hasImage": true
       },
@@ -2837,7 +2837,7 @@ window.chapterData = [
         "label": "Figure 1237",
         "title": "Figure1237",
         "description": "Generated from processing/Chapter12/Figure1237.py.",
-        "src": "output/Figure1237.png",
+        "src": "output/Chapter12/Figure1237.png",
         "script": "processing/Chapter12/Figure1237.py",
         "hasImage": true
       },
@@ -2846,7 +2846,7 @@ window.chapterData = [
         "label": "Figure 1238to42",
         "title": "Figure1238to42",
         "description": "Generated from processing/Chapter12/Figure1238to42.py.",
-        "src": "output/Figure1238to42_1.png",
+        "src": "output/Chapter12/Figure1238to42_1.png",
         "script": "processing/Chapter12/Figure1238to42.py",
         "hasImage": true
       },
@@ -2855,7 +2855,7 @@ window.chapterData = [
         "label": "Figure 1246",
         "title": "Figure1246",
         "description": "Generated from processing/Chapter12/Figure1246.py.",
-        "src": "output/Figure1246.png",
+        "src": "output/Chapter12/Figure1246.png",
         "script": "processing/Chapter12/Figure1246.py",
         "hasImage": true
       },
@@ -2864,7 +2864,7 @@ window.chapterData = [
         "label": "Figure 1247",
         "title": "Figure1247",
         "description": "Generated from processing/Chapter12/Figure1247.py.",
-        "src": "output/Figure1247.png",
+        "src": "output/Chapter12/Figure1247.png",
         "script": "processing/Chapter12/Figure1247.py",
         "hasImage": true
       },
@@ -2873,7 +2873,7 @@ window.chapterData = [
         "label": "Figure 1248",
         "title": "Figure1248",
         "description": "Generated from processing/Chapter12/Figure1248.py.",
-        "src": "output/Figure1248.png",
+        "src": "output/Chapter12/Figure1248.png",
         "script": "processing/Chapter12/Figure1248.py",
         "hasImage": true
       },
@@ -2882,7 +2882,7 @@ window.chapterData = [
         "label": "Figure 1249",
         "title": "Figure1249",
         "description": "Generated from processing/Chapter12/Figure1249.py.",
-        "src": "output/Figure1249.png",
+        "src": "output/Chapter12/Figure1249.png",
         "script": "processing/Chapter12/Figure1249.py",
         "hasImage": true
       },
@@ -2891,7 +2891,7 @@ window.chapterData = [
         "label": "Figure 1250",
         "title": "Figure1250",
         "description": "Generated from processing/Chapter12/Figure1250.py.",
-        "src": "output/Figure1250.png",
+        "src": "output/Chapter12/Figure1250.png",
         "script": "processing/Chapter12/Figure1250.py",
         "hasImage": true
       },
@@ -2900,7 +2900,7 @@ window.chapterData = [
         "label": "Figure 1252",
         "title": "Figure1252",
         "description": "Generated from processing/Chapter12/Figure1252.py.",
-        "src": "output/Figure1252.png",
+        "src": "output/Chapter12/Figure1252.png",
         "script": "processing/Chapter12/Figure1252.py",
         "hasImage": true
       },
@@ -2909,7 +2909,7 @@ window.chapterData = [
         "label": "Figure 1253",
         "title": "Figure1253",
         "description": "Generated from processing/Chapter12/Figure1253.py.",
-        "src": "output/Figure1253.png",
+        "src": "output/Chapter12/Figure1253.png",
         "script": "processing/Chapter12/Figure1253.py",
         "hasImage": true
       },
@@ -2918,7 +2918,7 @@ window.chapterData = [
         "label": "Figure 1254",
         "title": "Figure1254",
         "description": "Generated from processing/Chapter12/Figure1254.py.",
-        "src": "output/Figure1254.png",
+        "src": "output/Chapter12/Figure1254.png",
         "script": "processing/Chapter12/Figure1254.py",
         "hasImage": true
       },
@@ -2927,7 +2927,7 @@ window.chapterData = [
         "label": "Figure 1255",
         "title": "Figure1255",
         "description": "Generated from processing/Chapter12/Figure1255.py.",
-        "src": "output/Figure1255.png",
+        "src": "output/Chapter12/Figure1255.png",
         "script": "processing/Chapter12/Figure1255.py",
         "hasImage": true
       },
@@ -2936,7 +2936,7 @@ window.chapterData = [
         "label": "Figure 1257",
         "title": "Figure1257",
         "description": "Generated from processing/Chapter12/Figure1257.py.",
-        "src": "output/Figure1257.png",
+        "src": "output/Chapter12/Figure1257.png",
         "script": "processing/Chapter12/Figure1257.py",
         "hasImage": true
       },
@@ -2945,7 +2945,7 @@ window.chapterData = [
         "label": "Figure 1258",
         "title": "Figure1258",
         "description": "Generated from processing/Chapter12/Figure1258.py.",
-        "src": "output/Figure1258.png",
+        "src": "output/Chapter12/Figure1258.png",
         "script": "processing/Chapter12/Figure1258.py",
         "hasImage": true
       },
@@ -2954,7 +2954,7 @@ window.chapterData = [
         "label": "Figure 1260",
         "title": "Figure1260",
         "description": "Generated from processing/Chapter12/Figure1260.py.",
-        "src": "output/Figure1260.png",
+        "src": "output/Chapter12/Figure1260.png",
         "script": "processing/Chapter12/Figure1260.py",
         "hasImage": true
       },
@@ -2963,7 +2963,7 @@ window.chapterData = [
         "label": "Figure 1261",
         "title": "Figure1261",
         "description": "Generated from processing/Chapter12/Figure1261.py.",
-        "src": "output/Figure1261.png",
+        "src": "output/Chapter12/Figure1261.png",
         "script": "processing/Chapter12/Figure1261.py",
         "hasImage": true
       },
@@ -2972,7 +2972,7 @@ window.chapterData = [
         "label": "Figure 1263",
         "title": "Figure1263",
         "description": "Generated from processing/Chapter12/Figure1263.py.",
-        "src": "output/Figure1263.png",
+        "src": "output/Chapter12/Figure1263.png",
         "script": "processing/Chapter12/Figure1263.py",
         "hasImage": true
       },
@@ -2981,7 +2981,7 @@ window.chapterData = [
         "label": "Figure 1265",
         "title": "Figure1265",
         "description": "Generated from processing/Chapter12/Figure1265.py.",
-        "src": "output/Figure1265.png",
+        "src": "output/Chapter12/Figure1265.png",
         "script": "processing/Chapter12/Figure1265.py",
         "hasImage": true
       },
@@ -2990,7 +2990,7 @@ window.chapterData = [
         "label": "Figure 1266",
         "title": "Figure1266",
         "description": "Generated from processing/Chapter12/Figure1266.py.",
-        "src": "output/Figure1266.png",
+        "src": "output/Chapter12/Figure1266.png",
         "script": "processing/Chapter12/Figure1266.py",
         "hasImage": true
       }
@@ -3008,7 +3008,7 @@ window.chapterData = [
         "label": "Figure 1308",
         "title": "Figure1308",
         "description": "Generated from processing/Chapter13/Figure1308.py.",
-        "src": "output/Figure1308.png",
+        "src": "output/Chapter13/Figure1308.png",
         "script": "processing/Chapter13/Figure1308.py",
         "hasImage": true
       },
@@ -3017,7 +3017,7 @@ window.chapterData = [
         "label": "Figure 1310",
         "title": "Figure1310",
         "description": "Generated from processing/Chapter13/Figure1310.py.",
-        "src": "output/Figure1310.png",
+        "src": "output/Chapter13/Figure1310.png",
         "script": "processing/Chapter13/Figure1310.py",
         "hasImage": true
       },
@@ -3026,7 +3026,7 @@ window.chapterData = [
         "label": "Figure 1311",
         "title": "Figure1311",
         "description": "Generated from processing/Chapter13/Figure1311.py.",
-        "src": "output/Figure1311.png",
+        "src": "output/Chapter13/Figure1311.png",
         "script": "processing/Chapter13/Figure1311.py",
         "hasImage": true
       },
@@ -3035,7 +3035,7 @@ window.chapterData = [
         "label": "Figure 1313",
         "title": "Figure1313",
         "description": "Generated from processing/Chapter13/Figure1313.py.",
-        "src": "output/Figure1313.png",
+        "src": "output/Chapter13/Figure1313.png",
         "script": "processing/Chapter13/Figure1313.py",
         "hasImage": true
       },
@@ -3053,7 +3053,7 @@ window.chapterData = [
         "label": "Figure 1320",
         "title": "Figure1320",
         "description": "Generated from processing/Chapter13/Figure1320.py.",
-        "src": "output/Figure1320.png",
+        "src": "output/Chapter13/Figure1320.png",
         "script": "processing/Chapter13/Figure1320.py",
         "hasImage": true
       },
@@ -3062,7 +3062,7 @@ window.chapterData = [
         "label": "Figure 1321",
         "title": "Figure1321",
         "description": "Generated from processing/Chapter13/Figure1321.py.",
-        "src": "output/Figure1321.png",
+        "src": "output/Chapter13/Figure1321.png",
         "script": "processing/Chapter13/Figure1321.py",
         "hasImage": true
       },
@@ -3071,7 +3071,7 @@ window.chapterData = [
         "label": "Figure 1324",
         "title": "Figure1324",
         "description": "Generated from processing/Chapter13/Figure1324.py.",
-        "src": "output/Figure1324.png",
+        "src": "output/Chapter13/Figure1324.png",
         "script": "processing/Chapter13/Figure1324.py",
         "hasImage": true
       },
@@ -3098,7 +3098,7 @@ window.chapterData = [
         "label": "Figure 1325",
         "title": "Figure1325",
         "description": "Generated from processing/Chapter13/Figure1325.py.",
-        "src": "output/Figure1325.png",
+        "src": "output/Chapter13/Figure1325.png",
         "script": "processing/Chapter13/Figure1325.py",
         "hasImage": true
       },
@@ -3107,7 +3107,7 @@ window.chapterData = [
         "label": "Figure 1326",
         "title": "Figure1326",
         "description": "Generated from processing/Chapter13/Figure1326.py.",
-        "src": "output/Figure1326.png",
+        "src": "output/Chapter13/Figure1326.png",
         "script": "processing/Chapter13/Figure1326.py",
         "hasImage": true
       },
@@ -3116,7 +3116,7 @@ window.chapterData = [
         "label": "Figure 1329",
         "title": "Figure1329",
         "description": "Generated from processing/Chapter13/Figure1329.py.",
-        "src": "output/Figure1329.png",
+        "src": "output/Chapter13/Figure1329.png",
         "script": "processing/Chapter13/Figure1329.py",
         "hasImage": true
       },
@@ -3125,7 +3125,7 @@ window.chapterData = [
         "label": "Figure 1334",
         "title": "Figure1334",
         "description": "Generated from processing/Chapter13/Figure1334.py.",
-        "src": "output/Figure1334.png",
+        "src": "output/Chapter13/Figure1334.png",
         "script": "processing/Chapter13/Figure1334.py",
         "hasImage": true
       },
@@ -3152,7 +3152,7 @@ window.chapterData = [
         "label": "Figure 1336",
         "title": "Figure1336",
         "description": "Generated from processing/Chapter13/Figure1336.py.",
-        "src": "output/Figure1336.png",
+        "src": "output/Chapter13/Figure1336.png",
         "script": "processing/Chapter13/Figure1336.py",
         "hasImage": true
       },
@@ -3161,7 +3161,7 @@ window.chapterData = [
         "label": "Figure 1337-39",
         "title": "Figure1337-39",
         "description": "Generated from processing/Chapter13/Figure1337-39.py.",
-        "src": "output/Figure1337-39_1.png",
+        "src": "output/Chapter13/Figure1337-39_1.png",
         "script": "processing/Chapter13/Figure1337-39.py",
         "hasImage": true
       }
